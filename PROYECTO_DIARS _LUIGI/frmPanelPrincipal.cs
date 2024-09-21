@@ -10,9 +10,9 @@ using System.Windows.Forms;
 
 namespace PROYECTO_DIARS__LUIGI
 {
-    public partial class Form1 : Form
+    public partial class frmPanelPrincipal : Form
     {
-        public Form1()
+        public frmPanelPrincipal()
         {
             InitializeComponent();
         }
