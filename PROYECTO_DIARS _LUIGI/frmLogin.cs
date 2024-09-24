@@ -30,7 +30,9 @@ namespace PROYECTO_DIARS__LUIGI
         private void btnLogin_Click(object sender, EventArgs e)
         {
             frmPanelPrincipal frmPanelPrincipal = new frmPanelPrincipal();
-            frmPanelPrincipal.ShowDialog();
+            frmPanelPrincipal.Show();
+
+            this.Hide();
         }
     }
 }
