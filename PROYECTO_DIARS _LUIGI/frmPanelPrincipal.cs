@@ -42,5 +42,10 @@ namespace PROYECTO_DIARS__LUIGI
         {
             this.WindowState = FormWindowState.Minimized;
         }
+
+        private void timerHora_Tick(object sender, EventArgs e)
+        {
+            lblHora.Text = DateTime.Now.ToLongTimeString();
+        }
     }
 }
