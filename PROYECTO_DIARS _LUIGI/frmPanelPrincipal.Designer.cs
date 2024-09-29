@@ -73,6 +73,7 @@
             this.timerHora = new System.Windows.Forms.Timer(this.components);
             this.tabPageDashboard = new System.Windows.Forms.TabPage();
             this.btnDashboard = new System.Windows.Forms.Button();
+            this.lblCaja = new System.Windows.Forms.Label();
             this.tlpPrincipal.SuspendLayout();
             this.tableLayoutPanelPestañasANDUser.SuspendLayout();
             this.tabControlPanel.SuspendLayout();
@@ -440,6 +441,7 @@
             // 
             // panelUser
             // 
+            this.panelUser.Controls.Add(this.lblCaja);
             this.panelUser.Controls.Add(this.lblSucursal);
             this.panelUser.Controls.Add(this.lblUserSessionOpen);
             this.panelUser.Controls.Add(this.lblHora);
@@ -452,11 +454,11 @@
             // lblSucursal
             // 
             this.lblSucursal.AutoSize = true;
-            this.lblSucursal.Location = new System.Drawing.Point(120, 53);
+            this.lblSucursal.Location = new System.Drawing.Point(96, 37);
             this.lblSucursal.Name = "lblSucursal";
-            this.lblSucursal.Size = new System.Drawing.Size(35, 13);
+            this.lblSucursal.Size = new System.Drawing.Size(48, 13);
             this.lblSucursal.TabIndex = 2;
-            this.lblSucursal.Text = "label1";
+            this.lblSucursal.Text = "Sucursal";
             // 
             // lblUserSessionOpen
             // 
@@ -539,6 +541,15 @@
             this.btnDashboard.Text = "Dashboard";
             this.btnDashboard.UseVisualStyleBackColor = true;
             // 
+            // lblCaja
+            // 
+            this.lblCaja.AutoSize = true;
+            this.lblCaja.Location = new System.Drawing.Point(96, 66);
+            this.lblCaja.Name = "lblCaja";
+            this.lblCaja.Size = new System.Drawing.Size(28, 13);
+            this.lblCaja.TabIndex = 3;
+            this.lblCaja.Text = "Caja";
+            // 
             // frmPanelPrincipal
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -614,5 +625,6 @@
         private System.Windows.Forms.Label lblSucursal;
         private System.Windows.Forms.TabPage tabPageDashboard;
         private System.Windows.Forms.Button btnDashboard;
+        private System.Windows.Forms.Label lblCaja;
     }
 }
