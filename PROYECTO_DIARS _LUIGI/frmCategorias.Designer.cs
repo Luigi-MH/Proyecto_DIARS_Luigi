@@ -1,6 +1,6 @@
 ﻿namespace PROYECTO_DIARS__LUIGI
 {
-    partial class frmCargos
+    partial class frmCategorias
     {
         /// <summary>
         /// Required designer variable.
@@ -28,60 +28,62 @@
         /// </summary>
         private void InitializeComponent()
         {
+            this.gboxCategorias = new System.Windows.Forms.GroupBox();
             this.btnSalir = new System.Windows.Forms.Button();
-            this.gboxCargos = new System.Windows.Forms.GroupBox();
-            this.gboxCargos2 = new System.Windows.Forms.GroupBox();
+            this.gboxCategorias2 = new System.Windows.Forms.GroupBox();
             this.gboxDatos = new System.Windows.Forms.GroupBox();
             this.txtId = new System.Windows.Forms.TextBox();
             this.lblId = new System.Windows.Forms.Label();
             this.btnModificar = new System.Windows.Forms.Button();
             this.btnAgregar = new System.Windows.Forms.Button();
-            this.txtCargo = new System.Windows.Forms.TextBox();
+            this.txtCategoria = new System.Windows.Forms.TextBox();
             this.btnCancelar = new System.Windows.Forms.Button();
-            this.lblCargo = new System.Windows.Forms.Label();
-            this.dgvCargos = new System.Windows.Forms.DataGridView();
+            this.lblCategoria = new System.Windows.Forms.Label();
+            this.dgvCategorias = new System.Windows.Forms.DataGridView();
             this.btnEliminar = new System.Windows.Forms.Button();
             this.btnEditar = new System.Windows.Forms.Button();
             this.btnNuevo = new System.Windows.Forms.Button();
-            this.gboxCargos.SuspendLayout();
-            this.gboxCargos2.SuspendLayout();
+            this.gboxCategorias.SuspendLayout();
+            this.gboxCategorias2.SuspendLayout();
             this.gboxDatos.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.dgvCargos)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.dgvCategorias)).BeginInit();
             this.SuspendLayout();
+            // 
+            // gboxCategorias
+            // 
+            this.gboxCategorias.Controls.Add(this.btnSalir);
+            this.gboxCategorias.Controls.Add(this.gboxCategorias2);
+            this.gboxCategorias.Location = new System.Drawing.Point(12, 12);
+            this.gboxCategorias.Name = "gboxCategorias";
+            this.gboxCategorias.Size = new System.Drawing.Size(1676, 726);
+            this.gboxCategorias.TabIndex = 14;
+            this.gboxCategorias.TabStop = false;
             // 
             // btnSalir
             // 
             this.btnSalir.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
             this.btnSalir.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnSalir.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnSalir.Location = new System.Drawing.Point(1676, 0);
+            this.btnSalir.Location = new System.Drawing.Point(1640, 19);
             this.btnSalir.Name = "btnSalir";
             this.btnSalir.Size = new System.Drawing.Size(25, 25);
-            this.btnSalir.TabIndex = 14;
+            this.btnSalir.TabIndex = 12;
             this.btnSalir.Text = "X";
             this.btnSalir.UseVisualStyleBackColor = true;
+            this.btnSalir.Click += new System.EventHandler(this.btnSalir_Click);
             // 
-            // gboxCargos
+            // gboxCategorias2
             // 
-            this.gboxCargos.Controls.Add(this.gboxCargos2);
-            this.gboxCargos.Location = new System.Drawing.Point(12, 12);
-            this.gboxCargos.Name = "gboxCargos";
-            this.gboxCargos.Size = new System.Drawing.Size(1676, 726);
-            this.gboxCargos.TabIndex = 15;
-            this.gboxCargos.TabStop = false;
-            // 
-            // gboxCargos2
-            // 
-            this.gboxCargos2.Controls.Add(this.gboxDatos);
-            this.gboxCargos2.Controls.Add(this.dgvCargos);
-            this.gboxCargos2.Controls.Add(this.btnEliminar);
-            this.gboxCargos2.Controls.Add(this.btnEditar);
-            this.gboxCargos2.Controls.Add(this.btnNuevo);
-            this.gboxCargos2.Location = new System.Drawing.Point(22, 19);
-            this.gboxCargos2.Name = "gboxCargos2";
-            this.gboxCargos2.Size = new System.Drawing.Size(788, 512);
-            this.gboxCargos2.TabIndex = 44;
-            this.gboxCargos2.TabStop = false;
+            this.gboxCategorias2.Controls.Add(this.gboxDatos);
+            this.gboxCategorias2.Controls.Add(this.dgvCategorias);
+            this.gboxCategorias2.Controls.Add(this.btnEliminar);
+            this.gboxCategorias2.Controls.Add(this.btnEditar);
+            this.gboxCategorias2.Controls.Add(this.btnNuevo);
+            this.gboxCategorias2.Location = new System.Drawing.Point(22, 19);
+            this.gboxCategorias2.Name = "gboxCategorias2";
+            this.gboxCategorias2.Size = new System.Drawing.Size(788, 512);
+            this.gboxCategorias2.TabIndex = 43;
+            this.gboxCategorias2.TabStop = false;
             // 
             // gboxDatos
             // 
@@ -89,9 +91,9 @@
             this.gboxDatos.Controls.Add(this.lblId);
             this.gboxDatos.Controls.Add(this.btnModificar);
             this.gboxDatos.Controls.Add(this.btnAgregar);
-            this.gboxDatos.Controls.Add(this.txtCargo);
+            this.gboxDatos.Controls.Add(this.txtCategoria);
             this.gboxDatos.Controls.Add(this.btnCancelar);
-            this.gboxDatos.Controls.Add(this.lblCargo);
+            this.gboxDatos.Controls.Add(this.lblCategoria);
             this.gboxDatos.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.gboxDatos.Location = new System.Drawing.Point(345, 46);
             this.gboxDatos.Margin = new System.Windows.Forms.Padding(2);
@@ -108,7 +110,7 @@
             this.txtId.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.txtId.Location = new System.Drawing.Point(59, 54);
             this.txtId.Name = "txtId";
-            this.txtId.Size = new System.Drawing.Size(60, 22);
+            this.txtId.Size = new System.Drawing.Size(46, 22);
             this.txtId.TabIndex = 26;
             this.txtId.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
             // 
@@ -145,13 +147,13 @@
             this.btnAgregar.Text = "Agregar";
             this.btnAgregar.UseVisualStyleBackColor = true;
             // 
-            // txtCargo
+            // txtCategoria
             // 
-            this.txtCargo.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.txtCargo.Location = new System.Drawing.Point(182, 54);
-            this.txtCargo.Name = "txtCargo";
-            this.txtCargo.Size = new System.Drawing.Size(165, 22);
-            this.txtCargo.TabIndex = 11;
+            this.txtCategoria.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.txtCategoria.Location = new System.Drawing.Point(195, 54);
+            this.txtCategoria.Name = "txtCategoria";
+            this.txtCategoria.Size = new System.Drawing.Size(152, 22);
+            this.txtCategoria.TabIndex = 11;
             // 
             // btnCancelar
             // 
@@ -164,30 +166,30 @@
             this.btnCancelar.Text = "Cancelar";
             this.btnCancelar.UseVisualStyleBackColor = true;
             // 
-            // lblCargo
+            // lblCategoria
             // 
-            this.lblCargo.AutoSize = true;
-            this.lblCargo.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Italic, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblCargo.Location = new System.Drawing.Point(133, 57);
-            this.lblCargo.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
-            this.lblCargo.Name = "lblCargo";
-            this.lblCargo.Size = new System.Drawing.Size(44, 16);
-            this.lblCargo.TabIndex = 1;
-            this.lblCargo.Text = "Cargo";
+            this.lblCategoria.AutoSize = true;
+            this.lblCategoria.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Italic, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblCategoria.Location = new System.Drawing.Point(124, 57);
+            this.lblCategoria.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
+            this.lblCategoria.Name = "lblCategoria";
+            this.lblCategoria.Size = new System.Drawing.Size(66, 16);
+            this.lblCategoria.TabIndex = 1;
+            this.lblCategoria.Text = "Categoria";
             // 
-            // dgvCargos
+            // dgvCategorias
             // 
-            this.dgvCargos.AllowUserToAddRows = false;
-            this.dgvCargos.AllowUserToDeleteRows = false;
-            this.dgvCargos.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.dgvCargos.Location = new System.Drawing.Point(22, 30);
-            this.dgvCargos.Margin = new System.Windows.Forms.Padding(2);
-            this.dgvCargos.Name = "dgvCargos";
-            this.dgvCargos.ReadOnly = true;
-            this.dgvCargos.RowHeadersWidth = 51;
-            this.dgvCargos.RowTemplate.Height = 24;
-            this.dgvCargos.Size = new System.Drawing.Size(296, 428);
-            this.dgvCargos.TabIndex = 38;
+            this.dgvCategorias.AllowUserToAddRows = false;
+            this.dgvCategorias.AllowUserToDeleteRows = false;
+            this.dgvCategorias.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.dgvCategorias.Location = new System.Drawing.Point(22, 30);
+            this.dgvCategorias.Margin = new System.Windows.Forms.Padding(2);
+            this.dgvCategorias.Name = "dgvCategorias";
+            this.dgvCategorias.ReadOnly = true;
+            this.dgvCategorias.RowHeadersWidth = 51;
+            this.dgvCategorias.RowTemplate.Height = 24;
+            this.dgvCategorias.Size = new System.Drawing.Size(296, 428);
+            this.dgvCategorias.TabIndex = 38;
             // 
             // btnEliminar
             // 
@@ -221,40 +223,39 @@
             this.btnNuevo.Text = "Nuevo";
             this.btnNuevo.UseVisualStyleBackColor = true;
             // 
-            // frmCargos
+            // frmCategorias
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(1700, 750);
-            this.Controls.Add(this.btnSalir);
-            this.Controls.Add(this.gboxCargos);
+            this.Controls.Add(this.gboxCategorias);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
-            this.Name = "frmCargos";
-            this.Text = "frmCargos";
-            this.Load += new System.EventHandler(this.frmCargos_Load);
-            this.gboxCargos.ResumeLayout(false);
-            this.gboxCargos2.ResumeLayout(false);
+            this.Name = "frmCategorias";
+            this.Text = "frmCategorias";
+            this.Load += new System.EventHandler(this.frmCategorias_Load);
+            this.gboxCategorias.ResumeLayout(false);
+            this.gboxCategorias2.ResumeLayout(false);
             this.gboxDatos.ResumeLayout(false);
             this.gboxDatos.PerformLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.dgvCargos)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.dgvCategorias)).EndInit();
             this.ResumeLayout(false);
 
         }
 
         #endregion
 
+        private System.Windows.Forms.GroupBox gboxCategorias;
         private System.Windows.Forms.Button btnSalir;
-        private System.Windows.Forms.GroupBox gboxCargos;
-        private System.Windows.Forms.GroupBox gboxCargos2;
+        private System.Windows.Forms.GroupBox gboxCategorias2;
         private System.Windows.Forms.GroupBox gboxDatos;
         private System.Windows.Forms.TextBox txtId;
         private System.Windows.Forms.Label lblId;
         private System.Windows.Forms.Button btnModificar;
         private System.Windows.Forms.Button btnAgregar;
-        private System.Windows.Forms.TextBox txtCargo;
+        private System.Windows.Forms.TextBox txtCategoria;
         private System.Windows.Forms.Button btnCancelar;
-        private System.Windows.Forms.Label lblCargo;
-        private System.Windows.Forms.DataGridView dgvCargos;
+        private System.Windows.Forms.Label lblCategoria;
+        private System.Windows.Forms.DataGridView dgvCategorias;
         private System.Windows.Forms.Button btnEliminar;
         private System.Windows.Forms.Button btnEditar;
         private System.Windows.Forms.Button btnNuevo;

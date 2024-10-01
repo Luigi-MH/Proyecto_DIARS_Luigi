@@ -116,7 +116,8 @@ namespace PROYECTO_DIARS__LUIGI
 
         private void btnCategorias_Click(object sender, EventArgs e)
         {
-
+            frmCategorias frmCategorias = new frmCategorias();
+            abrirFrm(frmCategorias);
         }
 
         private void btnFabricantes_Click(object sender, EventArgs e)
@@ -166,7 +167,8 @@ namespace PROYECTO_DIARS__LUIGI
 
         private void btnSucursales_Click(object sender, EventArgs e)
         {
-
+            frmSucursales frmSucursales = new frmSucursales();
+            abrirFrm(frmSucursales);
         }
 
         private void btnAlmacenes_Click(object sender, EventArgs e)
@@ -186,7 +188,8 @@ namespace PROYECTO_DIARS__LUIGI
 
         private void btnCargos_Click(object sender, EventArgs e)
         {
-
+            frmCargos frmCargos = new frmCargos();
+            abrirFrm(frmCargos);
         }
 
         private void btnCambiosRoles_Click(object sender, EventArgs e)

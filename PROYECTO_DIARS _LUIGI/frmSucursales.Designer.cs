@@ -1,0 +1,357 @@
+﻿namespace PROYECTO_DIARS__LUIGI
+{
+    partial class frmSucursales
+    {
+        /// <summary>
+        /// Required designer variable.
+        /// </summary>
+        private System.ComponentModel.IContainer components = null;
+
+        /// <summary>
+        /// Clean up any resources being used.
+        /// </summary>
+        /// <param name="disposing">true if managed resources should be disposed; otherwise, false.</param>
+        protected override void Dispose(bool disposing)
+        {
+            if (disposing && (components != null))
+            {
+                components.Dispose();
+            }
+            base.Dispose(disposing);
+        }
+
+        #region Windows Form Designer generated code
+
+        /// <summary>
+        /// Required method for Designer support - do not modify
+        /// the contents of this method with the code editor.
+        /// </summary>
+        private void InitializeComponent()
+        {
+            this.gboxSucursal = new System.Windows.Forms.GroupBox();
+            this.btnSalir = new System.Windows.Forms.Button();
+            this.gboxSucursal2 = new System.Windows.Forms.GroupBox();
+            this.gboxDatos = new System.Windows.Forms.GroupBox();
+            this.txtId = new System.Windows.Forms.TextBox();
+            this.lblId = new System.Windows.Forms.Label();
+            this.btnModificar = new System.Windows.Forms.Button();
+            this.btnAgregar = new System.Windows.Forms.Button();
+            this.txtSucursal = new System.Windows.Forms.TextBox();
+            this.btnCancelar = new System.Windows.Forms.Button();
+            this.lblSucursal = new System.Windows.Forms.Label();
+            this.dgvSucursal = new System.Windows.Forms.DataGridView();
+            this.btnEliminar = new System.Windows.Forms.Button();
+            this.btnEditar = new System.Windows.Forms.Button();
+            this.btnNuevo = new System.Windows.Forms.Button();
+            this.txtDireccion = new System.Windows.Forms.TextBox();
+            this.lblDireccion = new System.Windows.Forms.Label();
+            this.txtTelefono = new System.Windows.Forms.TextBox();
+            this.lblTelefono = new System.Windows.Forms.Label();
+            this.gboxEstado = new System.Windows.Forms.GroupBox();
+            this.rdActivo = new System.Windows.Forms.RadioButton();
+            this.rdInactivo = new System.Windows.Forms.RadioButton();
+            this.gboxSucursal.SuspendLayout();
+            this.gboxSucursal2.SuspendLayout();
+            this.gboxDatos.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.dgvSucursal)).BeginInit();
+            this.gboxEstado.SuspendLayout();
+            this.SuspendLayout();
+            // 
+            // gboxSucursal
+            // 
+            this.gboxSucursal.Controls.Add(this.btnSalir);
+            this.gboxSucursal.Controls.Add(this.gboxSucursal2);
+            this.gboxSucursal.Location = new System.Drawing.Point(12, 12);
+            this.gboxSucursal.Name = "gboxSucursal";
+            this.gboxSucursal.Size = new System.Drawing.Size(1676, 726);
+            this.gboxSucursal.TabIndex = 14;
+            this.gboxSucursal.TabStop = false;
+            // 
+            // btnSalir
+            // 
+            this.btnSalir.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
+            this.btnSalir.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnSalir.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnSalir.Location = new System.Drawing.Point(1640, 19);
+            this.btnSalir.Name = "btnSalir";
+            this.btnSalir.Size = new System.Drawing.Size(25, 25);
+            this.btnSalir.TabIndex = 12;
+            this.btnSalir.Text = "X";
+            this.btnSalir.UseVisualStyleBackColor = true;
+            this.btnSalir.Click += new System.EventHandler(this.btnSalir_Click);
+            // 
+            // gboxSucursal2
+            // 
+            this.gboxSucursal2.Controls.Add(this.gboxDatos);
+            this.gboxSucursal2.Controls.Add(this.dgvSucursal);
+            this.gboxSucursal2.Controls.Add(this.btnEliminar);
+            this.gboxSucursal2.Controls.Add(this.btnEditar);
+            this.gboxSucursal2.Controls.Add(this.btnNuevo);
+            this.gboxSucursal2.Location = new System.Drawing.Point(22, 19);
+            this.gboxSucursal2.Name = "gboxSucursal2";
+            this.gboxSucursal2.Size = new System.Drawing.Size(984, 545);
+            this.gboxSucursal2.TabIndex = 43;
+            this.gboxSucursal2.TabStop = false;
+            // 
+            // gboxDatos
+            // 
+            this.gboxDatos.Controls.Add(this.gboxEstado);
+            this.gboxDatos.Controls.Add(this.txtTelefono);
+            this.gboxDatos.Controls.Add(this.lblTelefono);
+            this.gboxDatos.Controls.Add(this.txtDireccion);
+            this.gboxDatos.Controls.Add(this.lblDireccion);
+            this.gboxDatos.Controls.Add(this.txtId);
+            this.gboxDatos.Controls.Add(this.lblId);
+            this.gboxDatos.Controls.Add(this.btnModificar);
+            this.gboxDatos.Controls.Add(this.btnAgregar);
+            this.gboxDatos.Controls.Add(this.txtSucursal);
+            this.gboxDatos.Controls.Add(this.btnCancelar);
+            this.gboxDatos.Controls.Add(this.lblSucursal);
+            this.gboxDatos.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.gboxDatos.Location = new System.Drawing.Point(523, 34);
+            this.gboxDatos.Margin = new System.Windows.Forms.Padding(2);
+            this.gboxDatos.Name = "gboxDatos";
+            this.gboxDatos.Padding = new System.Windows.Forms.Padding(2);
+            this.gboxDatos.Size = new System.Drawing.Size(408, 397);
+            this.gboxDatos.TabIndex = 40;
+            this.gboxDatos.TabStop = false;
+            this.gboxDatos.Text = "Datos";
+            // 
+            // txtId
+            // 
+            this.txtId.Enabled = false;
+            this.txtId.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.txtId.Location = new System.Drawing.Point(323, 32);
+            this.txtId.Name = "txtId";
+            this.txtId.Size = new System.Drawing.Size(50, 22);
+            this.txtId.TabIndex = 26;
+            this.txtId.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
+            // 
+            // lblId
+            // 
+            this.lblId.AutoSize = true;
+            this.lblId.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Italic, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblId.Location = new System.Drawing.Point(297, 35);
+            this.lblId.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
+            this.lblId.Name = "lblId";
+            this.lblId.Size = new System.Drawing.Size(21, 16);
+            this.lblId.TabIndex = 25;
+            this.lblId.Text = "N°";
+            // 
+            // btnModificar
+            // 
+            this.btnModificar.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnModificar.Location = new System.Drawing.Point(152, 320);
+            this.btnModificar.Margin = new System.Windows.Forms.Padding(2);
+            this.btnModificar.Name = "btnModificar";
+            this.btnModificar.Size = new System.Drawing.Size(100, 48);
+            this.btnModificar.TabIndex = 22;
+            this.btnModificar.Text = "Modificar";
+            this.btnModificar.UseVisualStyleBackColor = true;
+            // 
+            // btnAgregar
+            // 
+            this.btnAgregar.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnAgregar.Location = new System.Drawing.Point(48, 320);
+            this.btnAgregar.Margin = new System.Windows.Forms.Padding(2);
+            this.btnAgregar.Name = "btnAgregar";
+            this.btnAgregar.Size = new System.Drawing.Size(100, 48);
+            this.btnAgregar.TabIndex = 21;
+            this.btnAgregar.Text = "Agregar";
+            this.btnAgregar.UseVisualStyleBackColor = true;
+            // 
+            // txtSucursal
+            // 
+            this.txtSucursal.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.txtSucursal.Location = new System.Drawing.Point(110, 86);
+            this.txtSucursal.Name = "txtSucursal";
+            this.txtSucursal.Size = new System.Drawing.Size(208, 22);
+            this.txtSucursal.TabIndex = 11;
+            // 
+            // btnCancelar
+            // 
+            this.btnCancelar.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnCancelar.Location = new System.Drawing.Point(256, 320);
+            this.btnCancelar.Margin = new System.Windows.Forms.Padding(2);
+            this.btnCancelar.Name = "btnCancelar";
+            this.btnCancelar.Size = new System.Drawing.Size(100, 48);
+            this.btnCancelar.TabIndex = 20;
+            this.btnCancelar.Text = "Cancelar";
+            this.btnCancelar.UseVisualStyleBackColor = true;
+            // 
+            // lblSucursal
+            // 
+            this.lblSucursal.AutoSize = true;
+            this.lblSucursal.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Italic, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblSucursal.Location = new System.Drawing.Point(46, 89);
+            this.lblSucursal.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
+            this.lblSucursal.Name = "lblSucursal";
+            this.lblSucursal.Size = new System.Drawing.Size(59, 16);
+            this.lblSucursal.TabIndex = 1;
+            this.lblSucursal.Text = "Sucursal";
+            // 
+            // dgvSucursal
+            // 
+            this.dgvSucursal.AllowUserToAddRows = false;
+            this.dgvSucursal.AllowUserToDeleteRows = false;
+            this.dgvSucursal.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.dgvSucursal.Location = new System.Drawing.Point(38, 34);
+            this.dgvSucursal.Margin = new System.Windows.Forms.Padding(2);
+            this.dgvSucursal.Name = "dgvSucursal";
+            this.dgvSucursal.ReadOnly = true;
+            this.dgvSucursal.RowHeadersWidth = 51;
+            this.dgvSucursal.RowTemplate.Height = 24;
+            this.dgvSucursal.Size = new System.Drawing.Size(413, 461);
+            this.dgvSucursal.TabIndex = 38;
+            // 
+            // btnEliminar
+            // 
+            this.btnEliminar.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnEliminar.Location = new System.Drawing.Point(785, 460);
+            this.btnEliminar.Name = "btnEliminar";
+            this.btnEliminar.Size = new System.Drawing.Size(94, 35);
+            this.btnEliminar.TabIndex = 42;
+            this.btnEliminar.Text = "Eliminar";
+            this.btnEliminar.UseVisualStyleBackColor = true;
+            // 
+            // btnEditar
+            // 
+            this.btnEditar.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnEditar.Location = new System.Drawing.Point(680, 460);
+            this.btnEditar.Margin = new System.Windows.Forms.Padding(2);
+            this.btnEditar.Name = "btnEditar";
+            this.btnEditar.Size = new System.Drawing.Size(100, 35);
+            this.btnEditar.TabIndex = 39;
+            this.btnEditar.Text = "Editar";
+            this.btnEditar.UseVisualStyleBackColor = true;
+            // 
+            // btnNuevo
+            // 
+            this.btnNuevo.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnNuevo.Location = new System.Drawing.Point(576, 460);
+            this.btnNuevo.Margin = new System.Windows.Forms.Padding(2);
+            this.btnNuevo.Name = "btnNuevo";
+            this.btnNuevo.Size = new System.Drawing.Size(100, 35);
+            this.btnNuevo.TabIndex = 41;
+            this.btnNuevo.Text = "Nuevo";
+            this.btnNuevo.UseVisualStyleBackColor = true;
+            // 
+            // txtDireccion
+            // 
+            this.txtDireccion.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.txtDireccion.Location = new System.Drawing.Point(110, 133);
+            this.txtDireccion.Name = "txtDireccion";
+            this.txtDireccion.Size = new System.Drawing.Size(246, 22);
+            this.txtDireccion.TabIndex = 28;
+            // 
+            // lblDireccion
+            // 
+            this.lblDireccion.AutoSize = true;
+            this.lblDireccion.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Italic, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblDireccion.Location = new System.Drawing.Point(41, 136);
+            this.lblDireccion.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
+            this.lblDireccion.Name = "lblDireccion";
+            this.lblDireccion.Size = new System.Drawing.Size(64, 16);
+            this.lblDireccion.TabIndex = 27;
+            this.lblDireccion.Text = "Direccion";
+            // 
+            // txtTelefono
+            // 
+            this.txtTelefono.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.txtTelefono.Location = new System.Drawing.Point(112, 185);
+            this.txtTelefono.Name = "txtTelefono";
+            this.txtTelefono.Size = new System.Drawing.Size(206, 22);
+            this.txtTelefono.TabIndex = 30;
+            // 
+            // lblTelefono
+            // 
+            this.lblTelefono.AutoSize = true;
+            this.lblTelefono.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Italic, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblTelefono.Location = new System.Drawing.Point(46, 188);
+            this.lblTelefono.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
+            this.lblTelefono.Name = "lblTelefono";
+            this.lblTelefono.Size = new System.Drawing.Size(61, 16);
+            this.lblTelefono.TabIndex = 29;
+            this.lblTelefono.Text = "Telefono";
+            // 
+            // gboxEstado
+            // 
+            this.gboxEstado.Controls.Add(this.rdInactivo);
+            this.gboxEstado.Controls.Add(this.rdActivo);
+            this.gboxEstado.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Italic, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.gboxEstado.Location = new System.Drawing.Point(49, 228);
+            this.gboxEstado.Name = "gboxEstado";
+            this.gboxEstado.Size = new System.Drawing.Size(307, 61);
+            this.gboxEstado.TabIndex = 31;
+            this.gboxEstado.TabStop = false;
+            this.gboxEstado.Text = "Estado";
+            // 
+            // rdActivo
+            // 
+            this.rdActivo.AutoSize = true;
+            this.rdActivo.Checked = true;
+            this.rdActivo.Location = new System.Drawing.Point(60, 24);
+            this.rdActivo.Name = "rdActivo";
+            this.rdActivo.Size = new System.Drawing.Size(62, 20);
+            this.rdActivo.TabIndex = 0;
+            this.rdActivo.TabStop = true;
+            this.rdActivo.Text = "Activo";
+            this.rdActivo.UseVisualStyleBackColor = true;
+            // 
+            // rdInactivo
+            // 
+            this.rdInactivo.AutoSize = true;
+            this.rdInactivo.Location = new System.Drawing.Point(170, 24);
+            this.rdInactivo.Name = "rdInactivo";
+            this.rdInactivo.Size = new System.Drawing.Size(71, 20);
+            this.rdInactivo.TabIndex = 1;
+            this.rdInactivo.Text = "Inactivo";
+            this.rdInactivo.UseVisualStyleBackColor = true;
+            // 
+            // frmSucursales
+            // 
+            this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
+            this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
+            this.ClientSize = new System.Drawing.Size(1700, 750);
+            this.Controls.Add(this.gboxSucursal);
+            this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
+            this.Name = "frmSucursales";
+            this.Text = "frmSucursales";
+            this.Load += new System.EventHandler(this.frmSucursales_Load);
+            this.gboxSucursal.ResumeLayout(false);
+            this.gboxSucursal2.ResumeLayout(false);
+            this.gboxDatos.ResumeLayout(false);
+            this.gboxDatos.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.dgvSucursal)).EndInit();
+            this.gboxEstado.ResumeLayout(false);
+            this.gboxEstado.PerformLayout();
+            this.ResumeLayout(false);
+
+        }
+
+        #endregion
+
+        private System.Windows.Forms.GroupBox gboxSucursal;
+        private System.Windows.Forms.Button btnSalir;
+        private System.Windows.Forms.GroupBox gboxSucursal2;
+        private System.Windows.Forms.GroupBox gboxDatos;
+        private System.Windows.Forms.TextBox txtId;
+        private System.Windows.Forms.Label lblId;
+        private System.Windows.Forms.Button btnModificar;
+        private System.Windows.Forms.Button btnAgregar;
+        private System.Windows.Forms.TextBox txtSucursal;
+        private System.Windows.Forms.Button btnCancelar;
+        private System.Windows.Forms.Label lblSucursal;
+        private System.Windows.Forms.DataGridView dgvSucursal;
+        private System.Windows.Forms.Button btnEliminar;
+        private System.Windows.Forms.Button btnEditar;
+        private System.Windows.Forms.Button btnNuevo;
+        private System.Windows.Forms.GroupBox gboxEstado;
+        private System.Windows.Forms.RadioButton rdInactivo;
+        private System.Windows.Forms.RadioButton rdActivo;
+        private System.Windows.Forms.TextBox txtTelefono;
+        private System.Windows.Forms.Label lblTelefono;
+        private System.Windows.Forms.TextBox txtDireccion;
+        private System.Windows.Forms.Label lblDireccion;
+    }
+}
