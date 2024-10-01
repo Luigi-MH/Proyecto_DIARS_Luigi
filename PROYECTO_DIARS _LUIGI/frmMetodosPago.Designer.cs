@@ -1,6 +1,6 @@
 ﻿namespace PROYECTO_DIARS__LUIGI
 {
-    partial class frmRoles
+    partial class frmMetodosPago
     {
         /// <summary>
         /// Required designer variable.
@@ -28,26 +28,37 @@
         /// </summary>
         private void InitializeComponent()
         {
+            this.gboxMetodosPago = new System.Windows.Forms.GroupBox();
             this.btnSalir = new System.Windows.Forms.Button();
-            this.gboxRoles = new System.Windows.Forms.GroupBox();
-            this.gboxRoles2 = new System.Windows.Forms.GroupBox();
+            this.gboxMetodosPago2 = new System.Windows.Forms.GroupBox();
             this.gboxDatos = new System.Windows.Forms.GroupBox();
             this.txtId = new System.Windows.Forms.TextBox();
             this.lblId = new System.Windows.Forms.Label();
             this.btnModificar = new System.Windows.Forms.Button();
             this.btnAgregar = new System.Windows.Forms.Button();
-            this.txtRol = new System.Windows.Forms.TextBox();
+            this.txtMetodosPago = new System.Windows.Forms.TextBox();
             this.btnCancelar = new System.Windows.Forms.Button();
-            this.lblRol = new System.Windows.Forms.Label();
-            this.dgvRoles = new System.Windows.Forms.DataGridView();
+            this.lblMetodosPago = new System.Windows.Forms.Label();
+            this.dgvMetodosPago = new System.Windows.Forms.DataGridView();
             this.btnEliminar = new System.Windows.Forms.Button();
             this.btnEditar = new System.Windows.Forms.Button();
             this.btnNuevo = new System.Windows.Forms.Button();
-            this.gboxRoles.SuspendLayout();
-            this.gboxRoles2.SuspendLayout();
+            this.gboxMetodosPago.SuspendLayout();
+            this.gboxMetodosPago2.SuspendLayout();
             this.gboxDatos.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.dgvRoles)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.dgvMetodosPago)).BeginInit();
             this.SuspendLayout();
+            // 
+            // gboxMetodosPago
+            // 
+            this.gboxMetodosPago.Controls.Add(this.btnSalir);
+            this.gboxMetodosPago.Controls.Add(this.gboxMetodosPago2);
+            this.gboxMetodosPago.Location = new System.Drawing.Point(12, 12);
+            this.gboxMetodosPago.Name = "gboxMetodosPago";
+            this.gboxMetodosPago.Size = new System.Drawing.Size(1676, 726);
+            this.gboxMetodosPago.TabIndex = 14;
+            this.gboxMetodosPago.TabStop = false;
+            this.gboxMetodosPago.Text = " ";
             // 
             // btnSalir
             // 
@@ -62,28 +73,18 @@
             this.btnSalir.UseVisualStyleBackColor = true;
             this.btnSalir.Click += new System.EventHandler(this.btnSalir_Click);
             // 
-            // gboxRoles
+            // gboxMetodosPago2
             // 
-            this.gboxRoles.Controls.Add(this.btnSalir);
-            this.gboxRoles.Controls.Add(this.gboxRoles2);
-            this.gboxRoles.Location = new System.Drawing.Point(12, 12);
-            this.gboxRoles.Name = "gboxRoles";
-            this.gboxRoles.Size = new System.Drawing.Size(1676, 726);
-            this.gboxRoles.TabIndex = 13;
-            this.gboxRoles.TabStop = false;
-            // 
-            // gboxRoles2
-            // 
-            this.gboxRoles2.Controls.Add(this.gboxDatos);
-            this.gboxRoles2.Controls.Add(this.dgvRoles);
-            this.gboxRoles2.Controls.Add(this.btnEliminar);
-            this.gboxRoles2.Controls.Add(this.btnEditar);
-            this.gboxRoles2.Controls.Add(this.btnNuevo);
-            this.gboxRoles2.Location = new System.Drawing.Point(22, 19);
-            this.gboxRoles2.Name = "gboxRoles2";
-            this.gboxRoles2.Size = new System.Drawing.Size(788, 512);
-            this.gboxRoles2.TabIndex = 43;
-            this.gboxRoles2.TabStop = false;
+            this.gboxMetodosPago2.Controls.Add(this.gboxDatos);
+            this.gboxMetodosPago2.Controls.Add(this.dgvMetodosPago);
+            this.gboxMetodosPago2.Controls.Add(this.btnEliminar);
+            this.gboxMetodosPago2.Controls.Add(this.btnEditar);
+            this.gboxMetodosPago2.Controls.Add(this.btnNuevo);
+            this.gboxMetodosPago2.Location = new System.Drawing.Point(22, 19);
+            this.gboxMetodosPago2.Name = "gboxMetodosPago2";
+            this.gboxMetodosPago2.Size = new System.Drawing.Size(788, 512);
+            this.gboxMetodosPago2.TabIndex = 43;
+            this.gboxMetodosPago2.TabStop = false;
             // 
             // gboxDatos
             // 
@@ -91,9 +92,9 @@
             this.gboxDatos.Controls.Add(this.lblId);
             this.gboxDatos.Controls.Add(this.btnModificar);
             this.gboxDatos.Controls.Add(this.btnAgregar);
-            this.gboxDatos.Controls.Add(this.txtRol);
+            this.gboxDatos.Controls.Add(this.txtMetodosPago);
             this.gboxDatos.Controls.Add(this.btnCancelar);
-            this.gboxDatos.Controls.Add(this.lblRol);
+            this.gboxDatos.Controls.Add(this.lblMetodosPago);
             this.gboxDatos.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.gboxDatos.Location = new System.Drawing.Point(345, 46);
             this.gboxDatos.Margin = new System.Windows.Forms.Padding(2);
@@ -110,7 +111,7 @@
             this.txtId.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.txtId.Location = new System.Drawing.Point(59, 54);
             this.txtId.Name = "txtId";
-            this.txtId.Size = new System.Drawing.Size(60, 22);
+            this.txtId.Size = new System.Drawing.Size(37, 22);
             this.txtId.TabIndex = 26;
             this.txtId.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
             // 
@@ -147,13 +148,13 @@
             this.btnAgregar.Text = "Agregar";
             this.btnAgregar.UseVisualStyleBackColor = true;
             // 
-            // txtRol
+            // txtMetodosPago
             // 
-            this.txtRol.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.txtRol.Location = new System.Drawing.Point(182, 54);
-            this.txtRol.Name = "txtRol";
-            this.txtRol.Size = new System.Drawing.Size(165, 22);
-            this.txtRol.TabIndex = 11;
+            this.txtMetodosPago.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.txtMetodosPago.Location = new System.Drawing.Point(208, 54);
+            this.txtMetodosPago.Name = "txtMetodosPago";
+            this.txtMetodosPago.Size = new System.Drawing.Size(139, 22);
+            this.txtMetodosPago.TabIndex = 11;
             // 
             // btnCancelar
             // 
@@ -166,30 +167,30 @@
             this.btnCancelar.Text = "Cancelar";
             this.btnCancelar.UseVisualStyleBackColor = true;
             // 
-            // lblRol
+            // lblMetodosPago
             // 
-            this.lblRol.AutoSize = true;
-            this.lblRol.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Italic, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblRol.Location = new System.Drawing.Point(133, 57);
-            this.lblRol.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
-            this.lblRol.Name = "lblRol";
-            this.lblRol.Size = new System.Drawing.Size(28, 16);
-            this.lblRol.TabIndex = 1;
-            this.lblRol.Text = "Rol";
+            this.lblMetodosPago.AutoSize = true;
+            this.lblMetodosPago.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Italic, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblMetodosPago.Location = new System.Drawing.Point(114, 57);
+            this.lblMetodosPago.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
+            this.lblMetodosPago.Name = "lblMetodosPago";
+            this.lblMetodosPago.Size = new System.Drawing.Size(89, 16);
+            this.lblMetodosPago.TabIndex = 1;
+            this.lblMetodosPago.Text = "Medoto Pago";
             // 
-            // dgvRoles
+            // dgvMetodosPago
             // 
-            this.dgvRoles.AllowUserToAddRows = false;
-            this.dgvRoles.AllowUserToDeleteRows = false;
-            this.dgvRoles.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.dgvRoles.Location = new System.Drawing.Point(22, 30);
-            this.dgvRoles.Margin = new System.Windows.Forms.Padding(2);
-            this.dgvRoles.Name = "dgvRoles";
-            this.dgvRoles.ReadOnly = true;
-            this.dgvRoles.RowHeadersWidth = 51;
-            this.dgvRoles.RowTemplate.Height = 24;
-            this.dgvRoles.Size = new System.Drawing.Size(296, 428);
-            this.dgvRoles.TabIndex = 38;
+            this.dgvMetodosPago.AllowUserToAddRows = false;
+            this.dgvMetodosPago.AllowUserToDeleteRows = false;
+            this.dgvMetodosPago.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.dgvMetodosPago.Location = new System.Drawing.Point(22, 30);
+            this.dgvMetodosPago.Margin = new System.Windows.Forms.Padding(2);
+            this.dgvMetodosPago.Name = "dgvMetodosPago";
+            this.dgvMetodosPago.ReadOnly = true;
+            this.dgvMetodosPago.RowHeadersWidth = 51;
+            this.dgvMetodosPago.RowTemplate.Height = 24;
+            this.dgvMetodosPago.Size = new System.Drawing.Size(296, 428);
+            this.dgvMetodosPago.TabIndex = 38;
             // 
             // btnEliminar
             // 
@@ -223,41 +224,41 @@
             this.btnNuevo.Text = "Nuevo";
             this.btnNuevo.UseVisualStyleBackColor = true;
             // 
-            // frmRoles
+            // frmMetodosPago
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(1700, 750);
-            this.Controls.Add(this.gboxRoles);
+            this.Controls.Add(this.gboxMetodosPago);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
-            this.Name = "frmRoles";
-            this.Text = "frmRoles";
-            this.Load += new System.EventHandler(this.frmRoles_Load);
-            this.gboxRoles.ResumeLayout(false);
-            this.gboxRoles2.ResumeLayout(false);
+            this.Name = "frmMetodosPago";
+            this.Text = "frmMetodosPago";
+            this.Load += new System.EventHandler(this.frmMetodosPago_Load);
+            this.gboxMetodosPago.ResumeLayout(false);
+            this.gboxMetodosPago2.ResumeLayout(false);
             this.gboxDatos.ResumeLayout(false);
             this.gboxDatos.PerformLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.dgvRoles)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.dgvMetodosPago)).EndInit();
             this.ResumeLayout(false);
 
         }
 
         #endregion
 
+        private System.Windows.Forms.GroupBox gboxMetodosPago;
         private System.Windows.Forms.Button btnSalir;
-        private System.Windows.Forms.GroupBox gboxRoles;
-        private System.Windows.Forms.Button btnEliminar;
-        private System.Windows.Forms.Button btnNuevo;
+        private System.Windows.Forms.GroupBox gboxMetodosPago2;
         private System.Windows.Forms.GroupBox gboxDatos;
         private System.Windows.Forms.TextBox txtId;
         private System.Windows.Forms.Label lblId;
         private System.Windows.Forms.Button btnModificar;
         private System.Windows.Forms.Button btnAgregar;
-        private System.Windows.Forms.TextBox txtRol;
+        private System.Windows.Forms.TextBox txtMetodosPago;
         private System.Windows.Forms.Button btnCancelar;
-        private System.Windows.Forms.Label lblRol;
+        private System.Windows.Forms.Label lblMetodosPago;
+        private System.Windows.Forms.DataGridView dgvMetodosPago;
+        private System.Windows.Forms.Button btnEliminar;
         private System.Windows.Forms.Button btnEditar;
-        private System.Windows.Forms.DataGridView dgvRoles;
-        private System.Windows.Forms.GroupBox gboxRoles2;
+        private System.Windows.Forms.Button btnNuevo;
     }
 }

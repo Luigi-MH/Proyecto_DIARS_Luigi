@@ -46,17 +46,47 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="frmCargos.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="frmCargos.Designer.cs">
+      <DependentUpon>frmCargos.cs</DependentUpon>
+    </Compile>
     <Compile Include="frmEmpleados.cs">
       <SubType>Form</SubType>
     </Compile>
     <Compile Include="frmEmpleados.Designer.cs">
       <DependentUpon>frmEmpleados.cs</DependentUpon>
     </Compile>
+    <Compile Include="frmEstadosProducto.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="frmEstadosProducto.Designer.cs">
+      <DependentUpon>frmEstadosProducto.cs</DependentUpon>
+    </Compile>
+    <Compile Include="frmEstadosVenta.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="frmEstadosVenta.Designer.cs">
+      <DependentUpon>frmEstadosVenta.cs</DependentUpon>
+    </Compile>
     <Compile Include="frmLogin.cs">
       <SubType>Form</SubType>
     </Compile>
     <Compile Include="frmLogin.Designer.cs">
       <DependentUpon>frmLogin.cs</DependentUpon>
+    </Compile>
+    <Compile Include="frmMetodosPago.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="frmMetodosPago.Designer.cs">
+      <DependentUpon>frmMetodosPago.cs</DependentUpon>
+    </Compile>
+    <Compile Include="frmNumCompPagoSerie.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="frmNumCompPagoSerie.Designer.cs">
+      <DependentUpon>frmNumCompPagoSerie.cs</DependentUpon>
     </Compile>
     <Compile Include="frmPanelPrincipal.cs">
       <SubType>Form</SubType>
@@ -82,6 +112,30 @@
     <Compile Include="frmRoles.Designer.cs">
       <DependentUpon>frmRoles.cs</DependentUpon>
     </Compile>
+    <Compile Include="frmTipoCPago.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="frmTipoCPago.Designer.cs">
+      <DependentUpon>frmTipoCPago.cs</DependentUpon>
+    </Compile>
+    <Compile Include="frmTipoDoc.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="frmTipoDoc.Designer.cs">
+      <DependentUpon>frmTipoDoc.cs</DependentUpon>
+    </Compile>
+    <Compile Include="frmTipoIndicacion.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="frmTipoIndicacion.Designer.cs">
+      <DependentUpon>frmTipoIndicacion.cs</DependentUpon>
+    </Compile>
+    <Compile Include="frmUnidadesMedida.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="frmUnidadesMedida.Designer.cs">
+      <DependentUpon>frmUnidadesMedida.cs</DependentUpon>
+    </Compile>
     <Compile Include="frmUsuarios.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -96,11 +150,26 @@
     </Compile>
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <EmbeddedResource Include="frmCargos.resx">
+      <DependentUpon>frmCargos.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="frmEmpleados.resx">
       <DependentUpon>frmEmpleados.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="frmEstadosProducto.resx">
+      <DependentUpon>frmEstadosProducto.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="frmEstadosVenta.resx">
+      <DependentUpon>frmEstadosVenta.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="frmLogin.resx">
       <DependentUpon>frmLogin.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="frmMetodosPago.resx">
+      <DependentUpon>frmMetodosPago.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="frmNumCompPagoSerie.resx">
+      <DependentUpon>frmNumCompPagoSerie.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="frmPanelPrincipal.resx">
       <DependentUpon>frmPanelPrincipal.cs</DependentUpon>
@@ -113,6 +182,18 @@
     </EmbeddedResource>
     <EmbeddedResource Include="frmRoles.resx">
       <DependentUpon>frmRoles.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="frmTipoCPago.resx">
+      <DependentUpon>frmTipoCPago.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="frmTipoDoc.resx">
+      <DependentUpon>frmTipoDoc.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="frmTipoIndicacion.resx">
+      <DependentUpon>frmTipoIndicacion.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="frmUnidadesMedida.resx">
+      <DependentUpon>frmUnidadesMedida.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="frmUsuarios.resx">
       <DependentUpon>frmUsuarios.cs</DependentUpon>

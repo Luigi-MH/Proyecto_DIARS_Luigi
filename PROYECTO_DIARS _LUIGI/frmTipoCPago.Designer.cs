@@ -1,6 +1,6 @@
 ﻿namespace PROYECTO_DIARS__LUIGI
 {
-    partial class frmRoles
+    partial class frmTipoCPago
     {
         /// <summary>
         /// Required designer variable.
@@ -28,26 +28,36 @@
         /// </summary>
         private void InitializeComponent()
         {
+            this.gboxTipoCP = new System.Windows.Forms.GroupBox();
             this.btnSalir = new System.Windows.Forms.Button();
-            this.gboxRoles = new System.Windows.Forms.GroupBox();
-            this.gboxRoles2 = new System.Windows.Forms.GroupBox();
+            this.gboxTipoCP2 = new System.Windows.Forms.GroupBox();
             this.gboxDatos = new System.Windows.Forms.GroupBox();
             this.txtId = new System.Windows.Forms.TextBox();
             this.lblId = new System.Windows.Forms.Label();
             this.btnModificar = new System.Windows.Forms.Button();
             this.btnAgregar = new System.Windows.Forms.Button();
-            this.txtRol = new System.Windows.Forms.TextBox();
+            this.txtTipoCP = new System.Windows.Forms.TextBox();
             this.btnCancelar = new System.Windows.Forms.Button();
-            this.lblRol = new System.Windows.Forms.Label();
-            this.dgvRoles = new System.Windows.Forms.DataGridView();
+            this.lblTipoCP = new System.Windows.Forms.Label();
+            this.dgvTipoCP = new System.Windows.Forms.DataGridView();
             this.btnEliminar = new System.Windows.Forms.Button();
             this.btnEditar = new System.Windows.Forms.Button();
             this.btnNuevo = new System.Windows.Forms.Button();
-            this.gboxRoles.SuspendLayout();
-            this.gboxRoles2.SuspendLayout();
+            this.gboxTipoCP.SuspendLayout();
+            this.gboxTipoCP2.SuspendLayout();
             this.gboxDatos.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.dgvRoles)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.dgvTipoCP)).BeginInit();
             this.SuspendLayout();
+            // 
+            // gboxTipoCP
+            // 
+            this.gboxTipoCP.Controls.Add(this.gboxTipoCP2);
+            this.gboxTipoCP.Controls.Add(this.btnSalir);
+            this.gboxTipoCP.Location = new System.Drawing.Point(12, 12);
+            this.gboxTipoCP.Name = "gboxTipoCP";
+            this.gboxTipoCP.Size = new System.Drawing.Size(1676, 726);
+            this.gboxTipoCP.TabIndex = 14;
+            this.gboxTipoCP.TabStop = false;
             // 
             // btnSalir
             // 
@@ -62,28 +72,18 @@
             this.btnSalir.UseVisualStyleBackColor = true;
             this.btnSalir.Click += new System.EventHandler(this.btnSalir_Click);
             // 
-            // gboxRoles
+            // gboxTipoCP2
             // 
-            this.gboxRoles.Controls.Add(this.btnSalir);
-            this.gboxRoles.Controls.Add(this.gboxRoles2);
-            this.gboxRoles.Location = new System.Drawing.Point(12, 12);
-            this.gboxRoles.Name = "gboxRoles";
-            this.gboxRoles.Size = new System.Drawing.Size(1676, 726);
-            this.gboxRoles.TabIndex = 13;
-            this.gboxRoles.TabStop = false;
-            // 
-            // gboxRoles2
-            // 
-            this.gboxRoles2.Controls.Add(this.gboxDatos);
-            this.gboxRoles2.Controls.Add(this.dgvRoles);
-            this.gboxRoles2.Controls.Add(this.btnEliminar);
-            this.gboxRoles2.Controls.Add(this.btnEditar);
-            this.gboxRoles2.Controls.Add(this.btnNuevo);
-            this.gboxRoles2.Location = new System.Drawing.Point(22, 19);
-            this.gboxRoles2.Name = "gboxRoles2";
-            this.gboxRoles2.Size = new System.Drawing.Size(788, 512);
-            this.gboxRoles2.TabIndex = 43;
-            this.gboxRoles2.TabStop = false;
+            this.gboxTipoCP2.Controls.Add(this.gboxDatos);
+            this.gboxTipoCP2.Controls.Add(this.dgvTipoCP);
+            this.gboxTipoCP2.Controls.Add(this.btnEliminar);
+            this.gboxTipoCP2.Controls.Add(this.btnEditar);
+            this.gboxTipoCP2.Controls.Add(this.btnNuevo);
+            this.gboxTipoCP2.Location = new System.Drawing.Point(22, 19);
+            this.gboxTipoCP2.Name = "gboxTipoCP2";
+            this.gboxTipoCP2.Size = new System.Drawing.Size(788, 512);
+            this.gboxTipoCP2.TabIndex = 44;
+            this.gboxTipoCP2.TabStop = false;
             // 
             // gboxDatos
             // 
@@ -91,9 +91,9 @@
             this.gboxDatos.Controls.Add(this.lblId);
             this.gboxDatos.Controls.Add(this.btnModificar);
             this.gboxDatos.Controls.Add(this.btnAgregar);
-            this.gboxDatos.Controls.Add(this.txtRol);
+            this.gboxDatos.Controls.Add(this.txtTipoCP);
             this.gboxDatos.Controls.Add(this.btnCancelar);
-            this.gboxDatos.Controls.Add(this.lblRol);
+            this.gboxDatos.Controls.Add(this.lblTipoCP);
             this.gboxDatos.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.gboxDatos.Location = new System.Drawing.Point(345, 46);
             this.gboxDatos.Margin = new System.Windows.Forms.Padding(2);
@@ -147,13 +147,13 @@
             this.btnAgregar.Text = "Agregar";
             this.btnAgregar.UseVisualStyleBackColor = true;
             // 
-            // txtRol
+            // txtTipoCP
             // 
-            this.txtRol.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.txtRol.Location = new System.Drawing.Point(182, 54);
-            this.txtRol.Name = "txtRol";
-            this.txtRol.Size = new System.Drawing.Size(165, 22);
-            this.txtRol.TabIndex = 11;
+            this.txtTipoCP.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.txtTipoCP.Location = new System.Drawing.Point(194, 54);
+            this.txtTipoCP.Name = "txtTipoCP";
+            this.txtTipoCP.Size = new System.Drawing.Size(153, 22);
+            this.txtTipoCP.TabIndex = 11;
             // 
             // btnCancelar
             // 
@@ -166,30 +166,30 @@
             this.btnCancelar.Text = "Cancelar";
             this.btnCancelar.UseVisualStyleBackColor = true;
             // 
-            // lblRol
+            // lblTipoCP
             // 
-            this.lblRol.AutoSize = true;
-            this.lblRol.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Italic, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblRol.Location = new System.Drawing.Point(133, 57);
-            this.lblRol.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
-            this.lblRol.Name = "lblRol";
-            this.lblRol.Size = new System.Drawing.Size(28, 16);
-            this.lblRol.TabIndex = 1;
-            this.lblRol.Text = "Rol";
+            this.lblTipoCP.AutoSize = true;
+            this.lblTipoCP.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Italic, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblTipoCP.Location = new System.Drawing.Point(133, 57);
+            this.lblTipoCP.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
+            this.lblTipoCP.Name = "lblTipoCP";
+            this.lblTipoCP.Size = new System.Drawing.Size(56, 16);
+            this.lblTipoCP.TabIndex = 1;
+            this.lblTipoCP.Text = "Tipo CP";
             // 
-            // dgvRoles
+            // dgvTipoCP
             // 
-            this.dgvRoles.AllowUserToAddRows = false;
-            this.dgvRoles.AllowUserToDeleteRows = false;
-            this.dgvRoles.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.dgvRoles.Location = new System.Drawing.Point(22, 30);
-            this.dgvRoles.Margin = new System.Windows.Forms.Padding(2);
-            this.dgvRoles.Name = "dgvRoles";
-            this.dgvRoles.ReadOnly = true;
-            this.dgvRoles.RowHeadersWidth = 51;
-            this.dgvRoles.RowTemplate.Height = 24;
-            this.dgvRoles.Size = new System.Drawing.Size(296, 428);
-            this.dgvRoles.TabIndex = 38;
+            this.dgvTipoCP.AllowUserToAddRows = false;
+            this.dgvTipoCP.AllowUserToDeleteRows = false;
+            this.dgvTipoCP.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.dgvTipoCP.Location = new System.Drawing.Point(22, 30);
+            this.dgvTipoCP.Margin = new System.Windows.Forms.Padding(2);
+            this.dgvTipoCP.Name = "dgvTipoCP";
+            this.dgvTipoCP.ReadOnly = true;
+            this.dgvTipoCP.RowHeadersWidth = 51;
+            this.dgvTipoCP.RowTemplate.Height = 24;
+            this.dgvTipoCP.Size = new System.Drawing.Size(296, 428);
+            this.dgvTipoCP.TabIndex = 38;
             // 
             // btnEliminar
             // 
@@ -223,41 +223,41 @@
             this.btnNuevo.Text = "Nuevo";
             this.btnNuevo.UseVisualStyleBackColor = true;
             // 
-            // frmRoles
+            // frmTipoCPago
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(1700, 750);
-            this.Controls.Add(this.gboxRoles);
+            this.Controls.Add(this.gboxTipoCP);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
-            this.Name = "frmRoles";
-            this.Text = "frmRoles";
-            this.Load += new System.EventHandler(this.frmRoles_Load);
-            this.gboxRoles.ResumeLayout(false);
-            this.gboxRoles2.ResumeLayout(false);
+            this.Name = "frmTipoCPago";
+            this.Text = "frmTipoCPago";
+            this.Load += new System.EventHandler(this.frmTipoCPago_Load);
+            this.gboxTipoCP.ResumeLayout(false);
+            this.gboxTipoCP2.ResumeLayout(false);
             this.gboxDatos.ResumeLayout(false);
             this.gboxDatos.PerformLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.dgvRoles)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.dgvTipoCP)).EndInit();
             this.ResumeLayout(false);
 
         }
 
         #endregion
 
+        private System.Windows.Forms.GroupBox gboxTipoCP;
         private System.Windows.Forms.Button btnSalir;
-        private System.Windows.Forms.GroupBox gboxRoles;
-        private System.Windows.Forms.Button btnEliminar;
-        private System.Windows.Forms.Button btnNuevo;
+        private System.Windows.Forms.GroupBox gboxTipoCP2;
         private System.Windows.Forms.GroupBox gboxDatos;
         private System.Windows.Forms.TextBox txtId;
         private System.Windows.Forms.Label lblId;
         private System.Windows.Forms.Button btnModificar;
         private System.Windows.Forms.Button btnAgregar;
-        private System.Windows.Forms.TextBox txtRol;
+        private System.Windows.Forms.TextBox txtTipoCP;
         private System.Windows.Forms.Button btnCancelar;
-        private System.Windows.Forms.Label lblRol;
+        private System.Windows.Forms.Label lblTipoCP;
+        private System.Windows.Forms.DataGridView dgvTipoCP;
+        private System.Windows.Forms.Button btnEliminar;
         private System.Windows.Forms.Button btnEditar;
-        private System.Windows.Forms.DataGridView dgvRoles;
-        private System.Windows.Forms.GroupBox gboxRoles2;
+        private System.Windows.Forms.Button btnNuevo;
     }
 }

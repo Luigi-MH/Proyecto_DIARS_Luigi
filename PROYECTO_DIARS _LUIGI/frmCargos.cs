@@ -10,21 +10,16 @@ using System.Windows.Forms;
 
 namespace PROYECTO_DIARS__LUIGI
 {
-    public partial class frmRoles : Form
+    public partial class frmCargos : Form
     {
-        public frmRoles()
+        public frmCargos()
         {
             InitializeComponent();
         }
 
-        private void frmRoles_Load(object sender, EventArgs e)
+        private void frmCargos_Load(object sender, EventArgs e)
         {
 
-        }
-
-        private void btnSalir_Click(object sender, EventArgs e)
-        {
-            this.Close();
         }
     }
 }

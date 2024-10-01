@@ -1,6 +1,6 @@
 ﻿namespace PROYECTO_DIARS__LUIGI
 {
-    partial class frmRoles
+    partial class frmEstadosVenta
     {
         /// <summary>
         /// Required designer variable.
@@ -28,26 +28,36 @@
         /// </summary>
         private void InitializeComponent()
         {
+            this.gboxEstadosVenta = new System.Windows.Forms.GroupBox();
             this.btnSalir = new System.Windows.Forms.Button();
-            this.gboxRoles = new System.Windows.Forms.GroupBox();
-            this.gboxRoles2 = new System.Windows.Forms.GroupBox();
+            this.gboxEstadosVenta2 = new System.Windows.Forms.GroupBox();
             this.gboxDatos = new System.Windows.Forms.GroupBox();
             this.txtId = new System.Windows.Forms.TextBox();
             this.lblId = new System.Windows.Forms.Label();
             this.btnModificar = new System.Windows.Forms.Button();
             this.btnAgregar = new System.Windows.Forms.Button();
-            this.txtRol = new System.Windows.Forms.TextBox();
+            this.txtEstadoVenta = new System.Windows.Forms.TextBox();
             this.btnCancelar = new System.Windows.Forms.Button();
-            this.lblRol = new System.Windows.Forms.Label();
-            this.dgvRoles = new System.Windows.Forms.DataGridView();
+            this.lblEstadoVenta = new System.Windows.Forms.Label();
+            this.dgvEstadosVenta = new System.Windows.Forms.DataGridView();
             this.btnEliminar = new System.Windows.Forms.Button();
             this.btnEditar = new System.Windows.Forms.Button();
             this.btnNuevo = new System.Windows.Forms.Button();
-            this.gboxRoles.SuspendLayout();
-            this.gboxRoles2.SuspendLayout();
+            this.gboxEstadosVenta.SuspendLayout();
+            this.gboxEstadosVenta2.SuspendLayout();
             this.gboxDatos.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.dgvRoles)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.dgvEstadosVenta)).BeginInit();
             this.SuspendLayout();
+            // 
+            // gboxEstadosVenta
+            // 
+            this.gboxEstadosVenta.Controls.Add(this.btnSalir);
+            this.gboxEstadosVenta.Controls.Add(this.gboxEstadosVenta2);
+            this.gboxEstadosVenta.Location = new System.Drawing.Point(12, 12);
+            this.gboxEstadosVenta.Name = "gboxEstadosVenta";
+            this.gboxEstadosVenta.Size = new System.Drawing.Size(1676, 726);
+            this.gboxEstadosVenta.TabIndex = 15;
+            this.gboxEstadosVenta.TabStop = false;
             // 
             // btnSalir
             // 
@@ -62,28 +72,18 @@
             this.btnSalir.UseVisualStyleBackColor = true;
             this.btnSalir.Click += new System.EventHandler(this.btnSalir_Click);
             // 
-            // gboxRoles
+            // gboxEstadosVenta2
             // 
-            this.gboxRoles.Controls.Add(this.btnSalir);
-            this.gboxRoles.Controls.Add(this.gboxRoles2);
-            this.gboxRoles.Location = new System.Drawing.Point(12, 12);
-            this.gboxRoles.Name = "gboxRoles";
-            this.gboxRoles.Size = new System.Drawing.Size(1676, 726);
-            this.gboxRoles.TabIndex = 13;
-            this.gboxRoles.TabStop = false;
-            // 
-            // gboxRoles2
-            // 
-            this.gboxRoles2.Controls.Add(this.gboxDatos);
-            this.gboxRoles2.Controls.Add(this.dgvRoles);
-            this.gboxRoles2.Controls.Add(this.btnEliminar);
-            this.gboxRoles2.Controls.Add(this.btnEditar);
-            this.gboxRoles2.Controls.Add(this.btnNuevo);
-            this.gboxRoles2.Location = new System.Drawing.Point(22, 19);
-            this.gboxRoles2.Name = "gboxRoles2";
-            this.gboxRoles2.Size = new System.Drawing.Size(788, 512);
-            this.gboxRoles2.TabIndex = 43;
-            this.gboxRoles2.TabStop = false;
+            this.gboxEstadosVenta2.Controls.Add(this.gboxDatos);
+            this.gboxEstadosVenta2.Controls.Add(this.dgvEstadosVenta);
+            this.gboxEstadosVenta2.Controls.Add(this.btnEliminar);
+            this.gboxEstadosVenta2.Controls.Add(this.btnEditar);
+            this.gboxEstadosVenta2.Controls.Add(this.btnNuevo);
+            this.gboxEstadosVenta2.Location = new System.Drawing.Point(22, 19);
+            this.gboxEstadosVenta2.Name = "gboxEstadosVenta2";
+            this.gboxEstadosVenta2.Size = new System.Drawing.Size(788, 512);
+            this.gboxEstadosVenta2.TabIndex = 43;
+            this.gboxEstadosVenta2.TabStop = false;
             // 
             // gboxDatos
             // 
@@ -91,9 +91,9 @@
             this.gboxDatos.Controls.Add(this.lblId);
             this.gboxDatos.Controls.Add(this.btnModificar);
             this.gboxDatos.Controls.Add(this.btnAgregar);
-            this.gboxDatos.Controls.Add(this.txtRol);
+            this.gboxDatos.Controls.Add(this.txtEstadoVenta);
             this.gboxDatos.Controls.Add(this.btnCancelar);
-            this.gboxDatos.Controls.Add(this.lblRol);
+            this.gboxDatos.Controls.Add(this.lblEstadoVenta);
             this.gboxDatos.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.gboxDatos.Location = new System.Drawing.Point(345, 46);
             this.gboxDatos.Margin = new System.Windows.Forms.Padding(2);
@@ -147,13 +147,13 @@
             this.btnAgregar.Text = "Agregar";
             this.btnAgregar.UseVisualStyleBackColor = true;
             // 
-            // txtRol
+            // txtEstadoVenta
             // 
-            this.txtRol.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.txtRol.Location = new System.Drawing.Point(182, 54);
-            this.txtRol.Name = "txtRol";
-            this.txtRol.Size = new System.Drawing.Size(165, 22);
-            this.txtRol.TabIndex = 11;
+            this.txtEstadoVenta.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.txtEstadoVenta.Location = new System.Drawing.Point(188, 54);
+            this.txtEstadoVenta.Name = "txtEstadoVenta";
+            this.txtEstadoVenta.Size = new System.Drawing.Size(159, 22);
+            this.txtEstadoVenta.TabIndex = 11;
             // 
             // btnCancelar
             // 
@@ -166,30 +166,30 @@
             this.btnCancelar.Text = "Cancelar";
             this.btnCancelar.UseVisualStyleBackColor = true;
             // 
-            // lblRol
+            // lblEstadoVenta
             // 
-            this.lblRol.AutoSize = true;
-            this.lblRol.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Italic, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblRol.Location = new System.Drawing.Point(133, 57);
-            this.lblRol.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
-            this.lblRol.Name = "lblRol";
-            this.lblRol.Size = new System.Drawing.Size(28, 16);
-            this.lblRol.TabIndex = 1;
-            this.lblRol.Text = "Rol";
+            this.lblEstadoVenta.AutoSize = true;
+            this.lblEstadoVenta.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Italic, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblEstadoVenta.Location = new System.Drawing.Point(133, 57);
+            this.lblEstadoVenta.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
+            this.lblEstadoVenta.Name = "lblEstadoVenta";
+            this.lblEstadoVenta.Size = new System.Drawing.Size(50, 16);
+            this.lblEstadoVenta.TabIndex = 1;
+            this.lblEstadoVenta.Text = "Estado";
             // 
-            // dgvRoles
+            // dgvEstadosVenta
             // 
-            this.dgvRoles.AllowUserToAddRows = false;
-            this.dgvRoles.AllowUserToDeleteRows = false;
-            this.dgvRoles.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.dgvRoles.Location = new System.Drawing.Point(22, 30);
-            this.dgvRoles.Margin = new System.Windows.Forms.Padding(2);
-            this.dgvRoles.Name = "dgvRoles";
-            this.dgvRoles.ReadOnly = true;
-            this.dgvRoles.RowHeadersWidth = 51;
-            this.dgvRoles.RowTemplate.Height = 24;
-            this.dgvRoles.Size = new System.Drawing.Size(296, 428);
-            this.dgvRoles.TabIndex = 38;
+            this.dgvEstadosVenta.AllowUserToAddRows = false;
+            this.dgvEstadosVenta.AllowUserToDeleteRows = false;
+            this.dgvEstadosVenta.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.dgvEstadosVenta.Location = new System.Drawing.Point(22, 30);
+            this.dgvEstadosVenta.Margin = new System.Windows.Forms.Padding(2);
+            this.dgvEstadosVenta.Name = "dgvEstadosVenta";
+            this.dgvEstadosVenta.ReadOnly = true;
+            this.dgvEstadosVenta.RowHeadersWidth = 51;
+            this.dgvEstadosVenta.RowTemplate.Height = 24;
+            this.dgvEstadosVenta.Size = new System.Drawing.Size(296, 428);
+            this.dgvEstadosVenta.TabIndex = 38;
             // 
             // btnEliminar
             // 
@@ -223,41 +223,41 @@
             this.btnNuevo.Text = "Nuevo";
             this.btnNuevo.UseVisualStyleBackColor = true;
             // 
-            // frmRoles
+            // frmEstadosVenta
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(1700, 750);
-            this.Controls.Add(this.gboxRoles);
+            this.Controls.Add(this.gboxEstadosVenta);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
-            this.Name = "frmRoles";
-            this.Text = "frmRoles";
-            this.Load += new System.EventHandler(this.frmRoles_Load);
-            this.gboxRoles.ResumeLayout(false);
-            this.gboxRoles2.ResumeLayout(false);
+            this.Name = "frmEstadosVenta";
+            this.Text = "frmEstadosVenta";
+            this.Load += new System.EventHandler(this.frmEstadosVenta_Load);
+            this.gboxEstadosVenta.ResumeLayout(false);
+            this.gboxEstadosVenta2.ResumeLayout(false);
             this.gboxDatos.ResumeLayout(false);
             this.gboxDatos.PerformLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.dgvRoles)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.dgvEstadosVenta)).EndInit();
             this.ResumeLayout(false);
 
         }
 
         #endregion
 
+        private System.Windows.Forms.GroupBox gboxEstadosVenta;
         private System.Windows.Forms.Button btnSalir;
-        private System.Windows.Forms.GroupBox gboxRoles;
-        private System.Windows.Forms.Button btnEliminar;
-        private System.Windows.Forms.Button btnNuevo;
+        private System.Windows.Forms.GroupBox gboxEstadosVenta2;
         private System.Windows.Forms.GroupBox gboxDatos;
         private System.Windows.Forms.TextBox txtId;
         private System.Windows.Forms.Label lblId;
         private System.Windows.Forms.Button btnModificar;
         private System.Windows.Forms.Button btnAgregar;
-        private System.Windows.Forms.TextBox txtRol;
+        private System.Windows.Forms.TextBox txtEstadoVenta;
         private System.Windows.Forms.Button btnCancelar;
-        private System.Windows.Forms.Label lblRol;
+        private System.Windows.Forms.Label lblEstadoVenta;
+        private System.Windows.Forms.DataGridView dgvEstadosVenta;
+        private System.Windows.Forms.Button btnEliminar;
         private System.Windows.Forms.Button btnEditar;
-        private System.Windows.Forms.DataGridView dgvRoles;
-        private System.Windows.Forms.GroupBox gboxRoles2;
+        private System.Windows.Forms.Button btnNuevo;
     }
 }

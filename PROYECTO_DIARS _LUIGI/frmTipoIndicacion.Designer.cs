@@ -1,6 +1,6 @@
 ﻿namespace PROYECTO_DIARS__LUIGI
 {
-    partial class frmRoles
+    partial class frmTipoIndicacion
     {
         /// <summary>
         /// Required designer variable.
@@ -28,26 +28,36 @@
         /// </summary>
         private void InitializeComponent()
         {
+            this.gboxTipoIndicacion = new System.Windows.Forms.GroupBox();
             this.btnSalir = new System.Windows.Forms.Button();
-            this.gboxRoles = new System.Windows.Forms.GroupBox();
-            this.gboxRoles2 = new System.Windows.Forms.GroupBox();
+            this.gboxTipoIndicacion2 = new System.Windows.Forms.GroupBox();
             this.gboxDatos = new System.Windows.Forms.GroupBox();
             this.txtId = new System.Windows.Forms.TextBox();
             this.lblId = new System.Windows.Forms.Label();
             this.btnModificar = new System.Windows.Forms.Button();
             this.btnAgregar = new System.Windows.Forms.Button();
-            this.txtRol = new System.Windows.Forms.TextBox();
+            this.txtTipoIndicacion = new System.Windows.Forms.TextBox();
             this.btnCancelar = new System.Windows.Forms.Button();
-            this.lblRol = new System.Windows.Forms.Label();
-            this.dgvRoles = new System.Windows.Forms.DataGridView();
+            this.lblTipoIndicacion = new System.Windows.Forms.Label();
+            this.dgvTiposIndicacion = new System.Windows.Forms.DataGridView();
             this.btnEliminar = new System.Windows.Forms.Button();
             this.btnEditar = new System.Windows.Forms.Button();
             this.btnNuevo = new System.Windows.Forms.Button();
-            this.gboxRoles.SuspendLayout();
-            this.gboxRoles2.SuspendLayout();
+            this.gboxTipoIndicacion.SuspendLayout();
+            this.gboxTipoIndicacion2.SuspendLayout();
             this.gboxDatos.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.dgvRoles)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.dgvTiposIndicacion)).BeginInit();
             this.SuspendLayout();
+            // 
+            // gboxTipoIndicacion
+            // 
+            this.gboxTipoIndicacion.Controls.Add(this.btnSalir);
+            this.gboxTipoIndicacion.Controls.Add(this.gboxTipoIndicacion2);
+            this.gboxTipoIndicacion.Location = new System.Drawing.Point(12, 12);
+            this.gboxTipoIndicacion.Name = "gboxTipoIndicacion";
+            this.gboxTipoIndicacion.Size = new System.Drawing.Size(1676, 726);
+            this.gboxTipoIndicacion.TabIndex = 14;
+            this.gboxTipoIndicacion.TabStop = false;
             // 
             // btnSalir
             // 
@@ -62,28 +72,18 @@
             this.btnSalir.UseVisualStyleBackColor = true;
             this.btnSalir.Click += new System.EventHandler(this.btnSalir_Click);
             // 
-            // gboxRoles
+            // gboxTipoIndicacion2
             // 
-            this.gboxRoles.Controls.Add(this.btnSalir);
-            this.gboxRoles.Controls.Add(this.gboxRoles2);
-            this.gboxRoles.Location = new System.Drawing.Point(12, 12);
-            this.gboxRoles.Name = "gboxRoles";
-            this.gboxRoles.Size = new System.Drawing.Size(1676, 726);
-            this.gboxRoles.TabIndex = 13;
-            this.gboxRoles.TabStop = false;
-            // 
-            // gboxRoles2
-            // 
-            this.gboxRoles2.Controls.Add(this.gboxDatos);
-            this.gboxRoles2.Controls.Add(this.dgvRoles);
-            this.gboxRoles2.Controls.Add(this.btnEliminar);
-            this.gboxRoles2.Controls.Add(this.btnEditar);
-            this.gboxRoles2.Controls.Add(this.btnNuevo);
-            this.gboxRoles2.Location = new System.Drawing.Point(22, 19);
-            this.gboxRoles2.Name = "gboxRoles2";
-            this.gboxRoles2.Size = new System.Drawing.Size(788, 512);
-            this.gboxRoles2.TabIndex = 43;
-            this.gboxRoles2.TabStop = false;
+            this.gboxTipoIndicacion2.Controls.Add(this.gboxDatos);
+            this.gboxTipoIndicacion2.Controls.Add(this.dgvTiposIndicacion);
+            this.gboxTipoIndicacion2.Controls.Add(this.btnEliminar);
+            this.gboxTipoIndicacion2.Controls.Add(this.btnEditar);
+            this.gboxTipoIndicacion2.Controls.Add(this.btnNuevo);
+            this.gboxTipoIndicacion2.Location = new System.Drawing.Point(22, 19);
+            this.gboxTipoIndicacion2.Name = "gboxTipoIndicacion2";
+            this.gboxTipoIndicacion2.Size = new System.Drawing.Size(788, 512);
+            this.gboxTipoIndicacion2.TabIndex = 43;
+            this.gboxTipoIndicacion2.TabStop = false;
             // 
             // gboxDatos
             // 
@@ -91,9 +91,9 @@
             this.gboxDatos.Controls.Add(this.lblId);
             this.gboxDatos.Controls.Add(this.btnModificar);
             this.gboxDatos.Controls.Add(this.btnAgregar);
-            this.gboxDatos.Controls.Add(this.txtRol);
+            this.gboxDatos.Controls.Add(this.txtTipoIndicacion);
             this.gboxDatos.Controls.Add(this.btnCancelar);
-            this.gboxDatos.Controls.Add(this.lblRol);
+            this.gboxDatos.Controls.Add(this.lblTipoIndicacion);
             this.gboxDatos.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.gboxDatos.Location = new System.Drawing.Point(345, 46);
             this.gboxDatos.Margin = new System.Windows.Forms.Padding(2);
@@ -110,7 +110,7 @@
             this.txtId.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.txtId.Location = new System.Drawing.Point(59, 54);
             this.txtId.Name = "txtId";
-            this.txtId.Size = new System.Drawing.Size(60, 22);
+            this.txtId.Size = new System.Drawing.Size(41, 22);
             this.txtId.TabIndex = 26;
             this.txtId.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
             // 
@@ -147,13 +147,13 @@
             this.btnAgregar.Text = "Agregar";
             this.btnAgregar.UseVisualStyleBackColor = true;
             // 
-            // txtRol
+            // txtTipoIndicacion
             // 
-            this.txtRol.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.txtRol.Location = new System.Drawing.Point(182, 54);
-            this.txtRol.Name = "txtRol";
-            this.txtRol.Size = new System.Drawing.Size(165, 22);
-            this.txtRol.TabIndex = 11;
+            this.txtTipoIndicacion.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.txtTipoIndicacion.Location = new System.Drawing.Point(187, 54);
+            this.txtTipoIndicacion.Name = "txtTipoIndicacion";
+            this.txtTipoIndicacion.Size = new System.Drawing.Size(160, 22);
+            this.txtTipoIndicacion.TabIndex = 11;
             // 
             // btnCancelar
             // 
@@ -166,30 +166,30 @@
             this.btnCancelar.Text = "Cancelar";
             this.btnCancelar.UseVisualStyleBackColor = true;
             // 
-            // lblRol
+            // lblTipoIndicacion
             // 
-            this.lblRol.AutoSize = true;
-            this.lblRol.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Italic, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblRol.Location = new System.Drawing.Point(133, 57);
-            this.lblRol.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
-            this.lblRol.Name = "lblRol";
-            this.lblRol.Size = new System.Drawing.Size(28, 16);
-            this.lblRol.TabIndex = 1;
-            this.lblRol.Text = "Rol";
+            this.lblTipoIndicacion.AutoSize = true;
+            this.lblTipoIndicacion.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Italic, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblTipoIndicacion.Location = new System.Drawing.Point(114, 57);
+            this.lblTipoIndicacion.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
+            this.lblTipoIndicacion.Name = "lblTipoIndicacion";
+            this.lblTipoIndicacion.Size = new System.Drawing.Size(69, 16);
+            this.lblTipoIndicacion.TabIndex = 1;
+            this.lblTipoIndicacion.Text = "Tipo Indic.";
             // 
-            // dgvRoles
+            // dgvTiposIndicacion
             // 
-            this.dgvRoles.AllowUserToAddRows = false;
-            this.dgvRoles.AllowUserToDeleteRows = false;
-            this.dgvRoles.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.dgvRoles.Location = new System.Drawing.Point(22, 30);
-            this.dgvRoles.Margin = new System.Windows.Forms.Padding(2);
-            this.dgvRoles.Name = "dgvRoles";
-            this.dgvRoles.ReadOnly = true;
-            this.dgvRoles.RowHeadersWidth = 51;
-            this.dgvRoles.RowTemplate.Height = 24;
-            this.dgvRoles.Size = new System.Drawing.Size(296, 428);
-            this.dgvRoles.TabIndex = 38;
+            this.dgvTiposIndicacion.AllowUserToAddRows = false;
+            this.dgvTiposIndicacion.AllowUserToDeleteRows = false;
+            this.dgvTiposIndicacion.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.dgvTiposIndicacion.Location = new System.Drawing.Point(22, 30);
+            this.dgvTiposIndicacion.Margin = new System.Windows.Forms.Padding(2);
+            this.dgvTiposIndicacion.Name = "dgvTiposIndicacion";
+            this.dgvTiposIndicacion.ReadOnly = true;
+            this.dgvTiposIndicacion.RowHeadersWidth = 51;
+            this.dgvTiposIndicacion.RowTemplate.Height = 24;
+            this.dgvTiposIndicacion.Size = new System.Drawing.Size(296, 428);
+            this.dgvTiposIndicacion.TabIndex = 38;
             // 
             // btnEliminar
             // 
@@ -223,41 +223,41 @@
             this.btnNuevo.Text = "Nuevo";
             this.btnNuevo.UseVisualStyleBackColor = true;
             // 
-            // frmRoles
+            // frmTipoIndicacion
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(1700, 750);
-            this.Controls.Add(this.gboxRoles);
+            this.Controls.Add(this.gboxTipoIndicacion);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
-            this.Name = "frmRoles";
-            this.Text = "frmRoles";
-            this.Load += new System.EventHandler(this.frmRoles_Load);
-            this.gboxRoles.ResumeLayout(false);
-            this.gboxRoles2.ResumeLayout(false);
+            this.Name = "frmTipoIndicacion";
+            this.Text = "frmTipoIndicacion";
+            this.Load += new System.EventHandler(this.frmTipoIndicacion_Load);
+            this.gboxTipoIndicacion.ResumeLayout(false);
+            this.gboxTipoIndicacion2.ResumeLayout(false);
             this.gboxDatos.ResumeLayout(false);
             this.gboxDatos.PerformLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.dgvRoles)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.dgvTiposIndicacion)).EndInit();
             this.ResumeLayout(false);
 
         }
 
         #endregion
 
+        private System.Windows.Forms.GroupBox gboxTipoIndicacion;
         private System.Windows.Forms.Button btnSalir;
-        private System.Windows.Forms.GroupBox gboxRoles;
-        private System.Windows.Forms.Button btnEliminar;
-        private System.Windows.Forms.Button btnNuevo;
+        private System.Windows.Forms.GroupBox gboxTipoIndicacion2;
         private System.Windows.Forms.GroupBox gboxDatos;
         private System.Windows.Forms.TextBox txtId;
         private System.Windows.Forms.Label lblId;
         private System.Windows.Forms.Button btnModificar;
         private System.Windows.Forms.Button btnAgregar;
-        private System.Windows.Forms.TextBox txtRol;
+        private System.Windows.Forms.TextBox txtTipoIndicacion;
         private System.Windows.Forms.Button btnCancelar;
-        private System.Windows.Forms.Label lblRol;
+        private System.Windows.Forms.Label lblTipoIndicacion;
+        private System.Windows.Forms.DataGridView dgvTiposIndicacion;
+        private System.Windows.Forms.Button btnEliminar;
         private System.Windows.Forms.Button btnEditar;
-        private System.Windows.Forms.DataGridView dgvRoles;
-        private System.Windows.Forms.GroupBox gboxRoles2;
+        private System.Windows.Forms.Button btnNuevo;
     }
 }

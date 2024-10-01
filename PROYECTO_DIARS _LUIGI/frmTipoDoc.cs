@@ -10,14 +10,14 @@ using System.Windows.Forms;
 
 namespace PROYECTO_DIARS__LUIGI
 {
-    public partial class frmRoles : Form
+    public partial class frmTipoDoc : Form
     {
-        public frmRoles()
+        public frmTipoDoc()
         {
             InitializeComponent();
         }
 
-        private void frmRoles_Load(object sender, EventArgs e)
+        private void frmTipoDoc_Load(object sender, EventArgs e)
         {
 
         }
