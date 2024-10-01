@@ -173,7 +173,8 @@ namespace PROYECTO_DIARS__LUIGI
 
         private void btnAlmacenes_Click(object sender, EventArgs e)
         {
-
+            frmAlmacenes frmAlmacenes = new frmAlmacenes();
+            abrirFrm(frmAlmacenes);
         }
 
         private void btnEmpleados_Click(object sender, EventArgs e)
