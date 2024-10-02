@@ -127,7 +127,8 @@ namespace PROYECTO_DIARS__LUIGI
 
         private void btnUnidadesMedidaProducto_Click(object sender, EventArgs e)
         {
-
+            frmUnidMxProducto frmUnidMedidaProducto = new frmUnidMxProducto();
+            abrirFrm(frmUnidMedidaProducto);
         }
 
         private void btnIndicacionesContraindicaciones_Click(object sender, EventArgs e)
@@ -179,7 +180,8 @@ namespace PROYECTO_DIARS__LUIGI
 
         private void btnEmpleados_Click(object sender, EventArgs e)
         {
-
+            frmEmpleados frmEmpleados = new frmEmpleados();
+            abrirFrm(frmEmpleados);
         }
 
         private void btnUsuarios_Click(object sender, EventArgs e)

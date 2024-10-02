@@ -32,6 +32,13 @@
             this.btnSalir = new System.Windows.Forms.Button();
             this.gboxSucursal2 = new System.Windows.Forms.GroupBox();
             this.gboxDatos = new System.Windows.Forms.GroupBox();
+            this.gboxEstado = new System.Windows.Forms.GroupBox();
+            this.rdInactivo = new System.Windows.Forms.RadioButton();
+            this.rdActivo = new System.Windows.Forms.RadioButton();
+            this.txtTelefono = new System.Windows.Forms.TextBox();
+            this.lblTelefono = new System.Windows.Forms.Label();
+            this.txtDireccion = new System.Windows.Forms.TextBox();
+            this.lblDireccion = new System.Windows.Forms.Label();
             this.txtId = new System.Windows.Forms.TextBox();
             this.lblId = new System.Windows.Forms.Label();
             this.btnModificar = new System.Windows.Forms.Button();
@@ -43,18 +50,11 @@
             this.btnEliminar = new System.Windows.Forms.Button();
             this.btnEditar = new System.Windows.Forms.Button();
             this.btnNuevo = new System.Windows.Forms.Button();
-            this.txtDireccion = new System.Windows.Forms.TextBox();
-            this.lblDireccion = new System.Windows.Forms.Label();
-            this.txtTelefono = new System.Windows.Forms.TextBox();
-            this.lblTelefono = new System.Windows.Forms.Label();
-            this.gboxEstado = new System.Windows.Forms.GroupBox();
-            this.rdActivo = new System.Windows.Forms.RadioButton();
-            this.rdInactivo = new System.Windows.Forms.RadioButton();
             this.gboxSucursal.SuspendLayout();
             this.gboxSucursal2.SuspendLayout();
             this.gboxDatos.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.dgvSucursal)).BeginInit();
             this.gboxEstado.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.dgvSucursal)).BeginInit();
             this.SuspendLayout();
             // 
             // gboxSucursal
@@ -116,6 +116,78 @@
             this.gboxDatos.TabIndex = 40;
             this.gboxDatos.TabStop = false;
             this.gboxDatos.Text = "Datos";
+            // 
+            // gboxEstado
+            // 
+            this.gboxEstado.Controls.Add(this.rdInactivo);
+            this.gboxEstado.Controls.Add(this.rdActivo);
+            this.gboxEstado.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Italic, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.gboxEstado.Location = new System.Drawing.Point(49, 228);
+            this.gboxEstado.Name = "gboxEstado";
+            this.gboxEstado.Size = new System.Drawing.Size(307, 61);
+            this.gboxEstado.TabIndex = 31;
+            this.gboxEstado.TabStop = false;
+            this.gboxEstado.Text = "Estado";
+            // 
+            // rdInactivo
+            // 
+            this.rdInactivo.AutoSize = true;
+            this.rdInactivo.Location = new System.Drawing.Point(170, 24);
+            this.rdInactivo.Name = "rdInactivo";
+            this.rdInactivo.Size = new System.Drawing.Size(71, 20);
+            this.rdInactivo.TabIndex = 1;
+            this.rdInactivo.Text = "Inactivo";
+            this.rdInactivo.UseVisualStyleBackColor = true;
+            // 
+            // rdActivo
+            // 
+            this.rdActivo.AutoSize = true;
+            this.rdActivo.Checked = true;
+            this.rdActivo.Location = new System.Drawing.Point(60, 24);
+            this.rdActivo.Name = "rdActivo";
+            this.rdActivo.Size = new System.Drawing.Size(62, 20);
+            this.rdActivo.TabIndex = 0;
+            this.rdActivo.TabStop = true;
+            this.rdActivo.Text = "Activo";
+            this.rdActivo.UseVisualStyleBackColor = true;
+            // 
+            // txtTelefono
+            // 
+            this.txtTelefono.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.txtTelefono.Location = new System.Drawing.Point(112, 179);
+            this.txtTelefono.Name = "txtTelefono";
+            this.txtTelefono.Size = new System.Drawing.Size(206, 22);
+            this.txtTelefono.TabIndex = 30;
+            // 
+            // lblTelefono
+            // 
+            this.lblTelefono.AutoSize = true;
+            this.lblTelefono.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Italic, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblTelefono.Location = new System.Drawing.Point(46, 182);
+            this.lblTelefono.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
+            this.lblTelefono.Name = "lblTelefono";
+            this.lblTelefono.Size = new System.Drawing.Size(61, 16);
+            this.lblTelefono.TabIndex = 29;
+            this.lblTelefono.Text = "Telefono";
+            // 
+            // txtDireccion
+            // 
+            this.txtDireccion.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.txtDireccion.Location = new System.Drawing.Point(110, 133);
+            this.txtDireccion.Name = "txtDireccion";
+            this.txtDireccion.Size = new System.Drawing.Size(246, 22);
+            this.txtDireccion.TabIndex = 28;
+            // 
+            // lblDireccion
+            // 
+            this.lblDireccion.AutoSize = true;
+            this.lblDireccion.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Italic, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblDireccion.Location = new System.Drawing.Point(41, 136);
+            this.lblDireccion.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
+            this.lblDireccion.Name = "lblDireccion";
+            this.lblDireccion.Size = new System.Drawing.Size(64, 16);
+            this.lblDireccion.TabIndex = 27;
+            this.lblDireccion.Text = "Direccion";
             // 
             // txtId
             // 
@@ -236,78 +308,6 @@
             this.btnNuevo.Text = "Nuevo";
             this.btnNuevo.UseVisualStyleBackColor = true;
             // 
-            // txtDireccion
-            // 
-            this.txtDireccion.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.txtDireccion.Location = new System.Drawing.Point(110, 133);
-            this.txtDireccion.Name = "txtDireccion";
-            this.txtDireccion.Size = new System.Drawing.Size(246, 22);
-            this.txtDireccion.TabIndex = 28;
-            // 
-            // lblDireccion
-            // 
-            this.lblDireccion.AutoSize = true;
-            this.lblDireccion.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Italic, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblDireccion.Location = new System.Drawing.Point(41, 136);
-            this.lblDireccion.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
-            this.lblDireccion.Name = "lblDireccion";
-            this.lblDireccion.Size = new System.Drawing.Size(64, 16);
-            this.lblDireccion.TabIndex = 27;
-            this.lblDireccion.Text = "Direccion";
-            // 
-            // txtTelefono
-            // 
-            this.txtTelefono.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.txtTelefono.Location = new System.Drawing.Point(112, 185);
-            this.txtTelefono.Name = "txtTelefono";
-            this.txtTelefono.Size = new System.Drawing.Size(206, 22);
-            this.txtTelefono.TabIndex = 30;
-            // 
-            // lblTelefono
-            // 
-            this.lblTelefono.AutoSize = true;
-            this.lblTelefono.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Italic, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblTelefono.Location = new System.Drawing.Point(46, 188);
-            this.lblTelefono.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
-            this.lblTelefono.Name = "lblTelefono";
-            this.lblTelefono.Size = new System.Drawing.Size(61, 16);
-            this.lblTelefono.TabIndex = 29;
-            this.lblTelefono.Text = "Telefono";
-            // 
-            // gboxEstado
-            // 
-            this.gboxEstado.Controls.Add(this.rdInactivo);
-            this.gboxEstado.Controls.Add(this.rdActivo);
-            this.gboxEstado.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Italic, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.gboxEstado.Location = new System.Drawing.Point(49, 228);
-            this.gboxEstado.Name = "gboxEstado";
-            this.gboxEstado.Size = new System.Drawing.Size(307, 61);
-            this.gboxEstado.TabIndex = 31;
-            this.gboxEstado.TabStop = false;
-            this.gboxEstado.Text = "Estado";
-            // 
-            // rdActivo
-            // 
-            this.rdActivo.AutoSize = true;
-            this.rdActivo.Checked = true;
-            this.rdActivo.Location = new System.Drawing.Point(60, 24);
-            this.rdActivo.Name = "rdActivo";
-            this.rdActivo.Size = new System.Drawing.Size(62, 20);
-            this.rdActivo.TabIndex = 0;
-            this.rdActivo.TabStop = true;
-            this.rdActivo.Text = "Activo";
-            this.rdActivo.UseVisualStyleBackColor = true;
-            // 
-            // rdInactivo
-            // 
-            this.rdInactivo.AutoSize = true;
-            this.rdInactivo.Location = new System.Drawing.Point(170, 24);
-            this.rdInactivo.Name = "rdInactivo";
-            this.rdInactivo.Size = new System.Drawing.Size(71, 20);
-            this.rdInactivo.TabIndex = 1;
-            this.rdInactivo.Text = "Inactivo";
-            this.rdInactivo.UseVisualStyleBackColor = true;
-            // 
             // frmSucursales
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -322,9 +322,9 @@
             this.gboxSucursal2.ResumeLayout(false);
             this.gboxDatos.ResumeLayout(false);
             this.gboxDatos.PerformLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.dgvSucursal)).EndInit();
             this.gboxEstado.ResumeLayout(false);
             this.gboxEstado.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.dgvSucursal)).EndInit();
             this.ResumeLayout(false);
 
         }

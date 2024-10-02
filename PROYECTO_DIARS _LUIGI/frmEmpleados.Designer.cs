@@ -35,6 +35,15 @@
             this.btnEditar = new System.Windows.Forms.Button();
             this.dgvEmpleados = new System.Windows.Forms.DataGridView();
             this.gboxDatosEmpleado = new System.Windows.Forms.GroupBox();
+            this.btnBuscar = new System.Windows.Forms.Button();
+            this.lblFechaNacimiento = new System.Windows.Forms.Label();
+            this.dtpFehaNacimiento = new System.Windows.Forms.DateTimePicker();
+            this.btnSeleccionarFoto = new System.Windows.Forms.Button();
+            this.pbFoto = new System.Windows.Forms.PictureBox();
+            this.lblTipoDoc = new System.Windows.Forms.Label();
+            this.cboxTipoDoc = new System.Windows.Forms.ComboBox();
+            this.txtId = new System.Windows.Forms.TextBox();
+            this.lblId = new System.Windows.Forms.Label();
             this.lblCargo = new System.Windows.Forms.Label();
             this.cboxCargo = new System.Windows.Forms.ComboBox();
             this.txtApellidos = new System.Windows.Forms.TextBox();
@@ -57,21 +66,11 @@
             this.txtNombres = new System.Windows.Forms.TextBox();
             this.lblCorreo = new System.Windows.Forms.Label();
             this.lblNombres = new System.Windows.Forms.Label();
-            this.txtId = new System.Windows.Forms.TextBox();
-            this.lblId = new System.Windows.Forms.Label();
-            this.cboxTipoDoc = new System.Windows.Forms.ComboBox();
-            this.lblTipoDoc = new System.Windows.Forms.Label();
-            this.pbFoto = new System.Windows.Forms.PictureBox();
-            this.openFileDialog = new System.Windows.Forms.OpenFileDialog();
-            this.btnSeleccionarFoto = new System.Windows.Forms.Button();
-            this.dtpFehaNacimiento = new System.Windows.Forms.DateTimePicker();
-            this.lblFechaNacimiento = new System.Windows.Forms.Label();
-            this.btnBuscar = new System.Windows.Forms.Button();
             this.gboxEmpleados.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dgvEmpleados)).BeginInit();
             this.gboxDatosEmpleado.SuspendLayout();
-            this.gboxEstado.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pbFoto)).BeginInit();
+            this.gboxEstado.SuspendLayout();
             this.SuspendLayout();
             // 
             // btnSalir
@@ -85,6 +84,7 @@
             this.btnSalir.TabIndex = 14;
             this.btnSalir.Text = "X";
             this.btnSalir.UseVisualStyleBackColor = true;
+            this.btnSalir.Click += new System.EventHandler(this.btnSalir_Click);
             // 
             // gboxEmpleados
             // 
@@ -102,7 +102,7 @@
             // btnEliminar
             // 
             this.btnEliminar.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnEliminar.Location = new System.Drawing.Point(1548, 430);
+            this.btnEliminar.Location = new System.Drawing.Point(1437, 353);
             this.btnEliminar.Name = "btnEliminar";
             this.btnEliminar.Size = new System.Drawing.Size(100, 40);
             this.btnEliminar.TabIndex = 48;
@@ -112,7 +112,7 @@
             // btnNuevo
             // 
             this.btnNuevo.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnNuevo.Location = new System.Drawing.Point(1548, 341);
+            this.btnNuevo.Location = new System.Drawing.Point(1437, 264);
             this.btnNuevo.Margin = new System.Windows.Forms.Padding(2);
             this.btnNuevo.Name = "btnNuevo";
             this.btnNuevo.Size = new System.Drawing.Size(100, 40);
@@ -123,7 +123,7 @@
             // btnEditar
             // 
             this.btnEditar.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnEditar.Location = new System.Drawing.Point(1548, 385);
+            this.btnEditar.Location = new System.Drawing.Point(1437, 308);
             this.btnEditar.Margin = new System.Windows.Forms.Padding(2);
             this.btnEditar.Name = "btnEditar";
             this.btnEditar.Size = new System.Drawing.Size(100, 40);
@@ -142,7 +142,7 @@
             this.dgvEmpleados.ReadOnly = true;
             this.dgvEmpleados.RowHeadersWidth = 51;
             this.dgvEmpleados.RowTemplate.Height = 24;
-            this.dgvEmpleados.Size = new System.Drawing.Size(869, 685);
+            this.dgvEmpleados.Size = new System.Drawing.Size(820, 685);
             this.dgvEmpleados.TabIndex = 14;
             // 
             // gboxDatosEmpleado
@@ -177,7 +177,7 @@
             this.gboxDatosEmpleado.Controls.Add(this.lblCorreo);
             this.gboxDatosEmpleado.Controls.Add(this.lblNombres);
             this.gboxDatosEmpleado.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.gboxDatosEmpleado.Location = new System.Drawing.Point(958, 18);
+            this.gboxDatosEmpleado.Location = new System.Drawing.Point(861, 18);
             this.gboxDatosEmpleado.Margin = new System.Windows.Forms.Padding(2);
             this.gboxDatosEmpleado.Name = "gboxDatosEmpleado";
             this.gboxDatosEmpleado.Padding = new System.Windows.Forms.Padding(2);
@@ -185,6 +185,97 @@
             this.gboxDatosEmpleado.TabIndex = 13;
             this.gboxDatosEmpleado.TabStop = false;
             this.gboxDatosEmpleado.Text = "Datos";
+            // 
+            // btnBuscar
+            // 
+            this.btnBuscar.Location = new System.Drawing.Point(471, 101);
+            this.btnBuscar.Name = "btnBuscar";
+            this.btnBuscar.Size = new System.Drawing.Size(60, 23);
+            this.btnBuscar.TabIndex = 72;
+            this.btnBuscar.Text = "Buscar";
+            this.btnBuscar.UseVisualStyleBackColor = true;
+            this.btnBuscar.Click += new System.EventHandler(this.btnBuscar_Click);
+            // 
+            // lblFechaNacimiento
+            // 
+            this.lblFechaNacimiento.AutoSize = true;
+            this.lblFechaNacimiento.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Italic, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblFechaNacimiento.Location = new System.Drawing.Point(254, 287);
+            this.lblFechaNacimiento.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
+            this.lblFechaNacimiento.Name = "lblFechaNacimiento";
+            this.lblFechaNacimiento.Size = new System.Drawing.Size(72, 13);
+            this.lblFechaNacimiento.TabIndex = 71;
+            this.lblFechaNacimiento.Text = "F. Nacimiento";
+            // 
+            // dtpFehaNacimiento
+            // 
+            this.dtpFehaNacimiento.Format = System.Windows.Forms.DateTimePickerFormat.Short;
+            this.dtpFehaNacimiento.Location = new System.Drawing.Point(331, 281);
+            this.dtpFehaNacimiento.Name = "dtpFehaNacimiento";
+            this.dtpFehaNacimiento.Size = new System.Drawing.Size(106, 22);
+            this.dtpFehaNacimiento.TabIndex = 70;
+            // 
+            // btnSeleccionarFoto
+            // 
+            this.btnSeleccionarFoto.Location = new System.Drawing.Point(95, 292);
+            this.btnSeleccionarFoto.Name = "btnSeleccionarFoto";
+            this.btnSeleccionarFoto.Size = new System.Drawing.Size(97, 25);
+            this.btnSeleccionarFoto.TabIndex = 69;
+            this.btnSeleccionarFoto.Text = "Seleccionar";
+            this.btnSeleccionarFoto.UseVisualStyleBackColor = true;
+            this.btnSeleccionarFoto.Click += new System.EventHandler(this.btnSeleccionarFoto_Click);
+            // 
+            // pbFoto
+            // 
+            this.pbFoto.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            this.pbFoto.Image = global::PROYECTO_DIARS__LUIGI.Properties.Resources.LogoAcceso_Puerta_Fecha;
+            this.pbFoto.Location = new System.Drawing.Point(40, 36);
+            this.pbFoto.Name = "pbFoto";
+            this.pbFoto.Size = new System.Drawing.Size(200, 250);
+            this.pbFoto.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
+            this.pbFoto.TabIndex = 68;
+            this.pbFoto.TabStop = false;
+            // 
+            // lblTipoDoc
+            // 
+            this.lblTipoDoc.AutoSize = true;
+            this.lblTipoDoc.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Italic, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblTipoDoc.Location = new System.Drawing.Point(263, 59);
+            this.lblTipoDoc.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
+            this.lblTipoDoc.Name = "lblTipoDoc";
+            this.lblTipoDoc.Size = new System.Drawing.Size(86, 13);
+            this.lblTipoDoc.TabIndex = 67;
+            this.lblTipoDoc.Text = "Tipo Documento";
+            // 
+            // cboxTipoDoc
+            // 
+            this.cboxTipoDoc.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
+            this.cboxTipoDoc.FormattingEnabled = true;
+            this.cboxTipoDoc.Location = new System.Drawing.Point(354, 54);
+            this.cboxTipoDoc.Name = "cboxTipoDoc";
+            this.cboxTipoDoc.Size = new System.Drawing.Size(121, 24);
+            this.cboxTipoDoc.TabIndex = 66;
+            // 
+            // txtId
+            // 
+            this.txtId.Enabled = false;
+            this.txtId.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.txtId.Location = new System.Drawing.Point(486, 20);
+            this.txtId.Name = "txtId";
+            this.txtId.Size = new System.Drawing.Size(60, 22);
+            this.txtId.TabIndex = 65;
+            this.txtId.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
+            // 
+            // lblId
+            // 
+            this.lblId.AutoSize = true;
+            this.lblId.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Italic, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblId.Location = new System.Drawing.Point(460, 23);
+            this.lblId.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
+            this.lblId.Name = "lblId";
+            this.lblId.Size = new System.Drawing.Size(21, 16);
+            this.lblId.TabIndex = 64;
+            this.lblId.Text = "N°";
             // 
             // lblCargo
             // 
@@ -227,7 +318,7 @@
             // dtpFechaContratacionE
             // 
             this.dtpFechaContratacionE.Format = System.Windows.Forms.DateTimePickerFormat.Short;
-            this.dtpFechaContratacionE.Location = new System.Drawing.Point(128, 382);
+            this.dtpFechaContratacionE.Location = new System.Drawing.Point(204, 382);
             this.dtpFechaContratacionE.MinDate = new System.DateTime(1880, 12, 25, 0, 0, 0, 0);
             this.dtpFechaContratacionE.Name = "dtpFechaContratacionE";
             this.dtpFechaContratacionE.Size = new System.Drawing.Size(112, 22);
@@ -255,7 +346,7 @@
             // 
             this.lblFechaContratacion.AutoSize = true;
             this.lblFechaContratacion.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Italic, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblFechaContratacion.Location = new System.Drawing.Point(44, 387);
+            this.lblFechaContratacion.Location = new System.Drawing.Point(120, 387);
             this.lblFechaContratacion.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.lblFechaContratacion.Name = "lblFechaContratacion";
             this.lblFechaContratacion.Size = new System.Drawing.Size(79, 13);
@@ -334,7 +425,6 @@
             // 
             // txtIDEmpleado
             // 
-            this.txtIDEmpleado.Enabled = false;
             this.txtIDEmpleado.Location = new System.Drawing.Point(330, 101);
             this.txtIDEmpleado.Margin = new System.Windows.Forms.Padding(2);
             this.txtIDEmpleado.Name = "txtIDEmpleado";
@@ -409,99 +499,6 @@
             this.lblNombres.TabIndex = 0;
             this.lblNombres.Text = "Nombres";
             // 
-            // txtId
-            // 
-            this.txtId.Enabled = false;
-            this.txtId.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.txtId.Location = new System.Drawing.Point(486, 20);
-            this.txtId.Name = "txtId";
-            this.txtId.Size = new System.Drawing.Size(60, 22);
-            this.txtId.TabIndex = 65;
-            this.txtId.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
-            // 
-            // lblId
-            // 
-            this.lblId.AutoSize = true;
-            this.lblId.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Italic, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblId.Location = new System.Drawing.Point(460, 23);
-            this.lblId.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
-            this.lblId.Name = "lblId";
-            this.lblId.Size = new System.Drawing.Size(21, 16);
-            this.lblId.TabIndex = 64;
-            this.lblId.Text = "N°";
-            // 
-            // cboxTipoDoc
-            // 
-            this.cboxTipoDoc.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
-            this.cboxTipoDoc.FormattingEnabled = true;
-            this.cboxTipoDoc.Location = new System.Drawing.Point(354, 54);
-            this.cboxTipoDoc.Name = "cboxTipoDoc";
-            this.cboxTipoDoc.Size = new System.Drawing.Size(121, 24);
-            this.cboxTipoDoc.TabIndex = 66;
-            // 
-            // lblTipoDoc
-            // 
-            this.lblTipoDoc.AutoSize = true;
-            this.lblTipoDoc.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Italic, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblTipoDoc.Location = new System.Drawing.Point(263, 59);
-            this.lblTipoDoc.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
-            this.lblTipoDoc.Name = "lblTipoDoc";
-            this.lblTipoDoc.Size = new System.Drawing.Size(86, 13);
-            this.lblTipoDoc.TabIndex = 67;
-            this.lblTipoDoc.Text = "Tipo Documento";
-            // 
-            // pbFoto
-            // 
-            this.pbFoto.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
-            this.pbFoto.Image = global::PROYECTO_DIARS__LUIGI.Properties.Resources.LogoAcceso_Puerta_Fecha;
-            this.pbFoto.Location = new System.Drawing.Point(40, 36);
-            this.pbFoto.Name = "pbFoto";
-            this.pbFoto.Size = new System.Drawing.Size(200, 250);
-            this.pbFoto.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
-            this.pbFoto.TabIndex = 68;
-            this.pbFoto.TabStop = false;
-            // 
-            // openFileDialog
-            // 
-            this.openFileDialog.FileName = "openFileDialog1";
-            // 
-            // btnSeleccionarFoto
-            // 
-            this.btnSeleccionarFoto.Location = new System.Drawing.Point(95, 292);
-            this.btnSeleccionarFoto.Name = "btnSeleccionarFoto";
-            this.btnSeleccionarFoto.Size = new System.Drawing.Size(97, 25);
-            this.btnSeleccionarFoto.TabIndex = 69;
-            this.btnSeleccionarFoto.Text = "Seleccionar";
-            this.btnSeleccionarFoto.UseVisualStyleBackColor = true;
-            // 
-            // dtpFehaNacimiento
-            // 
-            this.dtpFehaNacimiento.Format = System.Windows.Forms.DateTimePickerFormat.Short;
-            this.dtpFehaNacimiento.Location = new System.Drawing.Point(331, 281);
-            this.dtpFehaNacimiento.Name = "dtpFehaNacimiento";
-            this.dtpFehaNacimiento.Size = new System.Drawing.Size(106, 22);
-            this.dtpFehaNacimiento.TabIndex = 70;
-            // 
-            // lblFechaNacimiento
-            // 
-            this.lblFechaNacimiento.AutoSize = true;
-            this.lblFechaNacimiento.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Italic, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblFechaNacimiento.Location = new System.Drawing.Point(254, 287);
-            this.lblFechaNacimiento.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
-            this.lblFechaNacimiento.Name = "lblFechaNacimiento";
-            this.lblFechaNacimiento.Size = new System.Drawing.Size(72, 13);
-            this.lblFechaNacimiento.TabIndex = 71;
-            this.lblFechaNacimiento.Text = "F. Nacimiento";
-            // 
-            // btnBuscar
-            // 
-            this.btnBuscar.Location = new System.Drawing.Point(471, 101);
-            this.btnBuscar.Name = "btnBuscar";
-            this.btnBuscar.Size = new System.Drawing.Size(60, 23);
-            this.btnBuscar.TabIndex = 72;
-            this.btnBuscar.Text = "Buscar";
-            this.btnBuscar.UseVisualStyleBackColor = true;
-            // 
             // frmEmpleados
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -512,13 +509,14 @@
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
             this.Name = "frmEmpleados";
             this.Text = "frmEmpleado";
+            this.Load += new System.EventHandler(this.frmEmpleados_Load);
             this.gboxEmpleados.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.dgvEmpleados)).EndInit();
             this.gboxDatosEmpleado.ResumeLayout(false);
             this.gboxDatosEmpleado.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.pbFoto)).EndInit();
             this.gboxEstado.ResumeLayout(false);
             this.gboxEstado.PerformLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.pbFoto)).EndInit();
             this.ResumeLayout(false);
 
         }
@@ -560,7 +558,6 @@
         private System.Windows.Forms.Label lblTipoDoc;
         private System.Windows.Forms.PictureBox pbFoto;
         private System.Windows.Forms.Button btnSeleccionarFoto;
-        private System.Windows.Forms.OpenFileDialog openFileDialog;
         private System.Windows.Forms.Label lblFechaNacimiento;
         private System.Windows.Forms.DateTimePicker dtpFehaNacimiento;
         private System.Windows.Forms.Button btnBuscar;
