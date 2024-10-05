@@ -34,27 +34,54 @@
             this.tableLayoutPanelPestañasANDUser = new System.Windows.Forms.TableLayoutPanel();
             this.tabControlPanel = new System.Windows.Forms.TabControl();
             this.tabPageVentas = new System.Windows.Forms.TabPage();
-            this.btnReporteCompras = new System.Windows.Forms.Button();
+            this.btnMetodosPago = new System.Windows.Forms.Button();
+            this.btnPromociones = new System.Windows.Forms.Button();
             this.btnReporteVentas = new System.Windows.Forms.Button();
-            this.btnCompras = new System.Windows.Forms.Button();
             this.btnVentas = new System.Windows.Forms.Button();
+            this.tabPageDevoluciones = new System.Windows.Forms.TabPage();
+            this.btnReporteDevoluciones = new System.Windows.Forms.Button();
+            this.btnDevoluciones = new System.Windows.Forms.Button();
+            this.tabPageCompras = new System.Windows.Forms.TabPage();
+            this.btnProveedores = new System.Windows.Forms.Button();
+            this.btnReporteCompras = new System.Windows.Forms.Button();
+            this.btnCompras = new System.Windows.Forms.Button();
+            this.tabPageProductos = new System.Windows.Forms.TabPage();
+            this.btnIndicacionesContraindicaciones = new System.Windows.Forms.Button();
+            this.btnUnidadesMedidaProducto = new System.Windows.Forms.Button();
+            this.btnFabricantes = new System.Windows.Forms.Button();
+            this.btnCategorias = new System.Windows.Forms.Button();
+            this.btnProductos = new System.Windows.Forms.Button();
+            this.tabPageRecetas = new System.Windows.Forms.TabPage();
+            this.btnRecetasMedicas = new System.Windows.Forms.Button();
+            this.tabPageClientes = new System.Windows.Forms.TabPage();
+            this.btnClientes = new System.Windows.Forms.Button();
             this.tabPageCaja = new System.Windows.Forms.TabPage();
-            this.btnLiquidacionDiaria = new System.Windows.Forms.Button();
             this.btnCajas = new System.Windows.Forms.Button();
+            this.btnReporteSesiones = new System.Windows.Forms.Button();
+            this.btnLiquidacionUsuario = new System.Windows.Forms.Button();
+            this.btnLiquidacionDiaria = new System.Windows.Forms.Button();
             this.tabPageDocSUNAT = new System.Windows.Forms.TabPage();
             this.btnRepVentasSUNAT = new System.Windows.Forms.Button();
             this.btnVentasSUNAT = new System.Windows.Forms.Button();
-            this.tabPageClientes = new System.Windows.Forms.TabPage();
-            this.btnProveedores = new System.Windows.Forms.Button();
-            this.btnPromociones = new System.Windows.Forms.Button();
-            this.btnEmpleados = new System.Windows.Forms.Button();
-            this.tabPageAdministrador = new System.Windows.Forms.TabPage();
-            this.btnUsuarios = new System.Windows.Forms.Button();
-            this.btnReporteSesiones = new System.Windows.Forms.Button();
-            this.btnTipoComprobantePago = new System.Windows.Forms.Button();
-            this.btnMetodosPago = new System.Windows.Forms.Button();
+            this.tabPageSucursales = new System.Windows.Forms.TabPage();
             this.btnAlmacenes = new System.Windows.Forms.Button();
             this.btnSucursales = new System.Windows.Forms.Button();
+            this.tabPageRecursos = new System.Windows.Forms.TabPage();
+            this.btnCargos = new System.Windows.Forms.Button();
+            this.btnUsuarios = new System.Windows.Forms.Button();
+            this.btnEmpleados = new System.Windows.Forms.Button();
+            this.tabPageAuditoria = new System.Windows.Forms.TabPage();
+            this.btnReportesSistema = new System.Windows.Forms.Button();
+            this.btnLogsActividadUsuarios = new System.Windows.Forms.Button();
+            this.btnCambiosRoles = new System.Windows.Forms.Button();
+            this.tabPageAdministrador = new System.Windows.Forms.TabPage();
+            this.btnEstadosVenta = new System.Windows.Forms.Button();
+            this.btnTipoIndicacion = new System.Windows.Forms.Button();
+            this.btnUnidadesMedida = new System.Windows.Forms.Button();
+            this.btnEstadosProducto = new System.Windows.Forms.Button();
+            this.btnTipoDocumento = new System.Windows.Forms.Button();
+            this.btnSeriesSucursalFB = new System.Windows.Forms.Button();
+            this.btnTipoComprobantePago = new System.Windows.Forms.Button();
             this.btnRoles = new System.Windows.Forms.Button();
             this.tabPageDashboard = new System.Windows.Forms.TabPage();
             this.btnDashboard = new System.Windows.Forms.Button();
@@ -69,51 +96,25 @@
             this.btnMaximizar = new System.Windows.Forms.Button();
             this.Minimizar = new System.Windows.Forms.Button();
             this.timerHora = new System.Windows.Forms.Timer(this.components);
-            this.btnSeriesSucursalFB = new System.Windows.Forms.Button();
-            this.btnLiquidacionUsuario = new System.Windows.Forms.Button();
-            this.btnDevoluciones = new System.Windows.Forms.Button();
-            this.tabPageProductos = new System.Windows.Forms.TabPage();
-            this.btnClientes = new System.Windows.Forms.Button();
-            this.btnProductos = new System.Windows.Forms.Button();
-            this.btnCategorias = new System.Windows.Forms.Button();
-            this.btnFabricantes = new System.Windows.Forms.Button();
-            this.btnTipoDocumento = new System.Windows.Forms.Button();
-            this.btnEstadosProducto = new System.Windows.Forms.Button();
-            this.btnUnidadesMedida = new System.Windows.Forms.Button();
-            this.tabPageRecursos = new System.Windows.Forms.TabPage();
-            this.tabPageCompras = new System.Windows.Forms.TabPage();
-            this.btnCargos = new System.Windows.Forms.Button();
-            this.btnUnidadesMedidaProducto = new System.Windows.Forms.Button();
-            this.btnTipoIndicacion = new System.Windows.Forms.Button();
-            this.btnEstadosVenta = new System.Windows.Forms.Button();
-            this.tabPageDevoluciones = new System.Windows.Forms.TabPage();
-            this.tabPageRecetas = new System.Windows.Forms.TabPage();
-            this.btnRecetasMedicas = new System.Windows.Forms.Button();
-            this.btnIndicacionesContraindicaciones = new System.Windows.Forms.Button();
-            this.btnReporteDevoluciones = new System.Windows.Forms.Button();
-            this.tabPageSucursales = new System.Windows.Forms.TabPage();
-            this.tabPageAuditoria = new System.Windows.Forms.TabPage();
-            this.btnCambiosRoles = new System.Windows.Forms.Button();
-            this.btnLogsActividadUsuarios = new System.Windows.Forms.Button();
-            this.btnReportesSistema = new System.Windows.Forms.Button();
+            this.btnInventario = new System.Windows.Forms.Button();
             this.tlpPrincipal.SuspendLayout();
             this.tableLayoutPanelPestañasANDUser.SuspendLayout();
             this.tabControlPanel.SuspendLayout();
             this.tabPageVentas.SuspendLayout();
+            this.tabPageDevoluciones.SuspendLayout();
+            this.tabPageCompras.SuspendLayout();
+            this.tabPageProductos.SuspendLayout();
+            this.tabPageRecetas.SuspendLayout();
+            this.tabPageClientes.SuspendLayout();
             this.tabPageCaja.SuspendLayout();
             this.tabPageDocSUNAT.SuspendLayout();
-            this.tabPageClientes.SuspendLayout();
+            this.tabPageSucursales.SuspendLayout();
+            this.tabPageRecursos.SuspendLayout();
+            this.tabPageAuditoria.SuspendLayout();
             this.tabPageAdministrador.SuspendLayout();
             this.tabPageDashboard.SuspendLayout();
             this.tabPagePerfil.SuspendLayout();
             this.panelUser.SuspendLayout();
-            this.tabPageProductos.SuspendLayout();
-            this.tabPageRecursos.SuspendLayout();
-            this.tabPageCompras.SuspendLayout();
-            this.tabPageDevoluciones.SuspendLayout();
-            this.tabPageRecetas.SuspendLayout();
-            this.tabPageSucursales.SuspendLayout();
-            this.tabPageAuditoria.SuspendLayout();
             this.SuspendLayout();
             // 
             // tlpPrincipal
@@ -191,14 +192,25 @@
             this.tabPageVentas.Text = "Ventas";
             this.tabPageVentas.UseVisualStyleBackColor = true;
             // 
-            // btnReporteCompras
+            // btnMetodosPago
             // 
-            this.btnReporteCompras.Location = new System.Drawing.Point(165, 4);
-            this.btnReporteCompras.Name = "btnReporteCompras";
-            this.btnReporteCompras.Size = new System.Drawing.Size(75, 75);
-            this.btnReporteCompras.TabIndex = 4;
-            this.btnReporteCompras.Text = "Reporte Compras";
-            this.btnReporteCompras.UseVisualStyleBackColor = true;
+            this.btnMetodosPago.Location = new System.Drawing.Point(168, 4);
+            this.btnMetodosPago.Name = "btnMetodosPago";
+            this.btnMetodosPago.Size = new System.Drawing.Size(75, 75);
+            this.btnMetodosPago.TabIndex = 9;
+            this.btnMetodosPago.Text = "Metodos Pago";
+            this.btnMetodosPago.UseVisualStyleBackColor = true;
+            this.btnMetodosPago.Click += new System.EventHandler(this.btnMetodosPago_Click);
+            // 
+            // btnPromociones
+            // 
+            this.btnPromociones.Location = new System.Drawing.Point(87, 4);
+            this.btnPromociones.Name = "btnPromociones";
+            this.btnPromociones.Size = new System.Drawing.Size(75, 75);
+            this.btnPromociones.TabIndex = 5;
+            this.btnPromociones.Text = "Promos";
+            this.btnPromociones.UseVisualStyleBackColor = true;
+            this.btnPromociones.Click += new System.EventHandler(this.btnPromociones_Click);
             // 
             // btnReporteVentas
             // 
@@ -208,6 +220,78 @@
             this.btnReporteVentas.TabIndex = 3;
             this.btnReporteVentas.Text = "Reporte Ventas";
             this.btnReporteVentas.UseVisualStyleBackColor = true;
+            // 
+            // btnVentas
+            // 
+            this.btnVentas.Location = new System.Drawing.Point(6, 4);
+            this.btnVentas.Name = "btnVentas";
+            this.btnVentas.Size = new System.Drawing.Size(75, 75);
+            this.btnVentas.TabIndex = 1;
+            this.btnVentas.Text = "Ventas";
+            this.btnVentas.UseVisualStyleBackColor = true;
+            this.btnVentas.Click += new System.EventHandler(this.btnVentas_Click);
+            // 
+            // tabPageDevoluciones
+            // 
+            this.tabPageDevoluciones.Controls.Add(this.btnReporteDevoluciones);
+            this.tabPageDevoluciones.Controls.Add(this.btnDevoluciones);
+            this.tabPageDevoluciones.Location = new System.Drawing.Point(4, 22);
+            this.tabPageDevoluciones.Name = "tabPageDevoluciones";
+            this.tabPageDevoluciones.Size = new System.Drawing.Size(1420, 82);
+            this.tabPageDevoluciones.TabIndex = 10;
+            this.tabPageDevoluciones.Text = "Devoluciones";
+            this.tabPageDevoluciones.UseVisualStyleBackColor = true;
+            // 
+            // btnReporteDevoluciones
+            // 
+            this.btnReporteDevoluciones.Location = new System.Drawing.Point(89, 4);
+            this.btnReporteDevoluciones.Name = "btnReporteDevoluciones";
+            this.btnReporteDevoluciones.Size = new System.Drawing.Size(82, 75);
+            this.btnReporteDevoluciones.TabIndex = 6;
+            this.btnReporteDevoluciones.Text = "Reporte Devoluciones";
+            this.btnReporteDevoluciones.UseVisualStyleBackColor = true;
+            // 
+            // btnDevoluciones
+            // 
+            this.btnDevoluciones.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnDevoluciones.Location = new System.Drawing.Point(3, 4);
+            this.btnDevoluciones.Name = "btnDevoluciones";
+            this.btnDevoluciones.Size = new System.Drawing.Size(80, 75);
+            this.btnDevoluciones.TabIndex = 5;
+            this.btnDevoluciones.Text = "Devoluciones";
+            this.btnDevoluciones.UseVisualStyleBackColor = true;
+            this.btnDevoluciones.Click += new System.EventHandler(this.btnDevoluciones_Click);
+            // 
+            // tabPageCompras
+            // 
+            this.tabPageCompras.Controls.Add(this.btnProveedores);
+            this.tabPageCompras.Controls.Add(this.btnReporteCompras);
+            this.tabPageCompras.Controls.Add(this.btnCompras);
+            this.tabPageCompras.Location = new System.Drawing.Point(4, 22);
+            this.tabPageCompras.Name = "tabPageCompras";
+            this.tabPageCompras.Size = new System.Drawing.Size(1420, 82);
+            this.tabPageCompras.TabIndex = 9;
+            this.tabPageCompras.Text = "Compras";
+            this.tabPageCompras.UseVisualStyleBackColor = true;
+            // 
+            // btnProveedores
+            // 
+            this.btnProveedores.Location = new System.Drawing.Point(84, 4);
+            this.btnProveedores.Name = "btnProveedores";
+            this.btnProveedores.Size = new System.Drawing.Size(75, 75);
+            this.btnProveedores.TabIndex = 8;
+            this.btnProveedores.Text = "Proveedores";
+            this.btnProveedores.UseVisualStyleBackColor = true;
+            this.btnProveedores.Click += new System.EventHandler(this.btnProveedores_Click);
+            // 
+            // btnReporteCompras
+            // 
+            this.btnReporteCompras.Location = new System.Drawing.Point(165, 4);
+            this.btnReporteCompras.Name = "btnReporteCompras";
+            this.btnReporteCompras.Size = new System.Drawing.Size(75, 75);
+            this.btnReporteCompras.TabIndex = 4;
+            this.btnReporteCompras.Text = "Reporte Compras";
+            this.btnReporteCompras.UseVisualStyleBackColor = true;
             // 
             // btnCompras
             // 
@@ -219,15 +303,111 @@
             this.btnCompras.UseVisualStyleBackColor = true;
             this.btnCompras.Click += new System.EventHandler(this.btnCompras_Click);
             // 
-            // btnVentas
+            // tabPageProductos
             // 
-            this.btnVentas.Location = new System.Drawing.Point(6, 4);
-            this.btnVentas.Name = "btnVentas";
-            this.btnVentas.Size = new System.Drawing.Size(75, 75);
-            this.btnVentas.TabIndex = 1;
-            this.btnVentas.Text = "Ventas";
-            this.btnVentas.UseVisualStyleBackColor = true;
-            this.btnVentas.Click += new System.EventHandler(this.btnVentas_Click);
+            this.tabPageProductos.Controls.Add(this.btnInventario);
+            this.tabPageProductos.Controls.Add(this.btnIndicacionesContraindicaciones);
+            this.tabPageProductos.Controls.Add(this.btnUnidadesMedidaProducto);
+            this.tabPageProductos.Controls.Add(this.btnFabricantes);
+            this.tabPageProductos.Controls.Add(this.btnCategorias);
+            this.tabPageProductos.Controls.Add(this.btnProductos);
+            this.tabPageProductos.Location = new System.Drawing.Point(4, 22);
+            this.tabPageProductos.Name = "tabPageProductos";
+            this.tabPageProductos.Size = new System.Drawing.Size(1420, 82);
+            this.tabPageProductos.TabIndex = 7;
+            this.tabPageProductos.Text = "Productos";
+            this.tabPageProductos.UseVisualStyleBackColor = true;
+            // 
+            // btnIndicacionesContraindicaciones
+            // 
+            this.btnIndicacionesContraindicaciones.Location = new System.Drawing.Point(408, 4);
+            this.btnIndicacionesContraindicaciones.Name = "btnIndicacionesContraindicaciones";
+            this.btnIndicacionesContraindicaciones.Size = new System.Drawing.Size(75, 75);
+            this.btnIndicacionesContraindicaciones.TabIndex = 17;
+            this.btnIndicacionesContraindicaciones.Text = "Indicaciones Producto";
+            this.btnIndicacionesContraindicaciones.UseVisualStyleBackColor = true;
+            this.btnIndicacionesContraindicaciones.Click += new System.EventHandler(this.btnIndicacionesContraindicaciones_Click);
+            // 
+            // btnUnidadesMedidaProducto
+            // 
+            this.btnUnidadesMedidaProducto.Location = new System.Drawing.Point(327, 4);
+            this.btnUnidadesMedidaProducto.Name = "btnUnidadesMedidaProducto";
+            this.btnUnidadesMedidaProducto.Size = new System.Drawing.Size(75, 75);
+            this.btnUnidadesMedidaProducto.TabIndex = 14;
+            this.btnUnidadesMedidaProducto.Text = "Unidades Medida Producto";
+            this.btnUnidadesMedidaProducto.UseVisualStyleBackColor = true;
+            this.btnUnidadesMedidaProducto.Click += new System.EventHandler(this.btnUnidadesMedidaProducto_Click);
+            // 
+            // btnFabricantes
+            // 
+            this.btnFabricantes.Location = new System.Drawing.Point(246, 4);
+            this.btnFabricantes.Name = "btnFabricantes";
+            this.btnFabricantes.Size = new System.Drawing.Size(75, 75);
+            this.btnFabricantes.TabIndex = 13;
+            this.btnFabricantes.Text = "Fabricantes (Laboratorio)";
+            this.btnFabricantes.UseVisualStyleBackColor = true;
+            this.btnFabricantes.Click += new System.EventHandler(this.btnFabricantes_Click);
+            // 
+            // btnCategorias
+            // 
+            this.btnCategorias.Location = new System.Drawing.Point(165, 4);
+            this.btnCategorias.Name = "btnCategorias";
+            this.btnCategorias.Size = new System.Drawing.Size(75, 75);
+            this.btnCategorias.TabIndex = 6;
+            this.btnCategorias.Text = "Categorias";
+            this.btnCategorias.UseVisualStyleBackColor = true;
+            this.btnCategorias.Click += new System.EventHandler(this.btnCategorias_Click);
+            // 
+            // btnProductos
+            // 
+            this.btnProductos.Location = new System.Drawing.Point(3, 4);
+            this.btnProductos.Name = "btnProductos";
+            this.btnProductos.Size = new System.Drawing.Size(75, 75);
+            this.btnProductos.TabIndex = 5;
+            this.btnProductos.Text = "Productos";
+            this.btnProductos.UseVisualStyleBackColor = true;
+            this.btnProductos.Click += new System.EventHandler(this.btnProductos_Click);
+            // 
+            // tabPageRecetas
+            // 
+            this.tabPageRecetas.Controls.Add(this.btnRecetasMedicas);
+            this.tabPageRecetas.Location = new System.Drawing.Point(4, 22);
+            this.tabPageRecetas.Name = "tabPageRecetas";
+            this.tabPageRecetas.Size = new System.Drawing.Size(1420, 82);
+            this.tabPageRecetas.TabIndex = 11;
+            this.tabPageRecetas.Text = "Recetas";
+            this.tabPageRecetas.UseVisualStyleBackColor = true;
+            // 
+            // btnRecetasMedicas
+            // 
+            this.btnRecetasMedicas.Location = new System.Drawing.Point(3, 3);
+            this.btnRecetasMedicas.Name = "btnRecetasMedicas";
+            this.btnRecetasMedicas.Size = new System.Drawing.Size(75, 75);
+            this.btnRecetasMedicas.TabIndex = 16;
+            this.btnRecetasMedicas.Text = "Recetas Medicas";
+            this.btnRecetasMedicas.UseVisualStyleBackColor = true;
+            this.btnRecetasMedicas.Click += new System.EventHandler(this.btnRecetasMedicas_Click);
+            // 
+            // tabPageClientes
+            // 
+            this.tabPageClientes.Controls.Add(this.btnClientes);
+            this.tabPageClientes.Location = new System.Drawing.Point(4, 22);
+            this.tabPageClientes.Name = "tabPageClientes";
+            this.tabPageClientes.Padding = new System.Windows.Forms.Padding(3);
+            this.tabPageClientes.Size = new System.Drawing.Size(1420, 82);
+            this.tabPageClientes.TabIndex = 0;
+            this.tabPageClientes.Text = "Clientes";
+            this.tabPageClientes.UseVisualStyleBackColor = true;
+            // 
+            // btnClientes
+            // 
+            this.btnClientes.Location = new System.Drawing.Point(6, 4);
+            this.btnClientes.Name = "btnClientes";
+            this.btnClientes.Size = new System.Drawing.Size(75, 75);
+            this.btnClientes.TabIndex = 2;
+            this.btnClientes.Text = "Clientes";
+            this.btnClientes.UseVisualStyleBackColor = true;
+            this.btnClientes.Click += new System.EventHandler(this.btnClientes_Click);
             // 
             // tabPageCaja
             // 
@@ -242,15 +422,6 @@
             this.tabPageCaja.Text = "Caja";
             this.tabPageCaja.UseVisualStyleBackColor = true;
             // 
-            // btnLiquidacionDiaria
-            // 
-            this.btnLiquidacionDiaria.Location = new System.Drawing.Point(165, 4);
-            this.btnLiquidacionDiaria.Name = "btnLiquidacionDiaria";
-            this.btnLiquidacionDiaria.Size = new System.Drawing.Size(75, 75);
-            this.btnLiquidacionDiaria.TabIndex = 3;
-            this.btnLiquidacionDiaria.Text = "Liquidacion Diaria";
-            this.btnLiquidacionDiaria.UseVisualStyleBackColor = true;
-            // 
             // btnCajas
             // 
             this.btnCajas.Location = new System.Drawing.Point(3, 4);
@@ -260,6 +431,34 @@
             this.btnCajas.Text = "Cajas";
             this.btnCajas.UseVisualStyleBackColor = true;
             this.btnCajas.Click += new System.EventHandler(this.btnCajas_Click);
+            // 
+            // btnReporteSesiones
+            // 
+            this.btnReporteSesiones.Location = new System.Drawing.Point(246, 4);
+            this.btnReporteSesiones.Name = "btnReporteSesiones";
+            this.btnReporteSesiones.Size = new System.Drawing.Size(80, 75);
+            this.btnReporteSesiones.TabIndex = 11;
+            this.btnReporteSesiones.Text = "Reporte Sesiones";
+            this.btnReporteSesiones.UseVisualStyleBackColor = true;
+            // 
+            // btnLiquidacionUsuario
+            // 
+            this.btnLiquidacionUsuario.Location = new System.Drawing.Point(84, 4);
+            this.btnLiquidacionUsuario.Name = "btnLiquidacionUsuario";
+            this.btnLiquidacionUsuario.Size = new System.Drawing.Size(75, 75);
+            this.btnLiquidacionUsuario.TabIndex = 15;
+            this.btnLiquidacionUsuario.Text = "Liquidacion Usuario";
+            this.btnLiquidacionUsuario.UseVisualStyleBackColor = true;
+            this.btnLiquidacionUsuario.Click += new System.EventHandler(this.btnLiquidacionUsuario_Click);
+            // 
+            // btnLiquidacionDiaria
+            // 
+            this.btnLiquidacionDiaria.Location = new System.Drawing.Point(165, 4);
+            this.btnLiquidacionDiaria.Name = "btnLiquidacionDiaria";
+            this.btnLiquidacionDiaria.Size = new System.Drawing.Size(75, 75);
+            this.btnLiquidacionDiaria.TabIndex = 3;
+            this.btnLiquidacionDiaria.Text = "Liquidacion Diaria";
+            this.btnLiquidacionDiaria.UseVisualStyleBackColor = true;
             // 
             // tabPageDocSUNAT
             // 
@@ -293,102 +492,16 @@
             this.btnVentasSUNAT.UseVisualStyleBackColor = true;
             this.btnVentasSUNAT.Click += new System.EventHandler(this.btnVentasSUNAT_Click);
             // 
-            // tabPageClientes
+            // tabPageSucursales
             // 
-            this.tabPageClientes.Controls.Add(this.btnClientes);
-            this.tabPageClientes.Location = new System.Drawing.Point(4, 22);
-            this.tabPageClientes.Name = "tabPageClientes";
-            this.tabPageClientes.Padding = new System.Windows.Forms.Padding(3);
-            this.tabPageClientes.Size = new System.Drawing.Size(1420, 82);
-            this.tabPageClientes.TabIndex = 0;
-            this.tabPageClientes.Text = "Clientes";
-            this.tabPageClientes.UseVisualStyleBackColor = true;
-            // 
-            // btnProveedores
-            // 
-            this.btnProveedores.Location = new System.Drawing.Point(84, 4);
-            this.btnProveedores.Name = "btnProveedores";
-            this.btnProveedores.Size = new System.Drawing.Size(75, 75);
-            this.btnProveedores.TabIndex = 8;
-            this.btnProveedores.Text = "Proveedores";
-            this.btnProveedores.UseVisualStyleBackColor = true;
-            this.btnProveedores.Click += new System.EventHandler(this.btnProveedores_Click);
-            // 
-            // btnPromociones
-            // 
-            this.btnPromociones.Location = new System.Drawing.Point(87, 4);
-            this.btnPromociones.Name = "btnPromociones";
-            this.btnPromociones.Size = new System.Drawing.Size(75, 75);
-            this.btnPromociones.TabIndex = 5;
-            this.btnPromociones.Text = "Promos";
-            this.btnPromociones.UseVisualStyleBackColor = true;
-            this.btnPromociones.Click += new System.EventHandler(this.btnPromociones_Click);
-            // 
-            // btnEmpleados
-            // 
-            this.btnEmpleados.Location = new System.Drawing.Point(3, 4);
-            this.btnEmpleados.Name = "btnEmpleados";
-            this.btnEmpleados.Size = new System.Drawing.Size(75, 75);
-            this.btnEmpleados.TabIndex = 3;
-            this.btnEmpleados.Text = "Empleados";
-            this.btnEmpleados.UseVisualStyleBackColor = true;
-            this.btnEmpleados.Click += new System.EventHandler(this.btnEmpleados_Click);
-            // 
-            // tabPageAdministrador
-            // 
-            this.tabPageAdministrador.Controls.Add(this.btnEstadosVenta);
-            this.tabPageAdministrador.Controls.Add(this.btnTipoIndicacion);
-            this.tabPageAdministrador.Controls.Add(this.btnUnidadesMedida);
-            this.tabPageAdministrador.Controls.Add(this.btnEstadosProducto);
-            this.tabPageAdministrador.Controls.Add(this.btnTipoDocumento);
-            this.tabPageAdministrador.Controls.Add(this.btnSeriesSucursalFB);
-            this.tabPageAdministrador.Controls.Add(this.btnTipoComprobantePago);
-            this.tabPageAdministrador.Controls.Add(this.btnRoles);
-            this.tabPageAdministrador.Location = new System.Drawing.Point(4, 22);
-            this.tabPageAdministrador.Name = "tabPageAdministrador";
-            this.tabPageAdministrador.Size = new System.Drawing.Size(1420, 82);
-            this.tabPageAdministrador.TabIndex = 5;
-            this.tabPageAdministrador.Text = "Administrador";
-            this.tabPageAdministrador.UseVisualStyleBackColor = true;
-            // 
-            // btnUsuarios
-            // 
-            this.btnUsuarios.Location = new System.Drawing.Point(84, 4);
-            this.btnUsuarios.Name = "btnUsuarios";
-            this.btnUsuarios.Size = new System.Drawing.Size(75, 75);
-            this.btnUsuarios.TabIndex = 13;
-            this.btnUsuarios.Text = "Usuarios";
-            this.btnUsuarios.UseVisualStyleBackColor = true;
-            this.btnUsuarios.Click += new System.EventHandler(this.btnUsuarios_Click);
-            // 
-            // btnReporteSesiones
-            // 
-            this.btnReporteSesiones.Location = new System.Drawing.Point(246, 4);
-            this.btnReporteSesiones.Name = "btnReporteSesiones";
-            this.btnReporteSesiones.Size = new System.Drawing.Size(80, 75);
-            this.btnReporteSesiones.TabIndex = 11;
-            this.btnReporteSesiones.Text = "Reporte Sesiones";
-            this.btnReporteSesiones.UseVisualStyleBackColor = true;
-            // 
-            // btnTipoComprobantePago
-            // 
-            this.btnTipoComprobantePago.Location = new System.Drawing.Point(165, 4);
-            this.btnTipoComprobantePago.Name = "btnTipoComprobantePago";
-            this.btnTipoComprobantePago.Size = new System.Drawing.Size(80, 75);
-            this.btnTipoComprobantePago.TabIndex = 10;
-            this.btnTipoComprobantePago.Text = "Tipo Comprobante Pago";
-            this.btnTipoComprobantePago.UseVisualStyleBackColor = true;
-            this.btnTipoComprobantePago.Click += new System.EventHandler(this.btnTipoComprobantePago_Click);
-            // 
-            // btnMetodosPago
-            // 
-            this.btnMetodosPago.Location = new System.Drawing.Point(168, 4);
-            this.btnMetodosPago.Name = "btnMetodosPago";
-            this.btnMetodosPago.Size = new System.Drawing.Size(75, 75);
-            this.btnMetodosPago.TabIndex = 9;
-            this.btnMetodosPago.Text = "Metodos Pago";
-            this.btnMetodosPago.UseVisualStyleBackColor = true;
-            this.btnMetodosPago.Click += new System.EventHandler(this.btnMetodosPago_Click);
+            this.tabPageSucursales.Controls.Add(this.btnAlmacenes);
+            this.tabPageSucursales.Controls.Add(this.btnSucursales);
+            this.tabPageSucursales.Location = new System.Drawing.Point(4, 22);
+            this.tabPageSucursales.Name = "tabPageSucursales";
+            this.tabPageSucursales.Size = new System.Drawing.Size(1420, 82);
+            this.tabPageSucursales.TabIndex = 12;
+            this.tabPageSucursales.Text = "Sucursales";
+            this.tabPageSucursales.UseVisualStyleBackColor = true;
             // 
             // btnAlmacenes
             // 
@@ -409,6 +522,177 @@
             this.btnSucursales.Text = "Sucursales";
             this.btnSucursales.UseVisualStyleBackColor = true;
             this.btnSucursales.Click += new System.EventHandler(this.btnSucursales_Click);
+            // 
+            // tabPageRecursos
+            // 
+            this.tabPageRecursos.Controls.Add(this.btnCargos);
+            this.tabPageRecursos.Controls.Add(this.btnUsuarios);
+            this.tabPageRecursos.Controls.Add(this.btnEmpleados);
+            this.tabPageRecursos.Location = new System.Drawing.Point(4, 22);
+            this.tabPageRecursos.Name = "tabPageRecursos";
+            this.tabPageRecursos.Size = new System.Drawing.Size(1420, 82);
+            this.tabPageRecursos.TabIndex = 8;
+            this.tabPageRecursos.Text = "Recursos";
+            this.tabPageRecursos.UseVisualStyleBackColor = true;
+            // 
+            // btnCargos
+            // 
+            this.btnCargos.Location = new System.Drawing.Point(165, 4);
+            this.btnCargos.Name = "btnCargos";
+            this.btnCargos.Size = new System.Drawing.Size(75, 75);
+            this.btnCargos.TabIndex = 14;
+            this.btnCargos.Text = "Cargos";
+            this.btnCargos.UseVisualStyleBackColor = true;
+            this.btnCargos.Click += new System.EventHandler(this.btnCargos_Click);
+            // 
+            // btnUsuarios
+            // 
+            this.btnUsuarios.Location = new System.Drawing.Point(84, 4);
+            this.btnUsuarios.Name = "btnUsuarios";
+            this.btnUsuarios.Size = new System.Drawing.Size(75, 75);
+            this.btnUsuarios.TabIndex = 13;
+            this.btnUsuarios.Text = "Usuarios";
+            this.btnUsuarios.UseVisualStyleBackColor = true;
+            this.btnUsuarios.Click += new System.EventHandler(this.btnUsuarios_Click);
+            // 
+            // btnEmpleados
+            // 
+            this.btnEmpleados.Location = new System.Drawing.Point(3, 4);
+            this.btnEmpleados.Name = "btnEmpleados";
+            this.btnEmpleados.Size = new System.Drawing.Size(75, 75);
+            this.btnEmpleados.TabIndex = 3;
+            this.btnEmpleados.Text = "Empleados";
+            this.btnEmpleados.UseVisualStyleBackColor = true;
+            this.btnEmpleados.Click += new System.EventHandler(this.btnEmpleados_Click);
+            // 
+            // tabPageAuditoria
+            // 
+            this.tabPageAuditoria.Controls.Add(this.btnReportesSistema);
+            this.tabPageAuditoria.Controls.Add(this.btnLogsActividadUsuarios);
+            this.tabPageAuditoria.Controls.Add(this.btnCambiosRoles);
+            this.tabPageAuditoria.Location = new System.Drawing.Point(4, 22);
+            this.tabPageAuditoria.Name = "tabPageAuditoria";
+            this.tabPageAuditoria.Size = new System.Drawing.Size(1420, 82);
+            this.tabPageAuditoria.TabIndex = 14;
+            this.tabPageAuditoria.Text = "Auditoria";
+            this.tabPageAuditoria.UseVisualStyleBackColor = true;
+            // 
+            // btnReportesSistema
+            // 
+            this.btnReportesSistema.Location = new System.Drawing.Point(165, 4);
+            this.btnReportesSistema.Name = "btnReportesSistema";
+            this.btnReportesSistema.Size = new System.Drawing.Size(75, 75);
+            this.btnReportesSistema.TabIndex = 17;
+            this.btnReportesSistema.Text = "Reportes Sistema";
+            this.btnReportesSistema.UseVisualStyleBackColor = true;
+            this.btnReportesSistema.Click += new System.EventHandler(this.btnReportesSistema_Click);
+            // 
+            // btnLogsActividadUsuarios
+            // 
+            this.btnLogsActividadUsuarios.Location = new System.Drawing.Point(84, 4);
+            this.btnLogsActividadUsuarios.Name = "btnLogsActividadUsuarios";
+            this.btnLogsActividadUsuarios.Size = new System.Drawing.Size(75, 75);
+            this.btnLogsActividadUsuarios.TabIndex = 16;
+            this.btnLogsActividadUsuarios.Text = "Actividad Usuarios";
+            this.btnLogsActividadUsuarios.UseVisualStyleBackColor = true;
+            this.btnLogsActividadUsuarios.Click += new System.EventHandler(this.btnLogsActividadUsuarios_Click);
+            // 
+            // btnCambiosRoles
+            // 
+            this.btnCambiosRoles.Location = new System.Drawing.Point(3, 4);
+            this.btnCambiosRoles.Name = "btnCambiosRoles";
+            this.btnCambiosRoles.Size = new System.Drawing.Size(75, 75);
+            this.btnCambiosRoles.TabIndex = 15;
+            this.btnCambiosRoles.Text = "Cambios Roles";
+            this.btnCambiosRoles.UseVisualStyleBackColor = true;
+            this.btnCambiosRoles.Click += new System.EventHandler(this.btnCambiosRoles_Click);
+            // 
+            // tabPageAdministrador
+            // 
+            this.tabPageAdministrador.Controls.Add(this.btnEstadosVenta);
+            this.tabPageAdministrador.Controls.Add(this.btnTipoIndicacion);
+            this.tabPageAdministrador.Controls.Add(this.btnUnidadesMedida);
+            this.tabPageAdministrador.Controls.Add(this.btnEstadosProducto);
+            this.tabPageAdministrador.Controls.Add(this.btnTipoDocumento);
+            this.tabPageAdministrador.Controls.Add(this.btnSeriesSucursalFB);
+            this.tabPageAdministrador.Controls.Add(this.btnTipoComprobantePago);
+            this.tabPageAdministrador.Controls.Add(this.btnRoles);
+            this.tabPageAdministrador.Location = new System.Drawing.Point(4, 22);
+            this.tabPageAdministrador.Name = "tabPageAdministrador";
+            this.tabPageAdministrador.Size = new System.Drawing.Size(1420, 82);
+            this.tabPageAdministrador.TabIndex = 5;
+            this.tabPageAdministrador.Text = "Administrador";
+            this.tabPageAdministrador.UseVisualStyleBackColor = true;
+            // 
+            // btnEstadosVenta
+            // 
+            this.btnEstadosVenta.Location = new System.Drawing.Point(332, 4);
+            this.btnEstadosVenta.Name = "btnEstadosVenta";
+            this.btnEstadosVenta.Size = new System.Drawing.Size(75, 75);
+            this.btnEstadosVenta.TabIndex = 20;
+            this.btnEstadosVenta.Text = "Estados Venta";
+            this.btnEstadosVenta.UseVisualStyleBackColor = true;
+            this.btnEstadosVenta.Click += new System.EventHandler(this.btnEstadosVenta_Click);
+            // 
+            // btnTipoIndicacion
+            // 
+            this.btnTipoIndicacion.Location = new System.Drawing.Point(494, 4);
+            this.btnTipoIndicacion.Name = "btnTipoIndicacion";
+            this.btnTipoIndicacion.Size = new System.Drawing.Size(75, 75);
+            this.btnTipoIndicacion.TabIndex = 19;
+            this.btnTipoIndicacion.Text = "Tipo Indicacion";
+            this.btnTipoIndicacion.UseVisualStyleBackColor = true;
+            this.btnTipoIndicacion.Click += new System.EventHandler(this.btnTipoIndicacion_Click);
+            // 
+            // btnUnidadesMedida
+            // 
+            this.btnUnidadesMedida.Location = new System.Drawing.Point(413, 4);
+            this.btnUnidadesMedida.Name = "btnUnidadesMedida";
+            this.btnUnidadesMedida.Size = new System.Drawing.Size(75, 75);
+            this.btnUnidadesMedida.TabIndex = 18;
+            this.btnUnidadesMedida.Text = "Unidades Medida";
+            this.btnUnidadesMedida.UseVisualStyleBackColor = true;
+            this.btnUnidadesMedida.Click += new System.EventHandler(this.btnUnidadesMedida_Click);
+            // 
+            // btnEstadosProducto
+            // 
+            this.btnEstadosProducto.Location = new System.Drawing.Point(251, 4);
+            this.btnEstadosProducto.Name = "btnEstadosProducto";
+            this.btnEstadosProducto.Size = new System.Drawing.Size(75, 75);
+            this.btnEstadosProducto.TabIndex = 17;
+            this.btnEstadosProducto.Text = "Estados Producto";
+            this.btnEstadosProducto.UseVisualStyleBackColor = true;
+            this.btnEstadosProducto.Click += new System.EventHandler(this.btnEstadosProducto_Click);
+            // 
+            // btnTipoDocumento
+            // 
+            this.btnTipoDocumento.Location = new System.Drawing.Point(84, 4);
+            this.btnTipoDocumento.Name = "btnTipoDocumento";
+            this.btnTipoDocumento.Size = new System.Drawing.Size(75, 75);
+            this.btnTipoDocumento.TabIndex = 16;
+            this.btnTipoDocumento.Text = "Tipo Documento";
+            this.btnTipoDocumento.UseVisualStyleBackColor = true;
+            this.btnTipoDocumento.Click += new System.EventHandler(this.btnTipoDocumento_Click);
+            // 
+            // btnSeriesSucursalFB
+            // 
+            this.btnSeriesSucursalFB.Location = new System.Drawing.Point(575, 4);
+            this.btnSeriesSucursalFB.Name = "btnSeriesSucursalFB";
+            this.btnSeriesSucursalFB.Size = new System.Drawing.Size(75, 75);
+            this.btnSeriesSucursalFB.TabIndex = 14;
+            this.btnSeriesSucursalFB.Text = "Series\r\nB F G";
+            this.btnSeriesSucursalFB.UseVisualStyleBackColor = true;
+            this.btnSeriesSucursalFB.Click += new System.EventHandler(this.btnSeriesSucursalFB_Click);
+            // 
+            // btnTipoComprobantePago
+            // 
+            this.btnTipoComprobantePago.Location = new System.Drawing.Point(165, 4);
+            this.btnTipoComprobantePago.Name = "btnTipoComprobantePago";
+            this.btnTipoComprobantePago.Size = new System.Drawing.Size(80, 75);
+            this.btnTipoComprobantePago.TabIndex = 10;
+            this.btnTipoComprobantePago.Text = "Tipo Comprobante Pago";
+            this.btnTipoComprobantePago.UseVisualStyleBackColor = true;
+            this.btnTipoComprobantePago.Click += new System.EventHandler(this.btnTipoComprobantePago_Click);
             // 
             // btnRoles
             // 
@@ -553,287 +837,14 @@
             this.timerHora.Enabled = true;
             this.timerHora.Tick += new System.EventHandler(this.timerHora_Tick);
             // 
-            // btnSeriesSucursalFB
+            // btnInventario
             // 
-            this.btnSeriesSucursalFB.Location = new System.Drawing.Point(575, 4);
-            this.btnSeriesSucursalFB.Name = "btnSeriesSucursalFB";
-            this.btnSeriesSucursalFB.Size = new System.Drawing.Size(75, 75);
-            this.btnSeriesSucursalFB.TabIndex = 14;
-            this.btnSeriesSucursalFB.Text = "Series\r\nB F G";
-            this.btnSeriesSucursalFB.UseVisualStyleBackColor = true;
-            this.btnSeriesSucursalFB.Click += new System.EventHandler(this.btnSeriesSucursalFB_Click);
-            // 
-            // btnLiquidacionUsuario
-            // 
-            this.btnLiquidacionUsuario.Location = new System.Drawing.Point(84, 4);
-            this.btnLiquidacionUsuario.Name = "btnLiquidacionUsuario";
-            this.btnLiquidacionUsuario.Size = new System.Drawing.Size(75, 75);
-            this.btnLiquidacionUsuario.TabIndex = 15;
-            this.btnLiquidacionUsuario.Text = "Liquidacion Usuario";
-            this.btnLiquidacionUsuario.UseVisualStyleBackColor = true;
-            this.btnLiquidacionUsuario.Click += new System.EventHandler(this.btnLiquidacionUsuario_Click);
-            // 
-            // btnDevoluciones
-            // 
-            this.btnDevoluciones.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnDevoluciones.Location = new System.Drawing.Point(3, 4);
-            this.btnDevoluciones.Name = "btnDevoluciones";
-            this.btnDevoluciones.Size = new System.Drawing.Size(80, 75);
-            this.btnDevoluciones.TabIndex = 5;
-            this.btnDevoluciones.Text = "Devoluciones";
-            this.btnDevoluciones.UseVisualStyleBackColor = true;
-            this.btnDevoluciones.Click += new System.EventHandler(this.btnDevoluciones_Click);
-            // 
-            // tabPageProductos
-            // 
-            this.tabPageProductos.Controls.Add(this.btnIndicacionesContraindicaciones);
-            this.tabPageProductos.Controls.Add(this.btnUnidadesMedidaProducto);
-            this.tabPageProductos.Controls.Add(this.btnFabricantes);
-            this.tabPageProductos.Controls.Add(this.btnCategorias);
-            this.tabPageProductos.Controls.Add(this.btnProductos);
-            this.tabPageProductos.Location = new System.Drawing.Point(4, 22);
-            this.tabPageProductos.Name = "tabPageProductos";
-            this.tabPageProductos.Size = new System.Drawing.Size(1420, 82);
-            this.tabPageProductos.TabIndex = 7;
-            this.tabPageProductos.Text = "Productos";
-            this.tabPageProductos.UseVisualStyleBackColor = true;
-            // 
-            // btnClientes
-            // 
-            this.btnClientes.Location = new System.Drawing.Point(6, 4);
-            this.btnClientes.Name = "btnClientes";
-            this.btnClientes.Size = new System.Drawing.Size(75, 75);
-            this.btnClientes.TabIndex = 2;
-            this.btnClientes.Text = "Clientes";
-            this.btnClientes.UseVisualStyleBackColor = true;
-            this.btnClientes.Click += new System.EventHandler(this.btnClientes_Click);
-            // 
-            // btnProductos
-            // 
-            this.btnProductos.Location = new System.Drawing.Point(3, 4);
-            this.btnProductos.Name = "btnProductos";
-            this.btnProductos.Size = new System.Drawing.Size(75, 75);
-            this.btnProductos.TabIndex = 5;
-            this.btnProductos.Text = "Productos";
-            this.btnProductos.UseVisualStyleBackColor = true;
-            this.btnProductos.Click += new System.EventHandler(this.btnProductos_Click);
-            // 
-            // btnCategorias
-            // 
-            this.btnCategorias.Location = new System.Drawing.Point(84, 4);
-            this.btnCategorias.Name = "btnCategorias";
-            this.btnCategorias.Size = new System.Drawing.Size(75, 75);
-            this.btnCategorias.TabIndex = 6;
-            this.btnCategorias.Text = "Categorias";
-            this.btnCategorias.UseVisualStyleBackColor = true;
-            this.btnCategorias.Click += new System.EventHandler(this.btnCategorias_Click);
-            // 
-            // btnFabricantes
-            // 
-            this.btnFabricantes.Location = new System.Drawing.Point(165, 4);
-            this.btnFabricantes.Name = "btnFabricantes";
-            this.btnFabricantes.Size = new System.Drawing.Size(75, 75);
-            this.btnFabricantes.TabIndex = 13;
-            this.btnFabricantes.Text = "Fabricantes (Laboratorio)";
-            this.btnFabricantes.UseVisualStyleBackColor = true;
-            this.btnFabricantes.Click += new System.EventHandler(this.btnFabricantes_Click);
-            // 
-            // btnTipoDocumento
-            // 
-            this.btnTipoDocumento.Location = new System.Drawing.Point(84, 4);
-            this.btnTipoDocumento.Name = "btnTipoDocumento";
-            this.btnTipoDocumento.Size = new System.Drawing.Size(75, 75);
-            this.btnTipoDocumento.TabIndex = 16;
-            this.btnTipoDocumento.Text = "Tipo Documento";
-            this.btnTipoDocumento.UseVisualStyleBackColor = true;
-            this.btnTipoDocumento.Click += new System.EventHandler(this.btnTipoDocumento_Click);
-            // 
-            // btnEstadosProducto
-            // 
-            this.btnEstadosProducto.Location = new System.Drawing.Point(251, 4);
-            this.btnEstadosProducto.Name = "btnEstadosProducto";
-            this.btnEstadosProducto.Size = new System.Drawing.Size(75, 75);
-            this.btnEstadosProducto.TabIndex = 17;
-            this.btnEstadosProducto.Text = "Estados Producto";
-            this.btnEstadosProducto.UseVisualStyleBackColor = true;
-            this.btnEstadosProducto.Click += new System.EventHandler(this.btnEstadosProducto_Click);
-            // 
-            // btnUnidadesMedida
-            // 
-            this.btnUnidadesMedida.Location = new System.Drawing.Point(413, 4);
-            this.btnUnidadesMedida.Name = "btnUnidadesMedida";
-            this.btnUnidadesMedida.Size = new System.Drawing.Size(75, 75);
-            this.btnUnidadesMedida.TabIndex = 18;
-            this.btnUnidadesMedida.Text = "Unidades Medida";
-            this.btnUnidadesMedida.UseVisualStyleBackColor = true;
-            this.btnUnidadesMedida.Click += new System.EventHandler(this.btnUnidadesMedida_Click);
-            // 
-            // tabPageRecursos
-            // 
-            this.tabPageRecursos.Controls.Add(this.btnCargos);
-            this.tabPageRecursos.Controls.Add(this.btnUsuarios);
-            this.tabPageRecursos.Controls.Add(this.btnEmpleados);
-            this.tabPageRecursos.Location = new System.Drawing.Point(4, 22);
-            this.tabPageRecursos.Name = "tabPageRecursos";
-            this.tabPageRecursos.Size = new System.Drawing.Size(1420, 82);
-            this.tabPageRecursos.TabIndex = 8;
-            this.tabPageRecursos.Text = "Recursos";
-            this.tabPageRecursos.UseVisualStyleBackColor = true;
-            // 
-            // tabPageCompras
-            // 
-            this.tabPageCompras.Controls.Add(this.btnProveedores);
-            this.tabPageCompras.Controls.Add(this.btnReporteCompras);
-            this.tabPageCompras.Controls.Add(this.btnCompras);
-            this.tabPageCompras.Location = new System.Drawing.Point(4, 22);
-            this.tabPageCompras.Name = "tabPageCompras";
-            this.tabPageCompras.Size = new System.Drawing.Size(1420, 82);
-            this.tabPageCompras.TabIndex = 9;
-            this.tabPageCompras.Text = "Compras";
-            this.tabPageCompras.UseVisualStyleBackColor = true;
-            // 
-            // btnCargos
-            // 
-            this.btnCargos.Location = new System.Drawing.Point(165, 4);
-            this.btnCargos.Name = "btnCargos";
-            this.btnCargos.Size = new System.Drawing.Size(75, 75);
-            this.btnCargos.TabIndex = 14;
-            this.btnCargos.Text = "Cargos";
-            this.btnCargos.UseVisualStyleBackColor = true;
-            this.btnCargos.Click += new System.EventHandler(this.btnCargos_Click);
-            // 
-            // btnUnidadesMedidaProducto
-            // 
-            this.btnUnidadesMedidaProducto.Location = new System.Drawing.Point(246, 4);
-            this.btnUnidadesMedidaProducto.Name = "btnUnidadesMedidaProducto";
-            this.btnUnidadesMedidaProducto.Size = new System.Drawing.Size(75, 75);
-            this.btnUnidadesMedidaProducto.TabIndex = 14;
-            this.btnUnidadesMedidaProducto.Text = "Unidades Medida Producto";
-            this.btnUnidadesMedidaProducto.UseVisualStyleBackColor = true;
-            this.btnUnidadesMedidaProducto.Click += new System.EventHandler(this.btnUnidadesMedidaProducto_Click);
-            // 
-            // btnTipoIndicacion
-            // 
-            this.btnTipoIndicacion.Location = new System.Drawing.Point(494, 4);
-            this.btnTipoIndicacion.Name = "btnTipoIndicacion";
-            this.btnTipoIndicacion.Size = new System.Drawing.Size(75, 75);
-            this.btnTipoIndicacion.TabIndex = 19;
-            this.btnTipoIndicacion.Text = "Tipo Indicacion";
-            this.btnTipoIndicacion.UseVisualStyleBackColor = true;
-            this.btnTipoIndicacion.Click += new System.EventHandler(this.btnTipoIndicacion_Click);
-            // 
-            // btnEstadosVenta
-            // 
-            this.btnEstadosVenta.Location = new System.Drawing.Point(332, 4);
-            this.btnEstadosVenta.Name = "btnEstadosVenta";
-            this.btnEstadosVenta.Size = new System.Drawing.Size(75, 75);
-            this.btnEstadosVenta.TabIndex = 20;
-            this.btnEstadosVenta.Text = "Estados Venta";
-            this.btnEstadosVenta.UseVisualStyleBackColor = true;
-            this.btnEstadosVenta.Click += new System.EventHandler(this.btnEstadosVenta_Click);
-            // 
-            // tabPageDevoluciones
-            // 
-            this.tabPageDevoluciones.Controls.Add(this.btnReporteDevoluciones);
-            this.tabPageDevoluciones.Controls.Add(this.btnDevoluciones);
-            this.tabPageDevoluciones.Location = new System.Drawing.Point(4, 22);
-            this.tabPageDevoluciones.Name = "tabPageDevoluciones";
-            this.tabPageDevoluciones.Size = new System.Drawing.Size(1420, 82);
-            this.tabPageDevoluciones.TabIndex = 10;
-            this.tabPageDevoluciones.Text = "Devoluciones";
-            this.tabPageDevoluciones.UseVisualStyleBackColor = true;
-            // 
-            // tabPageRecetas
-            // 
-            this.tabPageRecetas.Controls.Add(this.btnRecetasMedicas);
-            this.tabPageRecetas.Location = new System.Drawing.Point(4, 22);
-            this.tabPageRecetas.Name = "tabPageRecetas";
-            this.tabPageRecetas.Size = new System.Drawing.Size(1420, 82);
-            this.tabPageRecetas.TabIndex = 11;
-            this.tabPageRecetas.Text = "Recetas";
-            this.tabPageRecetas.UseVisualStyleBackColor = true;
-            // 
-            // btnRecetasMedicas
-            // 
-            this.btnRecetasMedicas.Location = new System.Drawing.Point(3, 3);
-            this.btnRecetasMedicas.Name = "btnRecetasMedicas";
-            this.btnRecetasMedicas.Size = new System.Drawing.Size(75, 75);
-            this.btnRecetasMedicas.TabIndex = 16;
-            this.btnRecetasMedicas.Text = "Recetas Medicas";
-            this.btnRecetasMedicas.UseVisualStyleBackColor = true;
-            this.btnRecetasMedicas.Click += new System.EventHandler(this.btnRecetasMedicas_Click);
-            // 
-            // btnIndicacionesContraindicaciones
-            // 
-            this.btnIndicacionesContraindicaciones.Location = new System.Drawing.Point(327, 4);
-            this.btnIndicacionesContraindicaciones.Name = "btnIndicacionesContraindicaciones";
-            this.btnIndicacionesContraindicaciones.Size = new System.Drawing.Size(75, 75);
-            this.btnIndicacionesContraindicaciones.TabIndex = 17;
-            this.btnIndicacionesContraindicaciones.Text = "Indicaciones Producto";
-            this.btnIndicacionesContraindicaciones.UseVisualStyleBackColor = true;
-            this.btnIndicacionesContraindicaciones.Click += new System.EventHandler(this.btnIndicacionesContraindicaciones_Click);
-            // 
-            // btnReporteDevoluciones
-            // 
-            this.btnReporteDevoluciones.Location = new System.Drawing.Point(89, 4);
-            this.btnReporteDevoluciones.Name = "btnReporteDevoluciones";
-            this.btnReporteDevoluciones.Size = new System.Drawing.Size(82, 75);
-            this.btnReporteDevoluciones.TabIndex = 6;
-            this.btnReporteDevoluciones.Text = "Reporte Devoluciones";
-            this.btnReporteDevoluciones.UseVisualStyleBackColor = true;
-            // 
-            // tabPageSucursales
-            // 
-            this.tabPageSucursales.Controls.Add(this.btnAlmacenes);
-            this.tabPageSucursales.Controls.Add(this.btnSucursales);
-            this.tabPageSucursales.Location = new System.Drawing.Point(4, 22);
-            this.tabPageSucursales.Name = "tabPageSucursales";
-            this.tabPageSucursales.Size = new System.Drawing.Size(1420, 82);
-            this.tabPageSucursales.TabIndex = 12;
-            this.tabPageSucursales.Text = "Sucursales";
-            this.tabPageSucursales.UseVisualStyleBackColor = true;
-            // 
-            // tabPageAuditoria
-            // 
-            this.tabPageAuditoria.Controls.Add(this.btnReportesSistema);
-            this.tabPageAuditoria.Controls.Add(this.btnLogsActividadUsuarios);
-            this.tabPageAuditoria.Controls.Add(this.btnCambiosRoles);
-            this.tabPageAuditoria.Location = new System.Drawing.Point(4, 22);
-            this.tabPageAuditoria.Name = "tabPageAuditoria";
-            this.tabPageAuditoria.Size = new System.Drawing.Size(1420, 82);
-            this.tabPageAuditoria.TabIndex = 14;
-            this.tabPageAuditoria.Text = "Auditoria";
-            this.tabPageAuditoria.UseVisualStyleBackColor = true;
-            // 
-            // btnCambiosRoles
-            // 
-            this.btnCambiosRoles.Location = new System.Drawing.Point(3, 4);
-            this.btnCambiosRoles.Name = "btnCambiosRoles";
-            this.btnCambiosRoles.Size = new System.Drawing.Size(75, 75);
-            this.btnCambiosRoles.TabIndex = 15;
-            this.btnCambiosRoles.Text = "Cambios Roles";
-            this.btnCambiosRoles.UseVisualStyleBackColor = true;
-            this.btnCambiosRoles.Click += new System.EventHandler(this.btnCambiosRoles_Click);
-            // 
-            // btnLogsActividadUsuarios
-            // 
-            this.btnLogsActividadUsuarios.Location = new System.Drawing.Point(84, 4);
-            this.btnLogsActividadUsuarios.Name = "btnLogsActividadUsuarios";
-            this.btnLogsActividadUsuarios.Size = new System.Drawing.Size(75, 75);
-            this.btnLogsActividadUsuarios.TabIndex = 16;
-            this.btnLogsActividadUsuarios.Text = "Actividad Usuarios";
-            this.btnLogsActividadUsuarios.UseVisualStyleBackColor = true;
-            this.btnLogsActividadUsuarios.Click += new System.EventHandler(this.btnLogsActividadUsuarios_Click);
-            // 
-            // btnReportesSistema
-            // 
-            this.btnReportesSistema.Location = new System.Drawing.Point(165, 4);
-            this.btnReportesSistema.Name = "btnReportesSistema";
-            this.btnReportesSistema.Size = new System.Drawing.Size(75, 75);
-            this.btnReportesSistema.TabIndex = 17;
-            this.btnReportesSistema.Text = "Reportes Sistema";
-            this.btnReportesSistema.UseVisualStyleBackColor = true;
-            this.btnReportesSistema.Click += new System.EventHandler(this.btnReportesSistema_Click);
+            this.btnInventario.Location = new System.Drawing.Point(84, 4);
+            this.btnInventario.Name = "btnInventario";
+            this.btnInventario.Size = new System.Drawing.Size(75, 75);
+            this.btnInventario.TabIndex = 18;
+            this.btnInventario.Text = "Inventario";
+            this.btnInventario.UseVisualStyleBackColor = true;
             // 
             // frmPanelPrincipal
             // 
@@ -853,21 +864,21 @@
             this.tableLayoutPanelPestañasANDUser.ResumeLayout(false);
             this.tabControlPanel.ResumeLayout(false);
             this.tabPageVentas.ResumeLayout(false);
+            this.tabPageDevoluciones.ResumeLayout(false);
+            this.tabPageCompras.ResumeLayout(false);
+            this.tabPageProductos.ResumeLayout(false);
+            this.tabPageRecetas.ResumeLayout(false);
+            this.tabPageClientes.ResumeLayout(false);
             this.tabPageCaja.ResumeLayout(false);
             this.tabPageDocSUNAT.ResumeLayout(false);
-            this.tabPageClientes.ResumeLayout(false);
+            this.tabPageSucursales.ResumeLayout(false);
+            this.tabPageRecursos.ResumeLayout(false);
+            this.tabPageAuditoria.ResumeLayout(false);
             this.tabPageAdministrador.ResumeLayout(false);
             this.tabPageDashboard.ResumeLayout(false);
             this.tabPagePerfil.ResumeLayout(false);
             this.panelUser.ResumeLayout(false);
             this.panelUser.PerformLayout();
-            this.tabPageProductos.ResumeLayout(false);
-            this.tabPageRecursos.ResumeLayout(false);
-            this.tabPageCompras.ResumeLayout(false);
-            this.tabPageDevoluciones.ResumeLayout(false);
-            this.tabPageRecetas.ResumeLayout(false);
-            this.tabPageSucursales.ResumeLayout(false);
-            this.tabPageAuditoria.ResumeLayout(false);
             this.ResumeLayout(false);
 
         }
@@ -941,5 +952,6 @@
         private System.Windows.Forms.Button btnCambiosRoles;
         private System.Windows.Forms.Button btnLogsActividadUsuarios;
         private System.Windows.Forms.Button btnReportesSistema;
+        private System.Windows.Forms.Button btnInventario;
     }
 }

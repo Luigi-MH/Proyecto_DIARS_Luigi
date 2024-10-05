@@ -16,5 +16,15 @@ namespace PROYECTO_DIARS__LUIGI
         {
             InitializeComponent();
         }
+
+        private void frmPromociones_Load(object sender, EventArgs e)
+        {
+
+        }
+
+        private void btnSalir_Click(object sender, EventArgs e)
+        {
+            this.Close();
+        }
     }
 }

@@ -29,16 +29,14 @@
         private void InitializeComponent()
         {
             this.btnSalir = new System.Windows.Forms.Button();
-            this.gboxVentas = new System.Windows.Forms.GroupBox();
+            this.gboxUsuarios = new System.Windows.Forms.GroupBox();
             this.btnEliminar = new System.Windows.Forms.Button();
             this.btnNuevo = new System.Windows.Forms.Button();
             this.btnEditar = new System.Windows.Forms.Button();
-            this.dgvEmpleados = new System.Windows.Forms.DataGridView();
-            this.gboxDatosEmpleado = new System.Windows.Forms.GroupBox();
-            this.dtpFechaContratacionE = new System.Windows.Forms.DateTimePicker();
-            this.txtSalario = new System.Windows.Forms.TextBox();
-            this.lblSalario = new System.Windows.Forms.Label();
-            this.lblFechaContratacion = new System.Windows.Forms.Label();
+            this.dgvUsuarios = new System.Windows.Forms.DataGridView();
+            this.gboxDatos = new System.Windows.Forms.GroupBox();
+            this.cboxRol = new System.Windows.Forms.ComboBox();
+            this.lblRol = new System.Windows.Forms.Label();
             this.button1 = new System.Windows.Forms.Button();
             this.button2 = new System.Windows.Forms.Button();
             this.btnCancelar = new System.Windows.Forms.Button();
@@ -47,15 +45,16 @@
             this.rdActivo = new System.Windows.Forms.RadioButton();
             this.txtContraseña = new System.Windows.Forms.TextBox();
             this.lblContraseña = new System.Windows.Forms.Label();
-            this.txtCorreo = new System.Windows.Forms.TextBox();
             this.txtUsuario = new System.Windows.Forms.TextBox();
-            this.lblCorreo = new System.Windows.Forms.Label();
+            this.lblEmpleado = new System.Windows.Forms.Label();
             this.lblUsuario = new System.Windows.Forms.Label();
-            this.cboxRol = new System.Windows.Forms.ComboBox();
-            this.lblRol = new System.Windows.Forms.Label();
-            this.gboxVentas.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.dgvEmpleados)).BeginInit();
-            this.gboxDatosEmpleado.SuspendLayout();
+            this.cboxEmpleado = new System.Windows.Forms.ComboBox();
+            this.btnBuscar = new System.Windows.Forms.Button();
+            this.txt = new System.Windows.Forms.TextBox();
+            this.lblNumDocumento = new System.Windows.Forms.Label();
+            this.gboxUsuarios.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.dgvUsuarios)).BeginInit();
+            this.gboxDatos.SuspendLayout();
             this.gboxEstado.SuspendLayout();
             this.SuspendLayout();
             // 
@@ -71,23 +70,23 @@
             this.btnSalir.Text = "X";
             this.btnSalir.UseVisualStyleBackColor = true;
             // 
-            // gboxVentas
+            // gboxUsuarios
             // 
-            this.gboxVentas.Controls.Add(this.btnEliminar);
-            this.gboxVentas.Controls.Add(this.btnNuevo);
-            this.gboxVentas.Controls.Add(this.btnEditar);
-            this.gboxVentas.Controls.Add(this.dgvEmpleados);
-            this.gboxVentas.Controls.Add(this.gboxDatosEmpleado);
-            this.gboxVentas.Location = new System.Drawing.Point(12, 12);
-            this.gboxVentas.Name = "gboxVentas";
-            this.gboxVentas.Size = new System.Drawing.Size(1676, 726);
-            this.gboxVentas.TabIndex = 15;
-            this.gboxVentas.TabStop = false;
+            this.gboxUsuarios.Controls.Add(this.btnEliminar);
+            this.gboxUsuarios.Controls.Add(this.btnNuevo);
+            this.gboxUsuarios.Controls.Add(this.btnEditar);
+            this.gboxUsuarios.Controls.Add(this.dgvUsuarios);
+            this.gboxUsuarios.Controls.Add(this.gboxDatos);
+            this.gboxUsuarios.Location = new System.Drawing.Point(12, 12);
+            this.gboxUsuarios.Name = "gboxUsuarios";
+            this.gboxUsuarios.Size = new System.Drawing.Size(1676, 726);
+            this.gboxUsuarios.TabIndex = 15;
+            this.gboxUsuarios.TabStop = false;
             // 
             // btnEliminar
             // 
             this.btnEliminar.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnEliminar.Location = new System.Drawing.Point(787, 136);
+            this.btnEliminar.Location = new System.Drawing.Point(643, 138);
             this.btnEliminar.Name = "btnEliminar";
             this.btnEliminar.Size = new System.Drawing.Size(100, 40);
             this.btnEliminar.TabIndex = 53;
@@ -97,7 +96,7 @@
             // btnNuevo
             // 
             this.btnNuevo.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnNuevo.Location = new System.Drawing.Point(787, 47);
+            this.btnNuevo.Location = new System.Drawing.Point(643, 49);
             this.btnNuevo.Margin = new System.Windows.Forms.Padding(2);
             this.btnNuevo.Name = "btnNuevo";
             this.btnNuevo.Size = new System.Drawing.Size(100, 40);
@@ -108,7 +107,7 @@
             // btnEditar
             // 
             this.btnEditar.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnEditar.Location = new System.Drawing.Point(787, 91);
+            this.btnEditar.Location = new System.Drawing.Point(643, 93);
             this.btnEditar.Margin = new System.Windows.Forms.Padding(2);
             this.btnEditar.Name = "btnEditar";
             this.btnEditar.Size = new System.Drawing.Size(100, 40);
@@ -116,90 +115,70 @@
             this.btnEditar.Text = "Editar";
             this.btnEditar.UseVisualStyleBackColor = true;
             // 
-            // dgvEmpleados
+            // dgvUsuarios
             // 
-            this.dgvEmpleados.AllowUserToAddRows = false;
-            this.dgvEmpleados.AllowUserToDeleteRows = false;
-            this.dgvEmpleados.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.dgvEmpleados.Location = new System.Drawing.Point(18, 232);
-            this.dgvEmpleados.Margin = new System.Windows.Forms.Padding(2);
-            this.dgvEmpleados.Name = "dgvEmpleados";
-            this.dgvEmpleados.ReadOnly = true;
-            this.dgvEmpleados.RowHeadersWidth = 51;
-            this.dgvEmpleados.RowTemplate.Height = 24;
-            this.dgvEmpleados.Size = new System.Drawing.Size(869, 471);
-            this.dgvEmpleados.TabIndex = 50;
+            this.dgvUsuarios.AllowUserToAddRows = false;
+            this.dgvUsuarios.AllowUserToDeleteRows = false;
+            this.dgvUsuarios.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.dgvUsuarios.Location = new System.Drawing.Point(18, 232);
+            this.dgvUsuarios.Margin = new System.Windows.Forms.Padding(2);
+            this.dgvUsuarios.Name = "dgvUsuarios";
+            this.dgvUsuarios.ReadOnly = true;
+            this.dgvUsuarios.RowHeadersWidth = 51;
+            this.dgvUsuarios.RowTemplate.Height = 24;
+            this.dgvUsuarios.Size = new System.Drawing.Size(725, 471);
+            this.dgvUsuarios.TabIndex = 50;
             // 
-            // gboxDatosEmpleado
+            // gboxDatos
             // 
-            this.gboxDatosEmpleado.Controls.Add(this.cboxRol);
-            this.gboxDatosEmpleado.Controls.Add(this.lblRol);
-            this.gboxDatosEmpleado.Controls.Add(this.dtpFechaContratacionE);
-            this.gboxDatosEmpleado.Controls.Add(this.txtSalario);
-            this.gboxDatosEmpleado.Controls.Add(this.lblSalario);
-            this.gboxDatosEmpleado.Controls.Add(this.lblFechaContratacion);
-            this.gboxDatosEmpleado.Controls.Add(this.button1);
-            this.gboxDatosEmpleado.Controls.Add(this.button2);
-            this.gboxDatosEmpleado.Controls.Add(this.btnCancelar);
-            this.gboxDatosEmpleado.Controls.Add(this.gboxEstado);
-            this.gboxDatosEmpleado.Controls.Add(this.txtContraseña);
-            this.gboxDatosEmpleado.Controls.Add(this.lblContraseña);
-            this.gboxDatosEmpleado.Controls.Add(this.txtCorreo);
-            this.gboxDatosEmpleado.Controls.Add(this.txtUsuario);
-            this.gboxDatosEmpleado.Controls.Add(this.lblCorreo);
-            this.gboxDatosEmpleado.Controls.Add(this.lblUsuario);
-            this.gboxDatosEmpleado.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.gboxDatosEmpleado.Location = new System.Drawing.Point(18, 18);
-            this.gboxDatosEmpleado.Margin = new System.Windows.Forms.Padding(2);
-            this.gboxDatosEmpleado.Name = "gboxDatosEmpleado";
-            this.gboxDatosEmpleado.Padding = new System.Windows.Forms.Padding(2);
-            this.gboxDatosEmpleado.Size = new System.Drawing.Size(748, 189);
-            this.gboxDatosEmpleado.TabIndex = 49;
-            this.gboxDatosEmpleado.TabStop = false;
-            this.gboxDatosEmpleado.Text = "Datos";
+            this.gboxDatos.Controls.Add(this.btnBuscar);
+            this.gboxDatos.Controls.Add(this.txt);
+            this.gboxDatos.Controls.Add(this.lblNumDocumento);
+            this.gboxDatos.Controls.Add(this.cboxEmpleado);
+            this.gboxDatos.Controls.Add(this.cboxRol);
+            this.gboxDatos.Controls.Add(this.lblRol);
+            this.gboxDatos.Controls.Add(this.button1);
+            this.gboxDatos.Controls.Add(this.button2);
+            this.gboxDatos.Controls.Add(this.btnCancelar);
+            this.gboxDatos.Controls.Add(this.gboxEstado);
+            this.gboxDatos.Controls.Add(this.txtContraseña);
+            this.gboxDatos.Controls.Add(this.lblContraseña);
+            this.gboxDatos.Controls.Add(this.txtUsuario);
+            this.gboxDatos.Controls.Add(this.lblEmpleado);
+            this.gboxDatos.Controls.Add(this.lblUsuario);
+            this.gboxDatos.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.gboxDatos.Location = new System.Drawing.Point(18, 18);
+            this.gboxDatos.Margin = new System.Windows.Forms.Padding(2);
+            this.gboxDatos.Name = "gboxDatos";
+            this.gboxDatos.Padding = new System.Windows.Forms.Padding(2);
+            this.gboxDatos.Size = new System.Drawing.Size(611, 189);
+            this.gboxDatos.TabIndex = 49;
+            this.gboxDatos.TabStop = false;
+            this.gboxDatos.Text = "Datos";
             // 
-            // dtpFechaContratacionE
+            // cboxRol
             // 
-            this.dtpFechaContratacionE.Format = System.Windows.Forms.DateTimePickerFormat.Short;
-            this.dtpFechaContratacionE.Location = new System.Drawing.Point(21, 143);
-            this.dtpFechaContratacionE.MinDate = new System.DateTime(1880, 12, 25, 0, 0, 0, 0);
-            this.dtpFechaContratacionE.Name = "dtpFechaContratacionE";
-            this.dtpFechaContratacionE.Size = new System.Drawing.Size(112, 22);
-            this.dtpFechaContratacionE.TabIndex = 59;
+            this.cboxRol.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
+            this.cboxRol.FormattingEnabled = true;
+            this.cboxRol.Location = new System.Drawing.Point(23, 136);
+            this.cboxRol.Name = "cboxRol";
+            this.cboxRol.Size = new System.Drawing.Size(141, 24);
+            this.cboxRol.TabIndex = 62;
             // 
-            // txtSalario
+            // lblRol
             // 
-            this.txtSalario.Location = new System.Drawing.Point(167, 143);
-            this.txtSalario.Margin = new System.Windows.Forms.Padding(2);
-            this.txtSalario.Name = "txtSalario";
-            this.txtSalario.Size = new System.Drawing.Size(112, 22);
-            this.txtSalario.TabIndex = 58;
-            // 
-            // lblSalario
-            // 
-            this.lblSalario.AutoSize = true;
-            this.lblSalario.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Italic, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblSalario.Location = new System.Drawing.Point(164, 128);
-            this.lblSalario.Name = "lblSalario";
-            this.lblSalario.Size = new System.Drawing.Size(39, 13);
-            this.lblSalario.TabIndex = 57;
-            this.lblSalario.Text = "Salario";
-            // 
-            // lblFechaContratacion
-            // 
-            this.lblFechaContratacion.AutoSize = true;
-            this.lblFechaContratacion.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Italic, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblFechaContratacion.Location = new System.Drawing.Point(19, 127);
-            this.lblFechaContratacion.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
-            this.lblFechaContratacion.Name = "lblFechaContratacion";
-            this.lblFechaContratacion.Size = new System.Drawing.Size(79, 13);
-            this.lblFechaContratacion.TabIndex = 54;
-            this.lblFechaContratacion.Text = "F. Contratacion";
+            this.lblRol.AutoSize = true;
+            this.lblRol.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Italic, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblRol.Location = new System.Drawing.Point(20, 120);
+            this.lblRol.Name = "lblRol";
+            this.lblRol.Size = new System.Drawing.Size(23, 13);
+            this.lblRol.TabIndex = 63;
+            this.lblRol.Text = "Rol";
             // 
             // button1
             // 
             this.button1.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.button1.Location = new System.Drawing.Point(623, 71);
+            this.button1.Location = new System.Drawing.Point(487, 71);
             this.button1.Margin = new System.Windows.Forms.Padding(2);
             this.button1.Name = "button1";
             this.button1.Size = new System.Drawing.Size(100, 48);
@@ -210,7 +189,7 @@
             // button2
             // 
             this.button2.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.button2.Location = new System.Drawing.Point(623, 19);
+            this.button2.Location = new System.Drawing.Point(487, 19);
             this.button2.Margin = new System.Windows.Forms.Padding(2);
             this.button2.Name = "button2";
             this.button2.Size = new System.Drawing.Size(100, 48);
@@ -221,7 +200,7 @@
             // btnCancelar
             // 
             this.btnCancelar.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnCancelar.Location = new System.Drawing.Point(623, 123);
+            this.btnCancelar.Location = new System.Drawing.Point(487, 123);
             this.btnCancelar.Margin = new System.Windows.Forms.Padding(2);
             this.btnCancelar.Name = "btnCancelar";
             this.btnCancelar.Size = new System.Drawing.Size(100, 48);
@@ -234,9 +213,9 @@
             this.gboxEstado.Controls.Add(this.rdInactivo);
             this.gboxEstado.Controls.Add(this.rdActivo);
             this.gboxEstado.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.gboxEstado.Location = new System.Drawing.Point(485, 20);
+            this.gboxEstado.Location = new System.Drawing.Point(182, 123);
             this.gboxEstado.Name = "gboxEstado";
-            this.gboxEstado.Size = new System.Drawing.Size(116, 151);
+            this.gboxEstado.Size = new System.Drawing.Size(286, 48);
             this.gboxEstado.TabIndex = 50;
             this.gboxEstado.TabStop = false;
             this.gboxEstado.Text = "Estado";
@@ -245,7 +224,7 @@
             // 
             this.rdInactivo.AutoSize = true;
             this.rdInactivo.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, ((System.Drawing.FontStyle)((System.Drawing.FontStyle.Bold | System.Drawing.FontStyle.Italic))), System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.rdInactivo.Location = new System.Drawing.Point(18, 79);
+            this.rdInactivo.Location = new System.Drawing.Point(156, 18);
             this.rdInactivo.Name = "rdInactivo";
             this.rdInactivo.Size = new System.Drawing.Size(79, 20);
             this.rdInactivo.TabIndex = 1;
@@ -258,7 +237,7 @@
             this.rdActivo.AutoSize = true;
             this.rdActivo.Checked = true;
             this.rdActivo.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, ((System.Drawing.FontStyle)((System.Drawing.FontStyle.Bold | System.Drawing.FontStyle.Italic))), System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.rdActivo.Location = new System.Drawing.Point(18, 42);
+            this.rdActivo.Location = new System.Drawing.Point(64, 18);
             this.rdActivo.Name = "rdActivo";
             this.rdActivo.Size = new System.Drawing.Size(68, 20);
             this.rdActivo.TabIndex = 0;
@@ -285,14 +264,6 @@
             this.lblContraseña.TabIndex = 9;
             this.lblContraseña.Text = "Contraseña";
             // 
-            // txtCorreo
-            // 
-            this.txtCorreo.Location = new System.Drawing.Point(177, 86);
-            this.txtCorreo.Margin = new System.Windows.Forms.Padding(2);
-            this.txtCorreo.Name = "txtCorreo";
-            this.txtCorreo.Size = new System.Drawing.Size(278, 22);
-            this.txtCorreo.TabIndex = 5;
-            // 
             // txtUsuario
             // 
             this.txtUsuario.Location = new System.Drawing.Point(22, 38);
@@ -301,16 +272,16 @@
             this.txtUsuario.Size = new System.Drawing.Size(142, 22);
             this.txtUsuario.TabIndex = 3;
             // 
-            // lblCorreo
+            // lblEmpleado
             // 
-            this.lblCorreo.AutoSize = true;
-            this.lblCorreo.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Italic, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblCorreo.Location = new System.Drawing.Point(174, 71);
-            this.lblCorreo.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
-            this.lblCorreo.Name = "lblCorreo";
-            this.lblCorreo.Size = new System.Drawing.Size(35, 13);
-            this.lblCorreo.TabIndex = 2;
-            this.lblCorreo.Text = "E-mail";
+            this.lblEmpleado.AutoSize = true;
+            this.lblEmpleado.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Italic, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblEmpleado.Location = new System.Drawing.Point(179, 68);
+            this.lblEmpleado.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
+            this.lblEmpleado.Name = "lblEmpleado";
+            this.lblEmpleado.Size = new System.Drawing.Size(54, 13);
+            this.lblEmpleado.TabIndex = 2;
+            this.lblEmpleado.Text = "Empleado";
             // 
             // lblUsuario
             // 
@@ -323,24 +294,42 @@
             this.lblUsuario.TabIndex = 0;
             this.lblUsuario.Text = "Usuario";
             // 
-            // cboxRol
+            // cboxEmpleado
             // 
-            this.cboxRol.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
-            this.cboxRol.FormattingEnabled = true;
-            this.cboxRol.Location = new System.Drawing.Point(302, 141);
-            this.cboxRol.Name = "cboxRol";
-            this.cboxRol.Size = new System.Drawing.Size(153, 24);
-            this.cboxRol.TabIndex = 62;
+            this.cboxEmpleado.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
+            this.cboxEmpleado.FormattingEnabled = true;
+            this.cboxEmpleado.Location = new System.Drawing.Point(182, 84);
+            this.cboxEmpleado.Name = "cboxEmpleado";
+            this.cboxEmpleado.Size = new System.Drawing.Size(286, 24);
+            this.cboxEmpleado.TabIndex = 64;
             // 
-            // lblRol
+            // btnBuscar
             // 
-            this.lblRol.AutoSize = true;
-            this.lblRol.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Italic, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblRol.Location = new System.Drawing.Point(299, 125);
-            this.lblRol.Name = "lblRol";
-            this.lblRol.Size = new System.Drawing.Size(23, 13);
-            this.lblRol.TabIndex = 63;
-            this.lblRol.Text = "Rol";
+            this.btnBuscar.Location = new System.Drawing.Point(408, 38);
+            this.btnBuscar.Name = "btnBuscar";
+            this.btnBuscar.Size = new System.Drawing.Size(60, 24);
+            this.btnBuscar.TabIndex = 75;
+            this.btnBuscar.Text = "Buscar";
+            this.btnBuscar.UseVisualStyleBackColor = true;
+            // 
+            // txt
+            // 
+            this.txt.Location = new System.Drawing.Point(182, 39);
+            this.txt.Margin = new System.Windows.Forms.Padding(2);
+            this.txt.Name = "txt";
+            this.txt.Size = new System.Drawing.Size(221, 22);
+            this.txt.TabIndex = 74;
+            // 
+            // lblNumDocumento
+            // 
+            this.lblNumDocumento.AutoSize = true;
+            this.lblNumDocumento.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Italic, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblNumDocumento.Location = new System.Drawing.Point(179, 24);
+            this.lblNumDocumento.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
+            this.lblNumDocumento.Name = "lblNumDocumento";
+            this.lblNumDocumento.Size = new System.Drawing.Size(106, 13);
+            this.lblNumDocumento.TabIndex = 73;
+            this.lblNumDocumento.Text = "Num. Doc. / Nombre";
             // 
             // frmUsuarios
             // 
@@ -348,14 +337,14 @@
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(1700, 750);
             this.Controls.Add(this.btnSalir);
-            this.Controls.Add(this.gboxVentas);
+            this.Controls.Add(this.gboxUsuarios);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
             this.Name = "frmUsuarios";
             this.Text = "frmUsuarios";
-            this.gboxVentas.ResumeLayout(false);
-            ((System.ComponentModel.ISupportInitialize)(this.dgvEmpleados)).EndInit();
-            this.gboxDatosEmpleado.ResumeLayout(false);
-            this.gboxDatosEmpleado.PerformLayout();
+            this.gboxUsuarios.ResumeLayout(false);
+            ((System.ComponentModel.ISupportInitialize)(this.dgvUsuarios)).EndInit();
+            this.gboxDatos.ResumeLayout(false);
+            this.gboxDatos.PerformLayout();
             this.gboxEstado.ResumeLayout(false);
             this.gboxEstado.PerformLayout();
             this.ResumeLayout(false);
@@ -365,16 +354,12 @@
         #endregion
 
         private System.Windows.Forms.Button btnSalir;
-        private System.Windows.Forms.GroupBox gboxVentas;
+        private System.Windows.Forms.GroupBox gboxUsuarios;
         private System.Windows.Forms.Button btnEliminar;
         private System.Windows.Forms.Button btnNuevo;
         private System.Windows.Forms.Button btnEditar;
-        private System.Windows.Forms.DataGridView dgvEmpleados;
-        private System.Windows.Forms.GroupBox gboxDatosEmpleado;
-        private System.Windows.Forms.DateTimePicker dtpFechaContratacionE;
-        private System.Windows.Forms.TextBox txtSalario;
-        private System.Windows.Forms.Label lblSalario;
-        private System.Windows.Forms.Label lblFechaContratacion;
+        private System.Windows.Forms.DataGridView dgvUsuarios;
+        private System.Windows.Forms.GroupBox gboxDatos;
         private System.Windows.Forms.Button button1;
         private System.Windows.Forms.Button button2;
         private System.Windows.Forms.Button btnCancelar;
@@ -383,11 +368,14 @@
         private System.Windows.Forms.RadioButton rdActivo;
         private System.Windows.Forms.TextBox txtContraseña;
         private System.Windows.Forms.Label lblContraseña;
-        private System.Windows.Forms.TextBox txtCorreo;
         private System.Windows.Forms.TextBox txtUsuario;
-        private System.Windows.Forms.Label lblCorreo;
+        private System.Windows.Forms.Label lblEmpleado;
         private System.Windows.Forms.Label lblUsuario;
         private System.Windows.Forms.ComboBox cboxRol;
         private System.Windows.Forms.Label lblRol;
+        private System.Windows.Forms.ComboBox cboxEmpleado;
+        private System.Windows.Forms.Button btnBuscar;
+        private System.Windows.Forms.TextBox txt;
+        private System.Windows.Forms.Label lblNumDocumento;
     }
 }

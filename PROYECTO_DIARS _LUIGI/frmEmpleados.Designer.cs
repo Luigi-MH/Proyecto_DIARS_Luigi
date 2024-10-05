@@ -30,7 +30,6 @@
         {
             this.btnSalir = new System.Windows.Forms.Button();
             this.gboxEmpleados = new System.Windows.Forms.GroupBox();
-            this.btnEliminar = new System.Windows.Forms.Button();
             this.btnNuevo = new System.Windows.Forms.Button();
             this.btnEditar = new System.Windows.Forms.Button();
             this.dgvEmpleados = new System.Windows.Forms.DataGridView();
@@ -58,7 +57,7 @@
             this.gboxEstado = new System.Windows.Forms.GroupBox();
             this.rdInactivo = new System.Windows.Forms.RadioButton();
             this.rdActivo = new System.Windows.Forms.RadioButton();
-            this.txtIDEmpleado = new System.Windows.Forms.TextBox();
+            this.txtDocEmpleado = new System.Windows.Forms.TextBox();
             this.lblNumDocumento = new System.Windows.Forms.Label();
             this.txtNumero = new System.Windows.Forms.TextBox();
             this.lblNumero = new System.Windows.Forms.Label();
@@ -88,7 +87,6 @@
             // 
             // gboxEmpleados
             // 
-            this.gboxEmpleados.Controls.Add(this.btnEliminar);
             this.gboxEmpleados.Controls.Add(this.btnNuevo);
             this.gboxEmpleados.Controls.Add(this.btnEditar);
             this.gboxEmpleados.Controls.Add(this.dgvEmpleados);
@@ -99,37 +97,29 @@
             this.gboxEmpleados.TabIndex = 15;
             this.gboxEmpleados.TabStop = false;
             // 
-            // btnEliminar
-            // 
-            this.btnEliminar.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnEliminar.Location = new System.Drawing.Point(1437, 353);
-            this.btnEliminar.Name = "btnEliminar";
-            this.btnEliminar.Size = new System.Drawing.Size(100, 40);
-            this.btnEliminar.TabIndex = 48;
-            this.btnEliminar.Text = "Eliminar";
-            this.btnEliminar.UseVisualStyleBackColor = true;
-            // 
             // btnNuevo
             // 
             this.btnNuevo.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnNuevo.Location = new System.Drawing.Point(1437, 264);
+            this.btnNuevo.Location = new System.Drawing.Point(1439, 281);
             this.btnNuevo.Margin = new System.Windows.Forms.Padding(2);
             this.btnNuevo.Name = "btnNuevo";
             this.btnNuevo.Size = new System.Drawing.Size(100, 40);
             this.btnNuevo.TabIndex = 47;
             this.btnNuevo.Text = "Nuevo";
             this.btnNuevo.UseVisualStyleBackColor = true;
+            this.btnNuevo.Click += new System.EventHandler(this.btnNuevo_Click);
             // 
             // btnEditar
             // 
             this.btnEditar.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnEditar.Location = new System.Drawing.Point(1437, 308);
+            this.btnEditar.Location = new System.Drawing.Point(1439, 325);
             this.btnEditar.Margin = new System.Windows.Forms.Padding(2);
             this.btnEditar.Name = "btnEditar";
             this.btnEditar.Size = new System.Drawing.Size(100, 40);
             this.btnEditar.TabIndex = 46;
             this.btnEditar.Text = "Editar";
             this.btnEditar.UseVisualStyleBackColor = true;
+            this.btnEditar.Click += new System.EventHandler(this.btnEditar_Click);
             // 
             // dgvEmpleados
             // 
@@ -168,7 +158,7 @@
             this.gboxDatosEmpleado.Controls.Add(this.button2);
             this.gboxDatosEmpleado.Controls.Add(this.btnCancelar);
             this.gboxDatosEmpleado.Controls.Add(this.gboxEstado);
-            this.gboxDatosEmpleado.Controls.Add(this.txtIDEmpleado);
+            this.gboxDatosEmpleado.Controls.Add(this.txtDocEmpleado);
             this.gboxDatosEmpleado.Controls.Add(this.lblNumDocumento);
             this.gboxDatosEmpleado.Controls.Add(this.txtNumero);
             this.gboxDatosEmpleado.Controls.Add(this.lblNumero);
@@ -363,6 +353,7 @@
             this.button1.TabIndex = 53;
             this.button1.Text = "Modificar";
             this.button1.UseVisualStyleBackColor = true;
+            this.button1.Click += new System.EventHandler(this.button1_Click);
             // 
             // button2
             // 
@@ -374,6 +365,7 @@
             this.button2.TabIndex = 52;
             this.button2.Text = "Agregar";
             this.button2.UseVisualStyleBackColor = true;
+            this.button2.Click += new System.EventHandler(this.button2_Click);
             // 
             // btnCancelar
             // 
@@ -385,6 +377,7 @@
             this.btnCancelar.TabIndex = 51;
             this.btnCancelar.Text = "Cancelar";
             this.btnCancelar.UseVisualStyleBackColor = true;
+            this.btnCancelar.Click += new System.EventHandler(this.btnCancelar_Click);
             // 
             // gboxEstado
             // 
@@ -423,13 +416,13 @@
             this.rdActivo.Text = "Activo";
             this.rdActivo.UseVisualStyleBackColor = true;
             // 
-            // txtIDEmpleado
+            // txtDocEmpleado
             // 
-            this.txtIDEmpleado.Location = new System.Drawing.Point(330, 101);
-            this.txtIDEmpleado.Margin = new System.Windows.Forms.Padding(2);
-            this.txtIDEmpleado.Name = "txtIDEmpleado";
-            this.txtIDEmpleado.Size = new System.Drawing.Size(145, 22);
-            this.txtIDEmpleado.TabIndex = 12;
+            this.txtDocEmpleado.Location = new System.Drawing.Point(330, 101);
+            this.txtDocEmpleado.Margin = new System.Windows.Forms.Padding(2);
+            this.txtDocEmpleado.Name = "txtDocEmpleado";
+            this.txtDocEmpleado.Size = new System.Drawing.Size(145, 22);
+            this.txtDocEmpleado.TabIndex = 12;
             // 
             // lblNumDocumento
             // 
@@ -527,7 +520,7 @@
         private System.Windows.Forms.GroupBox gboxEmpleados;
         private System.Windows.Forms.DataGridView dgvEmpleados;
         private System.Windows.Forms.GroupBox gboxDatosEmpleado;
-        private System.Windows.Forms.TextBox txtIDEmpleado;
+        private System.Windows.Forms.TextBox txtDocEmpleado;
         private System.Windows.Forms.Label lblNumDocumento;
         private System.Windows.Forms.TextBox txtNumero;
         private System.Windows.Forms.Label lblNumero;
@@ -541,7 +534,6 @@
         private System.Windows.Forms.GroupBox gboxEstado;
         private System.Windows.Forms.RadioButton rdInactivo;
         private System.Windows.Forms.RadioButton rdActivo;
-        private System.Windows.Forms.Button btnEliminar;
         private System.Windows.Forms.Button btnNuevo;
         private System.Windows.Forms.Button btnEditar;
         private System.Windows.Forms.DateTimePicker dtpFechaContratacionE;

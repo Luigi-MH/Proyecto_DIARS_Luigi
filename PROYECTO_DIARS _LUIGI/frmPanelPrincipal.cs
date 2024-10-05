@@ -85,7 +85,8 @@ namespace PROYECTO_DIARS__LUIGI
 
         private void btnPromociones_Click(object sender, EventArgs e)
         {
-
+            frmPromociones frmPromociones = new frmPromociones();
+            abrirFrm(frmPromociones);
         }
 
         private void btnMetodosPago_Click(object sender, EventArgs e)
@@ -186,7 +187,8 @@ namespace PROYECTO_DIARS__LUIGI
 
         private void btnUsuarios_Click(object sender, EventArgs e)
         {
-
+            frmUsuarios frmUsuarios = new frmUsuarios();
+            abrirFrm(frmUsuarios);
         }
 
         private void btnCargos_Click(object sender, EventArgs e)
