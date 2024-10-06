@@ -110,7 +110,7 @@ namespace PROYECTO_DIARS__LUIGI
                         entEmpleado.FechaNacimiento = dtpFehaNacimiento.Value;
                         if (pbFoto.Image != null)
                         {
-                            entEmpleado.FotoEmpleado = ComprimirImagen(pbFoto.Image, 50L); // 50L representa un 70% de compresión
+                            entEmpleado.FotoEmpleado = ImageToByteArray(pbFoto.Image);
                         }
                         else
                         {
@@ -172,7 +172,7 @@ namespace PROYECTO_DIARS__LUIGI
                                 entEmpleado.FechaNacimiento = dtpFehaNacimiento.Value;
                                 if (pbFoto.Image != null)
                                 {
-                                    entEmpleado.FotoEmpleado = ComprimirImagen(pbFoto.Image, 50L); // 50L representa un 70% de compresión
+                                    entEmpleado.FotoEmpleado = ImageToByteArray(pbFoto.Image);
                                 }
                                 else
                                 {
@@ -452,7 +452,6 @@ namespace PROYECTO_DIARS__LUIGI
             cboxCargo.SelectedValue = dgvEmpleados.CurrentRow.Cells["Id_Cargo"].Value;
             dtpFechaContratacionE.Value = Convert.ToDateTime(dgvEmpleados.CurrentRow.Cells["FechaContratacion"].Value);
             txtSalario.Text = dgvEmpleados.CurrentRow.Cells["Salario"].Value.ToString();
-            //cboxCargo.SelectedItem = dgvEmpleados.CurrentRow.Cells["NomCargo"].Value.ToString();
             Boolean estado = Convert.ToBoolean(dgvEmpleados.CurrentRow.Cells["Estado"].Value.ToString());
             if (estado == true)
             {
@@ -489,37 +488,13 @@ namespace PROYECTO_DIARS__LUIGI
                 pbFotoEmpleado.Image = System.Drawing.Image.FromStream(ms);
             }
         }
-
-        public byte[] ComprimirImagen(System.Drawing.Image image, long calidad)
+        private byte[] ImageToByteArray(System.Drawing.Image imagen)
         {
-            // Configurar la compresión
-            ImageCodecInfo jpegCodec = GetEncoderInfo(ImageFormat.Jpeg);
-            System.Drawing.Imaging.Encoder calidadEncoder = System.Drawing.Imaging.Encoder.Quality;
-            EncoderParameters encoderParams = new EncoderParameters(1);
-
-            // Asignar la calidad de la compresión (entre 0 y 100)
-            encoderParams.Param[0] = new EncoderParameter(calidadEncoder, calidad);
-
             using (MemoryStream ms = new MemoryStream())
             {
-                // Guardar la imagen comprimida en el MemoryStream
-                image.Save(ms, jpegCodec, encoderParams);
-                return ms.ToArray(); // Convertir la imagen a array de bytes
+                imagen.Save(ms, System.Drawing.Imaging.ImageFormat.Jpeg); // Aquí decides el formato
+                return ms.ToArray();
             }
-        }
-
-        private static ImageCodecInfo GetEncoderInfo(ImageFormat format)
-        {
-            // Obtener el codec del formato de imagen deseado (JPEG)
-            ImageCodecInfo[] codecs = ImageCodecInfo.GetImageEncoders();
-            foreach (ImageCodecInfo codec in codecs)
-            {
-                if (codec.FormatID == format.Guid)
-                {
-                    return codec;
-                }
-            }
-            return null;
         }
 
         private void cboxTipoDoc_SelectedValueChanged(object sender, EventArgs e)
