@@ -8,7 +8,7 @@ namespace CapaEntidad
 {
     public class entEmpleados
     {
-        public int Id { get; set; }
+        public int Id_Empleado { get; set; }
         public int Id_TipoDocumento { get; set; }
         public string NumDoc { get; set; }
         public string Nombres { get; set; }
@@ -16,14 +16,15 @@ namespace CapaEntidad
         public string Correo { get; set; }
         public string Telefono { get; set; }
         public DateTime FechaNacimiento { get; set; }
-
-        //public FotoEmpleado aun nose el tipo de dato
+        public byte[] FotoEmpleado { get; set; }
         public DateTime FechaContratacion { get; set; }
         public int Id_Cargo { get; set; }
-        public double Salario { get; set; }
+        public decimal Salario { get; set; }
         public Boolean Estado { get; set; }
 
         // acaban los campos que tmb se requieren 
+        public string TipoDocumento { get; set; }
+        public string Cargo { get; set; }
 
     }
 }

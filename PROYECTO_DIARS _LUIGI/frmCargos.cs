@@ -24,7 +24,7 @@ namespace PROYECTO_DIARS__LUIGI
             btnAgregar.Enabled = false;
             btnModificar.Enabled = false;
             btnCancelar.Enabled = false;
-            txtCargo.Enabled = false;
+            txtCargo.Enabled = false; // gruopo de los elemento(heramientas) inabilitadas
             ListarCargos();
             dgvCargos.EnableHeadersVisualStyles = false;
         }

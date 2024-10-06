@@ -10,5 +10,7 @@ namespace CapaEntidad
     {
         public int Id_Cargo { get; set; }
         public string Cargo { get; set; }
+
     }
+
 }

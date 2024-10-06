@@ -1,4 +1,5 @@
 ﻿using CapaDatos;
+using CapaEntidad;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -17,6 +18,21 @@ namespace CapaLogica
         public static logEmpleados Instancia
         {
             get { return _instancia; }
+        }
+
+        public List<entEmpleados> ListarEmpleados()
+        {
+            return datEmpleados.Instancia.ListarEmpleados();
+        }
+
+        public Boolean AgregarEmpleado(entEmpleados empleado)
+        {
+            return datEmpleados.Instancia.AgregarEmpleado(empleado);
+        }
+
+        public Boolean ModificarEmpleado(entEmpleados empleado)
+        {
+            return datEmpleados.Instancia.ModificarEmpleado(empleado);
         }
     }
 }
