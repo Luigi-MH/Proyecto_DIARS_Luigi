@@ -6,6 +6,8 @@ using System.Data;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using static System.Net.Mime.MediaTypeNames;
+using System.IO;
 
 namespace CapaDatos
 {
@@ -28,7 +30,7 @@ namespace CapaDatos
             try
             {
                 SqlConnection cn = Conexion.Instancia.Conectar();
-                cmd = new SqlCommand("spListarCargos", cn);
+                cmd = new SqlCommand("spListarEmpleados", cn);
                 cmd.CommandType = CommandType.StoredProcedure;
                 cn.Open();
                 SqlDataReader reader = cmd.ExecuteReader();
@@ -43,7 +45,10 @@ namespace CapaDatos
                     empleado.Correo = reader["correo"].ToString();
                     empleado.Telefono = reader["telefono"].ToString();
                     empleado.FechaNacimiento = Convert.ToDateTime(reader["fecha_nacimiento"]);
-                    empleado.FotoEmpleado = (byte[])reader["foto_empleado"];
+                    if (reader["foto_empleado"] != DBNull.Value)
+                    {
+                        empleado.FotoEmpleado = (byte[])reader["foto_empleado"];
+                    }
                     empleado.FechaContratacion = Convert.ToDateTime(reader["fecha_contratacion"]);
                     empleado.Id_Cargo = Convert.ToInt32(reader["id_Cargo"]);
                     empleado.Salario = Convert.ToDecimal(reader["salario"]);
@@ -110,7 +115,7 @@ namespace CapaDatos
             try
             {
                 SqlConnection cn = Conexion.Instancia.Conectar();
-                cmd = new SqlCommand("spModificarCargo", cn);
+                cmd = new SqlCommand("spModificarEmpleado", cn);
                 cmd.CommandType = CommandType.StoredProcedure;
                 cmd.Parameters.AddWithValue("@id_empleado", empleado.Id_Empleado);
                 cmd.Parameters.AddWithValue("@id_tipo_documento", empleado.Id_TipoDocumento);
