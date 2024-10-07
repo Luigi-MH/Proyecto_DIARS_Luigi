@@ -8,11 +8,14 @@ using System.Drawing;
 using System.Drawing.Imaging;
 using System.IO;
 using System.Linq;
+using System.Net.Sockets;
+using System.Net;
 using System.Text;
 using System.Text.RegularExpressions;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 using static System.Net.Mime.MediaTypeNames;
+using static System.Windows.Forms.VisualStyles.VisualStyleElement.ListView;
 
 namespace PROYECTO_DIARS__LUIGI
 {
@@ -22,6 +25,9 @@ namespace PROYECTO_DIARS__LUIGI
         {
             InitializeComponent();
         }
+
+        byte[] fotoEmpleadoBytes = null;
+        bool NuevaFoto = false;
 
         private void frmEmpleados_Load(object sender, EventArgs e)
         {
@@ -36,7 +42,7 @@ namespace PROYECTO_DIARS__LUIGI
             dgvEmpleados.EnableHeadersVisualStyles = false;
             dtpFehaNacimiento.MaxDate = DateTime.Now.AddYears(-17);
             dtpFehaNacimiento.MinDate = DateTime.Now.AddYears(-82);
-            dtpFechaContratacionE.MaxDate = DateTime.Now.AddYears(0);
+            dtpFechaContratacionE.MaxDate = DateTime.Now.AddSeconds(55);
             dtpFechaContratacionE.MinDate = DateTime.Now.AddYears(-2);
         }
 
@@ -74,12 +80,12 @@ namespace PROYECTO_DIARS__LUIGI
                         entEmpleados.Id_Empleado = Convert.ToInt32(txtId.Text);
                         //logEmpleados.Instancia.EliminarEmpleado(entEmpleados);
                         MessageBox.Show("Aún no se implementa el eliminar", "Aviso del Sitema Sys-MH", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                        //MessageBox.Show("Se eliminó con exito", "Aviso del Sitema Sys-MH", MessageBoxButtons.OK, MessageBoxIcon.Information);
                     }
                     catch (Exception ex)
                     {
                         MessageBox.Show("Error.." + ex);
                     }
-                    MessageBox.Show("Se eliminó con exito", "Aviso del Sitema Sys-MH", MessageBoxButtons.OK, MessageBoxIcon.Information);
                     ListarCargos();
                 }
                 limpiar();
@@ -128,12 +134,12 @@ namespace PROYECTO_DIARS__LUIGI
                             entEmpleado.Estado = false;
                         }
                         logEmpleados.Instancia.AgregarEmpleado(entEmpleado);
+                        MessageBox.Show("Se agrego con exito", "Aviso del Sitema Sys-MH", MessageBoxButtons.OK, MessageBoxIcon.Information);
                     }
                     catch (Exception ex)
                     {
                         MessageBox.Show("Error.." + ex);
                     }
-                    MessageBox.Show("Se agrego con exito", "Aviso del Sitema Sys-MH", MessageBoxButtons.OK, MessageBoxIcon.Information);
                     limpiar();
                     dgvEmpleados.Enabled = true;
                     ElementosBloqueados();
@@ -172,7 +178,21 @@ namespace PROYECTO_DIARS__LUIGI
                                 entEmpleado.FechaNacimiento = dtpFehaNacimiento.Value;
                                 if (pbFoto.Image != null)
                                 {
-                                    entEmpleado.FotoEmpleado = ImageToByteArray(pbFoto.Image);
+                                    if(NuevaFoto)
+                                    {
+                                        entEmpleado.FotoEmpleado = ImageToByteArray(pbFoto.Image);
+                                    }
+                                    else
+                                    {
+                                        if(fotoEmpleadoBytes != null)
+                                        {
+                                            entEmpleado.FotoEmpleado = fotoEmpleadoBytes;
+                                        }
+                                        else
+                                        {
+                                            entEmpleado.FotoEmpleado = null;
+                                        }
+                                    }
                                 }
                                 else
                                 {
@@ -190,12 +210,13 @@ namespace PROYECTO_DIARS__LUIGI
                                     entEmpleado.Estado = false;
                                 }
                                 logEmpleados.Instancia.ModificarEmpleado(entEmpleado);
+                                limpiarValidacionFoto();
+                                MessageBox.Show("Se modificó con exito", "Aviso del Sitema Sys-MH", MessageBoxButtons.OK, MessageBoxIcon.Information);
                             }
                             catch (Exception ex)
                             {
                                 MessageBox.Show("Error.." + ex);
                             }
-                            MessageBox.Show("Se modificó con exito", "Aviso del Sitema Sys-MH", MessageBoxButtons.OK, MessageBoxIcon.Information);
                             limpiar();
                             ElementosBloqueados();
                             ListarEmpleados();
@@ -274,7 +295,13 @@ namespace PROYECTO_DIARS__LUIGI
             txtSalario.Clear();
             rdActivo.Checked = true;
             dtpFehaNacimiento.Value = dtpFehaNacimiento.MaxDate;
-            dtpFechaContratacionE.Value = dtpFechaContratacionE.MaxDate;
+            dtpFechaContratacionE.Value = dtpFechaContratacionE.Value.ToLocalTime();
+        }
+
+        public void limpiarValidacionFoto()
+        {
+            fotoEmpleadoBytes = null;
+            NuevaFoto = false;
         }
 
         private bool ValidarDatosVacios()
@@ -338,8 +365,40 @@ namespace PROYECTO_DIARS__LUIGI
 
         private bool ValidarCorreo(string correo)
         {
-            string patronCorreo = @"^[^@\s]+@[^@\s]+\.[^@\s]+$"; // Expresión regular para validar correos
-            return Regex.IsMatch(correo, patronCorreo); // Devuelve true si el formato es válido
+            string patronCorreo = @"^[a-zA-Z0-9._%+-]+@[a-zA-Z0-9-]+\.[a-zA-Z]{2,}$"; // Expresión regular para validar correos
+            if (Regex.IsMatch(correo, patronCorreo)) // Devuelve true si el formato es válido
+            {
+                string[] partes = correo.Split('@');
+                string dominio = partes[1];
+
+                if (EsDominioValido(dominio))
+                {
+                    Console.WriteLine("El dominio es válido.");
+                    return true;
+                }
+                else
+                {
+                    Console.WriteLine("El dominio no tiene registros DNS válidos.");
+                    return false;
+                }
+            }
+            else
+            {
+                return false;
+            }
+        }
+
+        public bool EsDominioValido(string dominio)
+        {
+            try
+            {
+                IPHostEntry host = Dns.GetHostEntry(dominio);
+                return host.AddressList.Length > 0;
+            }
+            catch (SocketException)
+            {
+                return false; // Si no se pudo resolver el dominio, es inválido.
+            }
         }
 
         private bool ValidarTodosLosCampos()
@@ -439,10 +498,10 @@ namespace PROYECTO_DIARS__LUIGI
             txtApellidos.Text = dgvEmpleados.CurrentRow.Cells["Apellidos"].Value.ToString();
             txtNumero.Text = dgvEmpleados.CurrentRow.Cells["Telefono"].Value.ToString();
             dtpFehaNacimiento.Value = Convert.ToDateTime(dgvEmpleados.CurrentRow.Cells["FechaNacimiento"].Value);
-            byte[] foto = dgvEmpleados.CurrentRow.Cells["FotoEmpleado"].Value as byte[];
-            if (foto != null)
+            fotoEmpleadoBytes = dgvEmpleados.CurrentRow.Cells["FotoEmpleado"].Value as byte[];
+            if (fotoEmpleadoBytes != null)
             {
-                MetodoFoto_Byte_memoryStream_Image(pbFoto, foto);
+                MetodoFoto_Byte_memoryStream_Image(pbFoto, fotoEmpleadoBytes);
             }
             else
             {
@@ -471,13 +530,14 @@ namespace PROYECTO_DIARS__LUIGI
         private void btnSeleccionarFoto_Click(object sender, EventArgs e)
         {
             OpenFileDialog ofdSeleccionarFoto = new OpenFileDialog();
-            ofdSeleccionarFoto.Filter = "Imagenes(*.jpg)|*.jpg"; //Imagenes(*.png)|*.png|
+            ofdSeleccionarFoto.Filter = "Imagenes(*.png)|*.png|Imagenes(*.jpg)|*.jpg";
             ofdSeleccionarFoto.InitialDirectory = Environment.GetFolderPath(Environment.SpecialFolder.MyPictures);
             ofdSeleccionarFoto.Title = "Seleccionar Foto";
             
             if(ofdSeleccionarFoto.ShowDialog() == DialogResult.OK )
             {
                 pbFoto.Image = System.Drawing.Image.FromFile(ofdSeleccionarFoto.FileName);
+                NuevaFoto = true;
             }
         }
 
@@ -499,19 +559,19 @@ namespace PROYECTO_DIARS__LUIGI
 
         private void cboxTipoDoc_SelectedValueChanged(object sender, EventArgs e)
         {
-            if(cboxTipoDoc.Text == "DNI")
+            if (cboxTipoDoc.Text == "DNI")
             {
                 txtDocEmpleado.MaxLength = 8;
             }
-            else if(cboxTipoDoc.Text == "RUC")
+            else if (cboxTipoDoc.Text == "RUC")
             {
                 txtDocEmpleado.MaxLength = 11;
             }
-            else if(cboxTipoDoc.Text == "PASAPORTE")
+            else if (cboxTipoDoc.Text == "PASAPORTE")
             {
                 txtDocEmpleado.MaxLength = 8;
             }
-            else if(cboxTipoDoc.Text == "CARNET EXT.")
+            else if (cboxTipoDoc.Text == "CARNET EXT.")
             {
                 txtDocEmpleado.MaxLength = 9;
             }
@@ -550,10 +610,38 @@ namespace PROYECTO_DIARS__LUIGI
 
         private void txtDocEmpleado_KeyPress(object sender, KeyPressEventArgs e)
         {
-            if (!char.IsControl(e.KeyChar) && !char.IsDigit(e.KeyChar) && (e.KeyChar < 'A' || e.KeyChar > 'Z'))
+            if (cboxTipoDoc.Text == "DNI")
             {
-                e.Handled = true;
+                if ((e.KeyChar >= 32 & e.KeyChar <= 47) || (e.KeyChar >= 58 & e.KeyChar <= 255))
+                {
+                    e.Handled = true;
+                    return;
+                }
             }
+            else if (cboxTipoDoc.Text == "RUC")
+            {
+                if ((e.KeyChar >= 32 & e.KeyChar <= 47) || (e.KeyChar >= 58 & e.KeyChar <= 255))
+                {
+                    e.Handled = true;
+                    return;
+                }
+            }
+            else if (cboxTipoDoc.Text == "PASAPORTE")
+            {
+                if (!char.IsControl(e.KeyChar) && !char.IsDigit(e.KeyChar) && (e.KeyChar < 'A' || e.KeyChar > 'Z'))
+                {
+                    e.Handled = true;
+                }
+            }
+            else if (cboxTipoDoc.Text == "CARNET EXT.")
+            {
+                if ((e.KeyChar >= 32 & e.KeyChar <= 47) || (e.KeyChar >= 58 & e.KeyChar <= 255))
+                {
+                    e.Handled = true;
+                    return;
+                }
+            }
+
             if (e.KeyChar == Convert.ToChar(Keys.Enter))
             {
                 txtNombres.Focus(); // aca puedo poner para buscar al presionar enter
