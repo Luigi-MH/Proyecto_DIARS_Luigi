@@ -16,6 +16,7 @@ using System.Threading.Tasks;
 using System.Windows.Forms;
 using static System.Net.Mime.MediaTypeNames;
 using static System.Windows.Forms.VisualStyles.VisualStyleElement.ListView;
+using System.Data.SqlClient;
 
 namespace PROYECTO_DIARS__LUIGI
 {
@@ -114,31 +115,31 @@ namespace PROYECTO_DIARS__LUIGI
                         entEmpleado.Correo = txtCorreo.Text;
                         entEmpleado.Telefono = txtNumero.Text;
                         entEmpleado.FechaNacimiento = dtpFehaNacimiento.Value;
-                        if (pbFoto.Image != null)
-                        {
-                            entEmpleado.FotoEmpleado = ImageToByteArray(pbFoto.Image);
-                        }
-                        else
-                        {
-                            entEmpleado.FotoEmpleado = null;
-                        }
+                        entEmpleado.FotoEmpleado = pbFoto.Image != null ? ImageToByteArray(pbFoto.Image) : null;
                         entEmpleado.FechaContratacion = dtpFechaContratacionE.Value;
                         entEmpleado.Id_Cargo = (int)cboxCargo.SelectedValue;
                         entEmpleado.Salario = Convert.ToDecimal(txtSalario.Text);
-                        if(rdActivo.Checked)
+                        entEmpleado.Estado = rdActivo.Checked ? true : false;
+                        try
                         {
-                            entEmpleado.Estado = true;
+                            logEmpleados.Instancia.AgregarEmpleado(entEmpleado);
+                            MessageBox.Show("Se agrego con exito", "Aviso del Sitema Sys-MH", MessageBoxButtons.OK, MessageBoxIcon.Information);
                         }
-                        else
+                        catch (SqlException ex)
                         {
-                            entEmpleado.Estado = false;
+                            if (ex.Number == 2627 || ex.Number == 2601)
+                            {
+                                MessageBox.Show($"El Empleado con '{cboxTipoDoc.Text}': '{txtDocEmpleado.Text}' ya existe.", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                            }
+                            else
+                            {
+                                MessageBox.Show($"Error en la base de datos: {ex.Message} (Código: {ex.Number})", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                            }
                         }
-                        logEmpleados.Instancia.AgregarEmpleado(entEmpleado);
-                        MessageBox.Show("Se agrego con exito", "Aviso del Sitema Sys-MH", MessageBoxButtons.OK, MessageBoxIcon.Information);
                     }
                     catch (Exception ex)
                     {
-                        MessageBox.Show("Error.." + ex);
+                        MessageBox.Show("Error en el Software: " + ex.Message, "Error Crítico", MessageBoxButtons.OK, MessageBoxIcon.Error);
                     }
                     limpiar();
                     dgvEmpleados.Enabled = true;
@@ -201,17 +202,24 @@ namespace PROYECTO_DIARS__LUIGI
                                 entEmpleado.FechaContratacion = dtpFechaContratacionE.Value;
                                 entEmpleado.Id_Cargo = (int)cboxCargo.SelectedValue;
                                 entEmpleado.Salario = Convert.ToDecimal(txtSalario.Text);
-                                if (rdActivo.Checked)
+                                entEmpleado.Estado = rdActivo.Checked ? true : false;
+                                try
                                 {
-                                    entEmpleado.Estado = true;
+                                    logEmpleados.Instancia.ModificarEmpleado(entEmpleado);
+                                    MessageBox.Show("Se modificó con exito", "Aviso del Sitema Sys-MH", MessageBoxButtons.OK, MessageBoxIcon.Information);
                                 }
-                                else
+                                catch (SqlException ex)
                                 {
-                                    entEmpleado.Estado = false;
+                                    if (ex.Number == 2627 || ex.Number == 2601)
+                                    {
+                                        MessageBox.Show($"El empleado con '{cboxTipoDoc.Text}': '{txtDocEmpleado.Text}' ya existe.", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                                    }
+                                    else
+                                    {
+                                        MessageBox.Show($"Error en la base de datos: {ex.Message} (Código: {ex.Number})", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                                    }
                                 }
-                                logEmpleados.Instancia.ModificarEmpleado(entEmpleado);
                                 limpiarValidacionFoto();
-                                MessageBox.Show("Se modificó con exito", "Aviso del Sitema Sys-MH", MessageBoxButtons.OK, MessageBoxIcon.Information);
                             }
                             catch (Exception ex)
                             {
