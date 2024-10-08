@@ -135,6 +135,7 @@ namespace PROYECTO_DIARS__LUIGI
                             limpiar();
                             dgvEmpleados.Enabled = true;
                             ElementosBloqueados();
+                            ListarEmpleados();
                         }
                         catch (SqlException ex)
                         {
@@ -217,6 +218,7 @@ namespace PROYECTO_DIARS__LUIGI
                                     MessageBox.Show("Se modificó con exito", "Aviso del Sitema Sys-MH", MessageBoxButtons.OK, MessageBoxIcon.Information);
                                     limpiar();
                                     ElementosBloqueados();
+                                    ListarEmpleados();
                                 }
                                 catch (SqlException ex)
                                 {
@@ -235,7 +237,7 @@ namespace PROYECTO_DIARS__LUIGI
                             {
                                 MessageBox.Show("Error.." + ex);
                             }
-                            ListarEmpleados();
+
                         }
                         else
                         {
