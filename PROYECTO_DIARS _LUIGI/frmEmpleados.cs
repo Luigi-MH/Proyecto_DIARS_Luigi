@@ -218,6 +218,7 @@ namespace PROYECTO_DIARS__LUIGI
                                     limpiar();
                                     ElementosBloqueados();
                                     ListarEmpleados();
+                                    limpiarValidacionFoto(); // lipiar las variables nuevaFoto y fotoEmpleadoBytes[]
                                 }
                                 catch (SqlException ex)
                                 {
@@ -230,7 +231,6 @@ namespace PROYECTO_DIARS__LUIGI
                                         MessageBox.Show($"Error en la base de datos: {ex.Message} (Código: {ex.Number})", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
                                     }
                                 }
-                                limpiarValidacionFoto();
                             }
                             catch (Exception ex)
                             {
