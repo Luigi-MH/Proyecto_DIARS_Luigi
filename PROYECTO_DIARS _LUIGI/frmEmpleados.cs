@@ -79,9 +79,16 @@ namespace PROYECTO_DIARS__LUIGI
                     {
                         entEmpleados entEmpleados = new entEmpleados();
                         entEmpleados.Id_Empleado = Convert.ToInt32(txtId.Text);
-                        //logEmpleados.Instancia.EliminarEmpleado(entEmpleados);
-                        MessageBox.Show("Aún no se implementa el eliminar", "Aviso del Sitema Sys-MH", MessageBoxButtons.OK, MessageBoxIcon.Information);
-                        //MessageBox.Show("Se eliminó con exito", "Aviso del Sitema Sys-MH", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                        try
+                        {
+                            //logEmpleados.Instancia.EliminarEmpleado(entEmpleados);
+                            MessageBox.Show("Aún no se implementa el eliminar", "Aviso del Sitema Sys-MH", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                            //MessageBox.Show("Se eliminó con exito", "Aviso del Sitema Sys-MH", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                        }
+                        catch (SqlException ex)
+                        {
+                            MessageBox.Show($"Error en la base de datos: {ex.Message} (Código: {ex.Number})", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                        }
                     }
                     catch (Exception ex)
                     {
@@ -264,9 +271,10 @@ namespace PROYECTO_DIARS__LUIGI
             dgvEmpleados.Columns["NumDoc"].Width = 80;
             dgvEmpleados.Columns["Nombres"].Width = 160;
             dgvEmpleados.Columns["Apellidos"].Width = 150;
-            dgvEmpleados.Columns["Correo"].Width = 180;
+            dgvEmpleados.Columns["Correo"].Visible = false;
             dgvEmpleados.Columns["Telefono"].Width = 80;
-            dgvEmpleados.Columns["FechaNacimiento"].Width = 100;
+            dgvEmpleados.Columns["FechaNacimiento"].Visible = false;
+            ((DataGridViewImageColumn)dgvEmpleados.Columns["FotoEmpleado"]).ImageLayout = DataGridViewImageCellLayout.Zoom;
             dgvEmpleados.Columns["FotoEmpleado"].Width = 80;
             dgvEmpleados.Columns["FechaContratacion"].Width = 100;
             dgvEmpleados.Columns["Id_Cargo"].Visible = false;
