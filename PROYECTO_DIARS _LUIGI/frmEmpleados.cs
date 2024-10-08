@@ -118,8 +118,8 @@ namespace PROYECTO_DIARS__LUIGI
                         entEmpleados entEmpleado = new entEmpleados();
                         entEmpleado.Id_TipoDocumento = (int)cboxTipoDoc.SelectedValue;
                         entEmpleado.NumDoc = txtDocEmpleado.Text;
-                        entEmpleado.Nombres = txtNombres.Text;
-                        entEmpleado.Apellidos = txtApellidos.Text;
+                        entEmpleado.Nombres = txtNombres.Text.Trim().ToUpper();
+                        entEmpleado.Apellidos = txtApellidos.Text.Trim().ToUpper();
                         entEmpleado.Correo = txtCorreo.Text;
                         entEmpleado.Telefono = txtNumero.Text;
                         entEmpleado.FechaNacimiento = dtpFehaNacimiento.Value;
@@ -180,8 +180,8 @@ namespace PROYECTO_DIARS__LUIGI
                                 entEmpleado.Id_Empleado = Convert.ToInt32(txtId.Text);
                                 entEmpleado.Id_TipoDocumento = (int)cboxTipoDoc.SelectedValue;
                                 entEmpleado.NumDoc = txtDocEmpleado.Text;
-                                entEmpleado.Nombres = txtNombres.Text;
-                                entEmpleado.Apellidos = txtApellidos.Text;
+                                entEmpleado.Nombres = txtNombres.Text.Trim().ToUpper();
+                                entEmpleado.Apellidos = txtApellidos.Text.Trim().ToUpper();
                                 entEmpleado.Correo = txtCorreo.Text;
                                 entEmpleado.Telefono = txtNumero.Text;
                                 entEmpleado.FechaNacimiento = dtpFehaNacimiento.Value;
@@ -390,12 +390,10 @@ namespace PROYECTO_DIARS__LUIGI
 
                 if (EsDominioValido(dominio))
                 {
-                    Console.WriteLine("El dominio es válido.");
                     return true;
                 }
                 else
                 {
-                    Console.WriteLine("El dominio no tiene registros DNS válidos.");
                     return false;
                 }
             }
