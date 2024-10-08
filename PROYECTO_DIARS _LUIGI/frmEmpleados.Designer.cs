@@ -66,6 +66,7 @@
             this.txtNombres = new System.Windows.Forms.TextBox();
             this.lblCorreo = new System.Windows.Forms.Label();
             this.lblNombres = new System.Windows.Forms.Label();
+            this.chboxVerFotoLista = new System.Windows.Forms.CheckBox();
             this.gboxEmpleados.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dgvEmpleados)).BeginInit();
             this.gboxDatosEmpleado.SuspendLayout();
@@ -88,6 +89,7 @@
             // 
             // gboxEmpleados
             // 
+            this.gboxEmpleados.Controls.Add(this.chboxVerFotoLista);
             this.gboxEmpleados.Controls.Add(this.btnEliminar);
             this.gboxEmpleados.Controls.Add(this.btnNuevo);
             this.gboxEmpleados.Controls.Add(this.btnEditar);
@@ -103,7 +105,7 @@
             // 
             this.btnEliminar.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnEliminar.Location = new System.Drawing.Point(1566, 378);
-            this.btnEliminar.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.btnEliminar.Margin = new System.Windows.Forms.Padding(2);
             this.btnEliminar.Name = "btnEliminar";
             this.btnEliminar.Size = new System.Drawing.Size(100, 40);
             this.btnEliminar.TabIndex = 48;
@@ -115,7 +117,7 @@
             // 
             this.btnNuevo.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnNuevo.Location = new System.Drawing.Point(1566, 289);
-            this.btnNuevo.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.btnNuevo.Margin = new System.Windows.Forms.Padding(2);
             this.btnNuevo.Name = "btnNuevo";
             this.btnNuevo.Size = new System.Drawing.Size(100, 40);
             this.btnNuevo.TabIndex = 47;
@@ -127,7 +129,7 @@
             // 
             this.btnEditar.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnEditar.Location = new System.Drawing.Point(1566, 333);
-            this.btnEditar.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.btnEditar.Margin = new System.Windows.Forms.Padding(2);
             this.btnEditar.Name = "btnEditar";
             this.btnEditar.Size = new System.Drawing.Size(100, 40);
             this.btnEditar.TabIndex = 46;
@@ -141,7 +143,7 @@
             this.dgvEmpleados.AllowUserToDeleteRows = false;
             this.dgvEmpleados.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.dgvEmpleados.Location = new System.Drawing.Point(18, 18);
-            this.dgvEmpleados.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.dgvEmpleados.Margin = new System.Windows.Forms.Padding(2);
             this.dgvEmpleados.Name = "dgvEmpleados";
             this.dgvEmpleados.ReadOnly = true;
             this.dgvEmpleados.RowHeadersWidth = 51;
@@ -183,9 +185,9 @@
             this.gboxDatosEmpleado.Controls.Add(this.lblNombres);
             this.gboxDatosEmpleado.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.gboxDatosEmpleado.Location = new System.Drawing.Point(988, 18);
-            this.gboxDatosEmpleado.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.gboxDatosEmpleado.Margin = new System.Windows.Forms.Padding(2);
             this.gboxDatosEmpleado.Name = "gboxDatosEmpleado";
-            this.gboxDatosEmpleado.Padding = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.gboxDatosEmpleado.Padding = new System.Windows.Forms.Padding(2);
             this.gboxDatosEmpleado.Size = new System.Drawing.Size(563, 650);
             this.gboxDatosEmpleado.TabIndex = 13;
             this.gboxDatosEmpleado.TabStop = false;
@@ -304,7 +306,7 @@
             // txtApellidos
             // 
             this.txtApellidos.Location = new System.Drawing.Point(330, 193);
-            this.txtApellidos.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.txtApellidos.Margin = new System.Windows.Forms.Padding(2);
             this.txtApellidos.Name = "txtApellidos";
             this.txtApellidos.Size = new System.Drawing.Size(201, 22);
             this.txtApellidos.TabIndex = 61;
@@ -333,7 +335,7 @@
             // txtSalario
             // 
             this.txtSalario.Location = new System.Drawing.Point(378, 391);
-            this.txtSalario.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.txtSalario.Margin = new System.Windows.Forms.Padding(2);
             this.txtSalario.MaxLength = 10;
             this.txtSalario.Name = "txtSalario";
             this.txtSalario.Size = new System.Drawing.Size(153, 22);
@@ -365,7 +367,7 @@
             // 
             this.btnModificar.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnModificar.Location = new System.Drawing.Point(250, 547);
-            this.btnModificar.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.btnModificar.Margin = new System.Windows.Forms.Padding(2);
             this.btnModificar.Name = "btnModificar";
             this.btnModificar.Size = new System.Drawing.Size(100, 48);
             this.btnModificar.TabIndex = 53;
@@ -377,7 +379,7 @@
             // 
             this.btnAgregar.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnAgregar.Location = new System.Drawing.Point(354, 547);
-            this.btnAgregar.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.btnAgregar.Margin = new System.Windows.Forms.Padding(2);
             this.btnAgregar.Name = "btnAgregar";
             this.btnAgregar.Size = new System.Drawing.Size(100, 48);
             this.btnAgregar.TabIndex = 52;
@@ -389,7 +391,7 @@
             // 
             this.btnCancelar.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnCancelar.Location = new System.Drawing.Point(146, 547);
-            this.btnCancelar.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.btnCancelar.Margin = new System.Windows.Forms.Padding(2);
             this.btnCancelar.Name = "btnCancelar";
             this.btnCancelar.Size = new System.Drawing.Size(100, 48);
             this.btnCancelar.TabIndex = 51;
@@ -437,7 +439,7 @@
             // txtDocEmpleado
             // 
             this.txtDocEmpleado.Location = new System.Drawing.Point(330, 101);
-            this.txtDocEmpleado.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.txtDocEmpleado.Margin = new System.Windows.Forms.Padding(2);
             this.txtDocEmpleado.Name = "txtDocEmpleado";
             this.txtDocEmpleado.Size = new System.Drawing.Size(145, 22);
             this.txtDocEmpleado.TabIndex = 12;
@@ -457,7 +459,7 @@
             // txtNumero
             // 
             this.txtNumero.Location = new System.Drawing.Point(330, 240);
-            this.txtNumero.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.txtNumero.Margin = new System.Windows.Forms.Padding(2);
             this.txtNumero.MaxLength = 9;
             this.txtNumero.Name = "txtNumero";
             this.txtNumero.Size = new System.Drawing.Size(145, 22);
@@ -478,7 +480,7 @@
             // txtCorreo
             // 
             this.txtCorreo.Location = new System.Drawing.Point(75, 343);
-            this.txtCorreo.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.txtCorreo.Margin = new System.Windows.Forms.Padding(2);
             this.txtCorreo.MaxLength = 126;
             this.txtCorreo.Name = "txtCorreo";
             this.txtCorreo.Size = new System.Drawing.Size(241, 22);
@@ -488,7 +490,7 @@
             // txtNombres
             // 
             this.txtNombres.Location = new System.Drawing.Point(330, 149);
-            this.txtNombres.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.txtNombres.Margin = new System.Windows.Forms.Padding(2);
             this.txtNombres.Name = "txtNombres";
             this.txtNombres.Size = new System.Drawing.Size(201, 22);
             this.txtNombres.TabIndex = 3;
@@ -516,6 +518,17 @@
             this.lblNombres.TabIndex = 0;
             this.lblNombres.Text = "Nombres";
             // 
+            // chboxVerFotoLista
+            // 
+            this.chboxVerFotoLista.AutoSize = true;
+            this.chboxVerFotoLista.Location = new System.Drawing.Point(988, 685);
+            this.chboxVerFotoLista.Name = "chboxVerFotoLista";
+            this.chboxVerFotoLista.Size = new System.Drawing.Size(91, 17);
+            this.chboxVerFotoLista.TabIndex = 49;
+            this.chboxVerFotoLista.Text = "Ver Foto Lista";
+            this.chboxVerFotoLista.UseVisualStyleBackColor = true;
+            this.chboxVerFotoLista.CheckedChanged += new System.EventHandler(this.chboxVerFotoLista_CheckedChanged);
+            // 
             // frmEmpleados
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -528,6 +541,7 @@
             this.Text = "frmEmpleado";
             this.Load += new System.EventHandler(this.frmEmpleados_Load);
             this.gboxEmpleados.ResumeLayout(false);
+            this.gboxEmpleados.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dgvEmpleados)).EndInit();
             this.gboxDatosEmpleado.ResumeLayout(false);
             this.gboxDatosEmpleado.PerformLayout();
@@ -578,5 +592,6 @@
         private System.Windows.Forms.DateTimePicker dtpFehaNacimiento;
         private System.Windows.Forms.Button btnBuscar;
         private System.Windows.Forms.Button btnEliminar;
+        private System.Windows.Forms.CheckBox chboxVerFotoLista;
     }
 }

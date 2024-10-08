@@ -37,6 +37,7 @@ namespace PROYECTO_DIARS__LUIGI
             btnCancelar.Enabled = false;
             ElementosBloqueados(); // grupo de los elemento(heramientas) inabilitadas
             ListarEmpleados();
+            dgvEmpleados.Columns["FotoEmpleado"].Visible = false;
             ListarTiposDocumentos();
             ListarCargos();
             limpiar();
@@ -709,6 +710,11 @@ namespace PROYECTO_DIARS__LUIGI
             {
                 txtSalario.Focus();
             }
+        }
+
+        private void chboxVerFotoLista_CheckedChanged(object sender, EventArgs e)
+        {
+            dgvEmpleados.Columns["FotoEmpleado"].Visible = chboxVerFotoLista.Checked ? true : false;
         }
     }
 }
