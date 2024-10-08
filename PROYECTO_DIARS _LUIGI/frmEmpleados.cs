@@ -132,6 +132,10 @@ namespace PROYECTO_DIARS__LUIGI
                         {
                             logEmpleados.Instancia.AgregarEmpleado(entEmpleado);
                             MessageBox.Show("Se agrego con exito", "Aviso del Sitema Sys-MH", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                            limpiar();
+                            dgvEmpleados.Enabled = true;
+                            ElementosBloqueados();
+                            ListarEmpleados();
                         }
                         catch (SqlException ex)
                         {
@@ -149,10 +153,6 @@ namespace PROYECTO_DIARS__LUIGI
                     {
                         MessageBox.Show("Error en el Software: " + ex.Message, "Error Crítico", MessageBoxButtons.OK, MessageBoxIcon.Error);
                     }
-                    limpiar();
-                    dgvEmpleados.Enabled = true;
-                    ElementosBloqueados();
-                    ListarEmpleados();
                 }
             }
             else
@@ -215,6 +215,9 @@ namespace PROYECTO_DIARS__LUIGI
                                 {
                                     logEmpleados.Instancia.ModificarEmpleado(entEmpleado);
                                     MessageBox.Show("Se modificó con exito", "Aviso del Sitema Sys-MH", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                                    limpiar();
+                                    ElementosBloqueados();
+                                    ListarEmpleados();
                                 }
                                 catch (SqlException ex)
                                 {
@@ -231,11 +234,8 @@ namespace PROYECTO_DIARS__LUIGI
                             }
                             catch (Exception ex)
                             {
-                                MessageBox.Show("Error.." + ex);
+                                MessageBox.Show("Error en el Software: " + ex.Message, "Error Crítico", MessageBoxButtons.OK, MessageBoxIcon.Error);
                             }
-                            limpiar();
-                            ElementosBloqueados();
-                            ListarEmpleados();
                         }
                         else
                         {
