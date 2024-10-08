@@ -133,9 +133,6 @@ namespace PROYECTO_DIARS__LUIGI
                             logEmpleados.Instancia.AgregarEmpleado(entEmpleado);
                             MessageBox.Show("Se agrego con exito", "Aviso del Sitema Sys-MH", MessageBoxButtons.OK, MessageBoxIcon.Information);
                             limpiar();
-                            dgvEmpleados.Enabled = true;
-                            ElementosBloqueados();
-                            ListarEmpleados();
                         }
                         catch (SqlException ex)
                         {
@@ -153,6 +150,9 @@ namespace PROYECTO_DIARS__LUIGI
                     {
                         MessageBox.Show("Error en el Software: " + ex.Message, "Error Crítico", MessageBoxButtons.OK, MessageBoxIcon.Error);
                     }
+                    dgvEmpleados.Enabled = true;
+                    ElementosBloqueados();
+                    ListarEmpleados();
                 }
             }
             else
@@ -216,9 +216,6 @@ namespace PROYECTO_DIARS__LUIGI
                                     logEmpleados.Instancia.ModificarEmpleado(entEmpleado);
                                     MessageBox.Show("Se modificó con exito", "Aviso del Sitema Sys-MH", MessageBoxButtons.OK, MessageBoxIcon.Information);
                                     limpiar();
-                                    ElementosBloqueados();
-                                    ListarEmpleados();
-                                    limpiarValidacionFoto(); // lipiar las variables nuevaFoto y fotoEmpleadoBytes[]
                                 }
                                 catch (SqlException ex)
                                 {
@@ -231,11 +228,14 @@ namespace PROYECTO_DIARS__LUIGI
                                         MessageBox.Show($"Error en la base de datos: {ex.Message} (Código: {ex.Number})", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
                                     }
                                 }
+                                limpiarValidacionFoto();
                             }
                             catch (Exception ex)
                             {
-                                MessageBox.Show("Error en el Software: " + ex.Message, "Error Crítico", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                                MessageBox.Show("Error.." + ex);
                             }
+                            ElementosBloqueados();
+                            ListarEmpleados();
                         }
                         else
                         {
