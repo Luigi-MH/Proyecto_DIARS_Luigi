@@ -215,8 +215,8 @@ namespace PROYECTO_DIARS__LUIGI
                                     logEmpleados.Instancia.ModificarEmpleado(entEmpleado);
                                     MessageBox.Show("Se modificó con exito", "Aviso del Sitema Sys-MH", MessageBoxButtons.OK, MessageBoxIcon.Information);
                                     deshabilitarBtn(btnNuevo, btnEditar, btnEliminar, btnAgregar, btnModificar, btnCancelar);
-                                    limpiar();
                                     limpiarValidacionFoto();
+                                    limpiar();
                                     ElementosBloqueados();
                                     ListarEmpleados();
                                 }
