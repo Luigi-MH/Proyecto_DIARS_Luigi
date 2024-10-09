@@ -725,5 +725,23 @@ namespace PROYECTO_DIARS__LUIGI
         {
             e.Handled = true;
         }
+
+        private void dtpFechaContratacionE_ValueChanged(object sender, EventArgs e)
+        {
+            if (dtpFechaContratacionE.Value < dtpFechaContratacionE.MinDate || dtpFechaContratacionE.Value > dtpFechaContratacionE.MaxDate)
+            {
+                MessageBox.Show("La fecha seleccionada está fuera del rango permitido.", "Error de selección");
+                dtpFechaContratacionE.Value = dtpFechaContratacionE.Value.ToLocalTime();
+            }
+        }
+
+        private void dtpFehaNacimiento_ValueChanged(object sender, EventArgs e)
+        {
+            if (dtpFehaNacimiento.Value < dtpFehaNacimiento.MinDate || dtpFehaNacimiento.Value > dtpFehaNacimiento.MaxDate)
+            {
+                MessageBox.Show("La fecha seleccionada está fuera del rango permitido.", "Error de selección");
+                dtpFehaNacimiento.Value = dtpFehaNacimiento.Value.ToLocalTime();
+            }
+        }
     }
 }
