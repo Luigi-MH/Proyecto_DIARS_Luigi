@@ -232,7 +232,6 @@
             this.dtpFehaNacimiento.Name = "dtpFehaNacimiento";
             this.dtpFehaNacimiento.Size = new System.Drawing.Size(106, 22);
             this.dtpFehaNacimiento.TabIndex = 70;
-            this.dtpFehaNacimiento.ValueChanged += new System.EventHandler(this.dtpFehaNacimiento_ValueChanged);
             this.dtpFehaNacimiento.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.dtpFehaNacimiento_KeyPress);
             // 
             // btnSeleccionarFoto
@@ -344,7 +343,6 @@
             this.dtpFechaContratacionE.Name = "dtpFechaContratacionE";
             this.dtpFechaContratacionE.Size = new System.Drawing.Size(112, 22);
             this.dtpFechaContratacionE.TabIndex = 59;
-            this.dtpFechaContratacionE.ValueChanged += new System.EventHandler(this.dtpFechaContratacionE_ValueChanged);
             this.dtpFechaContratacionE.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.dtpFechaContratacionE_KeyPress);
             // 
             // txtSalario

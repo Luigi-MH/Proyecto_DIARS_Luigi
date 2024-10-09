@@ -183,7 +183,7 @@ namespace PROYECTO_DIARS__LUIGI
                                 entEmpleado.Apellidos = txtApellidos.Text.Trim().ToUpper();
                                 entEmpleado.Correo = txtCorreo.Text;
                                 entEmpleado.Telefono = txtNumero.Text;
-                                entEmpleado.FechaNacimiento = dtpFehaNacimiento.Value;
+                                entEmpleado.FechaNacimiento = dtpFehaNacimiento.Value < dtpFehaNacimiento.MinDate ? dtpFehaNacimiento.Value = DateTime.Now.AddDays(1) : dtpFehaNacimiento.Value;
                                 if (pbFoto.Image != null)
                                 {
                                     if(NuevaFoto)
@@ -724,24 +724,6 @@ namespace PROYECTO_DIARS__LUIGI
         private void dtpFechaContratacionE_KeyPress(object sender, KeyPressEventArgs e)
         {
             e.Handled = true;
-        }
-
-        private void dtpFechaContratacionE_ValueChanged(object sender, EventArgs e)
-        {
-            if (dtpFechaContratacionE.Value < dtpFechaContratacionE.MinDate || dtpFechaContratacionE.Value > dtpFechaContratacionE.MaxDate)
-            {
-                MessageBox.Show("La fecha seleccionada está fuera del rango permitido.", "Error de selección");
-                dtpFechaContratacionE.Value = dtpFechaContratacionE.Value.ToLocalTime();
-            }
-        }
-
-        private void dtpFehaNacimiento_ValueChanged(object sender, EventArgs e)
-        {
-            if (dtpFehaNacimiento.Value < dtpFehaNacimiento.MinDate || dtpFehaNacimiento.Value > dtpFehaNacimiento.MaxDate)
-            {
-                MessageBox.Show("La fecha seleccionada está fuera del rango permitido.", "Error de selección");
-                dtpFehaNacimiento.Value = dtpFehaNacimiento.Value.ToLocalTime();
-            }
         }
     }
 }
