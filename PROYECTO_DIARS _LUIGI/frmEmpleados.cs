@@ -325,7 +325,7 @@ namespace PROYECTO_DIARS__LUIGI
 
         private bool ValidarDatosVacios()
         {
-            if (txtDocEmpleado.Text != string.Empty & txtNombres.Text != string.Empty & txtApellidos.Text != string.Empty & txtNumero.Text != string.Empty & txtCorreo.Text != string.Empty & txtSalario.Text != string.Empty)
+            if (txtDocEmpleado.Text != string.Empty & txtNombres.Text != string.Empty & txtApellidos.Text != string.Empty & txtSalario.Text != string.Empty)
             {
                 return true;
             }
@@ -420,27 +420,36 @@ namespace PROYECTO_DIARS__LUIGI
 
         private bool ValidarTodosLosCampos()
         {
-            // Validar el número de teléfono
-            string numeroTelefono = txtNumero.Text;
-            if (!ValidarTelefono(numeroTelefono))
+            if(txtNumero.Text != string.Empty || txtCorreo.Text != string.Empty)
             {
-                MessageBox.Show("Número de teléfono inválido.", "Aviso del Sitema Sys-MH", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                if (txtNumero.Text != string.Empty)
+                {
+                    if (!ValidarTelefono(txtNumero.Text))
+                    {
+                        MessageBox.Show("Número de teléfono inválido.", "Aviso del Sitema Sys-MH", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                        txtNumero.Focus();
+                        return false;
+                    }
+                }
+
+                if (txtCorreo.Text != string.Empty)
+                {
+                    if (!ValidarCorreo(txtCorreo.Text))
+                    {
+                        MessageBox.Show("Correo electrónico inválido.", "Aviso del Sitema Sys-MH", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                        txtCorreo.Focus();
+                        return false;
+                    }
+                }
+            }
+            else
+            {
+                MessageBox.Show("Completar correo o número.", "Aviso del Sitema Sys-MH", MessageBoxButtons.OK, MessageBoxIcon.Information);
                 txtNumero.Focus();
                 return false;
             }
-
-            // Validar el correo electrónico
-            string correo = txtCorreo.Text;
-            if (!ValidarCorreo(correo))
-            {
-                MessageBox.Show("Correo electrónico inválido.", "Aviso del Sitema Sys-MH", MessageBoxButtons.OK, MessageBoxIcon.Information);
-                txtCorreo.Focus();
-                return false;
-            }
-
-            // Validar el número de documento
-            string documento = txtDocEmpleado.Text;
-            if (!ValidarDocumento(documento))
+            
+            if (!ValidarDocumento(txtDocEmpleado.Text))
             {
                 MessageBox.Show("Número de documento inválido.", "Aviso del Sitema Sys-MH", MessageBoxButtons.OK, MessageBoxIcon.Information);
                 txtDocEmpleado.Focus();
@@ -601,7 +610,7 @@ namespace PROYECTO_DIARS__LUIGI
 
         private void cboxTipoDoc_SelectedValueChanged(object sender, EventArgs e)
         {
-            if (cboxTipoDoc.Text == "DNI")
+            if (cboxTipoDoc.Text == "DNI" & txtDocEmpleado.Enabled == true)
             {
                 txtDocEmpleado.MaxLength = 8;
                 btnBuscar.Enabled = true;
