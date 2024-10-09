@@ -141,6 +141,7 @@ namespace PROYECTO_DIARS__LUIGI
                             if (ex.Number == 2627 || ex.Number == 2601)
                             {
                                 MessageBox.Show($"El Empleado con '{cboxTipoDoc.Text}': '{txtDocEmpleado.Text}' ya existe.", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                                txtDocEmpleado.Focus();
                             }
                             else
                             {
@@ -224,6 +225,7 @@ namespace PROYECTO_DIARS__LUIGI
                                     if (ex.Number == 2627 || ex.Number == 2601)
                                     {
                                         MessageBox.Show($"El empleado con '{cboxTipoDoc.Text}': '{txtDocEmpleado.Text}' ya existe.", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                                        txtDocEmpleado.Focus();
                                     }
                                     else
                                     {
@@ -537,9 +539,14 @@ namespace PROYECTO_DIARS__LUIGI
             }
         }
 
-        private async void btnBuscar_Click(object sender, EventArgs e)
+        private void btnBuscar_Click(object sender, EventArgs e)
         {
-            if(txtDocEmpleado.TextLength == 8)
+            BuscarPersonaDNI_API();
+        }
+
+        private async void BuscarPersonaDNI_API()
+        {
+            if (txtDocEmpleado.TextLength == 8)
             {
                 string result = await logPersona.Instancia.GET_DNI_Dato(txtDocEmpleado.Text);
                 var persona = JsonConvert.DeserializeObject<entPersona>(result);
@@ -547,15 +554,18 @@ namespace PROYECTO_DIARS__LUIGI
                 {
                     txtNombres.Text = persona.nombres;
                     txtApellidos.Text = persona.apellidoPaterno.ToString() + " " + persona.apellidoMaterno.ToString();
+                    txtNumero.Focus();
                 }
                 else
                 {
                     MessageBox.Show($"Persona con DNI:'{txtDocEmpleado.Text}' no encontrada", "Aviso del Sitema Sys-MH", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                    txtDocEmpleado.Focus();
                 }
             }
             else
             {
                 MessageBox.Show("DNI Incompleto", "Aviso del Sitema Sys-MH", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                txtDocEmpleado.Focus();
             }
         }
 
@@ -675,7 +685,7 @@ namespace PROYECTO_DIARS__LUIGI
 
             if (e.KeyChar == Convert.ToChar(Keys.Enter))
             {
-                txtNombres.Focus(); // aca puedo poner para buscar al presionar enter
+                BuscarPersonaDNI_API();
             }
         }
 
