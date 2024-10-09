@@ -25,7 +25,10 @@ namespace PROYECTO_DIARS__LUIGI
             btnAgregar.Enabled = false;
             btnModificar.Enabled = false;
             btnCancelar.Enabled = false;
+            ElementosBloqueados();
             ListarUsuarios();
+            ListarRoles();
+            limpiar();
             dgvUsuarios.EnableHeadersVisualStyles = false;
         }
 

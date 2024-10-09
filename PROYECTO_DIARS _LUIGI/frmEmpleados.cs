@@ -95,7 +95,7 @@ namespace PROYECTO_DIARS__LUIGI
                     {
                         MessageBox.Show("Error.." + ex);
                     }
-                    ListarCargos();
+                    ListarEmpleados();
                 }
                 limpiar();
                 ElementosBloqueados();
