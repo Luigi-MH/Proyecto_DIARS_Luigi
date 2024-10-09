@@ -112,7 +112,6 @@ namespace PROYECTO_DIARS__LUIGI
             {
                 if(ValidarTodosLosCampos())
                 {
-                    deshabilitarBtn(btnNuevo, btnEditar, btnEliminar, btnAgregar, btnModificar, btnCancelar);
                     try
                     {
                         entEmpleados entEmpleado = new entEmpleados();
@@ -132,6 +131,11 @@ namespace PROYECTO_DIARS__LUIGI
                         {
                             logEmpleados.Instancia.AgregarEmpleado(entEmpleado);
                             MessageBox.Show("Se agrego con exito", "Aviso del Sitema Sys-MH", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                            deshabilitarBtn(btnNuevo, btnEditar, btnEliminar, btnAgregar, btnModificar, btnCancelar);
+                            limpiar();
+                            dgvEmpleados.Enabled = true;
+                            ElementosBloqueados();
+                            ListarEmpleados();
                         }
                         catch (SqlException ex)
                         {
@@ -149,10 +153,6 @@ namespace PROYECTO_DIARS__LUIGI
                     {
                         MessageBox.Show("Error en el Software: " + ex.Message, "Error Crítico", MessageBoxButtons.OK, MessageBoxIcon.Error);
                     }
-                    limpiar();
-                    dgvEmpleados.Enabled = true;
-                    ElementosBloqueados();
-                    ListarEmpleados();
                 }
             }
             else
@@ -173,7 +173,6 @@ namespace PROYECTO_DIARS__LUIGI
                         DialogResult result = MessageBox.Show("Esta seguro de Modificar", "Aviso del Sitema Sys-MH", MessageBoxButtons.YesNo, MessageBoxIcon.Information);
                         if (result == DialogResult.Yes)
                         {
-                            deshabilitarBtn(btnNuevo, btnEditar, btnEliminar, btnAgregar, btnModificar, btnCancelar);
                             try
                             {
                                 entEmpleados entEmpleado = new entEmpleados();
@@ -215,6 +214,11 @@ namespace PROYECTO_DIARS__LUIGI
                                 {
                                     logEmpleados.Instancia.ModificarEmpleado(entEmpleado);
                                     MessageBox.Show("Se modificó con exito", "Aviso del Sitema Sys-MH", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                                    deshabilitarBtn(btnNuevo, btnEditar, btnEliminar, btnAgregar, btnModificar, btnCancelar);
+                                    limpiarValidacionFoto();
+                                    limpiar();
+                                    ElementosBloqueados();
+                                    ListarEmpleados();
                                 }
                                 catch (SqlException ex)
                                 {
@@ -227,15 +231,11 @@ namespace PROYECTO_DIARS__LUIGI
                                         MessageBox.Show($"Error en la base de datos: {ex.Message} (Código: {ex.Number})", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
                                     }
                                 }
-                                limpiarValidacionFoto();
                             }
                             catch (Exception ex)
                             {
                                 MessageBox.Show("Error.." + ex);
                             }
-                            limpiar();
-                            ElementosBloqueados();
-                            ListarEmpleados();
                         }
                         else
                         {
@@ -261,6 +261,7 @@ namespace PROYECTO_DIARS__LUIGI
             limpiar();
             dgvEmpleados.Enabled = true;
             ElementosBloqueados();
+            limpiarValidacionFoto();
         }
 
         public void ListarEmpleados()
