@@ -42,7 +42,7 @@ namespace PROYECTO_DIARS__LUIGI
             ListarCargos();
             limpiar();
             dgvEmpleados.EnableHeadersVisualStyles = false;
-            dtpFehaNacimiento.MaxDate = DateTime.Now.AddYears(-17);
+            dtpFehaNacimiento.MaxDate = DateTime.Now.AddYears(-18);
             dtpFehaNacimiento.MinDate = DateTime.Now.AddYears(-82);
             dtpFechaContratacionE.MaxDate = DateTime.Now.AddSeconds(60);
             dtpFechaContratacionE.MinDate = DateTime.Now.AddYears(-3);
@@ -234,7 +234,7 @@ namespace PROYECTO_DIARS__LUIGI
                             }
                             catch (Exception ex)
                             {
-                                MessageBox.Show("Error.." + ex);
+                                MessageBox.Show("Error en el Software: " + ex.Message, "Error Crítico", MessageBoxButtons.OK, MessageBoxIcon.Error);
                             }
                         }
                         else
