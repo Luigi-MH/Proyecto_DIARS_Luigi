@@ -39,6 +39,7 @@ namespace PROYECTO_DIARS__LUIGI
             ElementosBloqueados(); // grupo de los elemento(heramientas) inabilitadas
             ListarEmpleados();
             dgvEmpleados.Columns["FotoEmpleado"].Visible = false;
+            dgvEmpleados.Columns["Telefono"].Visible = false;
             ListarTiposDocumentos();
             ListarCargos();
             limpiar();
@@ -115,11 +116,11 @@ namespace PROYECTO_DIARS__LUIGI
                     {
                         entEmpleados entEmpleado = new entEmpleados();
                         entEmpleado.Id_TipoDocumento = (int)cboxTipoDoc.SelectedValue;
-                        entEmpleado.NumDoc = txtDocEmpleado.Text;
+                        entEmpleado.NumDoc = txtDocEmpleado.Text.Trim();
                         entEmpleado.Nombres = txtNombres.Text.Trim().ToUpper();
                         entEmpleado.Apellidos = txtApellidos.Text.Trim().ToUpper();
-                        entEmpleado.Correo = txtCorreo.Text;
-                        entEmpleado.Telefono = txtNumero.Text;
+                        entEmpleado.Correo = txtCorreo.Text.Trim();
+                        entEmpleado.Telefono = txtNumero.Text.Trim();
                         entEmpleado.FechaNacimiento = dtpFehaNacimiento.Value;
                         entEmpleado.FotoEmpleado = pbFoto.Image != null ? ImageToByteArray(pbFoto.Image) : null;
                         entEmpleado.FechaContratacion = dtpFechaContratacionE.Value;
@@ -178,12 +179,12 @@ namespace PROYECTO_DIARS__LUIGI
                                 entEmpleados entEmpleado = new entEmpleados();
                                 entEmpleado.Id_Empleado = Convert.ToInt32(txtId.Text);
                                 entEmpleado.Id_TipoDocumento = (int)cboxTipoDoc.SelectedValue;
-                                entEmpleado.NumDoc = txtDocEmpleado.Text;
+                                entEmpleado.NumDoc = txtDocEmpleado.Text.Trim();
                                 entEmpleado.Nombres = txtNombres.Text.Trim().ToUpper();
                                 entEmpleado.Apellidos = txtApellidos.Text.Trim().ToUpper();
-                                entEmpleado.Correo = txtCorreo.Text;
-                                entEmpleado.Telefono = txtNumero.Text;
-                                entEmpleado.FechaNacimiento = dtpFehaNacimiento.Value; //< dtpFehaNacimiento.MinDate ? dtpFehaNacimiento.Value = DateTime.Now.AddDays(1) : dtpFehaNacimiento.Value;
+                                entEmpleado.Correo = txtCorreo.Text.Trim();
+                                entEmpleado.Telefono = txtNumero.Text.Trim();
+                                entEmpleado.FechaNacimiento = dtpFehaNacimiento.Value;
                                 if (pbFoto.Image != null)
                                 {
                                     if(NuevaFoto)
@@ -274,29 +275,29 @@ namespace PROYECTO_DIARS__LUIGI
             dgvEmpleados.Columns["NumDoc"].Width = 80;
             dgvEmpleados.Columns["Nombres"].Width = 160;
             dgvEmpleados.Columns["Apellidos"].Width = 150;
-            dgvEmpleados.Columns["Correo"].Visible = false;
+            dgvEmpleados.Columns["Correo"].Width = 200;
             dgvEmpleados.Columns["Telefono"].Width = 80;
             dgvEmpleados.Columns["FechaNacimiento"].Visible = false;
             ((DataGridViewImageColumn)dgvEmpleados.Columns["FotoEmpleado"]).ImageLayout = DataGridViewImageCellLayout.Zoom;
             dgvEmpleados.Columns["FotoEmpleado"].Width = 80;
-            dgvEmpleados.Columns["FechaContratacion"].Width = 100;
+            dgvEmpleados.Columns["FechaContratacion"].Visible = false;
             dgvEmpleados.Columns["Id_Cargo"].Visible = false;
             dgvEmpleados.Columns["Cargo"].Width = 90;
-            dgvEmpleados.Columns["Salario"].Width = 80;
+            dgvEmpleados.Columns["Salario"].Visible = false;
             dgvEmpleados.Columns["Estado"].Width = 80;
         }
 
         public void ListarTiposDocumentos()
         {
             cboxTipoDoc.DataSource = logTipoDoc.Instancia.ListarTipoDoc();
-            cboxTipoDoc.DisplayMember = "Documento"; // Muestra el nombre del cargo
+            cboxTipoDoc.DisplayMember = "Documento"; //nombre del cargo
             cboxTipoDoc.ValueMember = "Id_TipoDoc"; 
         }
 
         public void ListarCargos()
         {
             cboxCargo.DataSource = logCargos.Instancia.ListarCargos();
-            cboxCargo.DisplayMember = "Cargo"; // Muestra el nombre del cargo
+            cboxCargo.DisplayMember = "Cargo"; // nombre del cargo
             cboxCargo.ValueMember = "Id_Cargo";
         }
 
@@ -356,7 +357,7 @@ namespace PROYECTO_DIARS__LUIGI
             }
 
             // Validar si es Pasaporte: 2 letras y 6 dígitos
-            if (Regex.IsMatch(documento, @"^[A-Za-z]{2}\d{6}$"))
+            if (Regex.IsMatch(documento, @"^[A-Za-z]{2}\d{6}$")) // regex
             {
                 return true;
             }
@@ -378,7 +379,6 @@ namespace PROYECTO_DIARS__LUIGI
                 return true;
             }
 
-            // Si no cumple ninguna de las condiciones, es inválido
             return false;
         }
 
@@ -405,7 +405,7 @@ namespace PROYECTO_DIARS__LUIGI
             }
         }
 
-        public bool EsDominioValido(string dominio)
+        public bool EsDominioValido(string dominio) // puedo quitar el metodo porque no encontrara dominios privados ej: upn.pe
         {
             try
             {
@@ -420,43 +420,34 @@ namespace PROYECTO_DIARS__LUIGI
 
         private bool ValidarTodosLosCampos()
         {
-            if(txtNumero.Text != string.Empty || txtCorreo.Text != string.Empty)
+            if (string.IsNullOrWhiteSpace(txtNumero.Text) && string.IsNullOrWhiteSpace(txtCorreo.Text))
             {
-                if (txtNumero.Text != string.Empty)
-                {
-                    if (!ValidarTelefono(txtNumero.Text))
-                    {
-                        MessageBox.Show("Número de teléfono inválido.", "Aviso del Sitema Sys-MH", MessageBoxButtons.OK, MessageBoxIcon.Information);
-                        txtNumero.Focus();
-                        return false;
-                    }
-                }
-
-                if (txtCorreo.Text != string.Empty)
-                {
-                    if (!ValidarCorreo(txtCorreo.Text))
-                    {
-                        MessageBox.Show("Correo electrónico inválido.", "Aviso del Sitema Sys-MH", MessageBoxButtons.OK, MessageBoxIcon.Information);
-                        txtCorreo.Focus();
-                        return false;
-                    }
-                }
-            }
-            else
-            {
-                MessageBox.Show("Completar correo o número.", "Aviso del Sitema Sys-MH", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                MessageBox.Show("Completar correo o número.", "Aviso del Sistema Sys-MH", MessageBoxButtons.OK, MessageBoxIcon.Information);
                 txtNumero.Focus();
                 return false;
             }
-            
+
+            if (!string.IsNullOrWhiteSpace(txtNumero.Text) && !ValidarTelefono(txtNumero.Text))
+            {
+                MessageBox.Show("Número de teléfono inválido.", "Aviso del Sistema Sys-MH", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                txtNumero.Focus();
+                return false;
+            }
+
+            if (!string.IsNullOrWhiteSpace(txtCorreo.Text) && !ValidarCorreo(txtCorreo.Text))
+            {
+                MessageBox.Show("Correo electrónico inválido.", "Aviso del Sistema Sys-MH", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                txtCorreo.Focus();
+                return false;
+            }
+
             if (!ValidarDocumento(txtDocEmpleado.Text))
             {
-                MessageBox.Show("Número de documento inválido.", "Aviso del Sitema Sys-MH", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                MessageBox.Show("Número de documento inválido.", "Aviso del Sistema Sys-MH", MessageBoxButtons.OK, MessageBoxIcon.Information);
                 txtDocEmpleado.Focus();
                 return false;
             }
 
-            // Si todos los campos son válidos, retornar true
             return true;
         }
 
@@ -557,18 +548,40 @@ namespace PROYECTO_DIARS__LUIGI
         {
             if (txtDocEmpleado.TextLength == 8)
             {
-                string result = await logPersona.Instancia.GET_DNI_Dato(txtDocEmpleado.Text);
-                var persona = JsonConvert.DeserializeObject<entPersona>(result);
-                if (persona.nombres != string.Empty)
+                btnBuscar.Enabled = false;
+                txtDocEmpleado.Enabled = false;
+                bool huboError = false;
+                try
                 {
-                    txtNombres.Text = persona.nombres;
-                    txtApellidos.Text = persona.apellidoPaterno.ToString() + " " + persona.apellidoMaterno.ToString();
-                    txtNumero.Focus();
+                    string result = await logPersona.Instancia.GET_DNI_Dato(txtDocEmpleado.Text);
+                    var persona = JsonConvert.DeserializeObject<entPersona>(result);
+                    if (persona.nombres != string.Empty)
+                    {
+                        txtNombres.Text = persona.nombres;
+                        txtApellidos.Text = persona.apellidoPaterno.ToString() + " " + persona.apellidoMaterno.ToString();
+                        txtNumero.Focus();
+                    }
+                    else
+                    {
+                        MessageBox.Show($"Persona con DNI:'{txtDocEmpleado.Text}' no encontrada", "Aviso del Sitema Sys-MH", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                        txtNombres.Clear();
+                        txtApellidos.Clear();
+                        txtDocEmpleado.Focus();
+                    }
                 }
-                else
+                catch
                 {
-                    MessageBox.Show($"Persona con DNI:'{txtDocEmpleado.Text}' no encontrada", "Aviso del Sitema Sys-MH", MessageBoxButtons.OK, MessageBoxIcon.Information);
-                    txtDocEmpleado.Focus();
+                    huboError = true;
+                    MessageBox.Show("DNI innválido ", "RENIEC", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                }
+                finally
+                {
+                    btnBuscar.Enabled = true;
+                    txtDocEmpleado.Enabled = true;
+                    if (huboError)
+                    {
+                        txtDocEmpleado.Focus();
+                    }
                 }
             }
             else
@@ -610,23 +623,31 @@ namespace PROYECTO_DIARS__LUIGI
 
         private void cboxTipoDoc_SelectedValueChanged(object sender, EventArgs e)
         {
-            if (cboxTipoDoc.Text == "DNI" & txtDocEmpleado.Enabled == true)
-            {
-                txtDocEmpleado.MaxLength = 8;
-                btnBuscar.Enabled = true;
-            }
-            else if (cboxTipoDoc.Text == "PASAPORTE")
-            {
-                txtDocEmpleado.MaxLength = 8;
-                btnBuscar.Enabled = false;
-            }
-            else if (cboxTipoDoc.Text == "CARNET EXT.")
-            {
-                txtDocEmpleado.MaxLength = 9;
-                btnBuscar.Enabled = false;
-            }
             txtDocEmpleado.Clear();
             txtDocEmpleado.Focus();
+
+            switch (cboxTipoDoc.Text)
+            {
+                case "DNI":
+                    txtDocEmpleado.MaxLength = 8;
+                    btnBuscar.Enabled = txtDocEmpleado.Enabled;
+                    break;
+
+                case "PASAPORTE":
+                    txtDocEmpleado.MaxLength = 8;
+                    btnBuscar.Enabled = false;
+                    break;
+
+                case "CARNET EXT.":
+                    txtDocEmpleado.MaxLength = 9;
+                    btnBuscar.Enabled = false;
+                    break;
+
+                default:
+                    txtDocEmpleado.MaxLength = 0;
+                    btnBuscar.Enabled = false;
+                    break;
+            }
         }
 
         private void txtSalario_KeyPress(object sender, KeyPressEventArgs e)
@@ -700,7 +721,7 @@ namespace PROYECTO_DIARS__LUIGI
 
         private void txtNombres_KeyPress(object sender, KeyPressEventArgs e)
         {
-            if ((e.KeyChar >= 33 & e.KeyChar <= 64) || (e.KeyChar >= 91 & e.KeyChar <= 96) || (e.KeyChar >= 123 & e.KeyChar <= 255))
+            if ((e.KeyChar >= 33 & e.KeyChar <= 64) || (e.KeyChar >= 91 & e.KeyChar <= 96) || (e.KeyChar >= 123 & e.KeyChar <= 255 && e.KeyChar != 209 && e.KeyChar != 241))
             {
                 e.Handled = true;
                 return;
@@ -713,7 +734,7 @@ namespace PROYECTO_DIARS__LUIGI
 
         private void txtApellidos_KeyPress(object sender, KeyPressEventArgs e)
         {
-            if ((e.KeyChar >= 33 & e.KeyChar <= 64) || (e.KeyChar >= 91 & e.KeyChar <= 96) || (e.KeyChar >= 123 & e.KeyChar <= 255))
+            if ((e.KeyChar >= 33 & e.KeyChar <= 64) || (e.KeyChar >= 91 & e.KeyChar <= 96) || (e.KeyChar >= 123 & e.KeyChar <= 255 && e.KeyChar != 209 && e.KeyChar != 241))
             {
                 e.Handled = true;
                 return;
@@ -744,12 +765,6 @@ namespace PROYECTO_DIARS__LUIGI
                 txtSalario.Focus();
             }
         }
-
-        private void chboxVerFotoLista_CheckedChanged(object sender, EventArgs e)
-        {
-            dgvEmpleados.Columns["FotoEmpleado"].Visible = chboxVerFotoLista.Checked ? true : false;
-        }
-
         private void dtpFehaNacimiento_KeyPress(object sender, KeyPressEventArgs e)
         {
             e.Handled = true;
@@ -758,6 +773,15 @@ namespace PROYECTO_DIARS__LUIGI
         private void dtpFechaContratacionE_KeyPress(object sender, KeyPressEventArgs e)
         {
             e.Handled = true;
+        }
+        private void chboxVerFotoLista_CheckedChanged(object sender, EventArgs e)
+        {
+            dgvEmpleados.Columns["FotoEmpleado"].Visible = chbVerFoto.Checked ? true : false;
+        }
+
+        private void checkBox1_CheckedChanged(object sender, EventArgs e)
+        {
+            dgvEmpleados.Columns["Telefono"].Visible =  chbVerNumero.Checked ? true : false;
         }
     }
 }

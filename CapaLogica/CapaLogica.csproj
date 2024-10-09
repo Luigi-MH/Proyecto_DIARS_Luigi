@@ -44,6 +44,7 @@
     <Compile Include="logCargos.cs" />
     <Compile Include="logEmpleados.cs" />
     <Compile Include="logPersona.cs" />
+    <Compile Include="logRoles.cs" />
     <Compile Include="logTipoDoc.cs" />
     <Compile Include="logUsuario.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />

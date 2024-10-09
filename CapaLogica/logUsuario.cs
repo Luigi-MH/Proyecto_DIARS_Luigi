@@ -25,5 +25,19 @@ namespace CapaLogica
             return datUsuario.Instancia.ListarUsuarios();
         }
 
+        public Boolean AgregarUsuario(entUsuario usuario)
+        {
+            return datUsuario.Instancia.AgregarUsuario(usuario);
+        }
+
+        public Boolean ModificarUsuario(entUsuario usuario)
+        {
+            return datUsuario.Instancia.ModificarUsuario(usuario);
+        }
+
+        public List<entEmpleados> BuscarEmpleado(string apellidos, string documeto)
+        {
+            return datUsuario.Instancia.BuscarEmpleado(apellidos,documeto);
+        }
     }
 }

@@ -30,7 +30,7 @@
         {
             this.btnSalir = new System.Windows.Forms.Button();
             this.gboxEmpleados = new System.Windows.Forms.GroupBox();
-            this.chboxVerFotoLista = new System.Windows.Forms.CheckBox();
+            this.chbVerFoto = new System.Windows.Forms.CheckBox();
             this.btnEliminar = new System.Windows.Forms.Button();
             this.btnNuevo = new System.Windows.Forms.Button();
             this.btnEditar = new System.Windows.Forms.Button();
@@ -67,6 +67,7 @@
             this.txtNombres = new System.Windows.Forms.TextBox();
             this.lblCorreo = new System.Windows.Forms.Label();
             this.lblNombres = new System.Windows.Forms.Label();
+            this.chbVerNumero = new System.Windows.Forms.CheckBox();
             this.gboxEmpleados.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dgvEmpleados)).BeginInit();
             this.gboxDatosEmpleado.SuspendLayout();
@@ -89,7 +90,8 @@
             // 
             // gboxEmpleados
             // 
-            this.gboxEmpleados.Controls.Add(this.chboxVerFotoLista);
+            this.gboxEmpleados.Controls.Add(this.chbVerNumero);
+            this.gboxEmpleados.Controls.Add(this.chbVerFoto);
             this.gboxEmpleados.Controls.Add(this.btnEliminar);
             this.gboxEmpleados.Controls.Add(this.btnNuevo);
             this.gboxEmpleados.Controls.Add(this.btnEditar);
@@ -101,16 +103,16 @@
             this.gboxEmpleados.TabIndex = 15;
             this.gboxEmpleados.TabStop = false;
             // 
-            // chboxVerFotoLista
+            // chbVerFoto
             // 
-            this.chboxVerFotoLista.AutoSize = true;
-            this.chboxVerFotoLista.Location = new System.Drawing.Point(988, 685);
-            this.chboxVerFotoLista.Name = "chboxVerFotoLista";
-            this.chboxVerFotoLista.Size = new System.Drawing.Size(91, 17);
-            this.chboxVerFotoLista.TabIndex = 49;
-            this.chboxVerFotoLista.Text = "Ver Foto Lista";
-            this.chboxVerFotoLista.UseVisualStyleBackColor = true;
-            this.chboxVerFotoLista.CheckedChanged += new System.EventHandler(this.chboxVerFotoLista_CheckedChanged);
+            this.chbVerFoto.AutoSize = true;
+            this.chbVerFoto.Location = new System.Drawing.Point(988, 685);
+            this.chbVerFoto.Name = "chbVerFoto";
+            this.chbVerFoto.Size = new System.Drawing.Size(66, 17);
+            this.chbVerFoto.TabIndex = 49;
+            this.chbVerFoto.Text = "Ver Foto";
+            this.chbVerFoto.UseVisualStyleBackColor = true;
+            this.chbVerFoto.CheckedChanged += new System.EventHandler(this.chboxVerFotoLista_CheckedChanged);
             // 
             // btnEliminar
             // 
@@ -532,6 +534,17 @@
             this.lblNombres.TabIndex = 0;
             this.lblNombres.Text = "Nombres";
             // 
+            // chbVerNumero
+            // 
+            this.chbVerNumero.AutoSize = true;
+            this.chbVerNumero.Location = new System.Drawing.Point(1094, 685);
+            this.chbVerNumero.Name = "chbVerNumero";
+            this.chbVerNumero.Size = new System.Drawing.Size(82, 17);
+            this.chbVerNumero.TabIndex = 50;
+            this.chbVerNumero.Text = "Ver Numero";
+            this.chbVerNumero.UseVisualStyleBackColor = true;
+            this.chbVerNumero.CheckedChanged += new System.EventHandler(this.checkBox1_CheckedChanged);
+            // 
             // frmEmpleados
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -595,6 +608,7 @@
         private System.Windows.Forms.DateTimePicker dtpFehaNacimiento;
         private System.Windows.Forms.Button btnBuscar;
         private System.Windows.Forms.Button btnEliminar;
-        private System.Windows.Forms.CheckBox chboxVerFotoLista;
+        private System.Windows.Forms.CheckBox chbVerFoto;
+        private System.Windows.Forms.CheckBox chbVerNumero;
     }
 }

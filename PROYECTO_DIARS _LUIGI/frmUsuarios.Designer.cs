@@ -35,10 +35,14 @@
             this.btnEditar = new System.Windows.Forms.Button();
             this.dgvUsuarios = new System.Windows.Forms.DataGridView();
             this.gboxDatos = new System.Windows.Forms.GroupBox();
+            this.btnBuscar = new System.Windows.Forms.Button();
+            this.txtDocumentoApellidos = new System.Windows.Forms.TextBox();
+            this.lblNumDocumento = new System.Windows.Forms.Label();
+            this.cboxEmpleado = new System.Windows.Forms.ComboBox();
             this.cboxRol = new System.Windows.Forms.ComboBox();
             this.lblRol = new System.Windows.Forms.Label();
-            this.button1 = new System.Windows.Forms.Button();
-            this.button2 = new System.Windows.Forms.Button();
+            this.btnModificar = new System.Windows.Forms.Button();
+            this.btnAgregar = new System.Windows.Forms.Button();
             this.btnCancelar = new System.Windows.Forms.Button();
             this.gboxEstado = new System.Windows.Forms.GroupBox();
             this.rdInactivo = new System.Windows.Forms.RadioButton();
@@ -48,10 +52,8 @@
             this.txtUsuario = new System.Windows.Forms.TextBox();
             this.lblEmpleado = new System.Windows.Forms.Label();
             this.lblUsuario = new System.Windows.Forms.Label();
-            this.cboxEmpleado = new System.Windows.Forms.ComboBox();
-            this.btnBuscar = new System.Windows.Forms.Button();
-            this.txt = new System.Windows.Forms.TextBox();
-            this.lblNumDocumento = new System.Windows.Forms.Label();
+            this.txtId = new System.Windows.Forms.TextBox();
+            this.lblId = new System.Windows.Forms.Label();
             this.gboxUsuarios.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dgvUsuarios)).BeginInit();
             this.gboxDatos.SuspendLayout();
@@ -63,15 +65,17 @@
             this.btnSalir.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
             this.btnSalir.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnSalir.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnSalir.Location = new System.Drawing.Point(1676, 0);
+            this.btnSalir.Location = new System.Drawing.Point(1645, 18);
             this.btnSalir.Name = "btnSalir";
             this.btnSalir.Size = new System.Drawing.Size(25, 25);
             this.btnSalir.TabIndex = 14;
             this.btnSalir.Text = "X";
             this.btnSalir.UseVisualStyleBackColor = true;
+            this.btnSalir.Click += new System.EventHandler(this.btnSalir_Click);
             // 
             // gboxUsuarios
             // 
+            this.gboxUsuarios.Controls.Add(this.btnSalir);
             this.gboxUsuarios.Controls.Add(this.btnEliminar);
             this.gboxUsuarios.Controls.Add(this.btnNuevo);
             this.gboxUsuarios.Controls.Add(this.btnEditar);
@@ -92,6 +96,7 @@
             this.btnEliminar.TabIndex = 53;
             this.btnEliminar.Text = "Eliminar";
             this.btnEliminar.UseVisualStyleBackColor = true;
+            this.btnEliminar.Click += new System.EventHandler(this.btnEliminar_Click);
             // 
             // btnNuevo
             // 
@@ -103,6 +108,7 @@
             this.btnNuevo.TabIndex = 52;
             this.btnNuevo.Text = "Nuevo";
             this.btnNuevo.UseVisualStyleBackColor = true;
+            this.btnNuevo.Click += new System.EventHandler(this.btnNuevo_Click);
             // 
             // btnEditar
             // 
@@ -114,6 +120,7 @@
             this.btnEditar.TabIndex = 51;
             this.btnEditar.Text = "Editar";
             this.btnEditar.UseVisualStyleBackColor = true;
+            this.btnEditar.Click += new System.EventHandler(this.btnEditar_Click);
             // 
             // dgvUsuarios
             // 
@@ -128,17 +135,20 @@
             this.dgvUsuarios.RowTemplate.Height = 24;
             this.dgvUsuarios.Size = new System.Drawing.Size(725, 471);
             this.dgvUsuarios.TabIndex = 50;
+            this.dgvUsuarios.CellDoubleClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dgvUsuarios_CellDoubleClick);
             // 
             // gboxDatos
             // 
+            this.gboxDatos.Controls.Add(this.txtId);
+            this.gboxDatos.Controls.Add(this.lblId);
             this.gboxDatos.Controls.Add(this.btnBuscar);
-            this.gboxDatos.Controls.Add(this.txt);
+            this.gboxDatos.Controls.Add(this.txtDocumentoApellidos);
             this.gboxDatos.Controls.Add(this.lblNumDocumento);
             this.gboxDatos.Controls.Add(this.cboxEmpleado);
             this.gboxDatos.Controls.Add(this.cboxRol);
             this.gboxDatos.Controls.Add(this.lblRol);
-            this.gboxDatos.Controls.Add(this.button1);
-            this.gboxDatos.Controls.Add(this.button2);
+            this.gboxDatos.Controls.Add(this.btnModificar);
+            this.gboxDatos.Controls.Add(this.btnAgregar);
             this.gboxDatos.Controls.Add(this.btnCancelar);
             this.gboxDatos.Controls.Add(this.gboxEstado);
             this.gboxDatos.Controls.Add(this.txtContraseña);
@@ -151,16 +161,54 @@
             this.gboxDatos.Margin = new System.Windows.Forms.Padding(2);
             this.gboxDatos.Name = "gboxDatos";
             this.gboxDatos.Padding = new System.Windows.Forms.Padding(2);
-            this.gboxDatos.Size = new System.Drawing.Size(611, 189);
+            this.gboxDatos.Size = new System.Drawing.Size(611, 199);
             this.gboxDatos.TabIndex = 49;
             this.gboxDatos.TabStop = false;
             this.gboxDatos.Text = "Datos";
+            // 
+            // btnBuscar
+            // 
+            this.btnBuscar.Location = new System.Drawing.Point(407, 42);
+            this.btnBuscar.Name = "btnBuscar";
+            this.btnBuscar.Size = new System.Drawing.Size(60, 24);
+            this.btnBuscar.TabIndex = 75;
+            this.btnBuscar.Text = "Buscar";
+            this.btnBuscar.UseVisualStyleBackColor = true;
+            this.btnBuscar.Click += new System.EventHandler(this.btnBuscar_Click);
+            // 
+            // txtDocumentoApellidos
+            // 
+            this.txtDocumentoApellidos.Location = new System.Drawing.Point(181, 43);
+            this.txtDocumentoApellidos.Margin = new System.Windows.Forms.Padding(2);
+            this.txtDocumentoApellidos.Name = "txtDocumentoApellidos";
+            this.txtDocumentoApellidos.Size = new System.Drawing.Size(221, 22);
+            this.txtDocumentoApellidos.TabIndex = 74;
+            // 
+            // lblNumDocumento
+            // 
+            this.lblNumDocumento.AutoSize = true;
+            this.lblNumDocumento.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Italic, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblNumDocumento.Location = new System.Drawing.Point(178, 28);
+            this.lblNumDocumento.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
+            this.lblNumDocumento.Name = "lblNumDocumento";
+            this.lblNumDocumento.Size = new System.Drawing.Size(111, 13);
+            this.lblNumDocumento.TabIndex = 73;
+            this.lblNumDocumento.Text = "Num. Doc. / Apellidos";
+            // 
+            // cboxEmpleado
+            // 
+            this.cboxEmpleado.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
+            this.cboxEmpleado.FormattingEnabled = true;
+            this.cboxEmpleado.Location = new System.Drawing.Point(181, 92);
+            this.cboxEmpleado.Name = "cboxEmpleado";
+            this.cboxEmpleado.Size = new System.Drawing.Size(286, 24);
+            this.cboxEmpleado.TabIndex = 64;
             // 
             // cboxRol
             // 
             this.cboxRol.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this.cboxRol.FormattingEnabled = true;
-            this.cboxRol.Location = new System.Drawing.Point(23, 136);
+            this.cboxRol.Location = new System.Drawing.Point(22, 144);
             this.cboxRol.Name = "cboxRol";
             this.cboxRol.Size = new System.Drawing.Size(141, 24);
             this.cboxRol.TabIndex = 62;
@@ -169,51 +217,54 @@
             // 
             this.lblRol.AutoSize = true;
             this.lblRol.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Italic, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblRol.Location = new System.Drawing.Point(20, 120);
+            this.lblRol.Location = new System.Drawing.Point(19, 128);
             this.lblRol.Name = "lblRol";
             this.lblRol.Size = new System.Drawing.Size(23, 13);
             this.lblRol.TabIndex = 63;
             this.lblRol.Text = "Rol";
             // 
-            // button1
+            // btnModificar
             // 
-            this.button1.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.button1.Location = new System.Drawing.Point(487, 71);
-            this.button1.Margin = new System.Windows.Forms.Padding(2);
-            this.button1.Name = "button1";
-            this.button1.Size = new System.Drawing.Size(100, 48);
-            this.button1.TabIndex = 53;
-            this.button1.Text = "Modificar";
-            this.button1.UseVisualStyleBackColor = true;
+            this.btnModificar.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnModificar.Location = new System.Drawing.Point(486, 79);
+            this.btnModificar.Margin = new System.Windows.Forms.Padding(2);
+            this.btnModificar.Name = "btnModificar";
+            this.btnModificar.Size = new System.Drawing.Size(100, 48);
+            this.btnModificar.TabIndex = 53;
+            this.btnModificar.Text = "Modificar";
+            this.btnModificar.UseVisualStyleBackColor = true;
+            this.btnModificar.Click += new System.EventHandler(this.btnModificar_Click);
             // 
-            // button2
+            // btnAgregar
             // 
-            this.button2.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.button2.Location = new System.Drawing.Point(487, 19);
-            this.button2.Margin = new System.Windows.Forms.Padding(2);
-            this.button2.Name = "button2";
-            this.button2.Size = new System.Drawing.Size(100, 48);
-            this.button2.TabIndex = 52;
-            this.button2.Text = "Agregar";
-            this.button2.UseVisualStyleBackColor = true;
+            this.btnAgregar.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnAgregar.Location = new System.Drawing.Point(486, 27);
+            this.btnAgregar.Margin = new System.Windows.Forms.Padding(2);
+            this.btnAgregar.Name = "btnAgregar";
+            this.btnAgregar.Size = new System.Drawing.Size(100, 48);
+            this.btnAgregar.TabIndex = 52;
+            this.btnAgregar.Text = "Agregar";
+            this.btnAgregar.UseVisualStyleBackColor = true;
+            this.btnAgregar.Click += new System.EventHandler(this.btnAgregar_Click);
             // 
             // btnCancelar
             // 
             this.btnCancelar.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnCancelar.Location = new System.Drawing.Point(487, 123);
+            this.btnCancelar.Location = new System.Drawing.Point(486, 131);
             this.btnCancelar.Margin = new System.Windows.Forms.Padding(2);
             this.btnCancelar.Name = "btnCancelar";
             this.btnCancelar.Size = new System.Drawing.Size(100, 48);
             this.btnCancelar.TabIndex = 51;
             this.btnCancelar.Text = "Cancelar";
             this.btnCancelar.UseVisualStyleBackColor = true;
+            this.btnCancelar.Click += new System.EventHandler(this.btnCancelar_Click);
             // 
             // gboxEstado
             // 
             this.gboxEstado.Controls.Add(this.rdInactivo);
             this.gboxEstado.Controls.Add(this.rdActivo);
             this.gboxEstado.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.gboxEstado.Location = new System.Drawing.Point(182, 123);
+            this.gboxEstado.Location = new System.Drawing.Point(181, 131);
             this.gboxEstado.Name = "gboxEstado";
             this.gboxEstado.Size = new System.Drawing.Size(286, 48);
             this.gboxEstado.TabIndex = 50;
@@ -247,8 +298,9 @@
             // 
             // txtContraseña
             // 
-            this.txtContraseña.Location = new System.Drawing.Point(22, 84);
+            this.txtContraseña.Location = new System.Drawing.Point(21, 92);
             this.txtContraseña.Margin = new System.Windows.Forms.Padding(2);
+            this.txtContraseña.MaxLength = 50;
             this.txtContraseña.Name = "txtContraseña";
             this.txtContraseña.Size = new System.Drawing.Size(142, 22);
             this.txtContraseña.TabIndex = 10;
@@ -257,7 +309,7 @@
             // 
             this.lblContraseña.AutoSize = true;
             this.lblContraseña.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Italic, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblContraseña.Location = new System.Drawing.Point(20, 69);
+            this.lblContraseña.Location = new System.Drawing.Point(19, 77);
             this.lblContraseña.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.lblContraseña.Name = "lblContraseña";
             this.lblContraseña.Size = new System.Drawing.Size(61, 13);
@@ -266,8 +318,9 @@
             // 
             // txtUsuario
             // 
-            this.txtUsuario.Location = new System.Drawing.Point(22, 38);
+            this.txtUsuario.Location = new System.Drawing.Point(21, 42);
             this.txtUsuario.Margin = new System.Windows.Forms.Padding(2);
+            this.txtUsuario.MaxLength = 120;
             this.txtUsuario.Name = "txtUsuario";
             this.txtUsuario.Size = new System.Drawing.Size(142, 22);
             this.txtUsuario.TabIndex = 3;
@@ -276,7 +329,7 @@
             // 
             this.lblEmpleado.AutoSize = true;
             this.lblEmpleado.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Italic, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblEmpleado.Location = new System.Drawing.Point(179, 68);
+            this.lblEmpleado.Location = new System.Drawing.Point(178, 76);
             this.lblEmpleado.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.lblEmpleado.Name = "lblEmpleado";
             this.lblEmpleado.Size = new System.Drawing.Size(54, 13);
@@ -287,60 +340,44 @@
             // 
             this.lblUsuario.AutoSize = true;
             this.lblUsuario.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Italic, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblUsuario.Location = new System.Drawing.Point(19, 23);
+            this.lblUsuario.Location = new System.Drawing.Point(18, 27);
             this.lblUsuario.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.lblUsuario.Name = "lblUsuario";
             this.lblUsuario.Size = new System.Drawing.Size(43, 13);
             this.lblUsuario.TabIndex = 0;
             this.lblUsuario.Text = "Usuario";
             // 
-            // cboxEmpleado
+            // txtId
             // 
-            this.cboxEmpleado.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
-            this.cboxEmpleado.FormattingEnabled = true;
-            this.cboxEmpleado.Location = new System.Drawing.Point(182, 84);
-            this.cboxEmpleado.Name = "cboxEmpleado";
-            this.cboxEmpleado.Size = new System.Drawing.Size(286, 24);
-            this.cboxEmpleado.TabIndex = 64;
+            this.txtId.Enabled = false;
+            this.txtId.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.txtId.Location = new System.Drawing.Point(407, 14);
+            this.txtId.Name = "txtId";
+            this.txtId.Size = new System.Drawing.Size(60, 22);
+            this.txtId.TabIndex = 55;
+            this.txtId.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
             // 
-            // btnBuscar
+            // lblId
             // 
-            this.btnBuscar.Location = new System.Drawing.Point(408, 38);
-            this.btnBuscar.Name = "btnBuscar";
-            this.btnBuscar.Size = new System.Drawing.Size(60, 24);
-            this.btnBuscar.TabIndex = 75;
-            this.btnBuscar.Text = "Buscar";
-            this.btnBuscar.UseVisualStyleBackColor = true;
-            // 
-            // txt
-            // 
-            this.txt.Location = new System.Drawing.Point(182, 39);
-            this.txt.Margin = new System.Windows.Forms.Padding(2);
-            this.txt.Name = "txt";
-            this.txt.Size = new System.Drawing.Size(221, 22);
-            this.txt.TabIndex = 74;
-            // 
-            // lblNumDocumento
-            // 
-            this.lblNumDocumento.AutoSize = true;
-            this.lblNumDocumento.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Italic, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblNumDocumento.Location = new System.Drawing.Point(179, 24);
-            this.lblNumDocumento.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
-            this.lblNumDocumento.Name = "lblNumDocumento";
-            this.lblNumDocumento.Size = new System.Drawing.Size(106, 13);
-            this.lblNumDocumento.TabIndex = 73;
-            this.lblNumDocumento.Text = "Num. Doc. / Nombre";
+            this.lblId.AutoSize = true;
+            this.lblId.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Italic, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblId.Location = new System.Drawing.Point(383, 17);
+            this.lblId.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
+            this.lblId.Name = "lblId";
+            this.lblId.Size = new System.Drawing.Size(21, 16);
+            this.lblId.TabIndex = 54;
+            this.lblId.Text = "N°";
             // 
             // frmUsuarios
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(1700, 750);
-            this.Controls.Add(this.btnSalir);
             this.Controls.Add(this.gboxUsuarios);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
             this.Name = "frmUsuarios";
             this.Text = "frmUsuarios";
+            this.Load += new System.EventHandler(this.frmUsuarios_Load);
             this.gboxUsuarios.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.dgvUsuarios)).EndInit();
             this.gboxDatos.ResumeLayout(false);
@@ -360,8 +397,8 @@
         private System.Windows.Forms.Button btnEditar;
         private System.Windows.Forms.DataGridView dgvUsuarios;
         private System.Windows.Forms.GroupBox gboxDatos;
-        private System.Windows.Forms.Button button1;
-        private System.Windows.Forms.Button button2;
+        private System.Windows.Forms.Button btnModificar;
+        private System.Windows.Forms.Button btnAgregar;
         private System.Windows.Forms.Button btnCancelar;
         private System.Windows.Forms.GroupBox gboxEstado;
         private System.Windows.Forms.RadioButton rdInactivo;
@@ -375,7 +412,9 @@
         private System.Windows.Forms.Label lblRol;
         private System.Windows.Forms.ComboBox cboxEmpleado;
         private System.Windows.Forms.Button btnBuscar;
-        private System.Windows.Forms.TextBox txt;
+        private System.Windows.Forms.TextBox txtDocumentoApellidos;
         private System.Windows.Forms.Label lblNumDocumento;
+        private System.Windows.Forms.TextBox txtId;
+        private System.Windows.Forms.Label lblId;
     }
 }

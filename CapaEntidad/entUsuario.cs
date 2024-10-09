@@ -8,16 +8,15 @@ namespace CapaEntidad
 {
     public class entUsuario
     {
-        public int IdUsuario { get; set; }
+        public int Id_Usuario { get; set; }
         public string NombreUsuario { get; set; }
         public string Contraseña { get; set; }
-        public int IdRol { get; set; }
-        public int IdEmpleado { get; set; }
-        public bool Estado { get; set; }
-
-        // Propiedades para las relaciones con otras tablas
+        public int Id_Rol { get; set; }
         public string Rol { get; set; }
+        public int Id_Empleado { get; set; }
         public string NombreEmpleado { get; set; }
         public string ApellidoEmpleado { get; set; }
+        public DateTime FechaCreacion { get; set; }
+        public bool Estado { get; set; }
     }
 }
