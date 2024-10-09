@@ -42,9 +42,10 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Conexion.cs" />
-    <Compile Include="ConexionAPI_RENIEC.cs" />
+    <Compile Include="Token_APIs.cs" />
     <Compile Include="datCargo.cs" />
     <Compile Include="datEmpleados.cs" />
+    <Compile Include="datPersona.cs" />
     <Compile Include="datTipoDoc.cs" />
     <Compile Include="datUsuario.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />

@@ -17,6 +17,7 @@ using System.Windows.Forms;
 using static System.Net.Mime.MediaTypeNames;
 using static System.Windows.Forms.VisualStyles.VisualStyleElement.ListView;
 using System.Data.SqlClient;
+using Newtonsoft.Json;
 
 namespace PROYECTO_DIARS__LUIGI
 {
@@ -536,9 +537,26 @@ namespace PROYECTO_DIARS__LUIGI
             }
         }
 
-        private void btnBuscar_Click(object sender, EventArgs e)
+        private async void btnBuscar_Click(object sender, EventArgs e)
         {
-            
+            if(txtDocEmpleado.TextLength == 8)
+            {
+                string result = await logPersona.Instancia.GET_DNI_Dato(txtDocEmpleado.Text);
+                var persona = JsonConvert.DeserializeObject<entPersona>(result);
+                if (persona.nombres != string.Empty)
+                {
+                    txtNombres.Text = persona.nombres;
+                    txtApellidos.Text = persona.apellidoPaterno.ToString() + " " + persona.apellidoMaterno.ToString();
+                }
+                else
+                {
+                    MessageBox.Show($"Persona con DNI:'{txtDocEmpleado.Text}' no encontrada", "Aviso del Sitema Sys-MH", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                }
+            }
+            else
+            {
+                MessageBox.Show("DNI Incompleto", "Aviso del Sitema Sys-MH", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+            }
         }
 
         private void btnSeleccionarFoto_Click(object sender, EventArgs e)
@@ -576,18 +594,17 @@ namespace PROYECTO_DIARS__LUIGI
             if (cboxTipoDoc.Text == "DNI")
             {
                 txtDocEmpleado.MaxLength = 8;
-            }
-            else if (cboxTipoDoc.Text == "RUC")
-            {
-                txtDocEmpleado.MaxLength = 11;
+                btnBuscar.Enabled = true;
             }
             else if (cboxTipoDoc.Text == "PASAPORTE")
             {
                 txtDocEmpleado.MaxLength = 8;
+                btnBuscar.Enabled = false;
             }
             else if (cboxTipoDoc.Text == "CARNET EXT.")
             {
                 txtDocEmpleado.MaxLength = 9;
+                btnBuscar.Enabled = false;
             }
             txtDocEmpleado.Clear();
             txtDocEmpleado.Focus();
