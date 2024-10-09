@@ -43,9 +43,7 @@ namespace PROYECTO_DIARS__LUIGI
             limpiar();
             dgvEmpleados.EnableHeadersVisualStyles = false;
             dtpFehaNacimiento.MaxDate = DateTime.Now.AddYears(-18);
-            dtpFehaNacimiento.MinDate = DateTime.Now.AddYears(-82);
             dtpFechaContratacionE.MaxDate = DateTime.Now.AddSeconds(60);
-            dtpFechaContratacionE.MinDate = DateTime.Now.AddYears(-3);
         }
 
         private void btnSalir_Click(object sender, EventArgs e)
@@ -183,7 +181,7 @@ namespace PROYECTO_DIARS__LUIGI
                                 entEmpleado.Apellidos = txtApellidos.Text.Trim().ToUpper();
                                 entEmpleado.Correo = txtCorreo.Text;
                                 entEmpleado.Telefono = txtNumero.Text;
-                                entEmpleado.FechaNacimiento = dtpFehaNacimiento.Value < dtpFehaNacimiento.MinDate ? dtpFehaNacimiento.Value = DateTime.Now.AddDays(1) : dtpFehaNacimiento.Value;
+                                entEmpleado.FechaNacimiento = dtpFehaNacimiento.Value; //< dtpFehaNacimiento.MinDate ? dtpFehaNacimiento.Value = DateTime.Now.AddDays(1) : dtpFehaNacimiento.Value;
                                 if (pbFoto.Image != null)
                                 {
                                     if(NuevaFoto)
