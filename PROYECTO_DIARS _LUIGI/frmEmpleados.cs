@@ -44,8 +44,8 @@ namespace PROYECTO_DIARS__LUIGI
             dgvEmpleados.EnableHeadersVisualStyles = false;
             dtpFehaNacimiento.MaxDate = DateTime.Now.AddYears(-17);
             dtpFehaNacimiento.MinDate = DateTime.Now.AddYears(-82);
-            dtpFechaContratacionE.MaxDate = DateTime.Now.AddSeconds(55);
-            dtpFechaContratacionE.MinDate = DateTime.Now.AddYears(-2);
+            dtpFechaContratacionE.MaxDate = DateTime.Now.AddSeconds(60);
+            dtpFechaContratacionE.MinDate = DateTime.Now.AddYears(-3);
         }
 
         private void btnSalir_Click(object sender, EventArgs e)
@@ -714,6 +714,16 @@ namespace PROYECTO_DIARS__LUIGI
         private void chboxVerFotoLista_CheckedChanged(object sender, EventArgs e)
         {
             dgvEmpleados.Columns["FotoEmpleado"].Visible = chboxVerFotoLista.Checked ? true : false;
+        }
+
+        private void dtpFehaNacimiento_KeyPress(object sender, KeyPressEventArgs e)
+        {
+            e.Handled = true;
+        }
+
+        private void dtpFechaContratacionE_KeyPress(object sender, KeyPressEventArgs e)
+        {
+            e.Handled = true;
         }
     }
 }
