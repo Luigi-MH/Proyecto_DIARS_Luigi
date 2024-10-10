@@ -14,8 +14,8 @@ namespace CapaEntidad
         public int Id_Rol { get; set; }
         public string Rol { get; set; }
         public int Id_Empleado { get; set; }
+        public string DocumentoEmpleado { get; set; }
         public string NombreEmpleado { get; set; }
-        public string ApellidoEmpleado { get; set; }
         public DateTime FechaCreacion { get; set; }
         public bool Estado { get; set; }
     }

@@ -1,14 +1,10 @@
 ﻿using CapaEntidad;
 using CapaLogica;
 using System;
-using System.Collections.Generic;
-using System.ComponentModel;
-using System.Data;
+using System.Collections;
 using System.Data.SqlClient;
-using System.Drawing;
 using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
+using System.Text.RegularExpressions;
 using System.Windows.Forms;
 
 namespace PROYECTO_DIARS__LUIGI
@@ -50,6 +46,7 @@ namespace PROYECTO_DIARS__LUIGI
         {
             habilitarBtn(btnModificar, btnCancelar, btnAgregar, btnNuevo, btnEditar, btnEliminar);
             ElementosActivos();
+            lblContraseña.Text = "Nueva Contraseña";
             txtUsuario.Focus();
         }
 
@@ -94,41 +91,48 @@ namespace PROYECTO_DIARS__LUIGI
         {
             if (ValidarDatosVacios())
             {
-                try
+                if(EsContrasenaFuerte(txtContraseña.Text))
                 {
-                    entUsuario usuario = new entUsuario();
-                    usuario.NombreUsuario = txtUsuario.Text.Trim();
-                    usuario.Contraseña = txtContraseña.Text.Trim();
-                    usuario.Id_Rol = (int)cboxRol.SelectedValue;
-                    usuario.Id_Empleado = (int)cboxEmpleado.SelectedValue;
-                    usuario.FechaCreacion = DateTime.Now;
-                    usuario.Estado = rdActivo.Checked ? true : false;
                     try
                     {
-                        logUsuario.Instancia.AgregarUsuario(usuario);
-                        MessageBox.Show("Se agrego con exito", "Aviso del Sitema Sys-MH", MessageBoxButtons.OK, MessageBoxIcon.Information);
-                        deshabilitarBtn(btnNuevo, btnEditar, btnEliminar, btnAgregar, btnModificar, btnCancelar);
-                        limpiar();
-                        dgvUsuarios.Enabled = true;
-                        ElementosBloqueados();
-                        ListarUsuarios();
+                        entUsuario usuario = new entUsuario();
+                        usuario.NombreUsuario = txtUsuario.Text.Trim();
+                        usuario.Contraseña = BCrypt.Net.BCrypt.HashPassword(txtContraseña.Text.Trim());
+                        usuario.Id_Rol = (int)cboxRol.SelectedValue;
+                        usuario.Id_Empleado = (int)cboxEmpleado.SelectedValue;
+                        usuario.FechaCreacion = DateTime.Now;
+                        usuario.Estado = rdActivo.Checked ? true : false;
+                        try
+                        {
+                            logUsuario.Instancia.AgregarUsuario(usuario);
+                            MessageBox.Show("Se agrego con exito", "Aviso del Sitema Sys-MH", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                            deshabilitarBtn(btnNuevo, btnEditar, btnEliminar, btnAgregar, btnModificar, btnCancelar);
+                            limpiar();
+                            dgvUsuarios.Enabled = true;
+                            ElementosBloqueados();
+                            ListarUsuarios();
+                        }
+                        catch (SqlException ex)
+                        {
+                            if (ex.Number == 2627 || ex.Number == 2601)
+                            {
+                                MessageBox.Show($"El usuario:'{txtUsuario.Text}' ya existe.", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                                txtUsuario.Focus();
+                            }
+                            else
+                            {
+                                MessageBox.Show($"Error en la base de datos: {ex.Message} (Código: {ex.Number})", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                            }
+                        }
                     }
-                    catch (SqlException ex)
+                    catch (Exception ex)
                     {
-                        if (ex.Number == 2627 || ex.Number == 2601)
-                        {
-                            MessageBox.Show($"El usuario:'{txtUsuario.Text}' ya existe.", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
-                            txtUsuario.Focus();
-                        }
-                        else
-                        {
-                            MessageBox.Show($"Error en la base de datos: {ex.Message} (Código: {ex.Number})", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
-                        }
+                        MessageBox.Show("Error en el Software: " + ex.Message, "Error Crítico", MessageBoxButtons.OK, MessageBoxIcon.Error);
                     }
                 }
-                catch (Exception ex)
+                else
                 {
-                    MessageBox.Show("Error en el Software: " + ex.Message, "Error Crítico", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                    MessageBox.Show("Contraseña mínimo de 8 caracteres, una mayúscula, una minúscula, un número, un caracter especial.", "Advertencia de Seguridad", MessageBoxButtons.OK, MessageBoxIcon.Warning);
                 }
             }
             else
@@ -144,49 +148,57 @@ namespace PROYECTO_DIARS__LUIGI
             {
                 if (ValidarDatosVacios())
                 {
-                    DialogResult result = MessageBox.Show("Esta seguro de Modificar", "Aviso del Sitema Sys-MH", MessageBoxButtons.YesNo, MessageBoxIcon.Information);
-                    if (result == DialogResult.Yes)
+                    if(EsContrasenaFuerte(txtContraseña.Text))
                     {
-                        try
+                        DialogResult result = MessageBox.Show("Esta seguro de Modificar", "Aviso del Sitema Sys-MH", MessageBoxButtons.YesNo, MessageBoxIcon.Information);
+                        if (result == DialogResult.Yes)
                         {
-                            entUsuario usuario = new entUsuario();
-                            usuario.Id_Usuario = Convert.ToInt32(txtId.Text);
-                            usuario.NombreUsuario = txtUsuario.Text.Trim();
-                            usuario.Contraseña = txtContraseña.Text.Trim();
-                            usuario.Id_Rol = (int)cboxRol.SelectedValue;
-                            usuario.Id_Empleado = (int)cboxEmpleado.SelectedValue;
-                            usuario.FechaCreacion = DateTime.Now;
-                            usuario.Estado = rdActivo.Checked ? true : false;
                             try
                             {
-                                logUsuario.Instancia.ModificarUsuario(usuario);
-                                MessageBox.Show("Se modificó con exito", "Aviso del Sitema Sys-MH", MessageBoxButtons.OK, MessageBoxIcon.Information);
-                                deshabilitarBtn(btnNuevo, btnEditar, btnEliminar, btnAgregar, btnModificar, btnCancelar);
-                                limpiar();
-                                ElementosBloqueados();
-                                ListarUsuarios();
+                                entUsuario usuario = new entUsuario();
+                                usuario.Id_Usuario = Convert.ToInt32(txtId.Text);
+                                usuario.NombreUsuario = txtUsuario.Text.Trim();
+                                usuario.Contraseña = BCrypt.Net.BCrypt.HashPassword(txtContraseña.Text.Trim());
+                                usuario.Id_Rol = (int)cboxRol.SelectedValue;
+                                usuario.Id_Empleado = (int)cboxEmpleado.SelectedValue;
+                                usuario.FechaCreacion = DateTime.Now;
+                                usuario.Estado = rdActivo.Checked ? true : false;
+                                try
+                                {
+                                    logUsuario.Instancia.ModificarUsuario(usuario);
+                                    MessageBox.Show("Se modificó con exito", "Aviso del Sitema Sys-MH", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                                    deshabilitarBtn(btnNuevo, btnEditar, btnEliminar, btnAgregar, btnModificar, btnCancelar);
+                                    limpiar();
+                                    ElementosBloqueados();
+                                    ListarUsuarios();
+                                    lblContraseña.Text = "Contraseña";
+                                }
+                                catch (SqlException ex)
+                                {
+                                    if (ex.Number == 2627 || ex.Number == 2601)
+                                    {
+                                        MessageBox.Show($"El usuario:'{txtUsuario.Text}' ya existe.", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                                        txtUsuario.Focus();
+                                    }
+                                    else
+                                    {
+                                        MessageBox.Show($"Error en la base de datos: {ex.Message} (Código: {ex.Number})", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                                    }
+                                }
                             }
-                            catch (SqlException ex)
+                            catch (Exception ex)
                             {
-                                if (ex.Number == 2627 || ex.Number == 2601)
-                                {
-                                    MessageBox.Show($"El usuario:'{txtUsuario.Text}' ya existe.", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
-                                    txtUsuario.Focus();
-                                }
-                                else
-                                {
-                                    MessageBox.Show($"Error en la base de datos: {ex.Message} (Código: {ex.Number})", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
-                                }
+                                MessageBox.Show("Error en el Software: " + ex.Message, "Error Crítico", MessageBoxButtons.OK, MessageBoxIcon.Error);
                             }
                         }
-                        catch (Exception ex)
+                        else
                         {
-                            MessageBox.Show("Error en el Software: " + ex.Message, "Error Crítico", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                            txtUsuario.Focus();
                         }
                     }
                     else
                     {
-                        txtUsuario.Focus();
+                        MessageBox.Show("Contraseña mínimo de 8 caracteres, una mayúscula, una minúscula, un número, un caracter especial.", "Advertencia de Seguridad", MessageBoxButtons.OK, MessageBoxIcon.Warning);
                     }
                 }
                 else
@@ -207,26 +219,113 @@ namespace PROYECTO_DIARS__LUIGI
             limpiar();
             dgvUsuarios.Enabled = true;
             ElementosBloqueados();
+            lblContraseña.Text = "Contraseña";
         }
 
         private void btnBuscar_Click(object sender, EventArgs e)
         {
+            string input = txtDocumentoApellidos.Text.Trim();
+            BuscarEmpleado(input);
+        }
 
+        private void BuscarEmpleado(string input)
+        {
+            if (!string.IsNullOrWhiteSpace(input))
+            {
+                try
+                {
+                    object resultadoBusqueda = null;
+
+                    if (ValidarDocumento(input) && input.Length > 1)
+                    {
+                        resultadoBusqueda = logUsuario.Instancia.BuscarEmpleado(null, input);
+                    }
+                    else if (Regex.IsMatch(input, @"^[a-zA-Z\sáéíóúÁÉÍÓÚñÑ]+$") && input.Length > 1)
+                    {
+                        resultadoBusqueda = logUsuario.Instancia.BuscarEmpleado(input, null);
+                    }
+                    else
+                    {
+                        MessageBox.Show("DNI o Apellidos inválidos.", "Aviso del Sistema Sys-MH", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                        txtDocumentoApellidos.Focus();
+                        return;
+                    }
+
+                    if (resultadoBusqueda == null || ((IList)resultadoBusqueda).Count == 0)
+                    {
+                        MessageBox.Show("No se encontró empleado.", "AVISO DEL SISTEMA SYS-MH", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                        txtDocumentoApellidos.Focus();
+                    }
+                    else
+                    {
+                        cboxEmpleado.DataSource = resultadoBusqueda;
+                        cboxEmpleado.DisplayMember = "NombreCompleto"; // nombre del empleado
+                        cboxEmpleado.ValueMember = "Id_Empleado";
+                    }
+                }
+                catch (Exception ex)
+                {
+                    MessageBox.Show("Error en el Software: " + ex.Message, "Error Crítico", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                }
+            }
+            else
+            {
+                MessageBox.Show("Complete documento o apellidos para buscar.", "Aviso del Sitema Sys-MH", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+            }
+        }
+
+        private bool EsContrasenaFuerte(string password)
+        {
+            return password.Length >= 8 && 
+                   password.Any(char.IsUpper) && 
+                   password.Any(char.IsLower) && 
+                   password.Any(char.IsDigit) && 
+                   password.Any(ch => "!@#$%^&*()_+[]{}|;:,.<>?".Contains(ch));
+        }
+
+        private bool ValidarDocumento(string documento)
+        {
+            // Validar si es DNI: 8 dígitos numéricos
+            if (Regex.IsMatch(documento, @"^\d{8}$"))
+            {
+                return true;
+            }
+
+            // Validar si es RUC: 11 dígitos numéricos
+            if (Regex.IsMatch(documento, @"^\d{11}$"))
+            {
+                return true;
+            }
+
+            // Validar si es Carnet de Extranjería: 9 dígitos numéricos
+            if (Regex.IsMatch(documento, @"^\d{9}$"))
+            {
+                return true;
+            }
+
+            // Validar si es Pasaporte: 2 letras y 6 dígitos
+            if (Regex.IsMatch(documento, @"^[A-Za-z]{2}\d{6}$")) // regex
+            {
+                return true;
+            }
+
+            // Si no cumple con ninguno, se considera inválido
+            return false;
         }
 
         public void ListarUsuarios()
         {
             dgvUsuarios.DataSource = logUsuario.Instancia.ListarUsuarios();
-            dgvUsuarios.Columns["Id_Usuario"].Width = 100;
+            dgvUsuarios.Columns["Id_Usuario"].Width = 70;
             dgvUsuarios.Columns["NombreUsuario"].Width = 140;
-            dgvUsuarios.Columns["Contraseña"].Width = 140;
-            dgvUsuarios.Columns["Id_Rol"].Width = 140;
-            dgvUsuarios.Columns["Rol"].Width = 140;
-            dgvUsuarios.Columns["Id_Empleado"].Width = 140;
-            dgvUsuarios.Columns["NombreEmpleado"].Width = 140;
-            dgvUsuarios.Columns["ApellidoEmpleado"].Width = 140;
-            dgvUsuarios.Columns["FechaCreacion"].Width = 140;
-            dgvUsuarios.Columns["Estado"].Width = 140;
+            dgvUsuarios.Columns["Contraseña"].Visible = false;
+            dgvUsuarios.Columns["Id_Rol"].Visible = false;
+            dgvUsuarios.Columns["Rol"].Width = 80;
+            dgvUsuarios.Columns["Id_Empleado"].Visible = false;
+            dgvUsuarios.Columns["DocumentoEmpleado"].Visible = false;
+            dgvUsuarios.Columns["NombreEmpleado"].Width = 250;
+            dgvUsuarios.Columns["FechaCreacion"].Width = 120;
+            dgvUsuarios.Columns["Estado"].Width = 80;
         }
 
         public void ListarRoles()
@@ -243,7 +342,7 @@ namespace PROYECTO_DIARS__LUIGI
             txtContraseña.Clear();
             cboxRol.SelectedValue = 2;
             txtDocumentoApellidos.Clear();
-            cboxEmpleado.SelectedValue = 1;
+            cboxEmpleado.SelectedValue = 1; // hay posibilidad de que funcione sin este linea ya que la busque se hacer despues
             rdActivo.Checked = true;
         }
 
@@ -294,10 +393,9 @@ namespace PROYECTO_DIARS__LUIGI
         {
             txtId.Text = dgvUsuarios.CurrentRow.Cells["Id_Usuario"].Value.ToString();
             txtUsuario.Text = dgvUsuarios.CurrentRow.Cells["NombreUsuario"].Value.ToString();
-            txtContraseña.Text = dgvUsuarios.CurrentRow.Cells["Contraseña"].Value.ToString();
             cboxRol.SelectedValue = dgvUsuarios.CurrentRow.Cells["Id_Rol"].Value;
-            //cboxEmpleado.SelectedValue = dgvUsuarios.CurrentRow.Cells["Id_TipoDocumento"].Value; // aca debo de buscar a mi empleado y ponerlo en listra otra vez
-            // la fecha no se muestra, solo en el dgvUsuarios                                        // juntar mi apellido y nombre y listarlo en un mismo combobox
+            BuscarEmpleado(dgvUsuarios.CurrentRow.Cells["DocumentoEmpleado"].Value.ToString());
+            cboxEmpleado.SelectedValue = dgvUsuarios.CurrentRow.Cells["Id_Empleado"].Value;
             Boolean estado = Convert.ToBoolean(dgvUsuarios.CurrentRow.Cells["Estado"].Value.ToString());
             if (estado == true)
             {
@@ -318,6 +416,35 @@ namespace PROYECTO_DIARS__LUIGI
             else
             {
                 return false;
+            }
+        }
+
+        private void txtUsuario_KeyPress(object sender, KeyPressEventArgs e)
+        {
+            if (!char.IsLetter(e.KeyChar) && !char.IsDigit(e.KeyChar) && e.KeyChar != '_' && e.KeyChar != '@' && e.KeyChar != '-' && e.KeyChar != (char)Keys.Back) // Permitir la tecla Backspace
+            {
+                e.Handled = true;
+            }
+
+            if (e.KeyChar == Convert.ToChar(Keys.Enter))
+            {
+                
+            }
+        }
+
+        private void txtDocumentoApellidos_KeyPress(object sender, KeyPressEventArgs e)
+        {
+            if (!char.IsLetter(e.KeyChar) && !char.IsDigit(e.KeyChar) && e.KeyChar != (char)Keys.Back && e.KeyChar != ' ')
+            {
+                e.Handled = true;
+            }
+        }
+
+        private void txtContraseña_KeyPress(object sender, KeyPressEventArgs e)
+        {
+            if (!char.IsLetter(e.KeyChar) && !char.IsDigit(e.KeyChar) && e.KeyChar != (char)Keys.Back && e.KeyChar == ' ' && !"!@#$%^&*()_+[]{}|;:,.<>?".Contains(e.KeyChar))
+            {
+                e.Handled = true; // Cancelar el evento si el carácter no es permitido
             }
         }
     }

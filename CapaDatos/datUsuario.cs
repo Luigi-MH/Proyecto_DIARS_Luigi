@@ -40,9 +40,9 @@ namespace CapaDatos
                     user.Contraseña = reader["contraseña"].ToString();
                     user.Id_Rol = Convert.ToInt32(reader["id_rol"]);
                     user.Rol = reader["rol"].ToString();
-                    user.Id_Empleado = Convert.ToInt32(reader["dni_empleado"]);
-                    user.ApellidoEmpleado = reader["apellidos"].ToString();
-                    user.NombreEmpleado = reader["nombres"].ToString();
+                    user.Id_Empleado = Convert.ToInt32(reader["id_empleado"]);
+                    user.DocumentoEmpleado = reader["numero_doc"].ToString();
+                    user.NombreEmpleado = reader["NombreCompleto"].ToString();
                     user.FechaCreacion = Convert.ToDateTime(reader["fecha_creacion"]);
                     user.Estado = Convert.ToBoolean(reader["estado"]);
                     lista.Add(user);
@@ -143,8 +143,7 @@ namespace CapaDatos
                 {
                     entEmpleados empleado = new entEmpleados();
                     empleado.Id_Empleado = Convert.ToInt32(reader["id_Empleado"]);
-                    empleado.Nombres = reader["nombres"].ToString();
-                    empleado.Apellidos = reader["apellidos"].ToString();
+                    empleado.NombreCompleto = reader["NombreCompleto"].ToString();
                     lista.Add(empleado);
                 }
             }

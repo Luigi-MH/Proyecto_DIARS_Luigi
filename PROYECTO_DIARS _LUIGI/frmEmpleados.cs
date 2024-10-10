@@ -273,6 +273,7 @@ namespace PROYECTO_DIARS__LUIGI
             dgvEmpleados.Columns["Id_TipoDocumento"].Visible = false;
             dgvEmpleados.Columns["TipoDocumento"].Width = 90;
             dgvEmpleados.Columns["NumDoc"].Width = 80;
+            dgvEmpleados.Columns["NombreCompleto"].Visible = false;
             dgvEmpleados.Columns["Nombres"].Width = 160;
             dgvEmpleados.Columns["Apellidos"].Width = 150;
             dgvEmpleados.Columns["Correo"].Width = 200;
