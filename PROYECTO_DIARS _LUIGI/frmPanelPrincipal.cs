@@ -112,7 +112,8 @@ namespace PROYECTO_DIARS__LUIGI
 
         private void btnProductos_Click(object sender, EventArgs e)
         {
-
+            frmProductos frmProductos = new frmProductos();
+            abrirFrm(frmProductos);
         }
 
         private void btnCategorias_Click(object sender, EventArgs e)
