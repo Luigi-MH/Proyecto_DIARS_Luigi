@@ -16,6 +16,8 @@ namespace PROYECTO_DIARS__LUIGI
             InitializeComponent();
         }
 
+        string ContraseñaGuardada = string.Empty;
+
         private void frmUsuarios_Load(object sender, EventArgs e)
         {
             btnAgregar.Enabled = false;
@@ -132,7 +134,8 @@ namespace PROYECTO_DIARS__LUIGI
                 }
                 else
                 {
-                    MessageBox.Show("Contraseña mínimo de 8 caracteres, una mayúscula, una minúscula, un número, un caracter especial.", "Advertencia de Seguridad", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                    MessageBox.Show("Contraseña mínimo de 8 caracteres, una mayúscula, una minúscula, un número y un caracter especial.", "Advertencia de Seguridad", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                    txtContraseña.Focus();
                 }
             }
             else
@@ -146,59 +149,69 @@ namespace PROYECTO_DIARS__LUIGI
         {
             if (txtId.Text != string.Empty)
             {
-                if (ValidarDatosVacios())
+                if (txtUsuario.Text != string.Empty && cboxEmpleado.Text != string.Empty)
                 {
-                    if(EsContrasenaFuerte(txtContraseña.Text))
+                    entUsuario usuario = new entUsuario();
+                    if (txtContraseña.Text != string.Empty)
                     {
-                        DialogResult result = MessageBox.Show("Esta seguro de Modificar", "Aviso del Sitema Sys-MH", MessageBoxButtons.YesNo, MessageBoxIcon.Information);
-                        if (result == DialogResult.Yes)
+                        if (EsContrasenaFuerte(txtContraseña.Text))
                         {
-                            try
-                            {
-                                entUsuario usuario = new entUsuario();
-                                usuario.Id_Usuario = Convert.ToInt32(txtId.Text);
-                                usuario.NombreUsuario = txtUsuario.Text.Trim();
-                                usuario.Contraseña = BCrypt.Net.BCrypt.HashPassword(txtContraseña.Text.Trim());
-                                usuario.Id_Rol = (int)cboxRol.SelectedValue;
-                                usuario.Id_Empleado = (int)cboxEmpleado.SelectedValue;
-                                usuario.FechaCreacion = DateTime.Now;
-                                usuario.Estado = rdActivo.Checked ? true : false;
-                                try
-                                {
-                                    logUsuario.Instancia.ModificarUsuario(usuario);
-                                    MessageBox.Show("Se modificó con exito", "Aviso del Sitema Sys-MH", MessageBoxButtons.OK, MessageBoxIcon.Information);
-                                    deshabilitarBtn(btnNuevo, btnEditar, btnEliminar, btnAgregar, btnModificar, btnCancelar);
-                                    limpiar();
-                                    ElementosBloqueados();
-                                    ListarUsuarios();
-                                    lblContraseña.Text = "Contraseña";
-                                }
-                                catch (SqlException ex)
-                                {
-                                    if (ex.Number == 2627 || ex.Number == 2601)
-                                    {
-                                        MessageBox.Show($"El usuario:'{txtUsuario.Text}' ya existe.", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
-                                        txtUsuario.Focus();
-                                    }
-                                    else
-                                    {
-                                        MessageBox.Show($"Error en la base de datos: {ex.Message} (Código: {ex.Number})", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
-                                    }
-                                }
-                            }
-                            catch (Exception ex)
-                            {
-                                MessageBox.Show("Error en el Software: " + ex.Message, "Error Crítico", MessageBoxButtons.OK, MessageBoxIcon.Error);
-                            }
+                            usuario.Contraseña = BCrypt.Net.BCrypt.HashPassword(txtContraseña.Text.Trim());
                         }
                         else
                         {
-                            txtUsuario.Focus();
+                            MessageBox.Show("Nueva Contraseña mínimo de 8 caracteres, una mayúscula, una minúscula, un número y un caracter especial.", "Advertencia de Seguridad", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                            txtContraseña.Focus();
+                            return;
+                        }
+                    }
+                    else if (ContraseñaGuardada != string.Empty)
+                    {
+                        usuario.Contraseña = ContraseñaGuardada;
+                    }
+                    DialogResult result = MessageBox.Show("Esta seguro de Modificar", "Aviso del Sitema Sys-MH", MessageBoxButtons.YesNo, MessageBoxIcon.Information);
+                    if (result == DialogResult.Yes)
+                    {
+                        try
+                        {
+                            usuario.Id_Usuario = Convert.ToInt32(txtId.Text);
+                            usuario.NombreUsuario = txtUsuario.Text.Trim();
+                            usuario.Id_Rol = (int)cboxRol.SelectedValue;
+                            usuario.Id_Empleado = (int)cboxEmpleado.SelectedValue;
+                            usuario.FechaCreacion = DateTime.Now;
+                            usuario.Estado = rdActivo.Checked ? true : false;
+                            try
+                            {
+                                logUsuario.Instancia.ModificarUsuario(usuario);
+                                MessageBox.Show("Se modificó con exito", "Aviso del Sitema Sys-MH", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                                deshabilitarBtn(btnNuevo, btnEditar, btnEliminar, btnAgregar, btnModificar, btnCancelar);
+                                ContraseñaGuardada = string.Empty;
+                                limpiar();
+                                ElementosBloqueados();
+                                ListarUsuarios();
+                                lblContraseña.Text = "Contraseña";
+                            }
+                            catch (SqlException ex)
+                            {
+                                if (ex.Number == 2627 || ex.Number == 2601)
+                                {
+                                    MessageBox.Show($"El usuario:'{txtUsuario.Text}' ya existe.", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                                    txtUsuario.Focus();
+                                }
+                                else
+                                {
+                                    MessageBox.Show($"Error en la base de datos: {ex.Message} (Código: {ex.Number})", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                                }
+                            }
+                        }
+                        catch (Exception ex)
+                        {
+                            MessageBox.Show("Error en el Software: " + ex.Message, "Error Crítico", MessageBoxButtons.OK, MessageBoxIcon.Error);
                         }
                     }
                     else
                     {
-                        MessageBox.Show("Contraseña mínimo de 8 caracteres, una mayúscula, una minúscula, un número, un caracter especial.", "Advertencia de Seguridad", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                        txtUsuario.Focus();
                     }
                 }
                 else
@@ -216,6 +229,7 @@ namespace PROYECTO_DIARS__LUIGI
         private void btnCancelar_Click(object sender, EventArgs e)
         {
             deshabilitarBtn(btnNuevo, btnEditar, btnEliminar, btnAgregar, btnModificar, btnCancelar);
+            ContraseñaGuardada = string.Empty;
             limpiar();
             dgvUsuarios.Enabled = true;
             ElementosBloqueados();
@@ -292,10 +306,10 @@ namespace PROYECTO_DIARS__LUIGI
             }
 
             // Validar si es RUC: 11 dígitos numéricos
-            if (Regex.IsMatch(documento, @"^\d{11}$"))
-            {
-                return true;
-            }
+            //if (Regex.IsMatch(documento, @"^\d{11}$"))
+            //{
+            //    return true;
+            //}
 
             // Validar si es Carnet de Extranjería: 9 dígitos numéricos
             if (Regex.IsMatch(documento, @"^\d{9}$"))
@@ -393,6 +407,7 @@ namespace PROYECTO_DIARS__LUIGI
         {
             txtId.Text = dgvUsuarios.CurrentRow.Cells["Id_Usuario"].Value.ToString();
             txtUsuario.Text = dgvUsuarios.CurrentRow.Cells["NombreUsuario"].Value.ToString();
+            ContraseñaGuardada = dgvUsuarios.CurrentRow.Cells["Contraseña"].Value.ToString();
             cboxRol.SelectedValue = dgvUsuarios.CurrentRow.Cells["Id_Rol"].Value;
             BuscarEmpleado(dgvUsuarios.CurrentRow.Cells["DocumentoEmpleado"].Value.ToString());
             cboxEmpleado.SelectedValue = dgvUsuarios.CurrentRow.Cells["Id_Empleado"].Value;
