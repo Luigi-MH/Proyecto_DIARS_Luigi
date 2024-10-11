@@ -68,6 +68,9 @@ namespace PROYECTO_DIARS__LUIGI
                             //logEmpleados.Instancia.EliminarEmpleado(entEmpleados);
                             MessageBox.Show("Aún no se implementa el eliminar", "Aviso del Sitema Sys-MH", MessageBoxButtons.OK, MessageBoxIcon.Information);
                             //MessageBox.Show("Se eliminó con exito", "Aviso del Sitema Sys-MH", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                            ListarUsuarios();
+                            limpiar();
+                            ElementosBloqueados();
                         }
                         catch (SqlException ex)
                         {
@@ -78,10 +81,7 @@ namespace PROYECTO_DIARS__LUIGI
                     {
                         MessageBox.Show("Error.." + ex);
                     }
-                    ListarUsuarios();
                 }
-                limpiar();
-                ElementosBloqueados();
             }
             else
             {
@@ -120,10 +120,12 @@ namespace PROYECTO_DIARS__LUIGI
                             {
                                 MessageBox.Show($"El usuario:'{txtUsuario.Text}' ya existe.", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
                                 txtUsuario.Focus();
+                                return;
                             }
                             else
                             {
                                 MessageBox.Show($"Error en la base de datos: {ex.Message} (Código: {ex.Number})", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                                return;
                             }
                         }
                     }

@@ -42,10 +42,15 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="logCargos.cs" />
+    <Compile Include="logCategoria.cs" />
     <Compile Include="logEmpleados.cs" />
+    <Compile Include="logEstadoProducto.cs" />
+    <Compile Include="logLabFabricante.cs" />
     <Compile Include="logPersona.cs" />
+    <Compile Include="logProducto.cs" />
     <Compile Include="logRoles.cs" />
     <Compile Include="logTipoDoc.cs" />
+    <Compile Include="logUnidadMedida.cs" />
     <Compile Include="logUsuario.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>

@@ -42,10 +42,15 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="entCargo.cs" />
+    <Compile Include="entCategoria.cs" />
     <Compile Include="entEmpleados.cs" />
+    <Compile Include="entEstadoProducto.cs" />
+    <Compile Include="entLabFabricante.cs" />
     <Compile Include="entPersona.cs" />
+    <Compile Include="entProducto.cs" />
     <Compile Include="entRoles.cs" />
     <Compile Include="entTipoDoc.cs" />
+    <Compile Include="entUnidadMedida.cs" />
     <Compile Include="entUsuario.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>

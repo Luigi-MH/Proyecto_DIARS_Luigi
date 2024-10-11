@@ -34,7 +34,13 @@
             this.btnEditar = new System.Windows.Forms.Button();
             this.dgvProductos = new System.Windows.Forms.DataGridView();
             this.gboxDatos = new System.Windows.Forms.GroupBox();
-            this.txtDocumentoApellidos = new System.Windows.Forms.TextBox();
+            this.cboxEstado = new System.Windows.Forms.ComboBox();
+            this.lblEstado = new System.Windows.Forms.Label();
+            this.txtPrecio = new System.Windows.Forms.TextBox();
+            this.lblPrecio = new System.Windows.Forms.Label();
+            this.cboxUnidadMedida = new System.Windows.Forms.ComboBox();
+            this.lblUnidadMedida = new System.Windows.Forms.Label();
+            this.txtLabFabricante = new System.Windows.Forms.TextBox();
             this.lblNombreLabFabricante = new System.Windows.Forms.Label();
             this.btnSeleccionarFoto = new System.Windows.Forms.Button();
             this.pbFoto = new System.Windows.Forms.PictureBox();
@@ -43,7 +49,7 @@
             this.btnBuscar = new System.Windows.Forms.Button();
             this.txtDescripcion = new System.Windows.Forms.TextBox();
             this.lblDescripcion = new System.Windows.Forms.Label();
-            this.cboxLaboratorioFabricante = new System.Windows.Forms.ComboBox();
+            this.cboxLabFabricante = new System.Windows.Forms.ComboBox();
             this.cboxCategoria = new System.Windows.Forms.ComboBox();
             this.lblCategoria = new System.Windows.Forms.Label();
             this.btnModificar = new System.Windows.Forms.Button();
@@ -58,12 +64,6 @@
             this.lblLaboratorioFabricante = new System.Windows.Forms.Label();
             this.lblNombreProducto = new System.Windows.Forms.Label();
             this.btnSalir = new System.Windows.Forms.Button();
-            this.cboxUnidadMedida = new System.Windows.Forms.ComboBox();
-            this.lblUnidadMedida = new System.Windows.Forms.Label();
-            this.txtPrecio = new System.Windows.Forms.TextBox();
-            this.lblPrecio = new System.Windows.Forms.Label();
-            this.cboxEstado = new System.Windows.Forms.ComboBox();
-            this.lblEstado = new System.Windows.Forms.Label();
             this.gboxProductos.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dgvProductos)).BeginInit();
             this.gboxDatos.SuspendLayout();
@@ -133,6 +133,7 @@
             this.dgvProductos.RowTemplate.Height = 24;
             this.dgvProductos.Size = new System.Drawing.Size(795, 679);
             this.dgvProductos.TabIndex = 55;
+            this.dgvProductos.CellDoubleClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dgvProductos_CellDoubleClick);
             // 
             // gboxDatos
             // 
@@ -142,7 +143,7 @@
             this.gboxDatos.Controls.Add(this.lblPrecio);
             this.gboxDatos.Controls.Add(this.cboxUnidadMedida);
             this.gboxDatos.Controls.Add(this.lblUnidadMedida);
-            this.gboxDatos.Controls.Add(this.txtDocumentoApellidos);
+            this.gboxDatos.Controls.Add(this.txtLabFabricante);
             this.gboxDatos.Controls.Add(this.lblNombreLabFabricante);
             this.gboxDatos.Controls.Add(this.btnSeleccionarFoto);
             this.gboxDatos.Controls.Add(this.pbFoto);
@@ -151,7 +152,7 @@
             this.gboxDatos.Controls.Add(this.btnBuscar);
             this.gboxDatos.Controls.Add(this.txtDescripcion);
             this.gboxDatos.Controls.Add(this.lblDescripcion);
-            this.gboxDatos.Controls.Add(this.cboxLaboratorioFabricante);
+            this.gboxDatos.Controls.Add(this.cboxLabFabricante);
             this.gboxDatos.Controls.Add(this.cboxCategoria);
             this.gboxDatos.Controls.Add(this.lblCategoria);
             this.gboxDatos.Controls.Add(this.btnModificar);
@@ -168,19 +169,77 @@
             this.gboxDatos.Margin = new System.Windows.Forms.Padding(2);
             this.gboxDatos.Name = "gboxDatos";
             this.gboxDatos.Padding = new System.Windows.Forms.Padding(2);
-            this.gboxDatos.Size = new System.Drawing.Size(726, 553);
+            this.gboxDatos.Size = new System.Drawing.Size(726, 639);
             this.gboxDatos.TabIndex = 54;
             this.gboxDatos.TabStop = false;
             this.gboxDatos.Text = "Datos";
             // 
-            // txtDocumentoApellidos
+            // cboxEstado
             // 
-            this.txtDocumentoApellidos.Location = new System.Drawing.Point(39, 221);
-            this.txtDocumentoApellidos.Margin = new System.Windows.Forms.Padding(2);
-            this.txtDocumentoApellidos.MaxLength = 64;
-            this.txtDocumentoApellidos.Name = "txtDocumentoApellidos";
-            this.txtDocumentoApellidos.Size = new System.Drawing.Size(349, 22);
-            this.txtDocumentoApellidos.TabIndex = 79;
+            this.cboxEstado.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
+            this.cboxEstado.FormattingEnabled = true;
+            this.cboxEstado.Location = new System.Drawing.Point(288, 385);
+            this.cboxEstado.Name = "cboxEstado";
+            this.cboxEstado.Size = new System.Drawing.Size(164, 24);
+            this.cboxEstado.TabIndex = 84;
+            // 
+            // lblEstado
+            // 
+            this.lblEstado.AutoSize = true;
+            this.lblEstado.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Italic, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblEstado.Location = new System.Drawing.Point(285, 369);
+            this.lblEstado.Name = "lblEstado";
+            this.lblEstado.Size = new System.Drawing.Size(40, 13);
+            this.lblEstado.TabIndex = 85;
+            this.lblEstado.Text = "Estado";
+            // 
+            // txtPrecio
+            // 
+            this.txtPrecio.Location = new System.Drawing.Point(195, 387);
+            this.txtPrecio.Margin = new System.Windows.Forms.Padding(2);
+            this.txtPrecio.MaxLength = 7;
+            this.txtPrecio.Name = "txtPrecio";
+            this.txtPrecio.Size = new System.Drawing.Size(83, 22);
+            this.txtPrecio.TabIndex = 83;
+            // 
+            // lblPrecio
+            // 
+            this.lblPrecio.AutoSize = true;
+            this.lblPrecio.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Italic, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblPrecio.Location = new System.Drawing.Point(192, 372);
+            this.lblPrecio.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
+            this.lblPrecio.Name = "lblPrecio";
+            this.lblPrecio.Size = new System.Drawing.Size(37, 13);
+            this.lblPrecio.TabIndex = 82;
+            this.lblPrecio.Text = "Precio";
+            // 
+            // cboxUnidadMedida
+            // 
+            this.cboxUnidadMedida.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
+            this.cboxUnidadMedida.FormattingEnabled = true;
+            this.cboxUnidadMedida.Location = new System.Drawing.Point(41, 385);
+            this.cboxUnidadMedida.Name = "cboxUnidadMedida";
+            this.cboxUnidadMedida.Size = new System.Drawing.Size(120, 24);
+            this.cboxUnidadMedida.TabIndex = 80;
+            // 
+            // lblUnidadMedida
+            // 
+            this.lblUnidadMedida.AutoSize = true;
+            this.lblUnidadMedida.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Italic, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblUnidadMedida.Location = new System.Drawing.Point(38, 369);
+            this.lblUnidadMedida.Name = "lblUnidadMedida";
+            this.lblUnidadMedida.Size = new System.Drawing.Size(79, 13);
+            this.lblUnidadMedida.TabIndex = 81;
+            this.lblUnidadMedida.Text = "Unidad Medida";
+            // 
+            // txtLabFabricante
+            // 
+            this.txtLabFabricante.Location = new System.Drawing.Point(39, 221);
+            this.txtLabFabricante.Margin = new System.Windows.Forms.Padding(2);
+            this.txtLabFabricante.MaxLength = 64;
+            this.txtLabFabricante.Name = "txtLabFabricante";
+            this.txtLabFabricante.Size = new System.Drawing.Size(349, 22);
+            this.txtLabFabricante.TabIndex = 79;
             // 
             // lblNombreLabFabricante
             // 
@@ -201,6 +260,7 @@
             this.btnSeleccionarFoto.TabIndex = 77;
             this.btnSeleccionarFoto.Text = "Seleccionar";
             this.btnSeleccionarFoto.UseVisualStyleBackColor = true;
+            this.btnSeleccionarFoto.Click += new System.EventHandler(this.btnSeleccionarFoto_Click);
             // 
             // pbFoto
             // 
@@ -241,6 +301,7 @@
             this.btnBuscar.TabIndex = 75;
             this.btnBuscar.Text = "Buscar";
             this.btnBuscar.UseVisualStyleBackColor = true;
+            this.btnBuscar.Click += new System.EventHandler(this.btnBuscar_Click);
             // 
             // txtDescripcion
             // 
@@ -262,14 +323,14 @@
             this.lblDescripcion.TabIndex = 73;
             this.lblDescripcion.Text = "Descripcion";
             // 
-            // cboxLaboratorioFabricante
+            // cboxLabFabricante
             // 
-            this.cboxLaboratorioFabricante.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
-            this.cboxLaboratorioFabricante.FormattingEnabled = true;
-            this.cboxLaboratorioFabricante.Location = new System.Drawing.Point(40, 273);
-            this.cboxLaboratorioFabricante.Name = "cboxLaboratorioFabricante";
-            this.cboxLaboratorioFabricante.Size = new System.Drawing.Size(412, 24);
-            this.cboxLaboratorioFabricante.TabIndex = 64;
+            this.cboxLabFabricante.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
+            this.cboxLabFabricante.FormattingEnabled = true;
+            this.cboxLabFabricante.Location = new System.Drawing.Point(40, 273);
+            this.cboxLabFabricante.Name = "cboxLabFabricante";
+            this.cboxLabFabricante.Size = new System.Drawing.Size(412, 24);
+            this.cboxLabFabricante.TabIndex = 64;
             // 
             // cboxCategoria
             // 
@@ -277,7 +338,7 @@
             this.cboxCategoria.FormattingEnabled = true;
             this.cboxCategoria.Location = new System.Drawing.Point(41, 162);
             this.cboxCategoria.Name = "cboxCategoria";
-            this.cboxCategoria.Size = new System.Drawing.Size(182, 24);
+            this.cboxCategoria.Size = new System.Drawing.Size(198, 24);
             this.cboxCategoria.TabIndex = 62;
             // 
             // lblCategoria
@@ -341,7 +402,7 @@
             // 
             this.chbNecesitaReceta.AutoSize = true;
             this.chbNecesitaReceta.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, ((System.Drawing.FontStyle)((System.Drawing.FontStyle.Bold | System.Drawing.FontStyle.Italic))), System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.chbNecesitaReceta.Location = new System.Drawing.Point(207, 21);
+            this.chbNecesitaReceta.Location = new System.Drawing.Point(216, 21);
             this.chbNecesitaReceta.Name = "chbNecesitaReceta";
             this.chbNecesitaReceta.Size = new System.Drawing.Size(131, 19);
             this.chbNecesitaReceta.TabIndex = 1;
@@ -352,7 +413,7 @@
             // 
             this.chbEsGenerico.AutoSize = true;
             this.chbEsGenerico.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, ((System.Drawing.FontStyle)((System.Drawing.FontStyle.Bold | System.Drawing.FontStyle.Italic))), System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.chbEsGenerico.Location = new System.Drawing.Point(37, 21);
+            this.chbEsGenerico.Location = new System.Drawing.Point(64, 21);
             this.chbEsGenerico.Name = "chbEsGenerico";
             this.chbEsGenerico.Size = new System.Drawing.Size(104, 19);
             this.chbEsGenerico.TabIndex = 0;
@@ -423,64 +484,6 @@
             this.btnSalir.UseVisualStyleBackColor = true;
             this.btnSalir.Click += new System.EventHandler(this.btnSalir_Click);
             // 
-            // cboxUnidadMedida
-            // 
-            this.cboxUnidadMedida.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
-            this.cboxUnidadMedida.FormattingEnabled = true;
-            this.cboxUnidadMedida.Location = new System.Drawing.Point(41, 385);
-            this.cboxUnidadMedida.Name = "cboxUnidadMedida";
-            this.cboxUnidadMedida.Size = new System.Drawing.Size(182, 24);
-            this.cboxUnidadMedida.TabIndex = 80;
-            // 
-            // lblUnidadMedida
-            // 
-            this.lblUnidadMedida.AutoSize = true;
-            this.lblUnidadMedida.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Italic, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblUnidadMedida.Location = new System.Drawing.Point(38, 369);
-            this.lblUnidadMedida.Name = "lblUnidadMedida";
-            this.lblUnidadMedida.Size = new System.Drawing.Size(79, 13);
-            this.lblUnidadMedida.TabIndex = 81;
-            this.lblUnidadMedida.Text = "Unidad Medida";
-            // 
-            // txtPrecio
-            // 
-            this.txtPrecio.Location = new System.Drawing.Point(234, 387);
-            this.txtPrecio.Margin = new System.Windows.Forms.Padding(2);
-            this.txtPrecio.MaxLength = 7;
-            this.txtPrecio.Name = "txtPrecio";
-            this.txtPrecio.Size = new System.Drawing.Size(86, 22);
-            this.txtPrecio.TabIndex = 83;
-            // 
-            // lblPrecio
-            // 
-            this.lblPrecio.AutoSize = true;
-            this.lblPrecio.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Italic, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblPrecio.Location = new System.Drawing.Point(231, 372);
-            this.lblPrecio.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
-            this.lblPrecio.Name = "lblPrecio";
-            this.lblPrecio.Size = new System.Drawing.Size(37, 13);
-            this.lblPrecio.TabIndex = 82;
-            this.lblPrecio.Text = "Precio";
-            // 
-            // cboxEstado
-            // 
-            this.cboxEstado.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
-            this.cboxEstado.FormattingEnabled = true;
-            this.cboxEstado.Location = new System.Drawing.Point(334, 385);
-            this.cboxEstado.Name = "cboxEstado";
-            this.cboxEstado.Size = new System.Drawing.Size(119, 24);
-            this.cboxEstado.TabIndex = 84;
-            // 
-            // lblEstado
-            // 
-            this.lblEstado.AutoSize = true;
-            this.lblEstado.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Italic, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblEstado.Location = new System.Drawing.Point(331, 369);
-            this.lblEstado.Name = "lblEstado";
-            this.lblEstado.Size = new System.Drawing.Size(40, 13);
-            this.lblEstado.TabIndex = 85;
-            this.lblEstado.Text = "Estado";
-            // 
             // frmProductos
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -516,7 +519,7 @@
         private System.Windows.Forms.Button btnBuscar;
         private System.Windows.Forms.TextBox txtDescripcion;
         private System.Windows.Forms.Label lblDescripcion;
-        private System.Windows.Forms.ComboBox cboxLaboratorioFabricante;
+        private System.Windows.Forms.ComboBox cboxLabFabricante;
         private System.Windows.Forms.ComboBox cboxCategoria;
         private System.Windows.Forms.Label lblCategoria;
         private System.Windows.Forms.Button btnModificar;
@@ -530,7 +533,7 @@
         private System.Windows.Forms.Label lblNombreProducto;
         private System.Windows.Forms.Button btnSeleccionarFoto;
         private System.Windows.Forms.PictureBox pbFoto;
-        private System.Windows.Forms.TextBox txtDocumentoApellidos;
+        private System.Windows.Forms.TextBox txtLabFabricante;
         private System.Windows.Forms.Label lblNombreLabFabricante;
         private System.Windows.Forms.CheckBox chbEsGenerico;
         private System.Windows.Forms.CheckBox chbNecesitaReceta;
