@@ -115,7 +115,7 @@ namespace CapaDatos
                 SqlConnection cn = Conexion.Instancia.Conectar();
                 cmd = new SqlCommand("spModificarProducto", cn);
                 cmd.CommandType = CommandType.StoredProcedure;
-                cmd.Parameters.AddWithValue("@id_usuario", prod.Id_Producto);
+                cmd.Parameters.AddWithValue("@id_producto", prod.Id_Producto);
                 cmd.Parameters.AddWithValue("@nombre", prod.Nombre);
                 cmd.Parameters.AddWithValue("@imagen", prod.Foto_Producto);
                 cmd.Parameters.AddWithValue("@descripcion", prod.Descripcion);

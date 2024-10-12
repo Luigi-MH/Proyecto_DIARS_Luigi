@@ -35,6 +35,7 @@ namespace PROYECTO_DIARS__LUIGI
             ListarCategorias();
             ListarUnidadesMedida();
             ListarEstadosDisponibilidadProducto();
+            dgvProductos.Columns["Foto_Producto"].Visible = false;
             limpiar();
             dgvProductos.EnableHeadersVisualStyles = false;
         }
@@ -257,8 +258,8 @@ namespace PROYECTO_DIARS__LUIGI
                 try
                 {
                     object resultadoBusqueda = null;
-
-                    if (Regex.IsMatch(input, @"^[0-9]+$") && input.Length > 1)
+                    // Try
+                    if (Regex.IsMatch(input, @"^[0-9]+$") && input.Length > 0)
                     {
                         resultadoBusqueda = logProducto.Instancia.BuscarLaboratorio(null, input);
                     }
@@ -272,6 +273,7 @@ namespace PROYECTO_DIARS__LUIGI
                         txtLabFabricante.Focus();
                         return;
                     }
+                    //catch
 
                     if (resultadoBusqueda == null || ((IList)resultadoBusqueda).Count == 0)
                     {
@@ -315,10 +317,10 @@ namespace PROYECTO_DIARS__LUIGI
         {
             dgvProductos.DataSource = logProducto.Instancia.ListarProductos();
             dgvProductos.Columns["Id_Producto"].Width = 70;
-            dgvProductos.Columns["Nombre"].Width = 140;
+            dgvProductos.Columns["Nombre"].Width = 160;
             ((DataGridViewImageColumn)dgvProductos.Columns["Foto_Producto"]).ImageLayout = DataGridViewImageCellLayout.Zoom;
             dgvProductos.Columns["Foto_Producto"].Width = 80;
-            dgvProductos.Columns["Descripcion"].Width = 250;
+            dgvProductos.Columns["Descripcion"].Visible = false;
             dgvProductos.Columns["Id_Categoria"].Visible = false;
             dgvProductos.Columns["Categoria"].Width = 120;
             dgvProductos.Columns["Id_LabFabricante"].Visible = false;
@@ -327,10 +329,10 @@ namespace PROYECTO_DIARS__LUIGI
             dgvProductos.Columns["Requiere_Receta"].Width = 80;
             dgvProductos.Columns["Es_Generio"].Width = 80;
             dgvProductos.Columns["Id_UnidadMendida"].Visible = false;
-            dgvProductos.Columns["UnidadMedida"].Width = 120;
-            dgvProductos.Columns["Precio"].Width = 80;
+            dgvProductos.Columns["UnidadMedida"].Width = 100;
+            dgvProductos.Columns["Precio"].Width = 70;
             dgvProductos.Columns["Id_Estado"].Visible = false;
-            dgvProductos.Columns["Estado"].Width = 80;
+            dgvProductos.Columns["Estado"].Width = 120;
         }
 
         public void ListarCategorias()
@@ -359,6 +361,7 @@ namespace PROYECTO_DIARS__LUIGI
             txtId.Clear();
             txtNombreProducto.Clear();
             txtDescripcion.Clear();
+            pbFoto.Image = null;
             cboxCategoria.SelectedValue = 1;
             txtNumCodBarras.Clear();
             txtLabFabricante.Clear();
@@ -389,6 +392,8 @@ namespace PROYECTO_DIARS__LUIGI
             cboxUnidadMedida.Enabled = false;
             txtPrecio.Enabled = false;
             cboxEstado.Enabled = false;
+            pbFoto.Enabled = false;
+            btnSeleccionarFoto.Enabled = false;
         }
         public void ElementosActivos()
         {
@@ -404,6 +409,8 @@ namespace PROYECTO_DIARS__LUIGI
             cboxUnidadMedida.Enabled = true;
             txtPrecio.Enabled = true;
             cboxEstado.Enabled = true;
+            pbFoto.Enabled = true;  
+            btnSeleccionarFoto.Enabled = true;
         }
 
         public void habilitarBtn(Button btn1, Button btn2, Button btn3, Button btn4, Button btn5, Button btn6)
