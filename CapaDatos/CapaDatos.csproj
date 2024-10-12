@@ -48,6 +48,7 @@
     <Compile Include="datProducto.cs" />
     <Compile Include="datRoles.cs" />
     <Compile Include="datUnidadMedida.cs" />
+    <Compile Include="datVentas.cs" />
     <Compile Include="Token_APIs.cs" />
     <Compile Include="datCargo.cs" />
     <Compile Include="datEmpleados.cs" />

@@ -29,6 +29,7 @@
         private void InitializeComponent()
         {
             this.gboxProductos = new System.Windows.Forms.GroupBox();
+            this.chbVerFotoProducto = new System.Windows.Forms.CheckBox();
             this.btnEliminar = new System.Windows.Forms.Button();
             this.btnNuevo = new System.Windows.Forms.Button();
             this.btnEditar = new System.Windows.Forms.Button();
@@ -41,7 +42,6 @@
             this.cboxUnidadMedida = new System.Windows.Forms.ComboBox();
             this.lblUnidadMedida = new System.Windows.Forms.Label();
             this.txtLabFabricante = new System.Windows.Forms.TextBox();
-            this.lblNombreLabFabricante = new System.Windows.Forms.Label();
             this.btnSeleccionarFoto = new System.Windows.Forms.Button();
             this.pbFoto = new System.Windows.Forms.PictureBox();
             this.txtId = new System.Windows.Forms.TextBox();
@@ -64,7 +64,6 @@
             this.lblLaboratorioFabricante = new System.Windows.Forms.Label();
             this.lblNombreProducto = new System.Windows.Forms.Label();
             this.btnSalir = new System.Windows.Forms.Button();
-            this.chbVerFotoProducto = new System.Windows.Forms.CheckBox();
             this.gboxProductos.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dgvProductos)).BeginInit();
             this.gboxDatos.SuspendLayout();
@@ -86,6 +85,17 @@
             this.gboxProductos.Size = new System.Drawing.Size(1676, 726);
             this.gboxProductos.TabIndex = 14;
             this.gboxProductos.TabStop = false;
+            // 
+            // chbVerFotoProducto
+            // 
+            this.chbVerFotoProducto.AutoSize = true;
+            this.chbVerFotoProducto.Location = new System.Drawing.Point(828, 691);
+            this.chbVerFotoProducto.Name = "chbVerFotoProducto";
+            this.chbVerFotoProducto.Size = new System.Drawing.Size(112, 17);
+            this.chbVerFotoProducto.TabIndex = 59;
+            this.chbVerFotoProducto.Text = "Ver Foto Producto";
+            this.chbVerFotoProducto.UseVisualStyleBackColor = true;
+            this.chbVerFotoProducto.CheckedChanged += new System.EventHandler(this.chbVerFotoProducto_CheckedChanged);
             // 
             // btnEliminar
             // 
@@ -146,7 +156,6 @@
             this.gboxDatos.Controls.Add(this.cboxUnidadMedida);
             this.gboxDatos.Controls.Add(this.lblUnidadMedida);
             this.gboxDatos.Controls.Add(this.txtLabFabricante);
-            this.gboxDatos.Controls.Add(this.lblNombreLabFabricante);
             this.gboxDatos.Controls.Add(this.btnSeleccionarFoto);
             this.gboxDatos.Controls.Add(this.pbFoto);
             this.gboxDatos.Controls.Add(this.txtId);
@@ -180,7 +189,7 @@
             // 
             this.cboxEstado.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this.cboxEstado.FormattingEnabled = true;
-            this.cboxEstado.Location = new System.Drawing.Point(288, 385);
+            this.cboxEstado.Location = new System.Drawing.Point(288, 362);
             this.cboxEstado.Name = "cboxEstado";
             this.cboxEstado.Size = new System.Drawing.Size(164, 24);
             this.cboxEstado.TabIndex = 84;
@@ -189,7 +198,7 @@
             // 
             this.lblEstado.AutoSize = true;
             this.lblEstado.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Italic, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblEstado.Location = new System.Drawing.Point(285, 369);
+            this.lblEstado.Location = new System.Drawing.Point(285, 346);
             this.lblEstado.Name = "lblEstado";
             this.lblEstado.Size = new System.Drawing.Size(40, 13);
             this.lblEstado.TabIndex = 85;
@@ -197,7 +206,7 @@
             // 
             // txtPrecio
             // 
-            this.txtPrecio.Location = new System.Drawing.Point(185, 387);
+            this.txtPrecio.Location = new System.Drawing.Point(185, 364);
             this.txtPrecio.Margin = new System.Windows.Forms.Padding(2);
             this.txtPrecio.MaxLength = 7;
             this.txtPrecio.Name = "txtPrecio";
@@ -208,7 +217,7 @@
             // 
             this.lblPrecio.AutoSize = true;
             this.lblPrecio.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Italic, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblPrecio.Location = new System.Drawing.Point(182, 372);
+            this.lblPrecio.Location = new System.Drawing.Point(182, 349);
             this.lblPrecio.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.lblPrecio.Name = "lblPrecio";
             this.lblPrecio.Size = new System.Drawing.Size(37, 13);
@@ -219,7 +228,7 @@
             // 
             this.cboxUnidadMedida.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this.cboxUnidadMedida.FormattingEnabled = true;
-            this.cboxUnidadMedida.Location = new System.Drawing.Point(41, 385);
+            this.cboxUnidadMedida.Location = new System.Drawing.Point(41, 362);
             this.cboxUnidadMedida.Name = "cboxUnidadMedida";
             this.cboxUnidadMedida.Size = new System.Drawing.Size(120, 24);
             this.cboxUnidadMedida.TabIndex = 80;
@@ -228,7 +237,7 @@
             // 
             this.lblUnidadMedida.AutoSize = true;
             this.lblUnidadMedida.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Italic, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblUnidadMedida.Location = new System.Drawing.Point(38, 369);
+            this.lblUnidadMedida.Location = new System.Drawing.Point(38, 346);
             this.lblUnidadMedida.Name = "lblUnidadMedida";
             this.lblUnidadMedida.Size = new System.Drawing.Size(79, 13);
             this.lblUnidadMedida.TabIndex = 81;
@@ -242,17 +251,6 @@
             this.txtLabFabricante.Name = "txtLabFabricante";
             this.txtLabFabricante.Size = new System.Drawing.Size(349, 22);
             this.txtLabFabricante.TabIndex = 79;
-            // 
-            // lblNombreLabFabricante
-            // 
-            this.lblNombreLabFabricante.AutoSize = true;
-            this.lblNombreLabFabricante.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Italic, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblNombreLabFabricante.Location = new System.Drawing.Point(36, 206);
-            this.lblNombreLabFabricante.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
-            this.lblNombreLabFabricante.Name = "lblNombreLabFabricante";
-            this.lblNombreLabFabricante.Size = new System.Drawing.Size(78, 13);
-            this.lblNombreLabFabricante.TabIndex = 78;
-            this.lblNombreLabFabricante.Text = "Lab. Fafricante";
             // 
             // btnSeleccionarFoto
             // 
@@ -329,7 +327,7 @@
             // 
             this.cboxLabFabricante.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this.cboxLabFabricante.FormattingEnabled = true;
-            this.cboxLabFabricante.Location = new System.Drawing.Point(40, 273);
+            this.cboxLabFabricante.Location = new System.Drawing.Point(39, 248);
             this.cboxLabFabricante.Name = "cboxLabFabricante";
             this.cboxLabFabricante.Size = new System.Drawing.Size(412, 24);
             this.cboxLabFabricante.TabIndex = 64;
@@ -356,7 +354,7 @@
             // btnModificar
             // 
             this.btnModificar.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnModificar.Location = new System.Drawing.Point(185, 449);
+            this.btnModificar.Location = new System.Drawing.Point(185, 426);
             this.btnModificar.Margin = new System.Windows.Forms.Padding(2);
             this.btnModificar.Name = "btnModificar";
             this.btnModificar.Size = new System.Drawing.Size(100, 48);
@@ -368,7 +366,7 @@
             // btnAgregar
             // 
             this.btnAgregar.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnAgregar.Location = new System.Drawing.Point(81, 449);
+            this.btnAgregar.Location = new System.Drawing.Point(81, 426);
             this.btnAgregar.Margin = new System.Windows.Forms.Padding(2);
             this.btnAgregar.Name = "btnAgregar";
             this.btnAgregar.Size = new System.Drawing.Size(100, 48);
@@ -380,7 +378,7 @@
             // btnCancelar
             // 
             this.btnCancelar.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnCancelar.Location = new System.Drawing.Point(288, 449);
+            this.btnCancelar.Location = new System.Drawing.Point(288, 426);
             this.btnCancelar.Margin = new System.Windows.Forms.Padding(2);
             this.btnCancelar.Name = "btnCancelar";
             this.btnCancelar.Size = new System.Drawing.Size(100, 48);
@@ -394,7 +392,7 @@
             this.gboxGenericoReceta.Controls.Add(this.chbNecesitaReceta);
             this.gboxGenericoReceta.Controls.Add(this.chbEsGenerico);
             this.gboxGenericoReceta.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.gboxGenericoReceta.Location = new System.Drawing.Point(41, 303);
+            this.gboxGenericoReceta.Location = new System.Drawing.Point(41, 280);
             this.gboxGenericoReceta.Name = "gboxGenericoReceta";
             this.gboxGenericoReceta.Size = new System.Drawing.Size(411, 53);
             this.gboxGenericoReceta.TabIndex = 50;
@@ -455,7 +453,7 @@
             // 
             this.lblLaboratorioFabricante.AutoSize = true;
             this.lblLaboratorioFabricante.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Italic, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblLaboratorioFabricante.Location = new System.Drawing.Point(36, 257);
+            this.lblLaboratorioFabricante.Location = new System.Drawing.Point(38, 206);
             this.lblLaboratorioFabricante.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.lblLaboratorioFabricante.Name = "lblLaboratorioFabricante";
             this.lblLaboratorioFabricante.Size = new System.Drawing.Size(113, 13);
@@ -485,17 +483,6 @@
             this.btnSalir.Text = "X";
             this.btnSalir.UseVisualStyleBackColor = true;
             this.btnSalir.Click += new System.EventHandler(this.btnSalir_Click);
-            // 
-            // chbVerFotoProducto
-            // 
-            this.chbVerFotoProducto.AutoSize = true;
-            this.chbVerFotoProducto.Location = new System.Drawing.Point(828, 691);
-            this.chbVerFotoProducto.Name = "chbVerFotoProducto";
-            this.chbVerFotoProducto.Size = new System.Drawing.Size(112, 17);
-            this.chbVerFotoProducto.TabIndex = 59;
-            this.chbVerFotoProducto.Text = "Ver Foto Producto";
-            this.chbVerFotoProducto.UseVisualStyleBackColor = true;
-            this.chbVerFotoProducto.CheckedChanged += new System.EventHandler(this.chbVerFotoProducto_CheckedChanged);
             // 
             // frmProductos
             // 
@@ -548,7 +535,6 @@
         private System.Windows.Forms.Button btnSeleccionarFoto;
         private System.Windows.Forms.PictureBox pbFoto;
         private System.Windows.Forms.TextBox txtLabFabricante;
-        private System.Windows.Forms.Label lblNombreLabFabricante;
         private System.Windows.Forms.CheckBox chbEsGenerico;
         private System.Windows.Forms.CheckBox chbNecesitaReceta;
         private System.Windows.Forms.ComboBox cboxUnidadMedida;

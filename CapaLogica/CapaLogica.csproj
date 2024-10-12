@@ -52,6 +52,7 @@
     <Compile Include="logTipoDoc.cs" />
     <Compile Include="logUnidadMedida.cs" />
     <Compile Include="logUsuario.cs" />
+    <Compile Include="logVentas.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>
