@@ -193,14 +193,7 @@ namespace PROYECTO_DIARS__LUIGI
                                     }
                                     else
                                     {
-                                        if(fotoEmpleadoBytes != null)
-                                        {
-                                            entEmpleado.FotoEmpleado = fotoEmpleadoBytes;
-                                        }
-                                        else
-                                        {
-                                            entEmpleado.FotoEmpleado = null;
-                                        }
+                                        entEmpleado.FotoEmpleado = fotoEmpleadoBytes != null ? fotoEmpleadoBytes : null;
                                     }
                                 }
                                 else

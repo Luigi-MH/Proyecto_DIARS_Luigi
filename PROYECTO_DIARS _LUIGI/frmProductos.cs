@@ -7,6 +7,7 @@ using System.ComponentModel;
 using System.Data;
 using System.Data.SqlClient;
 using System.Drawing;
+using System.IO;
 using System.Linq;
 using System.Text;
 using System.Text.RegularExpressions;
@@ -21,6 +22,8 @@ namespace PROYECTO_DIARS__LUIGI
         {
             InitializeComponent();
         }
+        byte[] fotoProductoBytes = null;
+        bool NuevaFoto = false;
 
         private void frmProductos_Load(object sender, EventArgs e)
         {
@@ -84,7 +87,7 @@ namespace PROYECTO_DIARS__LUIGI
                     }
                     catch (Exception ex)
                     {
-                        MessageBox.Show("Error.." + ex);
+                        MessageBox.Show("Error en el Software: " + ex.Message, "Error Crítico", MessageBoxButtons.OK, MessageBoxIcon.Error);
                     }
                 }
             }
@@ -100,21 +103,21 @@ namespace PROYECTO_DIARS__LUIGI
             {
                 try
                 {
-                    entProducto prod = new entProducto();
-                    prod.Nombre = txtNombreProducto.Text.Trim();
-                    prod.Foto_Producto = null;
-                    prod.Descripcion = txtDescripcion.Text.Trim();
-                    prod.Id_Categoria = (int)cboxCategoria.SelectedValue;
-                    prod.Id_LabFabricante = (int)cboxLabFabricante.SelectedValue;
-                    prod.CodigoBarras = txtNumCodBarras.Text.Trim();
-                    prod.Requiere_Receta = chbNecesitaReceta.Checked ? true : false;
-                    prod.Es_Generio = chbEsGenerico.Checked ? true : false;
-                    prod.Id_UnidadMendida = (int)cboxUnidadMedida.SelectedValue;
-                    prod.Precio = Convert.ToDecimal(txtPrecio.Text.Trim());
-                    prod.Id_Estado = (int)cboxEstado.SelectedValue;
+                    entProducto producto = new entProducto();
+                    producto.Nombre = txtNombreProducto.Text.Trim();
+                    producto.Foto_Producto = pbFoto.Image != null ? ImageToByteArray(pbFoto.Image) : null;
+                    producto.Descripcion = txtDescripcion.Text.Trim();
+                    producto.Id_Categoria = (int)cboxCategoria.SelectedValue;
+                    producto.Id_LabFabricante = (int)cboxLabFabricante.SelectedValue;
+                    producto.CodigoBarras = txtNumCodBarras.Text.Trim();
+                    producto.Requiere_Receta = chbNecesitaReceta.Checked ? true : false;
+                    producto.Es_Generio = chbEsGenerico.Checked ? true : false;
+                    producto.Id_UnidadMendida = (int)cboxUnidadMedida.SelectedValue;
+                    producto.Precio = Convert.ToDecimal(txtPrecio.Text.Trim());
+                    producto.Id_Estado = (int)cboxEstado.SelectedValue;
                     try
                     {
-                        logProducto.Instancia.AgregarProducto(prod);
+                        logProducto.Instancia.AgregarProducto(producto);
                         MessageBox.Show("Se agrego con exito", "Aviso del Sitema Sys-MH", MessageBoxButtons.OK, MessageBoxIcon.Information);
                         deshabilitarBtn(btnNuevo, btnEditar, btnEliminar, btnAgregar, btnModificar, btnCancelar);
                         limpiar();
@@ -133,7 +136,6 @@ namespace PROYECTO_DIARS__LUIGI
                         else
                         {
                             MessageBox.Show($"Error en la base de datos: {ex.Message} (Código: {ex.Number})", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
-                            return;
                         }
                     }
                 }
@@ -151,12 +153,95 @@ namespace PROYECTO_DIARS__LUIGI
 
         private void btnModificar_Click(object sender, EventArgs e)
         {
-
+            if (txtId.Text != string.Empty)
+            {
+                if (ValidarDatosVacios())
+                {
+                    DialogResult result = MessageBox.Show("Esta seguro de Modificar", "Aviso del Sitema Sys-MH", MessageBoxButtons.YesNo, MessageBoxIcon.Information);
+                    if (result == DialogResult.Yes)
+                    {
+                        try
+                        {
+                            entProducto producto = new entProducto();
+                            producto.Id_Producto = Convert.ToInt32(txtId.Text);
+                            producto.Nombre = txtNombreProducto.Text.Trim().ToUpper();
+                            if (pbFoto.Image != null)
+                            {
+                                if (NuevaFoto)
+                                {
+                                    producto.Foto_Producto = ImageToByteArray(pbFoto.Image);
+                                }
+                                else
+                                {
+                                    producto.Foto_Producto = fotoProductoBytes != null ? fotoProductoBytes : null;
+                                }
+                            }
+                            else
+                            {
+                                producto.Foto_Producto = null;
+                            }
+                            producto.Descripcion = txtDescripcion.Text.Trim();
+                            producto.Id_Categoria = (int)cboxCategoria.SelectedValue;
+                            producto.Id_LabFabricante = (int)cboxLabFabricante.SelectedValue;
+                            producto.CodigoBarras = txtNumCodBarras.Text.Trim();
+                            producto.Requiere_Receta = chbNecesitaReceta.Checked ? true : false;
+                            producto.Es_Generio = chbEsGenerico.Checked ? true : false;
+                            producto.Id_UnidadMendida = (int)cboxUnidadMedida.SelectedValue;
+                            producto.Precio = Convert.ToDecimal(txtPrecio.Text.Trim());
+                            producto.Id_Estado = (int)cboxEstado.SelectedValue;
+                            try
+                            {
+                                logProducto.Instancia.ModificarProducto(producto);
+                                MessageBox.Show("Se modificó con exito", "Aviso del Sitema Sys-MH", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                                deshabilitarBtn(btnNuevo, btnEditar, btnEliminar, btnAgregar, btnModificar, btnCancelar);
+                                limpiarValidacionFoto();
+                                limpiar();
+                                ElementosBloqueados();
+                                ListarProductos();
+                            }
+                            catch (SqlException ex)
+                            {
+                                if (ex.Number == 2627 || ex.Number == 2601)
+                                {
+                                    MessageBox.Show($"El producto:'{txtNombreProducto.Text}' ya existe.", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                                    txtNombreProducto.Focus();
+                                    return;
+                                }
+                                else
+                                {
+                                    MessageBox.Show($"Error en la base de datos: {ex.Message} (Código: {ex.Number})", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                                }
+                            }
+                        }
+                        catch (Exception ex)
+                        {
+                            MessageBox.Show("Error en el Software: " + ex.Message, "Error Crítico", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                        }
+                    }
+                    else
+                    {
+                        txtNombreProducto.Focus();
+                    }
+                }
+                else
+                {
+                    MessageBox.Show("Edite producto", "Aviso del Sitema Sys-MH", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                    txtNombreProducto.Focus();
+                }
+            }
+            else
+            {
+                MessageBox.Show("Selecione producto", "Aviso del Sitema Sys-MH", MessageBoxButtons.OK, MessageBoxIcon.Information);
+            }
         }
 
         private void btnCancelar_Click(object sender, EventArgs e)
         {
-
+            deshabilitarBtn(btnNuevo, btnEditar, btnEliminar, btnAgregar, btnModificar, btnCancelar);
+            limpiar();
+            dgvProductos.Enabled = true;
+            ElementosBloqueados();
+            limpiarValidacionFoto();
         }
 
         private void btnBuscar_Click(object sender, EventArgs e)
@@ -173,9 +258,13 @@ namespace PROYECTO_DIARS__LUIGI
                 {
                     object resultadoBusqueda = null;
 
-                    if (input.Length > 1)
+                    if (Regex.IsMatch(input, @"^[0-9]+$") && input.Length > 1)
                     {
-                        resultadoBusqueda = logProducto.Instancia.BuscarLaboratorio(input);
+                        resultadoBusqueda = logProducto.Instancia.BuscarLaboratorio(null, input);
+                    }
+                    else if (Regex.IsMatch(input, @"^[a-zA-Z\sáéíóúÁÉÍÓÚñÑ]+$") && input.Length > 1)
+                    {
+                        resultadoBusqueda = logProducto.Instancia.BuscarLaboratorio(input, null);
                     }
                     else
                     {
@@ -188,6 +277,7 @@ namespace PROYECTO_DIARS__LUIGI
                     {
                         MessageBox.Show("No se encontró laboratorio.", "AVISO DEL SISTEMA SYS-MH", MessageBoxButtons.OK, MessageBoxIcon.Error);
                         txtLabFabricante.Focus();
+                        return;
                     }
                     else
                     {
@@ -217,7 +307,7 @@ namespace PROYECTO_DIARS__LUIGI
             if (ofdSeleccionarFoto.ShowDialog() == DialogResult.OK)
             {
                 pbFoto.Image = System.Drawing.Image.FromFile(ofdSeleccionarFoto.FileName);
-                //NuevaFoto = true;
+                NuevaFoto = true;
             }
         }
 
@@ -275,9 +365,14 @@ namespace PROYECTO_DIARS__LUIGI
             cboxLabFabricante.SelectedValue = 1; // se puede quitar que primero se busca y luego se seleccion por id, es opcional y creo que optimo
             chbEsGenerico.Checked = false;
             chbNecesitaReceta.Checked = false;
-            cboxUnidadMedida.SelectedValue = 1;
+            cboxUnidadMedida.SelectedValue = 6;
             txtPrecio.Clear();
             cboxEstado.SelectedValue = 1;
+        }
+        public void limpiarValidacionFoto()
+        {
+            fotoProductoBytes = null;
+            NuevaFoto = false;
         }
 
         public void ElementosBloqueados()
@@ -333,18 +428,54 @@ namespace PROYECTO_DIARS__LUIGI
 
         private void dgvProductos_CellDoubleClick(object sender, DataGridViewCellEventArgs e)
         {
-
+            txtId.Text = dgvProductos.CurrentRow.Cells["Id_Producto"].Value.ToString();
+            txtNombreProducto.Text = dgvProductos.CurrentRow.Cells["Nombre"].Value.ToString();
+            fotoProductoBytes = dgvProductos.CurrentRow.Cells["Foto_Producto"].Value as byte[];
+            if (fotoProductoBytes != null)
+            {
+                MetodoFoto_Byte_memoryStream_Image(pbFoto, fotoProductoBytes);
+            }
+            else
+            {
+                pbFoto.Image = null;
+            }
+            txtDescripcion.Text = dgvProductos.CurrentRow.Cells["Descripcion"].Value.ToString();
+            cboxCategoria.SelectedValue = dgvProductos.CurrentRow.Cells["Id_Categoria"].Value;
+            BuscarLaboratorioFabricante(dgvProductos.CurrentRow.Cells["Id_LabFabricante"].Value.ToString());
+            cboxLabFabricante.SelectedValue = dgvProductos.CurrentRow.Cells["Id_LabFabricante"].Value;
+            txtNumCodBarras.Text = dgvProductos.CurrentRow.Cells["CodigoBarras"].Value.ToString();
+            chbNecesitaReceta.Checked = Convert.ToBoolean(dgvProductos.CurrentRow.Cells["Requiere_Receta"].Value.ToString());
+            chbEsGenerico.Checked = Convert.ToBoolean(dgvProductos.CurrentRow.Cells["Es_Generio"].Value.ToString());
+            cboxUnidadMedida.SelectedValue = dgvProductos.CurrentRow.Cells["Id_UnidadMendida"].Value;
+            txtPrecio.Text = dgvProductos.CurrentRow.Cells["Precio"].Value.ToString();
+            cboxEstado.SelectedValue = dgvProductos.CurrentRow.Cells["Id_Estado"].Value;
         }
 
         private bool ValidarDatosVacios()
         {
-            if (txtNombreProducto.Text != string.Empty & txtDescripcion.Text != string.Empty & cboxLabFabricante.Text != string.Empty)
+            if (txtNombreProducto.Text != string.Empty && txtDescripcion.Text != string.Empty && cboxLabFabricante.Text != string.Empty && txtPrecio.Text != string.Empty)
             {
                 return true;
             }
             else
             {
                 return false;
+            }
+        }
+
+        public void MetodoFoto_Byte_memoryStream_Image(PictureBox pbFotoEmpleado, byte[] fotoBytes)
+        {
+            using (MemoryStream ms = new MemoryStream(fotoBytes))
+            {
+                pbFotoEmpleado.Image = System.Drawing.Image.FromStream(ms);
+            }
+        }
+        private byte[] ImageToByteArray(System.Drawing.Image imagen)
+        {
+            using (MemoryStream ms = new MemoryStream())
+            {
+                imagen.Save(ms, System.Drawing.Imaging.ImageFormat.Jpeg); // Aquí decides el formato
+                return ms.ToArray();
             }
         }
     }

@@ -271,6 +271,7 @@ namespace PROYECTO_DIARS__LUIGI
                     {
                         MessageBox.Show("No se encontró empleado.", "AVISO DEL SISTEMA SYS-MH", MessageBoxButtons.OK, MessageBoxIcon.Error);
                         txtDocumentoApellidos.Focus();
+                        return;
                     }
                     else
                     {

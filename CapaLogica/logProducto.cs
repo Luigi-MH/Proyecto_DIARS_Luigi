@@ -35,9 +35,9 @@ namespace CapaLogica
             return datProducto.Instancia.ModificarProducto(prod);
         }
 
-        public List<entLabFabricante> BuscarLaboratorio(string labFafricante)
+        public List<entLabFabricante> BuscarLaboratorio(string labFafricante, string Id_LabFab)
         {
-            return datProducto.Instancia.BuscarLaboratorio(labFafricante);
+            return datProducto.Instancia.BuscarLaboratorio(labFafricante, Id_LabFab);
         }
     }
 }

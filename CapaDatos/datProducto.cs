@@ -37,7 +37,10 @@ namespace CapaDatos
                     entProducto prod = new entProducto();
                     prod.Id_Producto = Convert.ToInt32(reader["id_Producto"]);
                     prod.Nombre = reader["nombre"].ToString();
-                    prod.Foto_Producto = (byte[])reader["imagen"];
+                    if (reader["imagen"] != DBNull.Value)
+                    {
+                        prod.Foto_Producto = (byte[])reader["imagen"];
+                    }
                     prod.Descripcion = reader["descripcion"].ToString();
                     prod.Id_Categoria = Convert.ToInt32(reader["id_categoria"]);
                     prod.Categoria = reader["categoria"].ToString();
@@ -142,7 +145,7 @@ namespace CapaDatos
             return edita;
         }
 
-        public List<entLabFabricante> BuscarLaboratorio(string labFafricante)
+        public List<entLabFabricante> BuscarLaboratorio(string labFafricante, string Id_LabFab)
         {
             SqlCommand cmd = null;
             List<entLabFabricante> lista = new List<entLabFabricante>();
@@ -151,6 +154,7 @@ namespace CapaDatos
                 SqlConnection cn = Conexion.Instancia.Conectar();
                 cmd = new SqlCommand("spBuscarLaboratoriosFabricantes", cn);
                 cmd.CommandType = CommandType.StoredProcedure;
+                cmd.Parameters.AddWithValue("@id_labFab", Id_LabFab);
                 cmd.Parameters.AddWithValue("@fabricante", labFafricante);
                 cn.Open();
                 SqlDataReader reader = cmd.ExecuteReader();
