@@ -485,5 +485,10 @@ namespace PROYECTO_DIARS__LUIGI
                 return ms.ToArray();
             }
         }
+
+        private void chbVerFotoProducto_CheckedChanged(object sender, EventArgs e)
+        {
+            dgvProductos.Columns["Foto_Producto"].Visible = chbVerFotoProducto.Checked ? true : false;
+        }
     }
 }

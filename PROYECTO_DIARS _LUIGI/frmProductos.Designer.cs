@@ -64,6 +64,7 @@
             this.lblLaboratorioFabricante = new System.Windows.Forms.Label();
             this.lblNombreProducto = new System.Windows.Forms.Label();
             this.btnSalir = new System.Windows.Forms.Button();
+            this.chbVerFotoProducto = new System.Windows.Forms.CheckBox();
             this.gboxProductos.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dgvProductos)).BeginInit();
             this.gboxDatos.SuspendLayout();
@@ -73,6 +74,7 @@
             // 
             // gboxProductos
             // 
+            this.gboxProductos.Controls.Add(this.chbVerFotoProducto);
             this.gboxProductos.Controls.Add(this.btnEliminar);
             this.gboxProductos.Controls.Add(this.btnNuevo);
             this.gboxProductos.Controls.Add(this.btnEditar);
@@ -484,6 +486,17 @@
             this.btnSalir.UseVisualStyleBackColor = true;
             this.btnSalir.Click += new System.EventHandler(this.btnSalir_Click);
             // 
+            // chbVerFotoProducto
+            // 
+            this.chbVerFotoProducto.AutoSize = true;
+            this.chbVerFotoProducto.Location = new System.Drawing.Point(828, 691);
+            this.chbVerFotoProducto.Name = "chbVerFotoProducto";
+            this.chbVerFotoProducto.Size = new System.Drawing.Size(112, 17);
+            this.chbVerFotoProducto.TabIndex = 59;
+            this.chbVerFotoProducto.Text = "Ver Foto Producto";
+            this.chbVerFotoProducto.UseVisualStyleBackColor = true;
+            this.chbVerFotoProducto.CheckedChanged += new System.EventHandler(this.chbVerFotoProducto_CheckedChanged);
+            // 
             // frmProductos
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -495,6 +508,7 @@
             this.Text = "frmProductos";
             this.Load += new System.EventHandler(this.frmProductos_Load);
             this.gboxProductos.ResumeLayout(false);
+            this.gboxProductos.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dgvProductos)).EndInit();
             this.gboxDatos.ResumeLayout(false);
             this.gboxDatos.PerformLayout();
@@ -543,5 +557,6 @@
         private System.Windows.Forms.Label lblPrecio;
         private System.Windows.Forms.ComboBox cboxEstado;
         private System.Windows.Forms.Label lblEstado;
+        private System.Windows.Forms.CheckBox chbVerFotoProducto;
     }
 }
