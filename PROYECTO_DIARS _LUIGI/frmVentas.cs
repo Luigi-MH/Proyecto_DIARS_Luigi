@@ -85,17 +85,17 @@ namespace PROYECTO_DIARS__LUIGI
 
         public void ListarUsuarios()
         {
-            dgvUsuarios.DataSource = logUsuario.Instancia.ListarUsuarios();
-            dgvUsuarios.Columns["Id_Usuario"].Width = 70;
-            dgvUsuarios.Columns["NombreUsuario"].Width = 140;
-            dgvUsuarios.Columns["Contraseña"].Visible = false;
-            dgvUsuarios.Columns["Id_Rol"].Visible = false;
-            dgvUsuarios.Columns["Rol"].Width = 80;
-            dgvUsuarios.Columns["Id_Empleado"].Visible = false;
-            dgvUsuarios.Columns["DocumentoEmpleado"].Visible = false;
-            dgvUsuarios.Columns["NombreEmpleado"].Width = 250;
-            dgvUsuarios.Columns["FechaCreacion"].Width = 120;
-            dgvUsuarios.Columns["Estado"].Width = 80;
+            //dgvUsuarios.DataSource = logUsuario.Instancia.ListarUsuarios();
+            //dgvUsuarios.Columns["Id_Usuario"].Width = 70;
+            //dgvUsuarios.Columns["NombreUsuario"].Width = 140;
+            //dgvUsuarios.Columns["Contraseña"].Visible = false;
+            //dgvUsuarios.Columns["Id_Rol"].Visible = false;
+            //dgvUsuarios.Columns["Rol"].Width = 80;
+            //dgvUsuarios.Columns["Id_Empleado"].Visible = false;
+            //dgvUsuarios.Columns["DocumentoEmpleado"].Visible = false;
+            //dgvUsuarios.Columns["NombreEmpleado"].Width = 250;
+            //dgvUsuarios.Columns["FechaCreacion"].Width = 120;
+            //dgvUsuarios.Columns["Estado"].Width = 80;
         }
 
         public void ListarRoles()
