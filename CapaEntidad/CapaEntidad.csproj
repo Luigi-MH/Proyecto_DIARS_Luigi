@@ -43,15 +43,23 @@
   <ItemGroup>
     <Compile Include="entCargo.cs" />
     <Compile Include="entCategoria.cs" />
+    <Compile Include="entCliente.cs" />
     <Compile Include="entDetalleVenta.cs" />
     <Compile Include="entEmpleados.cs" />
+    <Compile Include="entEmpresa.cs" />
     <Compile Include="entEstadoProducto.cs" />
+    <Compile Include="entEstadoVenta.cs" />
     <Compile Include="entLabFabricante.cs" />
+    <Compile Include="entMetodoPago.cs" />
+    <Compile Include="entNumCompPago.cs" />
     <Compile Include="entPersona.cs" />
     <Compile Include="entProducto.cs" />
+    <Compile Include="entPromocionProducto.cs" />
     <Compile Include="entRoles.cs" />
+    <Compile Include="entTipoComPago.cs" />
     <Compile Include="entTipoDoc.cs" />
     <Compile Include="entUnidadMedida.cs" />
+    <Compile Include="entUnidMxProducto.cs" />
     <Compile Include="entUsuario.cs" />
     <Compile Include="entVenta.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />

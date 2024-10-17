@@ -43,16 +43,23 @@
   <ItemGroup>
     <Compile Include="Conexion.cs" />
     <Compile Include="datCategoria.cs" />
+    <Compile Include="datCliente.cs" />
     <Compile Include="datEstadosProducto.cs" />
+    <Compile Include="datEstadosVenta.cs" />
     <Compile Include="datLabFabricante.cs" />
+    <Compile Include="datMetodoPago.cs" />
+    <Compile Include="datNumCompPago.cs" />
     <Compile Include="datProducto.cs" />
+    <Compile Include="datPromocionProducto.cs" />
     <Compile Include="datRoles.cs" />
+    <Compile Include="datTipoComPago.cs" />
     <Compile Include="datUnidadMedida.cs" />
+    <Compile Include="datUnidMxProducto.cs" />
     <Compile Include="datVentas.cs" />
     <Compile Include="Token_APIs.cs" />
     <Compile Include="datCargo.cs" />
     <Compile Include="datEmpleados.cs" />
-    <Compile Include="datPersona.cs" />
+    <Compile Include="datAPIs.cs" />
     <Compile Include="datTipoDoc.cs" />
     <Compile Include="datUsuario.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />

@@ -110,6 +110,11 @@ namespace PROYECTO_DIARS__LUIGI
         {
             if (ValidarDatosVacios())
             {
+                if (txtSalario.Text == "." || Convert.ToDecimal(txtSalario.Text) < 500)
+                {
+                    MessageBox.Show("Salario inválido", "Aviso del Sitema Sys-MH", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                    return;
+                }
                 if(ValidarTodosLosCampos())
                 {
                     try
@@ -169,7 +174,12 @@ namespace PROYECTO_DIARS__LUIGI
             {
                 if (ValidarDatosVacios())
                 {
-                    if(ValidarTodosLosCampos())
+                    if (txtSalario.Text == "." || Convert.ToDecimal(txtSalario.Text) < 500)
+                    {
+                        MessageBox.Show("Salario inválido", "Aviso del Sitema Sys-MH", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                        return;
+                    }
+                    if (ValidarTodosLosCampos())
                     {
                         DialogResult result = MessageBox.Show("Esta seguro de Modificar", "Aviso del Sitema Sys-MH", MessageBoxButtons.YesNo, MessageBoxIcon.Information);
                         if (result == DialogResult.Yes)
@@ -284,14 +294,14 @@ namespace PROYECTO_DIARS__LUIGI
         public void ListarTiposDocumentos()
         {
             cboxTipoDoc.DataSource = logTipoDoc.Instancia.ListarTipoDoc();
-            cboxTipoDoc.DisplayMember = "Documento"; //nombre del cargo
+            cboxTipoDoc.DisplayMember = "Documento"; 
             cboxTipoDoc.ValueMember = "Id_TipoDoc"; 
         }
 
         public void ListarCargos()
         {
             cboxCargo.DataSource = logCargos.Instancia.ListarCargos();
-            cboxCargo.DisplayMember = "Cargo"; // nombre del cargo
+            cboxCargo.DisplayMember = "Cargo";
             cboxCargo.ValueMember = "Id_Cargo";
         }
 
@@ -547,7 +557,7 @@ namespace PROYECTO_DIARS__LUIGI
                 bool huboError = false;
                 try
                 {
-                    string result = await logPersona.Instancia.GET_DNI_Dato(txtDocEmpleado.Text);
+                    string result = await logAPIs.Instancia.GET_DNI_Dato(txtDocEmpleado.Text);
                     var persona = JsonConvert.DeserializeObject<entPersona>(result);
                     if (persona.nombres != string.Empty)
                     {

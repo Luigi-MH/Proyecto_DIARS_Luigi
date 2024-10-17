@@ -240,8 +240,7 @@ namespace PROYECTO_DIARS__LUIGI
 
         private void btnBuscar_Click(object sender, EventArgs e)
         {
-            string input = txtDocumentoApellidos.Text.Trim();
-            BuscarEmpleado(input);
+            BuscarEmpleado(txtDocumentoApellidos.Text.Trim());
         }
 
         private void BuscarEmpleado(string input)
@@ -288,6 +287,7 @@ namespace PROYECTO_DIARS__LUIGI
             else
             {
                 MessageBox.Show("Complete documento o apellidos para buscar.", "Aviso del Sitema Sys-MH", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                txtDocumentoApellidos.Focus();
             }
         }
 
@@ -307,12 +307,6 @@ namespace PROYECTO_DIARS__LUIGI
             {
                 return true;
             }
-
-            // Validar si es RUC: 11 dígitos numéricos
-            //if (Regex.IsMatch(documento, @"^\d{11}$"))
-            //{
-            //    return true;
-            //}
 
             // Validar si es Carnet de Extranjería: 9 dígitos numéricos
             if (Regex.IsMatch(documento, @"^\d{9}$"))
@@ -413,7 +407,7 @@ namespace PROYECTO_DIARS__LUIGI
             ContraseñaGuardada = dgvUsuarios.CurrentRow.Cells["Contraseña"].Value.ToString();
             cboxRol.SelectedValue = dgvUsuarios.CurrentRow.Cells["Id_Rol"].Value;
             BuscarEmpleado(dgvUsuarios.CurrentRow.Cells["DocumentoEmpleado"].Value.ToString());
-            cboxEmpleado.SelectedValue = dgvUsuarios.CurrentRow.Cells["Id_Empleado"].Value;
+            //cboxEmpleado.SelectedValue = dgvUsuarios.CurrentRow.Cells["Id_Empleado"].Value;
             Boolean estado = Convert.ToBoolean(dgvUsuarios.CurrentRow.Cells["Estado"].Value.ToString());
             if (estado == true)
             {

@@ -25,7 +25,7 @@ namespace CapaLogica
             return datProducto.Instancia.ListarProductos();
         }
 
-        public Boolean AgregarProducto(entProducto prod)
+        public int AgregarProducto(entProducto prod)
         {
             return datProducto.Instancia.AgregarProducto(prod);
         }

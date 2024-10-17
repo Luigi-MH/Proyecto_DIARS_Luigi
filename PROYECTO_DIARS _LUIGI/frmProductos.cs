@@ -25,6 +25,8 @@ namespace PROYECTO_DIARS__LUIGI
         byte[] fotoProductoBytes = null;
         bool NuevaFoto = false;
 
+        int id_unidad_medida = 0;
+
         private void frmProductos_Load(object sender, EventArgs e)
         {
             btnAgregar.Enabled = false;
@@ -116,15 +118,30 @@ namespace PROYECTO_DIARS__LUIGI
                     producto.Id_UnidadMendida = (int)cboxUnidadMedida.SelectedValue;
                     producto.Precio = Convert.ToDecimal(txtPrecio.Text.Trim());
                     producto.Id_Estado = (int)cboxEstado.SelectedValue;
+
+                    entUnidMxProducto unidMxProducto = new entUnidMxProducto();
+                    unidMxProducto.Id_UnidadMedida = (int)cboxUnidadMedida.SelectedValue;
+                    unidMxProducto.Cantidad_Equivalente = 1;
+                    unidMxProducto.Precio_Equivalente = Convert.ToDecimal(txtPrecio.Text.Trim());
                     try
                     {
-                        logProducto.Instancia.AgregarProducto(producto);
+                        int id_producto = logProducto.Instancia.AgregarProducto(producto);
                         MessageBox.Show("Se agrego con exito", "Aviso del Sitema Sys-MH", MessageBoxButtons.OK, MessageBoxIcon.Information);
                         deshabilitarBtn(btnNuevo, btnEditar, btnEliminar, btnAgregar, btnModificar, btnCancelar);
                         limpiar();
                         dgvProductos.Enabled = true;
                         ElementosBloqueados();
                         ListarProductos();
+                        if (id_producto != 0)
+                        {
+                            unidMxProducto.Id_Producto = id_producto;
+                            logUnidMxProducto.Instancia.AgregarUnidMedXProducto(unidMxProducto);
+                        }
+                        else
+                        {
+                            MessageBox.Show("No se agrego Unidad de medida en (UNIDAD MEDIDA POR PRODUCTO)", "Aviso del Sitema Sys-MH", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                            return;
+                        }
                     }
                     catch (SqlException ex)
                     {
@@ -190,6 +207,33 @@ namespace PROYECTO_DIARS__LUIGI
                             producto.Id_UnidadMendida = (int)cboxUnidadMedida.SelectedValue;
                             producto.Precio = Convert.ToDecimal(txtPrecio.Text.Trim());
                             producto.Id_Estado = (int)cboxEstado.SelectedValue;
+
+
+                            if(id_unidad_medida != (int)cboxUnidadMedida.SelectedValue)
+                            {
+                                DialogResult resultUM = MessageBox.Show($"Se modificó la unidad base de medida de:'{txtNombreProducto.Text}'.Si continua, se borrarán las unidades de medida que se registraron para este producto. ¿Desea continuar?", "Aviso del Sitema Sys-MH", MessageBoxButtons.YesNo, MessageBoxIcon.Warning);
+                                if (resultUM == DialogResult.Yes)
+                                {
+                                    logUnidMxProducto.Instancia.EliminarUnidMedXProducto_Cambio_Unidad_Base(Convert.ToInt32(txtId.Text));
+                                    entUnidMxProducto unidMxProducto = new entUnidMxProducto();
+                                    unidMxProducto.Id_Producto = Convert.ToInt32(txtId.Text);
+                                    unidMxProducto.Id_UnidadMedida = (int)cboxUnidadMedida.SelectedValue;
+                                    unidMxProducto.Cantidad_Equivalente = 1;
+                                    unidMxProducto.Precio_Equivalente = Convert.ToDecimal(txtPrecio.Text.Trim());
+                                    try
+                                    {
+                                        logUnidMxProducto.Instancia.AgregarUnidMedXProducto(unidMxProducto);
+                                    }
+                                    catch (SqlException ex)
+                                    {
+                                        MessageBox.Show($"Error en la base de datos: {ex.Message} (Código: {ex.Number})", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                                    }
+                                }
+                                else
+                                {
+                                    return;
+                                }
+                            }
                             try
                             {
                                 logProducto.Instancia.ModificarProducto(producto);
@@ -453,7 +497,8 @@ namespace PROYECTO_DIARS__LUIGI
             txtNumCodBarras.Text = dgvProductos.CurrentRow.Cells["CodigoBarras"].Value.ToString();
             chbNecesitaReceta.Checked = Convert.ToBoolean(dgvProductos.CurrentRow.Cells["Requiere_Receta"].Value.ToString());
             chbEsGenerico.Checked = Convert.ToBoolean(dgvProductos.CurrentRow.Cells["Es_Generio"].Value.ToString());
-            cboxUnidadMedida.SelectedValue = dgvProductos.CurrentRow.Cells["Id_UnidadMendida"].Value;
+            id_unidad_medida = (int)dgvProductos.CurrentRow.Cells["Id_UnidadMendida"].Value;
+            cboxUnidadMedida.SelectedValue = id_unidad_medida;
             txtPrecio.Text = dgvProductos.CurrentRow.Cells["Precio"].Value.ToString();
             cboxEstado.SelectedValue = dgvProductos.CurrentRow.Cells["Id_Estado"].Value;
         }

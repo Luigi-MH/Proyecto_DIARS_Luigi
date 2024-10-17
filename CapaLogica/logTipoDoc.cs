@@ -25,6 +25,11 @@ namespace CapaLogica
             return datTipoDoc.Instancia.ListarTipoDoc();
         }
 
+        public List<entTipoDoc> ListarTiposDocumento_Todo()
+        {
+            return datTipoDoc.Instancia.ListarTiposDocumento_Todo();
+        }
+
         public Boolean AgregarTipoDoc(entTipoDoc tipoDoc)
         {
             return datTipoDoc.Instancia.AgregarTipoDoc(tipoDoc);

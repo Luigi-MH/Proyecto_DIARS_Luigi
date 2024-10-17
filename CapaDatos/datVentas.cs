@@ -37,8 +37,10 @@ namespace CapaDatos
                 {
                     entVenta venta = new entVenta();
                     venta.Id_Usuario = Convert.ToInt32(reader["id_Venta"]);
-                    venta.Id_TipoComprobante = Convert.ToInt32(reader["id_tipo_comprobante"]);
+                    venta.Id_TipoComprobante = Convert.ToInt32(reader["id_TipoComprobante"]);
                     venta.TipoComprobante = reader["tipo_comprobante"].ToString();
+                    venta.Serie = reader["serie"].ToString();
+                    venta.Correlativo = reader["correlativo"].ToString();
                     venta.Id_Cliente = Convert.ToInt32(reader["id_cliente"]);
                     venta.Id_TipoDoc = Convert.ToInt32(reader["id_tipo_documento"]);
                     venta.TipoDoc = reader["tipo_documento"].ToString();
@@ -58,6 +60,8 @@ namespace CapaDatos
                     venta.Notas = reader["notas"].ToString();
                     venta.Id_Estado = Convert.ToInt32(reader["id_estado"]);
                     venta.Estado = reader["estado"].ToString();
+                    venta.Id_EstadoSUNAT = Convert.ToInt32(reader["id_estado_sunat"]);
+                    venta.EstadoSUNAT = reader["EstadoSUNAT"].ToString();
                     lista.Add(venta);
                 }
             }
@@ -72,15 +76,16 @@ namespace CapaDatos
             return lista;
         }
 
-        public List<entDetalleVenta> ListarDetallesVenta()
+        public List<entDetalleVenta> ListarDetallesVenta(int Id_Venta)
         {
             SqlCommand cmd = null;
             List<entDetalleVenta> lista = new List<entDetalleVenta>();
             try
             {
                 SqlConnection cn = Conexion.Instancia.Conectar();
-                cmd = new SqlCommand("spListarUsuarios", cn);
+                cmd = new SqlCommand("spListarDetalleVenta", cn);
                 cmd.CommandType = CommandType.StoredProcedure;
+                cmd.Parameters.AddWithValue("@id_venta", Id_Venta);
                 cn.Open();
                 SqlDataReader reader = cmd.ExecuteReader();
                 while (reader.Read())
@@ -182,6 +187,193 @@ namespace CapaDatos
                 cmd.Connection.Close();
             }
             return inserta;
+        }
+
+        public List<entCliente> BuscarCliente(string documeto, string nombre)
+        {
+            SqlCommand cmd = null;
+            List<entCliente> lista = new List<entCliente>();
+            try
+            {
+                SqlConnection cn = Conexion.Instancia.Conectar();
+                cmd = new SqlCommand("spBuscarClienteVenta", cn);
+                cmd.CommandType = CommandType.StoredProcedure;
+                cmd.Parameters.AddWithValue("@documento", documeto);
+                cmd.Parameters.AddWithValue("@nombre_cliente", nombre);
+                cn.Open();
+                SqlDataReader reader = cmd.ExecuteReader();
+                while (reader.Read())
+                {
+                    entCliente cliente = new entCliente();
+                    cliente.Id_Cliente = Convert.ToInt32(reader["id_Cliente"]);
+                    cliente.Cliente = reader["cliente"].ToString();
+                    lista.Add(cliente);
+                }
+            }
+            catch (Exception e)
+            {
+                throw e;
+            }
+            finally
+            {
+                cmd.Connection.Close();
+            }
+            return lista;
+        }
+
+        public List<entProducto> BuscarProducto_Nombre(string nombre)
+        {
+            SqlCommand cmd = null;
+            List<entProducto> lista = new List<entProducto>();
+            try
+            {
+                SqlConnection cn = Conexion.Instancia.Conectar();
+                cmd = new SqlCommand("spBuscarProducto_Nombre_DetalleVenta", cn);
+                cmd.CommandType = CommandType.StoredProcedure;
+                cmd.Parameters.AddWithValue("@nombre_producto", nombre);
+                cn.Open();
+                SqlDataReader reader = cmd.ExecuteReader();
+                while (reader.Read())
+                {
+                    entProducto prod = new entProducto();
+                    prod.Id_Producto = Convert.ToInt32(reader["id_Producto"]);
+                    prod.Nombre = reader["nombre"].ToString();
+                    lista.Add(prod);
+                }
+            }
+            catch (Exception e)
+            {
+                throw e;
+            }
+            finally
+            {
+                cmd.Connection.Close();
+            }
+            return lista;
+        }
+        public List<entProducto> BuscarProducto_Id(int id_producto)
+        {
+            SqlCommand cmd = null;
+            List<entProducto> lista = new List<entProducto>();
+            try
+            {
+                SqlConnection cn = Conexion.Instancia.Conectar();
+                cmd = new SqlCommand("spBuscarProducto_Id_DetalleVenta", cn);
+                cmd.CommandType = CommandType.StoredProcedure;
+                cmd.Parameters.AddWithValue("@id_producto", id_producto);
+                cn.Open();
+                SqlDataReader reader = cmd.ExecuteReader();
+                while (reader.Read())
+                {
+                    entProducto prod = new entProducto();
+                    prod.Id_Producto = Convert.ToInt32(reader["id_Producto"]);
+                    prod.Nombre = reader["nombre"].ToString();
+                    lista.Add(prod);
+                }
+            }
+            catch (Exception e)
+            {
+                throw e;
+            }
+            finally
+            {
+                cmd.Connection.Close();
+            }
+            return lista;
+        }
+        public List<entProducto> BuscarProducto_CodigoBarras(string codBarras)
+        {
+            SqlCommand cmd = null;
+            List<entProducto> lista = new List<entProducto>();
+            try
+            {
+                SqlConnection cn = Conexion.Instancia.Conectar();
+                cmd = new SqlCommand("spBuscarProducto_CodBarras_DetalleVenta", cn);
+                cmd.CommandType = CommandType.StoredProcedure;
+                cmd.Parameters.AddWithValue("@digitos_codigo_barras", codBarras);
+                cn.Open();
+                SqlDataReader reader = cmd.ExecuteReader();
+                while (reader.Read())
+                {
+                    entProducto prod = new entProducto();
+                    prod.Id_Producto = Convert.ToInt32(reader["id_Producto"]);
+                    prod.Nombre = reader["nombre"].ToString();
+                    lista.Add(prod);
+                }
+            }
+            catch (Exception e)
+            {
+                throw e;
+            }
+            finally
+            {
+                cmd.Connection.Close();
+            }
+            return lista;
+        }
+
+        public List<entUnidMxProducto> BuscarUnidadesMP_Producto(int id_producto)
+        {
+            SqlCommand cmd = null;
+            List<entUnidMxProducto> lista = new List<entUnidMxProducto>();
+            try
+            {
+                SqlConnection cn = Conexion.Instancia.Conectar();
+                cmd = new SqlCommand("spBuscarUnidadesMedidaProducto_DetalleVenta", cn);
+                cmd.CommandType = CommandType.StoredProcedure;
+                cmd.Parameters.AddWithValue("@id_producto", id_producto);
+                cn.Open();
+                SqlDataReader reader = cmd.ExecuteReader();
+                while (reader.Read())
+                {
+                    entUnidMxProducto ump_p = new entUnidMxProducto();
+                    ump_p.Id_UnidadMedida = Convert.ToInt32(reader["id_unidad_medida"]);
+                    ump_p.Unidad_Medida = reader["unidad_medida"].ToString();
+                    ump_p.Cantidad_Equivalente = Convert.ToInt32(reader["cantidad_equivalente"]);
+                    ump_p.Precio_Equivalente = Convert.ToDecimal(reader["precio_equivalente"]);
+                    lista.Add(ump_p);
+                }
+            }
+            catch (Exception e)
+            {
+                throw e;
+            }
+            finally
+            {
+                cmd.Connection.Close();
+            }
+            return lista;
+        }
+
+        public List<entPromocionProducto> BuscarPromocionProducto(int id_producto)
+        {
+            SqlCommand cmd = null;
+            List<entPromocionProducto> lista = new List<entPromocionProducto>();
+            try
+            {
+                SqlConnection cn = Conexion.Instancia.Conectar();
+                cmd = new SqlCommand("spBuscarPromocionProducto_DetalleVenta", cn);
+                cmd.CommandType = CommandType.StoredProcedure;
+                cmd.Parameters.AddWithValue("@id_producto", id_producto);
+                cn.Open();
+                SqlDataReader reader = cmd.ExecuteReader();
+                while (reader.Read())
+                {
+                    entPromocionProducto promo_prod = new entPromocionProducto();
+                    promo_prod.Id_Promocion = Convert.ToInt32(reader["id_promocion"]);
+                    promo_prod.Descuento = Convert.ToDouble(reader["descuento"].ToString());
+                    lista.Add(promo_prod);
+                }
+            }
+            catch (Exception e)
+            {
+                throw e;
+            }
+            finally
+            {
+                cmd.Connection.Close();
+            }
+            return lista;
         }
     }
 }

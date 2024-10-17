@@ -51,6 +51,36 @@ namespace CapaDatos
             return lista;
         }
 
+        public List<entTipoDoc> ListarTiposDocumento_Todo()
+        {
+            SqlCommand cmd = null;
+            List<entTipoDoc> lista = new List<entTipoDoc>();
+            try
+            {
+                SqlConnection cn = Conexion.Instancia.Conectar(); //singleton
+                cmd = new SqlCommand("spListarTiposDocumento_Todos", cn);
+                cmd.CommandType = CommandType.StoredProcedure;
+                cn.Open();
+                SqlDataReader reader = cmd.ExecuteReader();
+                while (reader.Read())
+                {
+                    entTipoDoc tipoDoc = new entTipoDoc();
+                    tipoDoc.Id_TipoDoc = Convert.ToInt32(reader["id_TipoDocumento"]);
+                    tipoDoc.Documento = reader["tipo_documento"].ToString();
+                    lista.Add(tipoDoc);
+                }
+            }
+            catch (Exception e)
+            {
+                throw e;
+            }
+            finally
+            {
+                cmd.Connection.Close();
+            }
+            return lista;
+        }
+
         public Boolean AgregarTipoDoc(entTipoDoc tipoDoc)
         {
             SqlCommand cmd = null;

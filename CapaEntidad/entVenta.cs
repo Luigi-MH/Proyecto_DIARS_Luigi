@@ -9,8 +9,11 @@ namespace CapaEntidad
     public class entVenta
     {
         public int Id_Venta { get; set; }
+        public int Id_Sucursal {  get; set; }
         public int Id_TipoComprobante { get; set; }
         public string TipoComprobante { get; set; }
+        public string Serie {  get; set; }
+        public string Correlativo { get; set; }
         public int Id_Cliente { get; set; }
         public int Id_TipoDoc {  get; set; }
         public string TipoDoc { get; set; }
@@ -30,5 +33,7 @@ namespace CapaEntidad
         public string Notas { get; set; }
         public int Id_Estado { get; set; }
         public string Estado { get; set; }
+        public int Id_EstadoSUNAT { get; set; }
+        public string EstadoSUNAT { get;set; }
     }
 }

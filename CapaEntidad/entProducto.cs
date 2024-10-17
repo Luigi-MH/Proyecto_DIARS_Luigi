@@ -17,8 +17,8 @@ namespace CapaEntidad
         public int Id_LabFabricante { get; set; }
         public string Laboratorio { get; set; }
         public string  CodigoBarras { get; set; }
-        public Boolean Requiere_Receta {  get; set; }
         public Boolean Es_Generio { get; set; }
+        public Boolean Requiere_Receta {  get; set; }
         public int Id_UnidadMendida { get; set; }
         public string UnidadMedida { get; set; }
         public decimal Precio { get; set; }

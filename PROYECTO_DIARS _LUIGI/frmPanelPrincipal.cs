@@ -80,7 +80,7 @@ namespace PROYECTO_DIARS__LUIGI
 
         private void btnVentas_Click(object sender, EventArgs e)
         {
-            frmVentas frmVentas = new frmVentas();
+            frmVentas frmVentas = new frmVentas(1,1);
             abrirFrm(frmVentas);
         }
 
@@ -146,7 +146,8 @@ namespace PROYECTO_DIARS__LUIGI
 
         private void btnClientes_Click(object sender, EventArgs e)
         {
-
+            frmCliente frmCliente = new frmCliente();
+            abrirFrm(frmCliente);
         }
 
         private void btnCajas_Click(object sender, EventArgs e)

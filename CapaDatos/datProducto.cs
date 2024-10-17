@@ -68,10 +68,10 @@ namespace CapaDatos
             return lista;
         }
 
-        public Boolean AgregarProducto(entProducto prod)
+        public int AgregarProducto(entProducto prod)
         {
             SqlCommand cmd = null;
-            Boolean inserta = false;
+            int id_Producto = 0;
             try
             {
                 SqlConnection cn = Conexion.Instancia.Conectar();
@@ -88,12 +88,14 @@ namespace CapaDatos
                 cmd.Parameters.AddWithValue("@id_unidad_medida", prod.Id_UnidadMendida);
                 cmd.Parameters.AddWithValue("@precio", prod.Precio);
                 cmd.Parameters.AddWithValue("@id_estado", prod.Id_Estado);
+                SqlParameter outputIdParam = new SqlParameter();
+                outputIdParam.ParameterName = "@ultimo_id";
+                outputIdParam.SqlDbType = SqlDbType.Int;
+                outputIdParam.Direction = ParameterDirection.Output;
+                cmd.Parameters.Add(outputIdParam);
                 cn.Open();
-                int i = cmd.ExecuteNonQuery();
-                if (i > 0)
-                {
-                    inserta = true;
-                }
+                cmd.ExecuteNonQuery();
+                id_Producto = (int)cmd.Parameters["@ultimo_id"].Value;
             }
             catch (Exception e)
             {
@@ -103,7 +105,7 @@ namespace CapaDatos
             {
                 cmd.Connection.Close();
             }
-            return inserta;
+            return id_Producto;
         }
 
         public Boolean ModificarProducto(entProducto prod)
@@ -125,6 +127,44 @@ namespace CapaDatos
                 cmd.Parameters.AddWithValue("@requiere_receta", prod.Requiere_Receta);
                 cmd.Parameters.AddWithValue("@es_generio", prod.Es_Generio);
                 cmd.Parameters.AddWithValue("@id_unidad_medida", prod.Id_UnidadMendida);
+                cmd.Parameters.AddWithValue("@precio", prod.Precio);
+                cmd.Parameters.AddWithValue("@id_estado", prod.Id_Estado);
+                cn.Open();
+                int i = cmd.ExecuteNonQuery();
+                if (i > 0)
+                {
+                    edita = true;
+                }
+            }
+            catch (Exception e)
+            {
+                throw e;
+            }
+            finally
+            {
+                cmd.Connection.Close();
+            }
+            return edita;
+        }
+
+        public Boolean ModificarProducto_sin_UnidadMedida(entProducto prod)
+        {
+            SqlCommand cmd = null;
+            Boolean edita = false;
+            try
+            {
+                SqlConnection cn = Conexion.Instancia.Conectar();
+                cmd = new SqlCommand("spModificarProducto_sin_UnidadMedida", cn);
+                cmd.CommandType = CommandType.StoredProcedure;
+                cmd.Parameters.AddWithValue("@id_producto", prod.Id_Producto);
+                cmd.Parameters.AddWithValue("@nombre", prod.Nombre);
+                cmd.Parameters.AddWithValue("@imagen", prod.Foto_Producto);
+                cmd.Parameters.AddWithValue("@descripcion", prod.Descripcion);
+                cmd.Parameters.AddWithValue("@id_categoria", prod.Id_Categoria);
+                cmd.Parameters.AddWithValue("@id_fabricante", prod.Id_LabFabricante);
+                cmd.Parameters.AddWithValue("@codigo_barras", prod.CodigoBarras);
+                cmd.Parameters.AddWithValue("@requiere_receta", prod.Requiere_Receta);
+                cmd.Parameters.AddWithValue("@es_generio", prod.Es_Generio);
                 cmd.Parameters.AddWithValue("@precio", prod.Precio);
                 cmd.Parameters.AddWithValue("@id_estado", prod.Id_Estado);
                 cn.Open();
