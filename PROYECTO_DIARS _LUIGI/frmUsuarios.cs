@@ -79,7 +79,7 @@ namespace PROYECTO_DIARS__LUIGI
                     }
                     catch (Exception ex)
                     {
-                        MessageBox.Show("Error.." + ex);
+                        MessageBox.Show("Error en el Software: " + ex.Message, "Error Crítico", MessageBoxButtons.OK, MessageBoxIcon.Error);
                     }
                 }
             }

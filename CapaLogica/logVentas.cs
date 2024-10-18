@@ -25,9 +25,9 @@ namespace CapaLogica
             return datVentas.Instancia.ListarVentas();
         }
 
-        public int AgregarVenta(entVenta venta)
+        public int AgregarVenta(entVenta venta, int id_sucursal)
         {
-            return datVentas.Instancia.AgregarVenta(venta);
+            return datVentas.Instancia.AgregarVenta(venta, id_sucursal);
         }
 
         public List<entDetalleVenta> ListarDetallesVenta(int Id_Venta)
@@ -68,6 +68,16 @@ namespace CapaLogica
         public List<entPromocionProducto> BuscarPromocionProducto(int id_producto)
         {
             return datVentas.Instancia.BuscarPromocionProducto(id_producto);
+        }
+
+        public double BuscarDescuento_DetalleVenta_Vendidos(int id_promocion)
+        {
+            return datVentas.Instancia.BuscarDescuento_DetalleVenta_Vendidos(id_promocion);
+        }
+
+        public List<entEstadosSUNAT> ListarEstadosSUNAT()
+        {
+            return datVentas.Instancia.ListarEstadosSUNAT();
         }
     }
 }

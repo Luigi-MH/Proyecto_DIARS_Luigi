@@ -51,6 +51,7 @@
     <Compile Include="datNumCompPago.cs" />
     <Compile Include="datProducto.cs" />
     <Compile Include="datPromocionProducto.cs" />
+    <Compile Include="datProveedor.cs" />
     <Compile Include="datRoles.cs" />
     <Compile Include="datTipoComPago.cs" />
     <Compile Include="datUnidadMedida.cs" />

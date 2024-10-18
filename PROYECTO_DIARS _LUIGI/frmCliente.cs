@@ -94,7 +94,7 @@ namespace PROYECTO_DIARS__LUIGI
 
         private void btnAgregar_Click(object sender, EventArgs e)
         {
-            if (txtDocCliente.Text != string.Empty && txtCliente.Text != string.Empty)
+             if (txtDocCliente.Text != string.Empty && txtCliente.Text != string.Empty)
             {
                 if (ValidarDocumento(txtDocCliente.Text))
                 {

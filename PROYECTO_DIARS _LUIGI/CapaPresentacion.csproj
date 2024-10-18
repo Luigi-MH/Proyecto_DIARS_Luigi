@@ -149,11 +149,11 @@
     <Compile Include="frmPromociones.Designer.cs">
       <DependentUpon>frmPromociones.cs</DependentUpon>
     </Compile>
-    <Compile Include="frmProveedor.cs">
+    <Compile Include="frmProveedores.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="frmProveedor.Designer.cs">
-      <DependentUpon>frmProveedor.cs</DependentUpon>
+    <Compile Include="frmProveedores.Designer.cs">
+      <DependentUpon>frmProveedores.cs</DependentUpon>
     </Compile>
     <Compile Include="frmRoles.cs">
       <SubType>Form</SubType>
@@ -253,8 +253,8 @@
     <EmbeddedResource Include="frmPromociones.resx">
       <DependentUpon>frmPromociones.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="frmProveedor.resx">
-      <DependentUpon>frmProveedor.cs</DependentUpon>
+    <EmbeddedResource Include="frmProveedores.resx">
+      <DependentUpon>frmProveedores.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="frmRoles.resx">
       <DependentUpon>frmRoles.cs</DependentUpon>

@@ -159,7 +159,7 @@ namespace PROYECTO_DIARS__LUIGI
         }
         public void ListarTiposDocumento()
         {
-            dgvTiposDocumento.DataSource = logTipoDoc.Instancia.ListarTipoDoc();
+            dgvTiposDocumento.DataSource = logTipoDoc.Instancia.ListarTiposDocumento_Todo();
             dgvTiposDocumento.Columns["Id_TipoDoc"].Width = 90;
             dgvTiposDocumento.Columns["Documento"].Width = 140;
         }

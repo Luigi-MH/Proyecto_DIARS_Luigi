@@ -53,6 +53,7 @@
     <Compile Include="logNumCompPago.cs" />
     <Compile Include="logProducto.cs" />
     <Compile Include="logPromocionProducto.cs" />
+    <Compile Include="logProveedor.cs" />
     <Compile Include="logRoles.cs" />
     <Compile Include="logTipoComPago.cs" />
     <Compile Include="logTipoDoc.cs" />

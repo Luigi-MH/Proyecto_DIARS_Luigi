@@ -34,9 +34,17 @@
             this.btnNuevo = new System.Windows.Forms.Button();
             this.btnEditar = new System.Windows.Forms.Button();
             this.gboxVentas = new System.Windows.Forms.GroupBox();
+            this.cboxEstadoBoletaFactura = new System.Windows.Forms.ComboBox();
+            this.label1 = new System.Windows.Forms.Label();
+            this.cboxCliente = new System.Windows.Forms.ComboBox();
+            this.lblCorrelativo = new System.Windows.Forms.Label();
+            this.txtCorrelativo = new System.Windows.Forms.TextBox();
+            this.lblSerie = new System.Windows.Forms.Label();
             this.txtSerie = new System.Windows.Forms.TextBox();
             this.lblDoc = new System.Windows.Forms.Label();
             this.gboxDetalleVenta = new System.Windows.Forms.GroupBox();
+            this.btnCalcularSubtotal = new System.Windows.Forms.Button();
+            this.cboxDescuentoPromocion = new System.Windows.Forms.ComboBox();
             this.txtProducto = new System.Windows.Forms.TextBox();
             this.lblNomProducto = new System.Windows.Forms.Label();
             this.btnEliminarDetalle = new System.Windows.Forms.Button();
@@ -82,12 +90,6 @@
             this.txtCliente = new System.Windows.Forms.TextBox();
             this.lblNombreProducto = new System.Windows.Forms.Label();
             this.btnSalir = new System.Windows.Forms.Button();
-            this.lblSerie = new System.Windows.Forms.Label();
-            this.lblCorrelativo = new System.Windows.Forms.Label();
-            this.txtCorrelativo = new System.Windows.Forms.TextBox();
-            this.cboxCliente = new System.Windows.Forms.ComboBox();
-            this.cboxDescuentoPromocion = new System.Windows.Forms.ComboBox();
-            this.btnCalcularSubtotal = new System.Windows.Forms.Button();
             this.gboxProductos.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dgvVentas)).BeginInit();
             this.gboxVentas.SuspendLayout();
@@ -164,6 +166,8 @@
             // 
             // gboxVentas
             // 
+            this.gboxVentas.Controls.Add(this.cboxEstadoBoletaFactura);
+            this.gboxVentas.Controls.Add(this.label1);
             this.gboxVentas.Controls.Add(this.cboxCliente);
             this.gboxVentas.Controls.Add(this.lblCorrelativo);
             this.gboxVentas.Controls.Add(this.txtCorrelativo);
@@ -200,6 +204,70 @@
             this.gboxVentas.TabIndex = 54;
             this.gboxVentas.TabStop = false;
             this.gboxVentas.Text = "Ventas";
+            // 
+            // cboxEstadoBoletaFactura
+            // 
+            this.cboxEstadoBoletaFactura.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
+            this.cboxEstadoBoletaFactura.Enabled = false;
+            this.cboxEstadoBoletaFactura.FormattingEnabled = true;
+            this.cboxEstadoBoletaFactura.Location = new System.Drawing.Point(29, 644);
+            this.cboxEstadoBoletaFactura.Name = "cboxEstadoBoletaFactura";
+            this.cboxEstadoBoletaFactura.Size = new System.Drawing.Size(166, 24);
+            this.cboxEstadoBoletaFactura.TabIndex = 97;
+            this.cboxEstadoBoletaFactura.Visible = false;
+            // 
+            // label1
+            // 
+            this.label1.AutoSize = true;
+            this.label1.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Italic, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label1.Location = new System.Drawing.Point(26, 628);
+            this.label1.Name = "label1";
+            this.label1.Size = new System.Drawing.Size(114, 13);
+            this.label1.TabIndex = 98;
+            this.label1.Text = "Estado Factura/Boleta";
+            this.label1.Visible = false;
+            // 
+            // cboxCliente
+            // 
+            this.cboxCliente.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
+            this.cboxCliente.FormattingEnabled = true;
+            this.cboxCliente.Location = new System.Drawing.Point(316, 140);
+            this.cboxCliente.Name = "cboxCliente";
+            this.cboxCliente.Size = new System.Drawing.Size(494, 24);
+            this.cboxCliente.TabIndex = 96;
+            // 
+            // lblCorrelativo
+            // 
+            this.lblCorrelativo.AutoSize = true;
+            this.lblCorrelativo.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Italic, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblCorrelativo.Location = new System.Drawing.Point(239, 44);
+            this.lblCorrelativo.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
+            this.lblCorrelativo.Name = "lblCorrelativo";
+            this.lblCorrelativo.Size = new System.Drawing.Size(57, 13);
+            this.lblCorrelativo.TabIndex = 95;
+            this.lblCorrelativo.Text = "Correlativo";
+            // 
+            // txtCorrelativo
+            // 
+            this.txtCorrelativo.Enabled = false;
+            this.txtCorrelativo.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.txtCorrelativo.Location = new System.Drawing.Point(242, 59);
+            this.txtCorrelativo.Margin = new System.Windows.Forms.Padding(2);
+            this.txtCorrelativo.MaxLength = 64;
+            this.txtCorrelativo.Name = "txtCorrelativo";
+            this.txtCorrelativo.Size = new System.Drawing.Size(105, 22);
+            this.txtCorrelativo.TabIndex = 94;
+            // 
+            // lblSerie
+            // 
+            this.lblSerie.AutoSize = true;
+            this.lblSerie.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Italic, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblSerie.Location = new System.Drawing.Point(164, 44);
+            this.lblSerie.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
+            this.lblSerie.Name = "lblSerie";
+            this.lblSerie.Size = new System.Drawing.Size(31, 13);
+            this.lblSerie.TabIndex = 93;
+            this.lblSerie.Text = "Serie";
             // 
             // txtSerie
             // 
@@ -249,6 +317,28 @@
             this.gboxDetalleVenta.Size = new System.Drawing.Size(781, 338);
             this.gboxDetalleVenta.TabIndex = 90;
             this.gboxDetalleVenta.TabStop = false;
+            // 
+            // btnCalcularSubtotal
+            // 
+            this.btnCalcularSubtotal.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnCalcularSubtotal.Location = new System.Drawing.Point(104, 76);
+            this.btnCalcularSubtotal.Name = "btnCalcularSubtotal";
+            this.btnCalcularSubtotal.Size = new System.Drawing.Size(60, 23);
+            this.btnCalcularSubtotal.TabIndex = 106;
+            this.btnCalcularSubtotal.Text = "Calcular";
+            this.btnCalcularSubtotal.UseVisualStyleBackColor = true;
+            this.btnCalcularSubtotal.Click += new System.EventHandler(this.btnCalcularSubtotal_Click);
+            // 
+            // cboxDescuentoPromocion
+            // 
+            this.cboxDescuentoPromocion.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
+            this.cboxDescuentoPromocion.Enabled = false;
+            this.cboxDescuentoPromocion.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.cboxDescuentoPromocion.FormattingEnabled = true;
+            this.cboxDescuentoPromocion.Location = new System.Drawing.Point(460, 77);
+            this.cboxDescuentoPromocion.Name = "cboxDescuentoPromocion";
+            this.cboxDescuentoPromocion.Size = new System.Drawing.Size(76, 24);
+            this.cboxDescuentoPromocion.TabIndex = 105;
             // 
             // txtProducto
             // 
@@ -454,6 +544,7 @@
             // rtbNotasVenta
             // 
             this.rtbNotasVenta.Location = new System.Drawing.Point(7, 22);
+            this.rtbNotasVenta.MaxLength = 200;
             this.rtbNotasVenta.Name = "rtbNotasVenta";
             this.rtbNotasVenta.Size = new System.Drawing.Size(220, 70);
             this.rtbNotasVenta.TabIndex = 0;
@@ -740,70 +831,6 @@
             this.btnSalir.UseVisualStyleBackColor = true;
             this.btnSalir.Click += new System.EventHandler(this.btnSalir_Click);
             // 
-            // lblSerie
-            // 
-            this.lblSerie.AutoSize = true;
-            this.lblSerie.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Italic, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblSerie.Location = new System.Drawing.Point(164, 44);
-            this.lblSerie.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
-            this.lblSerie.Name = "lblSerie";
-            this.lblSerie.Size = new System.Drawing.Size(31, 13);
-            this.lblSerie.TabIndex = 93;
-            this.lblSerie.Text = "Serie";
-            // 
-            // lblCorrelativo
-            // 
-            this.lblCorrelativo.AutoSize = true;
-            this.lblCorrelativo.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Italic, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblCorrelativo.Location = new System.Drawing.Point(239, 44);
-            this.lblCorrelativo.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
-            this.lblCorrelativo.Name = "lblCorrelativo";
-            this.lblCorrelativo.Size = new System.Drawing.Size(57, 13);
-            this.lblCorrelativo.TabIndex = 95;
-            this.lblCorrelativo.Text = "Correlativo";
-            // 
-            // txtCorrelativo
-            // 
-            this.txtCorrelativo.Enabled = false;
-            this.txtCorrelativo.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.txtCorrelativo.Location = new System.Drawing.Point(242, 59);
-            this.txtCorrelativo.Margin = new System.Windows.Forms.Padding(2);
-            this.txtCorrelativo.MaxLength = 64;
-            this.txtCorrelativo.Name = "txtCorrelativo";
-            this.txtCorrelativo.Size = new System.Drawing.Size(105, 22);
-            this.txtCorrelativo.TabIndex = 94;
-            // 
-            // cboxCliente
-            // 
-            this.cboxCliente.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
-            this.cboxCliente.FormattingEnabled = true;
-            this.cboxCliente.Location = new System.Drawing.Point(316, 140);
-            this.cboxCliente.Name = "cboxCliente";
-            this.cboxCliente.Size = new System.Drawing.Size(494, 24);
-            this.cboxCliente.TabIndex = 96;
-            // 
-            // cboxDescuentoPromocion
-            // 
-            this.cboxDescuentoPromocion.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
-            this.cboxDescuentoPromocion.Enabled = false;
-            this.cboxDescuentoPromocion.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.cboxDescuentoPromocion.FormattingEnabled = true;
-            this.cboxDescuentoPromocion.Location = new System.Drawing.Point(460, 77);
-            this.cboxDescuentoPromocion.Name = "cboxDescuentoPromocion";
-            this.cboxDescuentoPromocion.Size = new System.Drawing.Size(76, 24);
-            this.cboxDescuentoPromocion.TabIndex = 105;
-            // 
-            // btnCalcularSubtotal
-            // 
-            this.btnCalcularSubtotal.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnCalcularSubtotal.Location = new System.Drawing.Point(104, 76);
-            this.btnCalcularSubtotal.Name = "btnCalcularSubtotal";
-            this.btnCalcularSubtotal.Size = new System.Drawing.Size(60, 23);
-            this.btnCalcularSubtotal.TabIndex = 106;
-            this.btnCalcularSubtotal.Text = "Calcular";
-            this.btnCalcularSubtotal.UseVisualStyleBackColor = true;
-            this.btnCalcularSubtotal.Click += new System.EventHandler(this.btnCalcularSubtotal_Click);
-            // 
             // frmVentas
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -890,5 +917,7 @@
         private System.Windows.Forms.ComboBox cboxCliente;
         private System.Windows.Forms.ComboBox cboxDescuentoPromocion;
         private System.Windows.Forms.Button btnCalcularSubtotal;
+        private System.Windows.Forms.ComboBox cboxEstadoBoletaFactura;
+        private System.Windows.Forms.Label label1;
     }
 }

@@ -48,6 +48,7 @@
     <Compile Include="entEmpleados.cs" />
     <Compile Include="entEmpresa.cs" />
     <Compile Include="entEstadoProducto.cs" />
+    <Compile Include="entEstadosSUNAT.cs" />
     <Compile Include="entEstadoVenta.cs" />
     <Compile Include="entLabFabricante.cs" />
     <Compile Include="entMetodoPago.cs" />
@@ -55,6 +56,7 @@
     <Compile Include="entPersona.cs" />
     <Compile Include="entProducto.cs" />
     <Compile Include="entPromocionProducto.cs" />
+    <Compile Include="entProveedor.cs" />
     <Compile Include="entRoles.cs" />
     <Compile Include="entTipoComPago.cs" />
     <Compile Include="entTipoDoc.cs" />

@@ -46,6 +46,7 @@
             this.btnReporteCompras = new System.Windows.Forms.Button();
             this.btnCompras = new System.Windows.Forms.Button();
             this.tabPageProductos = new System.Windows.Forms.TabPage();
+            this.btnInventario = new System.Windows.Forms.Button();
             this.btnIndicacionesContraindicaciones = new System.Windows.Forms.Button();
             this.btnUnidadesMedidaProducto = new System.Windows.Forms.Button();
             this.btnFabricantes = new System.Windows.Forms.Button();
@@ -96,7 +97,6 @@
             this.btnMaximizar = new System.Windows.Forms.Button();
             this.Minimizar = new System.Windows.Forms.Button();
             this.timerHora = new System.Windows.Forms.Timer(this.components);
-            this.btnInventario = new System.Windows.Forms.Button();
             this.tlpPrincipal.SuspendLayout();
             this.tableLayoutPanelPestañasANDUser.SuspendLayout();
             this.tabControlPanel.SuspendLayout();
@@ -317,6 +317,15 @@
             this.tabPageProductos.TabIndex = 7;
             this.tabPageProductos.Text = "Productos";
             this.tabPageProductos.UseVisualStyleBackColor = true;
+            // 
+            // btnInventario
+            // 
+            this.btnInventario.Location = new System.Drawing.Point(84, 4);
+            this.btnInventario.Name = "btnInventario";
+            this.btnInventario.Size = new System.Drawing.Size(75, 75);
+            this.btnInventario.TabIndex = 18;
+            this.btnInventario.Text = "Inventario";
+            this.btnInventario.UseVisualStyleBackColor = true;
             // 
             // btnIndicacionesContraindicaciones
             // 
@@ -680,7 +689,7 @@
             this.btnSeriesSucursalFB.Name = "btnSeriesSucursalFB";
             this.btnSeriesSucursalFB.Size = new System.Drawing.Size(75, 75);
             this.btnSeriesSucursalFB.TabIndex = 14;
-            this.btnSeriesSucursalFB.Text = "Series\r\nB F G";
+            this.btnSeriesSucursalFB.Text = "Series\r\n";
             this.btnSeriesSucursalFB.UseVisualStyleBackColor = true;
             this.btnSeriesSucursalFB.Click += new System.EventHandler(this.btnSeriesSucursalFB_Click);
             // 
@@ -836,15 +845,6 @@
             // 
             this.timerHora.Enabled = true;
             this.timerHora.Tick += new System.EventHandler(this.timerHora_Tick);
-            // 
-            // btnInventario
-            // 
-            this.btnInventario.Location = new System.Drawing.Point(84, 4);
-            this.btnInventario.Name = "btnInventario";
-            this.btnInventario.Size = new System.Drawing.Size(75, 75);
-            this.btnInventario.TabIndex = 18;
-            this.btnInventario.Text = "Inventario";
-            this.btnInventario.UseVisualStyleBackColor = true;
             // 
             // frmPanelPrincipal
             // 

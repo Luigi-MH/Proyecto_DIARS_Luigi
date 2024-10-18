@@ -16,8 +16,8 @@ namespace CapaEntidad
         public int Id_UnidadMedida { get; set; }
         public string UnidadMedida { get; set;}
         public decimal Precio { get; set; }
-        public int Id_Promocion { get; set; }
-        public int Descuento { get; set; }
+        public int? Id_Promocion { get; set; }
+        public double Descuento { get; set; }
         public decimal SubTotalDet { get; set; }
     }
 }

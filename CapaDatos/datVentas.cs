@@ -35,34 +35,36 @@ namespace CapaDatos
                 SqlDataReader reader = cmd.ExecuteReader();
                 while (reader.Read())
                 {
-                    entVenta venta = new entVenta();
-                    venta.Id_Usuario = Convert.ToInt32(reader["id_Venta"]);
-                    venta.Id_TipoComprobante = Convert.ToInt32(reader["id_TipoComprobante"]);
-                    venta.TipoComprobante = reader["tipo_comprobante"].ToString();
-                    venta.Serie = reader["serie"].ToString();
-                    venta.Correlativo = reader["correlativo"].ToString();
-                    venta.Id_Cliente = Convert.ToInt32(reader["id_cliente"]);
-                    venta.Id_TipoDoc = Convert.ToInt32(reader["id_tipo_documento"]);
-                    venta.TipoDoc = reader["tipo_documento"].ToString();
-                    venta.Documento = reader["numero_doc"].ToString();
-                    venta.Cliente = reader["cliente"].ToString();
-                    venta.Id_MetodoPago = Convert.ToInt32(reader["id_metodo_pago"]);
-                    venta.MedotoPago = reader["metodo_pago"].ToString();
-                    venta.Id_Usuario = Convert.ToInt32(reader["id_usuario"]);
-                    venta.Usuario = reader["nombre_usuario"].ToString();
-                    venta.Id_Caja = Convert.ToInt32(reader["id_caja"]);
-                    venta.Caja = reader["caja"].ToString();
-                    venta.Id_SesionCaja = Convert.ToInt32(reader["id_sesion"]);
-                    venta.SubTotal = Convert.ToDecimal(reader["sub_total"]);
-                    venta.IGV = Convert.ToDecimal(reader["igv"]);
-                    venta.Total = Convert.ToDecimal(reader["total"]);
-                    venta.Fecha = Convert.ToDateTime(reader["fecha"]);
-                    venta.Notas = reader["notas"].ToString();
-                    venta.Id_Estado = Convert.ToInt32(reader["id_estado"]);
-                    venta.Estado = reader["estado"].ToString();
-                    venta.Id_EstadoSUNAT = Convert.ToInt32(reader["id_estado_sunat"]);
-                    venta.EstadoSUNAT = reader["EstadoSUNAT"].ToString();
-                    lista.Add(venta);
+                    entVenta listaventas = new entVenta();
+                    listaventas.Id_Venta = Convert.ToInt32(reader["id_Venta"]);
+                    listaventas.Id_TipoComprobante = Convert.ToInt32(reader["id_TipoComprobante"]);
+                    listaventas.TipoComprobante = reader["tipo_comprobante"].ToString();
+                    listaventas.Serie = reader["serie"].ToString();
+                    listaventas.Correlativo = reader["correlativo"].ToString();
+                    listaventas.Id_Cliente = Convert.ToInt32(reader["id_cliente"]);
+                    listaventas.Id_TipoDoc = Convert.ToInt32(reader["id_tipo_documento"]);
+                    listaventas.TipoDoc = reader["tipo_documento"].ToString();
+                    listaventas.Documento = reader["numero_doc"].ToString();
+                    listaventas.Cliente = reader["cliente"].ToString();
+                    listaventas.Id_MetodoPago = Convert.ToInt32(reader["id_metodo_pago"]);
+                    listaventas.MedotoPago = reader["metodo_pago"].ToString();
+                    listaventas.Id_Usuario = Convert.ToInt32(reader["id_usuario"]);
+                    listaventas.Usuario = reader["nombre_usuario"].ToString();
+                    listaventas.Id_Caja = Convert.ToInt32(reader["id_caja"]);
+                    listaventas.Caja = reader["caja"].ToString();
+                    listaventas.Id_SesionCaja = Convert.ToInt32(reader["id_sesion"]);
+                    listaventas.SubTotal = Convert.ToDecimal(reader["sub_total"]);
+                    listaventas.IGV = Convert.ToDecimal(reader["igv"]);
+                    listaventas.Total = Convert.ToDecimal(reader["total"]);
+                    listaventas.Fecha = Convert.ToDateTime(reader["fecha"]);
+                    listaventas.Notas = reader["notas"].ToString();
+                    listaventas.Id_Estado = Convert.ToInt32(reader["id_estado"]);
+                    listaventas.Estado = reader["estado"].ToString();
+                    if (reader["id_estado_sunat"] != DBNull.Value)
+                    {
+                        listaventas.Id_EstadoSUNAT = Convert.ToInt32(reader["id_estado_sunat"]);
+                    }
+                    lista.Add(listaventas);
                 }
             }
             catch (Exception e)
@@ -99,8 +101,10 @@ namespace CapaDatos
                     detalleVenta.Id_UnidadMedida = Convert.ToInt32(reader["id_unidad_medida"]);
                     detalleVenta.UnidadMedida = reader["unidad_medida"].ToString();
                     detalleVenta.Precio = Convert.ToDecimal(reader["precio"]);
-                    detalleVenta.Id_Promocion = Convert.ToInt32(reader["id_promocion"]);
-                    detalleVenta.Descuento = Convert.ToInt32(reader["descuento"]);
+                    if (reader["id_promocion"] != DBNull.Value)
+                    {
+                        detalleVenta.Id_Promocion = Convert.ToInt32(reader["id_promocion"]);
+                    }
                     detalleVenta.SubTotalDet = Convert.ToDecimal(reader["subtotal"]);
                     lista.Add(detalleVenta);
                 }
@@ -116,7 +120,7 @@ namespace CapaDatos
             return lista;
         }
 
-        public int AgregarVenta(entVenta venta)
+        public int AgregarVenta(entVenta venta, int id_sucursal)
         {
             SqlCommand cmd = null;
             int id_venta = 0;
@@ -125,25 +129,28 @@ namespace CapaDatos
                 SqlConnection cn = Conexion.Instancia.Conectar();
                 cmd = new SqlCommand("spAgregarVenta", cn);
                 cmd.CommandType = CommandType.StoredProcedure;
-                cmd.Parameters.AddWithValue("@id_tipo_comp", venta);
-                cmd.Parameters.AddWithValue("@id_cliente", venta);
-                cmd.Parameters.AddWithValue("@id_metodoPago", venta);
-                cmd.Parameters.AddWithValue("@id_usuario", venta);
-                cmd.Parameters.AddWithValue("@id_caja", venta);
-                cmd.Parameters.AddWithValue("@id_sesion", venta);
-                cmd.Parameters.AddWithValue("@sub_total", venta);
-                cmd.Parameters.AddWithValue("@igv", venta);
-                cmd.Parameters.AddWithValue("@total", venta);
-                cmd.Parameters.AddWithValue("@fecha", venta);
-                cmd.Parameters.AddWithValue("@notas", venta);
-                cmd.Parameters.AddWithValue("@id_estado", venta);
-                SqlParameter outputIdParam = new SqlParameter("@id_Venta", SqlDbType.Int)
-                {
-                    Direction = ParameterDirection.Output
-                };
+                cmd.Parameters.AddWithValue("@id_tipo_comprobante", venta.Id_TipoComprobante);
+                cmd.Parameters.AddWithValue("@id_sucursal", id_sucursal);
+                cmd.Parameters.AddWithValue("@id_cliente", venta.Id_Cliente);
+                cmd.Parameters.AddWithValue("@id_metodoPago", venta.Id_MetodoPago);
+                cmd.Parameters.AddWithValue("@id_usuario", venta.Id_Usuario);
+                cmd.Parameters.AddWithValue("@id_caja", venta.Id_Caja);
+                cmd.Parameters.AddWithValue("@id_sesion", venta.Id_SesionCaja);
+                cmd.Parameters.AddWithValue("@sub_total", venta.SubTotal);
+                cmd.Parameters.AddWithValue("@igv", venta.IGV);
+                cmd.Parameters.AddWithValue("@total", venta.Total);
+                cmd.Parameters.AddWithValue("@fecha", venta.Fecha);
+                cmd.Parameters.AddWithValue("@notas", venta.Notas);
+                cmd.Parameters.AddWithValue("@id_estado", venta.Id_Estado);
+                cmd.Parameters.AddWithValue("@id_estadoSUNAT", venta.Id_EstadoSUNAT);
+                SqlParameter outputIdParam = new SqlParameter();
+                outputIdParam.ParameterName = "@ultimo_id";
+                outputIdParam.SqlDbType = SqlDbType.Int;
+                outputIdParam.Direction = ParameterDirection.Output;
                 cmd.Parameters.Add(outputIdParam);
                 cn.Open();
-                id_venta = (int)outputIdParam.Value;
+                cmd.ExecuteNonQuery();
+                id_venta = (int)cmd.Parameters["@ultimo_id"].Value;
             }
             catch (Exception e)
             {
@@ -363,6 +370,64 @@ namespace CapaDatos
                     promo_prod.Id_Promocion = Convert.ToInt32(reader["id_promocion"]);
                     promo_prod.Descuento = Convert.ToDouble(reader["descuento"].ToString());
                     lista.Add(promo_prod);
+                }
+            }
+            catch (Exception e)
+            {
+                throw e;
+            }
+            finally
+            {
+                cmd.Connection.Close();
+            }
+            return lista;
+        }
+
+        public double BuscarDescuento_DetalleVenta_Vendidos(int id_promocion)
+        {
+            SqlCommand cmd = null;
+            double desc = 0;
+            try
+            {
+                SqlConnection cn = Conexion.Instancia.Conectar();
+                cmd = new SqlCommand("spBuscarPromocionDetalleVenta_Vendidos", cn);
+                cmd.CommandType = CommandType.StoredProcedure;
+                cmd.Parameters.AddWithValue("@id_promocion", id_promocion);
+                cn.Open();
+                SqlDataReader reader = cmd.ExecuteReader();
+                while (reader.Read())
+                {
+                    desc = Convert.ToDouble(reader["descuento"].ToString());
+                }
+            }
+            catch (Exception e)
+            {
+                throw e;
+            }
+            finally
+            {
+                cmd.Connection.Close();
+            }
+            return desc;
+        }
+
+        public List<entEstadosSUNAT> ListarEstadosSUNAT()
+        {
+            SqlCommand cmd = null;
+            List<entEstadosSUNAT> lista = new List<entEstadosSUNAT>();
+            try
+            {
+                SqlConnection cn = Conexion.Instancia.Conectar();
+                cmd = new SqlCommand("spListarEstadosSUNAT", cn);
+                cmd.CommandType = CommandType.StoredProcedure;
+                cn.Open();
+                SqlDataReader reader = cmd.ExecuteReader();
+                while (reader.Read())
+                {
+                    entEstadosSUNAT estado = new entEstadosSUNAT();
+                    estado.Id_EstadoSUNAT = Convert.ToInt32(reader["id_EstadoSUNAT"]);
+                    estado.EstadoSUNAT = reader["estado"].ToString();
+                    lista.Add(estado);
                 }
             }
             catch (Exception e)

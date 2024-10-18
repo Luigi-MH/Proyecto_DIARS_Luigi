@@ -17,15 +17,18 @@ namespace PROYECTO_DIARS__LUIGI
 {
     public partial class frmVentas : Form
     {
-        int Id_Usuario = 0, Id_Sucursal = 0, Id_Caja = 0, Id_SesionCaja = 0;
+        int Id_Usuario = 0, Id_sucursal = 0, Id_Caja = 0, Id_SesionCaja = 0;
         public frmVentas()
         {
             InitializeComponent();
         }
-        public frmVentas(int id_usuario,int id_suscursal)
+        public frmVentas(int id_usuario,int id_suscursal, int id_caja, int id_sesion_caja)
         {
             InitializeComponent();
-            Id_Sucursal = id_suscursal;
+            Id_sucursal = id_suscursal;
+            Id_Usuario = id_usuario;
+            Id_Caja= id_caja;
+            Id_SesionCaja = id_sesion_caja;
         }
 
         private void frmVentas_Load(object sender, EventArgs e)
@@ -38,6 +41,7 @@ namespace PROYECTO_DIARS__LUIGI
             ListarTiposComprobantePago();
             ListarMetodosPago();
             ListarEstadosVenta();
+            ListarEstadosFacturaBoleta_SUNAT();
             ListarTiposDocumentos();
             limpiar();
             dgvVentas.EnableHeadersVisualStyles = false;
@@ -83,7 +87,6 @@ namespace PROYECTO_DIARS__LUIGI
                 {
                     entVenta venta = new entVenta();
                     venta.Id_TipoComprobante = (int)cboxTipoCPago.SelectedValue;
-                    venta.Id_Sucursal = Id_Sucursal;
                     venta.Id_Cliente = (int)cboxCliente.SelectedValue;
                     venta.Id_MetodoPago = (int)cboxMetodoPago.SelectedValue;
                     venta.Id_Usuario = Id_Usuario;
@@ -92,17 +95,30 @@ namespace PROYECTO_DIARS__LUIGI
                     venta.SubTotal = Convert.ToDecimal(txtSubTotal.Text);
                     if(txtIGV.Text != string.Empty)
                     {
-
+                        venta.IGV = Convert.ToDecimal(txtIGV.Text);
+                    }
+                    venta.Total = Convert.ToDecimal(txtTotal.Text);
+                    venta.Fecha = DateTime.Now;
+                    venta.Notas = rtbNotasVenta.Text;
+                    venta.Id_Estado = (int)cboxEstadoVenta.SelectedValue;
+                    if(cboxTipoCPago.Text == "BOLETA" || cboxTipoCPago.Text == "FACTURA")
+                    {
+                        venta.Id_EstadoSUNAT = (int)cboxEstadoBoletaFactura.SelectedValue;
+                    }
+                    else
+                    {
+                        venta.Id_EstadoSUNAT = null;
                     }
                     try
                     {
-                        //logCliente.Instancia.AgregarCliente(cliente);
-                        //MessageBox.Show("Se agrego con exito", "Aviso del Sitema Sys-MH", MessageBoxButtons.OK, MessageBoxIcon.Information);
-                        //deshabilitarBtn(btnNuevo, btnEditar, btnEliminar, btnAgregar, btnModificar, btnCancelar);
-                        //limpiar();
-                        //dgvClientes.Enabled = true;
-                        //ElementosBloqueados();
-                        //ListarClientes();
+                        int id_vennta =  logVentas.Instancia.AgregarVenta(venta, Id_sucursal);
+                        deshabilitarBtn(btnNuevo, btnEditar, btnEliminar, btnAgregar, btnModificar, btnCancelar);
+                        dgvVentas.Enabled = true;
+                        ElementosBloqueados();
+                        AgregarDetalle(id_vennta);
+                        ListarVentas();
+                        limpiar(); // al final por que si no limpia mi lista de detalles
+                        MessageBox.Show("Se agrego con exito", "Aviso del Sitema Sys-MH", MessageBoxButtons.OK, MessageBoxIcon.Information);
                     }
                     catch (SqlException ex)
                     {
@@ -126,6 +142,46 @@ namespace PROYECTO_DIARS__LUIGI
             {
                 MessageBox.Show("Ingrese datos del cliente", "Aviso del Sitema Sys-MH", MessageBoxButtons.OK, MessageBoxIcon.Information);
                 txtDocCliente.Focus();
+            }
+        }
+
+        public void AgregarDetalle(int id_venta)
+        {
+            try
+            {
+                try
+                {
+                    foreach (var detalle in listadetalleVentas)
+                    {
+                        entDetalleVenta detventa = new entDetalleVenta();
+                        detventa.Id_Venta = id_venta;
+                        detventa.Id_Producto = detalle.Id_Producto;
+                        detventa.Cantidad = detalle.Cantidad;
+                        detventa.Id_UnidadMedida = detalle.Id_UnidadMedida;
+                        if (detalle.Descuento != 0)
+                        {
+                            detventa.Id_Promocion = detalle.Id_Promocion;
+                        }
+                        detventa.SubTotalDet = detalle.SubTotalDet;
+                        logVentas.Instancia.AgregarDetallesVenta(detventa);
+                    }
+                }
+                catch (SqlException ex)
+                {
+                    if (ex.Number == 2627 || ex.Number == 2601)
+                    {
+                        MessageBox.Show($"El cliente con '{cboxTipoDoc.Text}': '{txtDocCliente.Text}' ya existe.", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                        txtDocCliente.Focus();
+                    }
+                    else
+                    {
+                        MessageBox.Show($"Error en la base de datos: {ex.Message} (Código: {ex.Number})", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                    }
+                }
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show("Error en el Software: " + ex.Message, "Error Crítico", MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
         }
 
@@ -183,7 +239,7 @@ namespace PROYECTO_DIARS__LUIGI
                     else
                     {
                         cboxCliente.DataSource = resultadoBusqueda;
-                        cboxCliente.DisplayMember = "Cliente"; // nombre del cliente
+                        cboxCliente.DisplayMember = "Cliente";
                         cboxCliente.ValueMember = "Id_Cliente";
                     }
                 }
@@ -279,7 +335,11 @@ namespace PROYECTO_DIARS__LUIGI
                     {
                         detalle.Id_Promocion = (int)cboxDescuentoPromocion.SelectedValue;
                     }
-                    detalle.Descuento = cboxDescuentoPromocion.Text != string.Empty ? Convert.ToInt32(cboxDescuentoPromocion.Text) : 0;
+                    else
+                    {
+                        detalle.Id_Promocion = null;
+                    }
+                    detalle.Descuento = cboxDescuentoPromocion.Text != string.Empty ? Convert.ToDouble(cboxDescuentoPromocion.Text) : 0;
                     detalle.SubTotalDet = Convert.ToDecimal(txtSubTotalDetalle.Text);
                     listadetalleVentas.Add(detalle);
                     ListarDetalleVenta(listadetalleVentas);
@@ -298,10 +358,8 @@ namespace PROYECTO_DIARS__LUIGI
             subtotal = 0;
             foreach (DataGridViewRow row in dgvDetalleVenta.Rows)
             {
-                // Verificamos que la fila no esté vacía (evita errores en la última fila vacía al añadir)
                 if (row.Cells["SubTotalDet"].Value != null)
                 {
-                    // Sumamos el valor de la columna "subtotal"
                     subtotal += Convert.ToDecimal(row.Cells["SubTotalDet"].Value);
                 }
             }
@@ -314,7 +372,8 @@ namespace PROYECTO_DIARS__LUIGI
             else
             {
                 txtSubTotal.Text = subtotal.ToString();
-                txtTotal.Text = (subtotal).ToString();
+                txtIGV.Clear();
+                txtTotal.Text = subtotal.ToString();
             }
         }
 
@@ -350,7 +409,7 @@ namespace PROYECTO_DIARS__LUIGI
         {
             dgvVentas.DataSource = logVentas.Instancia.ListarVentas();
             dgvVentas.Columns["Id_Venta"].Width = 70;
-            dgvVentas.Columns["Id_TipoComprobante"].Visible = false;
+            dgvVentas.Columns["Id_TipoComprobante"].Width = 70;
             dgvVentas.Columns["TipoComprobante"].Width = 70;
             dgvVentas.Columns["Serie"].Width = 140;
             dgvVentas.Columns["Correlativo"].Width = 70;
@@ -374,7 +433,6 @@ namespace PROYECTO_DIARS__LUIGI
             dgvVentas.Columns["Id_Estado"].Width = 140;
             dgvVentas.Columns["Estado"].Width = 140;
             dgvVentas.Columns["Id_EstadoSUNAT"].Width = 140;
-            dgvVentas.Columns["EstadoSUNAT"].Width = 140;
         }
 
         public void ListarDetalleVenta(List<entDetalleVenta> DetalleVenta)
@@ -396,7 +454,7 @@ namespace PROYECTO_DIARS__LUIGI
 
         public void ListarTiposComprobantePago()
         {
-            cboxTipoCPago.DataSource = logNumCompPago.Instancia.ListarSeriesComprobantePago_Numeracion(Id_Sucursal);
+            cboxTipoCPago.DataSource = logNumCompPago.Instancia.ListarSeriesComprobantePago_Numeracion(Id_sucursal);
             cboxTipoCPago.DisplayMember = "ComprobantePago";
             cboxTipoCPago.ValueMember = "Id_ComprobantePago";
         }
@@ -413,6 +471,13 @@ namespace PROYECTO_DIARS__LUIGI
             cboxEstadoVenta.DataSource = logEstadoVenta.Instancia.ListarEstadosVenta();
             cboxEstadoVenta.DisplayMember = "Estado_Venta";
             cboxEstadoVenta.ValueMember = "Id_EstadoVenta";
+        }
+
+        public void ListarEstadosFacturaBoleta_SUNAT()
+        {
+            cboxEstadoBoletaFactura.DataSource = logVentas.Instancia.ListarEstadosSUNAT();
+            cboxEstadoBoletaFactura.DisplayMember = "EstadoSUNAT";
+            cboxEstadoBoletaFactura.ValueMember = "Id_EstadoSUNAT";
         }
 
         public void ListarTiposDocumentos()
@@ -443,6 +508,7 @@ namespace PROYECTO_DIARS__LUIGI
             txtSubTotal.Clear();
             txtIGV.Clear();
             txtTotal.Clear();
+            cboxCliente.DataSource = null;
         }
 
         public void limpiarDetalle()
@@ -455,6 +521,8 @@ namespace PROYECTO_DIARS__LUIGI
             cboxDescuentoPromocion.SelectedValue = 1;
             txtSubTotalDetalle.Clear();
             dgvDetalleVenta.DataSource = null;
+            cboxProducto.DataSource = null;
+            listadetalleVentas.Clear();
         }
 
         public void ElementosBloqueados()
@@ -540,7 +608,35 @@ namespace PROYECTO_DIARS__LUIGI
 
         private void dgvVentas_CellDoubleClick(object sender, DataGridViewCellEventArgs e)
         {
-
+            txtId.Text = dgvVentas.CurrentRow.Cells["Id_Venta"].Value.ToString();
+            cboxTipoCPago.SelectedValue = dgvVentas.CurrentRow.Cells["Id_TipoComprobante"].Value;
+            txtCorrelativo.Text = dgvVentas.CurrentRow.Cells["Correlativo"].Value.ToString();
+            cboxTipoDoc.SelectedValue = dgvVentas.CurrentRow.Cells["Id_TipoDoc"].Value;
+            BuscarCliente((dgvVentas.CurrentRow.Cells["Documento"].Value).ToString(), string.Empty);
+            cboxMetodoPago.SelectedValue = dgvVentas.CurrentRow.Cells["Id_TipoDoc"].Value;
+            cboxTipoDoc.SelectedValue = dgvVentas.CurrentRow.Cells["Id_MetodoPago"].Value;
+            txtSubTotal.Text = dgvVentas.CurrentRow.Cells["SubTotal"].Value.ToString();
+            txtIGV.Text = dgvVentas.CurrentRow.Cells["IGV"].Value.ToString();
+            txtTotal.Text = dgvVentas.CurrentRow.Cells["Total"].Value.ToString();
+            rtbNotasVenta.Text = dgvVentas.CurrentRow.Cells["Notas"].Value.ToString();
+            cboxEstadoVenta.SelectedValue = dgvVentas.CurrentRow.Cells["Id_Estado"].Value;
+            if(dgvVentas.CurrentRow.Cells["Id_EstadoSUNAT"].Value != null)
+            {
+                cboxEstadoBoletaFactura.SelectedValue = dgvVentas.CurrentRow.Cells["Id_EstadoSUNAT"].Value;
+                cboxEstadoBoletaFactura.Visible = true;
+            }
+            else
+            {
+                cboxEstadoBoletaFactura.Visible = false;
+            }
+            ListarDetalleVenta(logVentas.Instancia.ListarDetallesVenta((int)dgvVentas.CurrentRow.Cells["Id_Venta"].Value));
+            foreach (DataGridViewRow row in dgvDetalleVenta.Rows)
+            {
+                if (row.Cells["Id_Promocion"].Value != null)
+                {
+                    row.Cells["Descuento"].Value =  logVentas.Instancia.BuscarDescuento_DetalleVenta_Vendidos(Convert.ToInt32(row.Cells["Id_Promocion"].Value));
+                }
+            }
         }
 
         private void dgvDetalleVenta_CellDoubleClick(object sender, DataGridViewCellEventArgs e)
